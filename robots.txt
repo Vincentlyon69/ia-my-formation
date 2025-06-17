@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /
+Disallow: /private/
+Disallow: /admin-dashboards/
+Disallow: /outils/
+
+# Interdiction totale d'indexation

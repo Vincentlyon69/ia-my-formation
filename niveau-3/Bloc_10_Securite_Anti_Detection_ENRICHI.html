@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 10 ENRICHI - Sécurité & Anti-Détection IA</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c2d12 50%, #991b1b 100%);
+        }
+        .security-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #dc2626;
+        }
+        .security-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-left-color: #16a34a;
+        }
+        .threat-level-1 { border-left-color: #10b981; }
+        .threat-level-2 { border-left-color: #f59e0b; }
+        .threat-level-3 { border-left-color: #ef4444; }
+        .threat-level-critical { border-left-color: #dc2626; animation: pulse 2s infinite; }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+        
+        .security-monitor {
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            border: 1px solid #334155;
+        }
+        
+        .vpn-status-active {
+            background: linear-gradient(90deg, #10b981, #059669);
+            animation: pulse 2s infinite;
+        }
+        
+        .proxy-chain-indicator {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .proxy-chain-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 16px;
+            height: 2px;
+            background: #10b981;
+            transform: translateY(-50%);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .emergency-alert {
+            animation: blink 1s infinite;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            border-left: 4px solid #ef4444;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .security-layer {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border: 1px solid #475569;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header Principal -->
+    <header class="gradient-bg text-white py-12 print:py-6">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-shield-alt text-6xl mb-4 text-red-300"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-4">BLOC 10 - SÉCURITÉ & ANTI-DÉTECTION IA</h1>
+                <h2 class="text-xl font-light mb-6">Architecture Multicouche Impénétrable</h2>
+                <div class="bg-red-900 bg-opacity-50 rounded-lg p-4 max-w-4xl mx-auto">
+                    <p class="text-lg">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <strong>Mission Critique :</strong> Créer une architecture de sécurité multicouche impénétrable pour protéger votre écosystème IA MYM contre la détection, les attaques, la surveillance et garantir la continuité opérationnelle sur 10-20 ans.
+                    </p>
+                </div>
+                <div class="mt-6 flex justify-center space-x-8 text-sm">
+                    <span class="flex items-center">
+                        <i class="fas fa-user-secret mr-2"></i>
+                        Anonymat Absolu
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-eye-slash mr-2"></i>
+                        Anti-Détection IA
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-shield-virus mr-2"></i>
+                        Continuité Assurée
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Rapide -->
+    <nav class="bg-white shadow-lg py-4 print:py-2">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#architecture" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm">
+                    <i class="fas fa-building mr-2"></i>Architecture
+                </a>
+                <a href="#identites" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm">
+                    <i class="fas fa-user-cog mr-2"></i>Identités
+                </a>
+                <a href="#anti-detection" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition text-sm">
+                    <i class="fas fa-mask mr-2"></i>Anti-Détection
+                </a>
+                <a href="#vpn-proxy" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm">
+                    <i class="fas fa-globe mr-2"></i>VPN/Proxy
+                </a>
+                <a href="#monitoring" class="px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition text-sm">
+                    <i class="fas fa-radar mr-2"></i>Monitoring
+                </a>
+                <a href="#urgence" class="px-4 py-2 bg-red-800 text-white rounded-lg hover:bg-red-900 transition text-sm">
+                    <i class="fas fa-fire mr-2"></i>Urgence
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Architecture Sécurité Multicouche -->
+    <section id="architecture" class="py-16 print:py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-layer-group mr-3 text-red-600"></i>
+                    Architecture Sécurité Multicouche
+                </h2>
+                <p class="text-gray-600 text-lg">Les 7 Couches de Protection Impénétrable</p>
+            </div>
+
+            <!-- Diagramme Architecture -->
+            <div class="mb-12 bg-gray-900 rounded-xl p-8">
+                <div class="grid grid-cols-1 md:grid-cols-7 gap-4">
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-user-secret text-2xl mb-2 text-blue-400"></i>
+                        <h4 class="font-bold text-sm">Couche 1</h4>
+                        <p class="text-xs">Identité</p>
+                    </div>
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-globe text-2xl mb-2 text-green-400"></i>
+                        <h4 class="font-bold text-sm">Couche 2</h4>
+                        <p class="text-xs">Réseau</p>
+                    </div>
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-desktop text-2xl mb-2 text-purple-400"></i>
+                        <h4 class="font-bold text-sm">Couche 3</h4>
+                        <p class="text-xs">Système</p>
+                    </div>
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-lock text-2xl mb-2 text-yellow-400"></i>
+                        <h4 class="font-bold text-sm">Couche 4</h4>
+                        <p class="text-xs">Données</p>
+                    </div>
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-cogs text-2xl mb-2 text-red-400"></i>
+                        <h4 class="font-bold text-sm">Couche 5</h4>
+                        <p class="text-xs">Opérationnel</p>
+                    </div>
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-eye-slash text-2xl mb-2 text-indigo-400"></i>
+                        <h4 class="font-bold text-sm">Couche 6</h4>
+                        <p class="text-xs">Contenu</p>
+                    </div>
+                    <div class="security-layer text-center text-white p-4 rounded-lg">
+                        <i class="fas fa-fire-extinguisher text-2xl mb-2 text-orange-400"></i>
+                        <h4 class="font-bold text-sm">Couche 7</h4>
+                        <p class="text-xs">Réponse</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Détails des Couches -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="security-card bg-white rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-user-secret mr-3 text-blue-600"></i>
+                        Couche 1 - Identité
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Cloisonnement complet des personas</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Compartimentage étanche</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Identités numériques séparées</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Aucun lien détectable</li>
+                    </ul>
+                </div>
+
+                <div class="security-card bg-white rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-globe mr-3 text-green-600"></i>
+                        Couche 2 - Réseau
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>VPN cascade multicouche</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Proxy rotatifs automatiques</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tor bridges sécurisés</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Rotation géographique</li>
+                    </ul>
+                </div>
+
+                <div class="security-card bg-white rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-desktop mr-3 text-purple-600"></i>
+                        Couche 3 - Système
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>VM isolées dédiées</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>OS durci et sécurisé</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Environnements séparés</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Anti-fingerprinting</li>
+                    </ul>
+                </div>
+
+                <div class="security-card bg-white rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-lock mr-3 text-yellow-600"></i>
+                        Couche 4 - Données
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Chiffrement AES-256</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Stockage distribué</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Backup encrypted</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Suppression sécurisée</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Code Architecture Master -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-code mr-3 text-red-600"></i>
+                    Architecture Master de Sécurité
+                </h3>
+                
+                <div class="code-block rounded-lg p-6 text-green-400 overflow-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-400"># Architecture Master de Sécurité</span>
+                        <button onclick="copyCode('architecture-code')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                            <i class="fas fa-copy mr-1"></i>Copier
+                        </button>
+                    </div>
+                    <pre id="architecture-code" class="text-sm"><code>class SecurityArchitecture:
+    def __init__(self):
+        self.layers = {
+            'identity': IdentityCompartment(),
+            'network': NetworkSecurity(),
+            'system': SystemHardening(),
+            'data': DataProtection(),
+            'operational': OperationalSec(),
+            'content': ContentStealth(),
+            'response': IncidentResponse()
+        }
+        
+    def initialize_full_protection(self):
+        """Activation protection multicouche complète"""
+        print("🛡️ Initialisation architecture sécurité...")
+        
+        for layer_name, layer in self.layers.items():
+            try:
+                layer.activate()
+                print(f"✅ {layer_name.title()} Layer: ACTIF")
+            except Exception as e:
+                print(f"❌ {layer_name.title()} Layer: ERREUR - {e}")
+                self.handle_layer_failure(layer_name, e)
+    
+    def monitor_security_status(self):
+        """Surveillance continue de toutes les couches"""
+        while True:
+            threat_level = self.assess_threat_level()
+            if threat_level > 7:
+                self.activate_emergency_protocols()
+            elif threat_level > 5:
+                self.increase_security_level()
+            
+            time.sleep(300)  # Check every 5 minutes</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloisonnement des Identités -->
+    <section id="identites" class="py-16 bg-gray-100 print:py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-user-cog mr-3 text-blue-600"></i>
+                    Cloisonnement des Identités
+                </h2>
+                <p class="text-gray-600 text-lg">Principe de Compartimentage Étanche</p>
+            </div>
+
+            <!-- Diagramme Compartimentage -->
+            <div class="mb-12">
+                <img src="https://www.virtualbox.org/graphics/vbox_logo2_gradient.png" alt="VirtualBox Logo" class="mx-auto mb-6 h-16">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 text-center">Architecture de Compartimentage</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-desktop text-2xl text-blue-600"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">VM Dédiée</h4>
+                            <p class="text-sm text-gray-600">Chaque persona dispose de sa propre machine virtuelle isolée</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">VPN Unique</h4>
+                            <p class="text-sm text-gray-600">Connexion VPN dédiée avec géolocalisation spécifique</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-hdd text-2xl text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Stockage Isolé</h4>
+                            <p class="text-sm text-gray-600">Vault chiffré VeraCrypt avec clés séparées</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration VM Étape par Étape -->
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-cogs mr-3 text-blue-600"></i>
+                    Configuration VM Sécurisée - Étape par Étape
+                </h3>
+
+                <div class="accordion-item mb-4">
+                    <button onclick="toggleAccordion('vm-step1')" class="w-full bg-blue-50 hover:bg-blue-100 p-4 rounded-lg text-left font-semibold flex justify-between items-center">
+                        <span><i class="fas fa-download mr-2"></i>Étape 1 : Installation VirtualBox</span>
+                        <i class="fas fa-chevron-down transform transition-transform" id="vm-step1-icon"></i>
+                    </button>
+                    <div id="vm-step1" class="accordion-content">
+                        <div class="p-6 bg-gray-50 rounded-b-lg">
+                            <h4 class="font-bold mb-4">Installation et Configuration Initiale</h4>
+                            <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                                <li><strong>Téléchargement :</strong> Rendez-vous sur <a href="https://www.virtualbox.org" class="text-blue-600 underline">virtualbox.org</a></li>
+                                <li><strong>Installation :</strong> Exécutez l'installateur avec droits administrateur</li>
+                                <li><strong>Extensions :</strong> Installez VirtualBox Extension Pack pour fonctionnalités avancées</li>
+                                <li><strong>Configuration réseau :</strong> Configurez l'adaptateur réseau host-only</li>
+                            </ol>
+                            
+                            <div class="mt-4 p-4 bg-yellow-100 rounded-lg">
+                                <h5 class="font-bold text-yellow-800 mb-2">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>Important
+                                </h5>
+                                <p class="text-yellow-700">Désactivez la télémétrie et les mises à jour automatiques pour éviter les fuites d'informations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-4">
+                    <button onclick="toggleAccordion('vm-step2')" class="w-full bg-green-50 hover:bg-green-100 p-4 rounded-lg text-left font-semibold flex justify-between items-center">
+                        <span><i class="fas fa-desktop mr-2"></i>Étape 2 : Création VM Sécurisée</span>
+                        <i class="fas fa-chevron-down transform transition-transform" id="vm-step2-icon"></i>
+                    </button>
+                    <div id="vm-step2" class="accordion-content">
+                        <div class="p-6 bg-gray-50 rounded-b-lg">
+                            <h4 class="font-bold mb-4">Configuration VM avec Paramètres Anti-Détection</h4>
+                            
+                            <div class="code-block rounded-lg p-4 mb-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-400"># Commandes VirtualBox sécurisées</span>
+                                    <button onclick="copyCode('vm-commands')" class="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded text-xs">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre id="vm-commands" class="text-sm text-green-400"><code># Création VM avec paramètres sécurisés
+VBoxManage createvm --name "SecureAI_001" --register
+VBoxManage modifyvm "SecureAI_001" --memory 4096 --cpus 2
+VBoxManage modifyvm "SecureAI_001" --vram 128
+VBoxManage modifyvm "SecureAI_001" --nic1 nat
+
+# Sécurisation anti-détection
+VBoxManage modifyvm "SecureAI_001" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+VBoxManage setextradata "SecureAI_001" VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled 1</code></pre>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h5 class="font-bold text-blue-800 mb-2">Paramètres Recommandés</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• RAM : 4-8 GB minimum</li>
+                                        <li>• CPU : 2-4 cœurs</li>
+                                        <li>• VRAM : 128 MB</li>
+                                        <li>• Stockage : 50-100 GB SSD</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h5 class="font-bold text-red-800 mb-2">Anti-Détection</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• CPUID modifié</li>
+                                        <li>• Horloge host désactivée</li>
+                                        <li>• Guest Additions masquées</li>
+                                        <li>• Hardware ID randomisé</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-4">
+                    <button onclick="toggleAccordion('vm-step3')" class="w-full bg-purple-50 hover:bg-purple-100 p-4 rounded-lg text-left font-semibold flex justify-between items-center">
+                        <span><i class="fas fa-lock mr-2"></i>Étape 3 : Chiffrement VeraCrypt</span>
+                        <i class="fas fa-chevron-down transform transition-transform" id="vm-step3-icon"></i>
+                    </button>
+                    <div id="vm-step3" class="accordion-content">
+                        <div class="p-6 bg-gray-50 rounded-b-lg">
+                            <h4 class="font-bold mb-4">Création Vault Chiffré pour Stockage Sécurisé</h4>
+                            
+                            <div class="mb-4">
+                                <img src="https://www.veracrypt.fr/en/Home_files/VeraCrypt%20Cascade%20Schema.jpg" alt="VeraCrypt Interface" class="w-full max-w-md mx-auto rounded-lg shadow-md">
+                                <p class="text-center text-sm text-gray-600 mt-2">Interface VeraCrypt - Création de volume chiffré</p>
+                            </div>
+
+                            <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                                <li><strong>Téléchargement :</strong> Installer VeraCrypt depuis le site officiel</li>
+                                <li><strong>Création volume :</strong> Sélectionnez "Create Volume" > "Create an encrypted file container"</li>
+                                <li><strong>Emplacement :</strong> Choisir le dossier de la VM : <code>E:\SecureCompartments\[ID]\encrypted_vault.hc</code></li>
+                                <li><strong>Algorithme :</strong> AES-256 + SHA-512 (maximum sécurité)</li>
+                                <li><strong>Taille :</strong> 10-20 GB selon besoins</li>
+                                <li><strong>Mot de passe :</strong> Minimum 20 caractères avec complexité élevée</li>
+                                <li><strong>Format :</strong> NTFS pour compatibilité Windows</li>
+                            </ol>
+
+                            <div class="mt-4 p-4 bg-green-100 rounded-lg">
+                                <h5 class="font-bold text-green-800 mb-2">
+                                    <i class="fas fa-shield-alt mr-2"></i>Sécurité Renforcée
+                                </h5>
+                                <p class="text-green-700">Utilisez un keyfile en plus du mot de passe et activez le hidden volume pour déni plausible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Compartimentage Complet -->
+            <div class="code-block rounded-lg p-6 text-green-400">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-400"># Système de Compartimentage Complet</span>
+                    <button onclick="copyCode('compartment-code')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                </div>
+                <pre id="compartment-code" class="text-sm"><code>class PersonaSecurityCompartment:
+    def __init__(self, persona_name):
+        self.persona_name = persona_name
+        self.compartment_id = self.generate_compartment_id()
+        self.base_path = f"E:/SecureCompartments/{self.compartment_id}"
+        self.vm_config = None
+        self.vpn_config = None
+        self.storage_vault = None
+        
+    def generate_compartment_id(self):
+        """Génération ID unique non traçable"""
+        random_bytes = secrets.token_bytes(16)
+        return hashlib.sha256(random_bytes).hexdigest()[:16]
+    
+    def create_isolated_environment(self):
+        """Création environnement isolé complet"""
+        print(f"🔐 Création compartiment pour {self.persona_name}")
+        
+        # 1. Création VM dédiée
+        self.setup_dedicated_vm()
+        
+        # 2. Configuration VPN unique
+        self.configure_dedicated_vpn()
+        
+        # 3. Stockage chiffré isolé
+        self.setup_encrypted_storage()
+        
+        # 4. Identités numériques séparées
+        self.create_digital_identities()
+        
+        print(f"✅ Compartiment {self.compartment_id} créé et sécurisé")</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anti-Détection IA Avancé -->
+    <section id="anti-detection" class="py-16 print:py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-mask mr-3 text-purple-600"></i>
+                    Anti-Détection IA Avancé
+                </h2>
+                <p class="text-gray-600 text-lg">Techniques d'Invisibilité et Camouflage</p>
+            </div>
+
+            <!-- Techniques d'Invisibilité -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-eye-slash mr-3 text-purple-600"></i>
+                        Techniques d'Invisibilité
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <i class="fas fa-wave-square text-purple-600 mr-3"></i>
+                            <span><strong>Adversarial Noise Injection</strong> - Bruit imperceptible qui trompe les détecteurs IA</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-tags text-blue-600 mr-3"></i>
+                            <span><strong>Metadata Spoofing</strong> - Falsification complète des métadonnées EXIF</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <i class="fas fa-palette text-green-600 mr-3"></i>
+                            <span><strong>Style Transfer Camouflage</strong> - Camouflage par transfert de style</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <i class="fas fa-eraser text-red-600 mr-3"></i>
+                            <span><strong>Watermark Elimination</strong> - Suppression watermarks invisibles</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                            <i class="fas fa-dna text-yellow-600 mr-3"></i>
+                            <span><strong>Biometric Variation</strong> - Variation subtile des traits biométriques</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-shield-virus mr-3 text-green-600"></i>
+                        Protection Multicouche
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <i class="fas fa-check-double text-green-600 mr-3"></i>
+                            <span><strong>Pipeline Validation</strong> - Tests automatiques continu</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-clock text-blue-600 mr-3"></i>
+                            <span><strong>Tests Temps Réel</strong> - Vérification anti-détection live</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <i class="fas fa-sync-alt text-purple-600 mr-3"></i>
+                            <span><strong>Adaptation Dynamique</strong> - Ajustement des techniques</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                            <i class="fas fa-fingerprint text-yellow-600 mr-3"></i>
+                            <span><strong>Monitoring Signatures</strong> - Surveillance empreintes IA</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <i class="fas fa-shield-alt text-red-600 mr-3"></i>
+                            <span><strong>Countermeasures Auto</strong> - Contre-mesures automatiques</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Anti-Détection -->
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-cogs mr-3 text-purple-600"></i>
+                    Pipeline Anti-Détection Complet
+                </h3>
+
+                <div class="mb-6">
+                    <img src="https://miro.medium.com/max/1400/1*8kQRIqw7Kq7b3zvX6gPzCA.png" alt="AI Detection Pipeline" class="w-full max-w-2xl mx-auto rounded-lg shadow-md">
+                    <p class="text-center text-sm text-gray-600 mt-2">Pipeline de traitement anti-détection IA</p>
+                </div>
+
+                <!-- Étapes du Pipeline -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <i class="fas fa-upload text-2xl text-purple-600 mb-2"></i>
+                        <h4 class="font-bold">1. Input</h4>
+                        <p class="text-sm text-gray-600">Image IA originale</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <i class="fas fa-wave-square text-2xl text-blue-600 mb-2"></i>
+                        <h4 class="font-bold">2. Noise</h4>
+                        <p class="text-sm text-gray-600">Injection bruit adversarial</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <i class="fas fa-palette text-2xl text-green-600 mb-2"></i>
+                        <h4 class="font-bold">3. Style</h4>
+                        <p class="text-sm text-gray-600">Camouflage par style</p>
+                    </div>
+                    <div class="text-center p-4 bg-yellow-50 rounded-lg">
+                        <i class="fas fa-check-circle text-2xl text-yellow-600 mb-2"></i>
+                        <h4 class="font-bold">4. Validation</h4>
+                        <p class="text-sm text-gray-600">Tests anti-détection</p>
+                    </div>
+                </div>
+
+                <!-- Code Pipeline -->
+                <div class="code-block rounded-lg p-6 text-green-400">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-400"># Pipeline Anti-Détection Complet</span>
+                        <button onclick="copyCode('pipeline-code')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                            <i class="fas fa-copy mr-1"></i>Copier
+                        </button>
+                    </div>
+                    <pre id="pipeline-code" class="text-sm"><code>class AntiDetectionPipeline:
+    def __init__(self):
+        self.noise_level = 0.03
+        self.style_transfer_models = self.load_style_models()
+        self.adversarial_techniques = [
+            'gaussian_noise', 'jpeg_compression', 'blur_sharpen',
+            'color_jitter', 'geometric_transform', 'watermark_removal'
+        ]
+    
+    def comprehensive_stealth_processing(self, input_path, output_path):
+        """Pipeline complet anti-détection"""
+        temp_files = []
+        
+        try:
+            # 1. Bruit adversarial
+            temp1 = f"{input_path}_temp1.jpg"
+            self.apply_adversarial_noise(input_path, temp1)
+            temp_files.append(temp1)
+            
+            # 2. Métadonnées factices
+            temp2 = f"{input_path}_temp2.jpg"
+            self.remove_and_spoof_metadata(temp1, temp2)
+            temp_files.append(temp2)
+            
+            # 3. Style camouflage
+            temp3 = f"{input_path}_temp3.jpg"
+            self.apply_style_camouflage(temp2, temp3, 'photographic')
+            temp_files.append(temp3)
+            
+            # 4. Validation finale
+            if self.validate_content_stealth(temp3):
+                shutil.move(temp3, output_path)
+                print(f"✅ Pipeline anti-détection terminé: {output_path}")
+                return True
+            else:
+                print("❌ Échec validation anti-détection")
+                return False
+                
+        finally:
+            # Nettoyage fichiers temporaires
+            for temp_file in temp_files:
+                try:
+                    os.remove(temp_file)
+                except:
+                    pass</code></pre>
+                </div>
+            </div>
+
+            <!-- Tests de Validation -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-vial mr-3 text-green-600"></i>
+                    Tests de Validation Anti-Détection
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-4 text-lg">APIs de Détection Testées</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-globe text-blue-600 mr-2"></i>
+                                    deepware.ai
+                                </span>
+                                <span class="text-green-600 font-bold">✓ PASSÉ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-eye text-purple-600 mr-2"></i>
+                                    sensity.ai
+                                </span>
+                                <span class="text-green-600 font-bold">✓ PASSÉ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-shield-alt text-red-600 mr-2"></i>
+                                    reality_defender
+                                </span>
+                                <span class="text-green-600 font-bold">✓ PASSÉ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-question text-yellow-600 mr-2"></i>
+                                    ai_or_not
+                                </span>
+                                <span class="text-green-600 font-bold">✓ PASSÉ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4 text-lg">Score de Furtivité</h4>
+                        <div class="mb-4">
+                            <canvas id="stealthChart" style="height: 300px;"></canvas>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Qualité Technique</span>
+                                <span class="font-bold text-green-600">95%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Précision Anatomique</span>
+                                <span class="font-bold text-green-600">92%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Cohérence Esthétique</span>
+                                <span class="font-bold text-green-600">88%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Anti-Détection</span>
+                                <span class="font-bold text-green-600">97%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VPN/Proxy Management -->
+    <section id="vpn-proxy" class="py-16 bg-gray-100 print:py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-globe mr-3 text-green-600"></i>
+                    Gestion VPN/Proxy Avancée
+                </h2>
+                <p class="text-gray-600 text-lg">Stratégie Multi-Proxy Cascade avec Rotation Automatique</p>
+            </div>
+
+            <!-- Status Dashboard VPN/Proxy -->
+            <div class="security-monitor rounded-xl p-8 text-white mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-shield-alt mr-3"></i>
+                    Status Dashboard VPN/Proxy Temps Réel
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="vpn-status-active rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-shield-alt text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold">VPN Principal</h4>
+                        <p class="text-sm text-gray-300">NordVPN - Suisse</p>
+                        <p class="text-xs text-green-400">✓ Connecté - 47ms</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="proxy-chain-indicator bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold">Proxy Résidentiel</h4>
+                        <p class="text-sm text-gray-300">BrightData - Pays-Bas</p>
+                        <p class="text-xs text-green-400">✓ Actif - Rotation 30min</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-route text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold">Tor Bridge</h4>
+                        <p class="text-sm text-gray-300">Bridge Obfs4</p>
+                        <p class="text-xs text-green-400">✓ Opérationnel</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-server text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold">Proxy Final</h4>
+                        <p class="text-sm text-gray-300">ProxyMesh - Allemagne</p>
+                        <p class="text-xs text-green-400">✓ Stable</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 bg-black bg-opacity-30 rounded-lg">
+                    <h4 class="font-bold mb-2">IP Finale Visible :</h4>
+                    <p class="font-mono text-lg text-green-400">185.248.103.47 (Allemagne, Frankfurt)</p>
+                    <p class="text-sm text-gray-400 mt-1">Dernière rotation : il y a 23 minutes</p>
+                </div>
+            </div>
+
+            <!-- Configuration Chaîne VPN -->
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-link mr-3 text-blue-600"></i>
+                    Configuration Chaîne VPN/Proxy
+                </h3>
+
+                <div class="mb-6">
+                    <img src="https://cdn-images-1.medium.com/max/1600/1*9n4fJ8ZiKzPz7-YWwC5i4w.png" alt="VPN Chain Diagram" class="w-full max-w-3xl mx-auto rounded-lg shadow-md">
+                    <p class="text-center text-sm text-gray-600 mt-2">Architecture VPN/Proxy en cascade pour anonymat maximum</p>
+                </div>
+
+                <!-- Niveaux de Sécurité -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="border-2 border-green-200 rounded-lg p-6">
+                        <h4 class="font-bold text-green-700 mb-3">
+                            <i class="fas fa-shield mr-2"></i>Niveau Standard
+                        </h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-green-600 mr-2"></i>
+                                <span>VPN seul (NordVPN/ProtonVPN)</span>
+                            </div>
+                            <div class="text-gray-600">Utilisation quotidienne normale</div>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-yellow-200 rounded-lg p-6">
+                        <h4 class="font-bold text-yellow-700 mb-3">
+                            <i class="fas fa-shield-alt mr-2"></i>Niveau Élevé
+                        </h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-yellow-600 mr-2"></i>
+                                <span>VPN → Proxy Résidentiel</span>
+                            </div>
+                            <div class="text-gray-600">Opérations sensibles</div>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-red-200 rounded-lg p-6">
+                        <h4 class="font-bold text-red-700 mb-3">
+                            <i class="fas fa-shield-virus mr-2"></i>Niveau Maximum
+                        </h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-red-600 mr-2"></i>
+                                <span>VPN → Tor → Proxy → Proxy</span>
+                            </div>
+                            <div class="text-gray-600">Opérations critiques</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Configuration VPN -->
+                <div class="code-block rounded-lg p-6 text-green-400">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-400"># Configuration VPN/Proxy Avancée</span>
+                        <button onclick="copyCode('vpn-code')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                            <i class="fas fa-copy mr-1"></i>Copier
+                        </button>
+                    </div>
+                    <pre id="vpn-code" class="text-sm"><code>class AdvancedVPNProxyManager:
+    def __init__(self):
+        self.vpn_providers = {
+            'nordvpn': {
+                'servers': self.load_nord_servers(),
+                'protocols': ['openvpn', 'wireguard'],
+                'countries': ['CH', 'NL', 'SE', 'NO', 'IS']
+            },
+            'protonvpn': {
+                'servers': self.load_proton_servers(),
+                'protocols': ['openvpn', 'ikev2'],
+                'countries': ['CH', 'NL', 'SE']
+            }
+        }
+        
+        self.proxy_pools = {
+            'residential': {
+                'brightdata': self.load_brightdata_proxies(),
+                'oxylabs': self.load_oxylabs_proxies()
+            },
+            'datacenter': {
+                'proxymesh': self.load_proxymesh_proxies()
+            }
+        }
+    
+    def establish_secure_chain(self, persona_id, security_level='maximum'):
+        """Établissement chaîne sécurisée VPN + Proxy"""
+        print(f"🔐 Établissement chaîne sécurisée pour {persona_id}")
+        
+        if security_level == 'maximum':
+            chain_config = {
+                'vpn': self.select_optimal_vpn(),
+                'tor': {'enabled': True, 'bridges': True},
+                'proxy_1': self.select_residential_proxy(),
+                'proxy_2': self.select_datacenter_proxy()
+            }
+        
+        success = self.establish_chain_connections(chain_config)
+        if success:
+            self.current_chain = chain_config
+            self.setup_failover_chains()
+            print("✅ Chaîne sécurisée établie")
+            return True</code></pre>
+                </div>
+            </div>
+
+            <!-- Tests de Fuite -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-vial mr-3 text-red-600"></i>
+                    Tests de Fuite IP/DNS
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-4">Tests Automatiques</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-globe text-blue-600 mr-2"></i>
+                                    Test IP Leak
+                                </span>
+                                <span class="text-green-600 font-bold">✓ SÉCURISÉ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-server text-purple-600 mr-2"></i>
+                                    Test DNS Leak
+                                </span>
+                                <span class="text-green-600 font-bold">✓ SÉCURISÉ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-wifi text-orange-600 mr-2"></i>
+                                    Test WebRTC Leak
+                                </span>
+                                <span class="text-green-600 font-bold">✓ BLOQUÉ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <span class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                                    Test Géolocalisation
+                                </span>
+                                <span class="text-green-600 font-bold">✓ MASQUÉE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Métriques de Performance</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Latence VPN</span>
+                                    <span>47ms</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Bande Passante</span>
+                                    <span>156 Mbps</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Fiabilité</span>
+                                    <span>99.2%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 99%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Anonymat</span>
+                                    <span>97%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2">
+                                    <div class="bg-red-600 h-2 rounded-full" style="width: 97%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitoring & Menaces -->
+    <section id="monitoring" class="py-16 print:py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-radar mr-3 text-yellow-600"></i>
+                    Monitoring & Détection des Menaces
+                </h2>
+                <p class="text-gray-600 text-lg">Surveillance Continue et Réponse Automatique</p>
+            </div>
+
+            <!-- Dashboard Menaces Temps Réel -->
+            <div class="security-monitor rounded-xl p-8 text-white mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-eye mr-3"></i>
+                    Centre de Surveillance des Menaces
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="bg-green-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl font-bold">1</span>
+                        </div>
+                        <h4 class="font-bold text-green-400">Niveau de Menace</h4>
+                        <p class="text-sm text-gray-300">FAIBLE</p>
+                        <p class="text-xs">Dernière analyse : il y a 2min</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-shield-alt text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-blue-400">Systèmes Actifs</h4>
+                        <p class="text-sm text-gray-300">7/7 OPÉRATIONNELS</p>
+                        <p class="text-xs">Surveillance continue</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-exclamation-triangle text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-yellow-400">Alertes</h4>
+                        <p class="text-sm text-gray-300">0 CRITIQUE</p>
+                        <p class="text-xs">2 informatives</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-clock text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-purple-400">Uptime</h4>
+                        <p class="text-sm text-gray-300">99.8%</p>
+                        <p class="text-xs">7 jours</p>
+                    </div>
+                </div>
+
+                <!-- Graphique Monitoring -->
+                <div class="bg-black bg-opacity-30 rounded-lg p-6">
+                    <h4 class="font-bold mb-4">Activité Réseau Temps Réel</h4>
+                    <canvas id="networkChart" style="height: 300px;"></canvas>
+                </div>
+            </div>
+
+            <!-- Types de Menaces Surveillées -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-search mr-3 text-red-600"></i>
+                        Menaces Surveillées
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="threat-level-1 security-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <i class="fas fa-user-secret text-blue-600 mr-3"></i>
+                                    <span><strong>Surveillance Comportementale</strong></span>
+                                </span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">NORMAL</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Patterns d'utilisation anormaux</p>
+                        </div>
+
+                        <div class="threat-level-1 security-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <i class="fas fa-globe text-green-600 mr-3"></i>
+                                    <span><strong>Exposition Identité</strong></span>
+                                </span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">SÉCURISÉ</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Recherches en ligne compromettantes</p>
+                        </div>
+
+                        <div class="threat-level-1 security-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <i class="fas fa-network-wired text-purple-600 mr-3"></i>
+                                    <span><strong>Activité Réseau</strong></span>
+                                </span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">STABLE</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Connexions suspectes ou C2</p>
+                        </div>
+
+                        <div class="threat-level-2 security-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <i class="fas fa-exclamation text-yellow-600 mr-3"></i>
+                                    <span><strong>Requêtes d'Information</strong></span>
+                                </span>
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">SURVEILLANCE</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Demandes d'autorités ou enquêtes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-cogs mr-3 text-blue-600"></i>
+                        Systèmes de Surveillance
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <i class="fas fa-network-wired text-green-600 mr-3"></i>
+                            <div class="flex-1">
+                                <span class="font-semibold">Monitoring Réseau</span>
+                                <p class="text-sm text-gray-600">Surveillance activité réseau 24/7</p>
+                            </div>
+                            <span class="text-green-600"><i class="fas fa-check-circle"></i></span>
+                        </div>
+
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-server text-blue-600 mr-3"></i>
+                            <div class="flex-1">
+                                <span class="font-semibold">Monitoring Système</span>
+                                <p class="text-sm text-gray-600">Surveillance ressources et processus</p>
+                            </div>
+                            <span class="text-green-600"><i class="fas fa-check-circle"></i></span>
+                        </div>
+
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <i class="fas fa-search text-purple-600 mr-3"></i>
+                            <div class="flex-1">
+                                <span class="font-semibold">Monitoring Exposition</span>
+                                <p class="text-sm text-gray-600">Surveillance mentions en ligne</p>
+                            </div>
+                            <span class="text-green-600"><i class="fas fa-check-circle"></i></span>
+                        </div>
+
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <i class="fas fa-shield-virus text-red-600 mr-3"></i>
+                            <div class="flex-1">
+                                <span class="font-semibold">Anti-Malware</span>
+                                <p class="text-sm text-gray-600">Détection malware et intrusions</p>
+                            </div>
+                            <span class="text-green-600"><i class="fas fa-check-circle"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Monitoring -->
+            <div class="code-block rounded-lg p-6 text-green-400">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-400"># Système de Monitoring Avancé</span>
+                    <button onclick="copyCode('monitoring-code')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                </div>
+                <pre id="monitoring-code" class="text-sm"><code>class ThreatMonitoringSystem:
+    def __init__(self):
+        self.threat_level = 1  # 1-10 scale
+        self.monitoring_active = False
+        self.alerts = []
+        self.baseline_metrics = {}
+        
+    def start_continuous_monitoring(self):
+        """Démarrage surveillance continue"""
+        self.monitoring_active = True
+        
+        threads = [
+            threading.Thread(target=self.monitor_network_activity, daemon=True),
+            threading.Thread(target=self.monitor_system_resources, daemon=True),
+            threading.Thread(target=self.monitor_external_threats, daemon=True),
+            threading.Thread(target=self.monitor_identity_exposure, daemon=True)
+        ]
+        
+        for thread in threads:
+            thread.start()
+        
+        print("🔍 Surveillance continue activée")
+    
+    def monitor_identity_exposure(self):
+        """Surveillance exposition identité en ligne"""
+        while self.monitoring_active:
+            search_queries = [
+                f"Léana Mystère IA artificielle",
+                f"MYM IA generated fake"
+            ]
+            
+            for query in search_queries:
+                exposure_risk = self.check_online_exposure(query)
+                if exposure_risk > 0.7:
+                    self.raise_alert(f"Exposition identité détectée: {query}", 9)
+            
+            time.sleep(3600)  # Check hourly</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocoles d'Urgence -->
+    <section id="urgence" class="py-16 bg-red-50 print:py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-red-800 mb-4">
+                    <i class="fas fa-fire mr-3"></i>
+                    Protocoles d'Urgence
+                </h2>
+                <p class="text-red-600 text-lg">Réponse Automatique aux Menaces Critiques</p>
+            </div>
+
+            <!-- Niveaux d'Urgence -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-green-100 border-2 border-green-300 rounded-xl p-6 text-center">
+                    <div class="bg-green-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">7</span>
+                    </div>
+                    <h3 class="font-bold text-green-800 mb-2">Niveau 7</h3>
+                    <p class="text-sm text-green-700">Renforcement Sécurité</p>
+                    <div class="mt-3 text-xs text-green-600">
+                        • Rotation VPN accélérée<br>
+                        • Monitoring renforcé<br>
+                        • Backup critique
+                    </div>
+                </div>
+
+                <div class="bg-yellow-100 border-2 border-yellow-300 rounded-xl p-6 text-center">
+                    <div class="bg-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">8</span>
+                    </div>
+                    <h3 class="font-bold text-yellow-800 mb-2">Niveau 8</h3>
+                    <p class="text-sm text-yellow-700">Défense Active</p>
+                    <div class="mt-3 text-xs text-yellow-600">
+                        • Désinformation active<br>
+                        • Purge données<br>
+                        • Infrastructure urgence
+                    </div>
+                </div>
+
+                <div class="bg-orange-100 border-2 border-orange-300 rounded-xl p-6 text-center">
+                    <div class="bg-orange-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">9</span>
+                    </div>
+                    <h3 class="font-bold text-orange-800 mb-2">Niveau 9</h3>
+                    <p class="text-sm text-orange-700">Destruction Partielle</p>
+                    <div class="mt-3 text-xs text-orange-600">
+                        • Suppression sécurisée<br>
+                        • Identités urgence<br>
+                        • Logs burnés
+                    </div>
+                </div>
+
+                <div class="bg-red-100 border-2 border-red-300 rounded-xl p-6 text-center emergency-alert">
+                    <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-xl">10</span>
+                    </div>
+                    <h3 class="font-bold text-red-800 mb-2">Niveau 10</h3>
+                    <p class="text-sm text-red-700">BURN EVERYTHING</p>
+                    <div class="mt-3 text-xs text-red-600">
+                        • Destruction totale<br>
+                        • Wipe système<br>
+                        • Récupération activée
+                    </div>
+                </div>
+            </div>
+
+            <!-- Déclencheurs Automatiques -->
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-exclamation-triangle mr-3 text-red-600"></i>
+                    Déclencheurs d'Urgence Automatique
+                </h3>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-red-700">Niveau Critique (9-10)</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                <i class="fas fa-gavel text-red-600 mr-3"></i>
+                                <span><strong>Détection autorités/enquête</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                <i class="fas fa-eye text-red-600 mr-3"></i>
+                                <span><strong>Exposition identité publique</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                <i class="fas fa-shield-virus text-red-600 mr-3"></i>
+                                <span><strong>Compromission sécuritaire majeure</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                <i class="fas fa-bug text-red-600 mr-3"></i>
+                                <span><strong>Intrusion système détectée</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-yellow-700">Niveau Élevé (7-8)</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                <i class="fas fa-chart-line text-yellow-600 mr-3"></i>
+                                <span><strong>Surveillance comportementale anormale</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                <i class="fas fa-question-circle text-yellow-600 mr-3"></i>
+                                <span><strong>Requêtes d'information suspectes</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                <i class="fas fa-exclamation text-yellow-600 mr-3"></i>
+                                <span><strong>Anomalies techniques répétées</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                <i class="fas fa-crosshairs text-yellow-600 mr-3"></i>
+                                <span><strong>Menaces externes identifiées</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Protocoles d'Urgence -->
+            <div class="code-block rounded-lg p-6 text-green-400 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-400"># Protocoles d'Urgence Automatiques</span>
+                    <button onclick="copyCode('emergency-code')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                </div>
+                <pre id="emergency-code" class="text-sm"><code>class EmergencyProtocols:
+    def __init__(self):
+        self.emergency_level = 0
+        self.burn_protocols = {
+            'level_7': self.level_7_response,
+            'level_8': self.level_8_response, 
+            'level_9': self.level_9_response,
+            'level_10': self.level_10_response
+        }
+    
+    def trigger_emergency_response(self, threat_level, threat_type):
+        """Déclenchement réponse d'urgence automatique"""
+        self.emergency_level = threat_level
+        
+        print(f"🚨 URGENCE NIVEAU {threat_level} - {threat_type}")
+        
+        # Notification immédiate
+        self.send_emergency_notification(threat_level, threat_type)
+        
+        # Exécution protocole approprié
+        if threat_level >= 7:
+            protocol_key = f"level_{min(threat_level, 10)}"
+            if protocol_key in self.burn_protocols:
+                self.burn_protocols[protocol_key](threat_type)
+    
+    def level_10_response(self, threat_type):
+        """Niveau 10 - BURN EVERYTHING - Destruction totale"""
+        print("💥 NIVEAU 10: DESTRUCTION TOTALE ACTIVÉE")
+        
+        # Actions de destruction totale
+        burn_actions = [
+            self.secure_delete_all_content,
+            self.wipe_system_traces,
+            self.destroy_encryption_keys,
+            self.purge_all_accounts,
+            self.activate_disinformation_flood,
+            self.trigger_system_reformat
+        ]
+        
+        for action in burn_actions:
+            try:
+                action()
+                print(f"🔥 {action.__name__} EXÉCUTÉ")
+            except Exception as e:
+                print(f"💥 {action.__name__} ERREUR: {e}")
+        
+        print("💥 DESTRUCTION TOTALE TERMINÉE")
+        self.activate_recovery_procedures()</code></pre>
+            </div>
+
+            <!-- Checklists Sécurité -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6">
+                    <i class="fas fa-clipboard-check mr-3 text-blue-600"></i>
+                    Checklists Sécurité Quotidienne
+                </h3>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-green-700">
+                            <i class="fas fa-sun mr-2"></i>Checklist Matinale
+                        </h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600" checked>
+                                <span class="text-sm">VPN actif et fonctionnel</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600" checked>
+                                <span class="text-sm">Chaîne proxy validée</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600" checked>
+                                <span class="text-sm">Tests fuite IP/DNS négatifs</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600" checked>
+                                <span class="text-sm">Surveillance active démarrée</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600" checked>
+                                <span class="text-sm">Backup automatique vérifié</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600">
+                                <span class="text-sm">Identité du jour sélectionnée</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-green-600">
+                                <span class="text-sm">Outils anti-détection actifs</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-blue-700">
+                            <i class="fas fa-moon mr-2"></i>Checklist Nocturne
+                        </h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Logs sécurisés/chiffrés</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Fichiers temporaires purgés</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Historique navigateur nettoyé</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Analyse menaces du jour</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Backup quotidien lancé</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Métriques sécurité archivées</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-3 text-blue-600">
+                                <span class="text-sm">Plans urgence révisés</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Récapitulatif Final -->
+    <section class="py-16 gradient-bg text-white print:py-8">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">
+                <i class="fas fa-shield-alt mr-3"></i>
+                Système de Sécurité Opérationnel
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                    <i class="fas fa-layer-group text-4xl mb-4 text-green-300"></i>
+                    <h3 class="text-xl font-bold mb-2">Architecture Multicouche</h3>
+                    <p class="text-sm">7 couches de protection impénétrable avec monitoring continu</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                    <i class="fas fa-eye-slash text-4xl mb-4 text-blue-300"></i>
+                    <h3 class="text-xl font-bold mb-2">Invisibilité Totale</h3>
+                    <p class="text-sm">Anti-détection IA avancé et camouflage multicouche</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                    <i class="fas fa-fire-extinguisher text-4xl mb-4 text-red-300"></i>
+                    <h3 class="text-xl font-bold mb-2">Réponse d'Urgence</h3>
+                    <p class="text-sm">Protocoles automatiques de destruction et récupération</p>
+                </div>
+            </div>
+
+            <div class="bg-red-900 bg-opacity-50 rounded-lg p-6 max-w-4xl mx-auto">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-crown mr-2"></i>
+                    Votre Empire IA est Maintenant Impénétrable
+                </h3>
+                <p class="mb-4">
+                    Avec cette architecture de sécurité multicouche, votre écosystème IA MYM dispose d'une protection de niveau militaire contre toutes les menaces. L'anonymat absolu, l'anti-détection avancé et la réponse automatique aux urgences garantissent la continuité opérationnelle sur 10-20 ans.
+                </p>
+                <div class="flex justify-center space-x-8 text-sm">
+                    <span class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-2"></i>
+                        Identités Cloisonnées
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-2"></i>
+                        VPN/Proxy Cascade
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-2"></i>
+                        Monitoring 24/7
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-check text-green-400 mr-2"></i>
+                        Burn Protocols
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 print:py-4">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 mb-2">Manuel IA MYM 2025 - BLOC 10 : Sécurité & Anti-Détection IA</p>
+            <p class="text-sm text-gray-500">Architecture de Sécurité Multicouche Impénétrable</p>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonction pour copier le code
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                // Animation de confirmation
+                const button = event.target.closest('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-1"></i>Copié!';
+                button.classList.add('bg-green-600');
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-600');
+                    button.classList.add('bg-blue-600');
+                }, 2000);
+            });
+        }
+
+        // Fonction pour accordéons
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Graphiques avec Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Graphique Score de Furtivité
+            const stealthCtx = document.getElementById('stealthChart');
+            if (stealthCtx) {
+                new Chart(stealthCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Qualité Technique', 'Précision Anatomique', 'Cohérence Esthétique', 'Anti-Détection', 'Métadonnées'],
+                        datasets: [{
+                            label: 'Score Furtivité',
+                            data: [95, 92, 88, 97, 94],
+                            backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                            borderColor: 'rgba(34, 197, 94, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(34, 197, 94, 1)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    color: '#6b7280'
+                                },
+                                grid: {
+                                    color: '#e5e7eb'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#374151'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Graphique Activité Réseau
+            const networkCtx = document.getElementById('networkChart');
+            if (networkCtx) {
+                const networkData = {
+                    labels: Array.from({length: 24}, (_, i) => `${i}:00`),
+                    datasets: [{
+                        label: 'Trafic Entrant (MB)',
+                        data: [12, 8, 15, 22, 18, 45, 67, 89, 123, 98, 76, 54, 43, 67, 89, 98, 76, 65, 54, 43, 32, 28, 19, 14],
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Trafic Sortant (MB)',
+                        data: [8, 12, 18, 25, 22, 38, 45, 67, 89, 76, 54, 43, 32, 45, 67, 78, 65, 54, 43, 32, 28, 24, 16, 12],
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                };
+
+                new Chart(networkCtx, {
+                    type: 'line',
+                    data: networkData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#9ca3af'
+                                },
+                                grid: {
+                                    color: 'rgba(156, 163, 175, 0.3)'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#9ca3af'
+                                },
+                                grid: {
+                                    color: 'rgba(156, 163, 175, 0.3)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#d1d5db'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Smooth scrolling pour navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e67ac3fb5250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnQy0Fskqe2pJ6g2bh36kdMORbOJZoVjF7HrgFajxG24dHXeTLetczhwdfGuL%2FQ%2F6srYhBCL4enAwiUHr96%2BQacWV%2B8dPm%2BBOSkJyjP24Aln9K2oBbX49klw6xGlnh9uin72MDfk7ahm7CFRJ8YOsir735qDBWe9Hohj055rUPgEhG35xCUo9CiYfcavBOLi5lSGqbgiiAEthMOUytvlmQW2fWm2brfmarkUa2k2KJlDTeHMPC0Wv5sFzfsnSWsteh4B72gQE8mpwm2kw9uJqYCqDaGSm8j%2FYl0cpfqhapzRbjcX06vdek5yXl%2F%2Fvys4JUA1uc0luYsPr%2FDbTg%2BrlB0ooZ002NaNe89zObfnXusRMO4NIuFxhQo9RmTx6To4qGNtPr4axSkSSRSJK9qz1TZsS%2BE3K9crkk3swTCGl6OE5ccxAt%2BqODLSAJ0UOp7RwKRKqDhvci0M1w6apGwRbwzR3C6NyvzXP28COVIGyFetfq13VSWLaEGfGde%2ByHaCXAQnqAQNwwymiwCkUsYer%2Fo%3D";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnQy0Fskqe2pJ6g2bh36kdMORbOJZoVjF7HrgFajxG24dHXeTLetczhwdfGuL/Q/6srYhBCL4enAwiUHr96+QacWV+8dPm+BOSkJyjP24Aln9K2oBbX49klw6xGlnh9uin72MDfk7ahm7CFRJ8YOsir735qDBWe9Hohj055rUPgEhG35xCUo9CiYfcavBOLi5lSGqbgiiAEthMOUytvlmQW2fWm2brfmarkUa2k2KJlDTeHMPC0Wv5sFzfsnSWsteh4B72gQE8mpwm2kw9uJqYCqDaGSm8j/Yl0cpfqhapzRbjcX06vdek5yXl//vys4JUA1uc0luYsPr/DbTg+rlB0ooZ002NaNe89zObfnXusRMO4NIuFxhQo9RmTx6To4qGNtPr4axSkSSRSJK9qz1TZsS+E3K9crkk3swTCGl6OE5ccxAt+qODLSAJ0UOp7RwKRKqDhvci0M1w6apGwRbwzR3C6NyvzXP28COVIGyFetfq13VSWLaEGfGde+yHaCXAQnqAQNwwymiwCkUsYer/o=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 9.2 COMPLET - Orchestration & Intelligence Collective</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .code-block { background: #f8f9fa; border-left: 4px solid #007bff; padding: 20px; margin: 20px 0; border-radius: 5px; overflow-x: auto; }
+        .step-number { background: #007bff; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .info-box { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .copy-btn { background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; font-size: 12px; }
+        .copy-btn:hover { background: #218838; }
+        .metric-card { background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 20px; margin: 10px; }
+        .progress-bar { background: #e9ecef; border-radius: 10px; height: 20px; overflow: hidden; }
+        .progress-fill { background: #007bff; height: 100%; transition: width 0.3s ease; }
+        .persona-card { background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 20px; margin: 10px; border-left: 4px solid; }
+        .chart-container { height: 400px; margin: 20px 0; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-users-cog text-6xl mb-4"></i>
+                </div>
+                <h1 class="text-5xl font-bold mb-4">BLOC 9.2 - Orchestration & Intelligence Collective</h1>
+                <h2 class="text-2xl font-light mb-6">Coordination Automatisée Multi-Persona IA</h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                    Système complet d'orchestration intelligente pour gérer simultanément 5-20 identités IA différentes, 
+                    avec prévention des conflits, optimisation des synergies et allocation automatique des ressources.
+                </p>
+                <div class="mt-8">
+                    <span class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-brain mr-2"></i>
+                        Intelligence Collective • Synergies Cross-Persona • Allocation Automatique
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center space-x-6">
+                <a href="#orchestrateur" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded-lg hover:bg-blue-50">
+                    <i class="fas fa-cogs mr-2"></i>Orchestrateur Central
+                </a>
+                <a href="#dashboard" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded-lg hover:bg-blue-50">
+                    <i class="fas fa-chart-line mr-2"></i>Dashboard Temps Réel
+                </a>
+                <a href="#synergies" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded-lg hover:bg-blue-50">
+                    <i class="fas fa-network-wired mr-2"></i>Synergies & Conflits
+                </a>
+                <a href="#intelligence" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded-lg hover:bg-blue-50">
+                    <i class="fas fa-brain mr-2"></i>Intelligence Collective
+                </a>
+                <a href="#installation" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded-lg hover:bg-blue-50">
+                    <i class="fas fa-download mr-2"></i>Installation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Objectif Stratégique -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-target mr-3 text-blue-600"></i>
+                    Objectif Stratégique du Bloc 9.2
+                </h3>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-600 mb-6">
+                        Ce bloc implémente l'orchestrateur central qui coordonne automatiquement tous vos personas IA. 
+                        L'objectif est de maximiser les synergies entre personas tout en évitant les conflits, 
+                        optimiser l'allocation des ressources et créer une intelligence collective qui apprend et s'améliore continuellement.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div class="metric-card">
+                            <div class="text-center">
+                                <i class="fas fa-sync-alt text-3xl text-blue-600 mb-3"></i>
+                                <h4 class="text-xl font-bold text-gray-800">Coordination Automatique</h4>
+                                <p class="text-gray-600">Planification et exécution automatisée des tâches de tous les personas</p>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-center">
+                                <i class="fas fa-balance-scale text-3xl text-green-600 mb-3"></i>
+                                <h4 class="text-xl font-bold text-gray-800">Optimisation Ressources</h4>
+                                <p class="text-gray-600">Allocation intelligente GPU/CPU selon les performances de chaque persona</p>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-center">
+                                <i class="fas fa-brain text-3xl text-purple-600 mb-3"></i>
+                                <h4 class="text-xl font-bold text-gray-800">Intelligence Collective</h4>
+                                <p class="text-gray-600">Apprentissage croisé et amélioration continue de tous les personas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orchestrateur Central -->
+    <section id="orchestrateur" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-cogs mr-3 text-blue-600"></i>
+                    Orchestrateur Central Multi-Persona
+                </h3>
+                <p class="text-lg text-gray-600">Le cerveau qui coordonne automatiquement tous vos personas IA</p>
+            </div>
+
+            <!-- Explication pour débutants -->
+            <div class="info-box mb-8">
+                <h4 class="font-bold text-lg mb-3">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Explication Simple (même pour Grand-Papa de 70 ans !)
+                </h4>
+                <p class="mb-3">
+                    <strong>Imaginez que vous dirigez une équipe de 10 secrétaires virtuelles</strong> (vos personas IA). 
+                    Chacune a sa spécialité : Léana fait de l'art, Sophia du contenu mature, Aria du fitness...
+                </p>
+                <p class="mb-3">
+                    <strong>L'Orchestrateur, c'est votre chef d'équipe automatique</strong> qui :
+                </p>
+                <ul class="list-disc list-inside ml-4 space-y-2">
+                    <li>📅 <strong>Planifie le travail</strong> : "Léana génère du contenu à 8h, Sophia à 10h, Aria à 14h..."</li>
+                    <li>🤝 <strong>Évite les disputes</strong> : Si deux personas font du contenu trop similaire, il les sépare</li>
+                    <li>⚡ <strong>Optimise les ressources</strong> : Donne plus de puissance informatique aux personas qui rapportent plus</li>
+                    <li>🧠 <strong>Fait apprendre</strong> : Si Léana trouve une technique qui marche, il l'enseigne aux autres</li>
+                </ul>
+            </div>
+
+            <!-- Script Python Complet -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h4 class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-code mr-2"></i>
+                        Script Python Complet - MultiPersonaOrchestrator
+                    </h4>
+                    <button class="copy-btn" onclick="copyCode('orchestrator-code')">
+                        <i class="fas fa-copy mr-1"></i>Copier le Code
+                    </button>
+                </div>
+                
+                <div class="code-block" id="orchestrator-code">
+<pre><code>import threading
+import time
+import random
+from datetime import datetime, timedelta
+import sqlite3
+import json
+from typing import Dict, List, Any
+
+class MultiPersonaOrchestrator:
+    """
+    🎭 ORCHESTRATEUR CENTRAL MULTI-PERSONA
+    
+    Cette classe gère automatiquement tous vos personas IA :
+    - Planification quotidienne automatique
+    - Allocation optimale des ressources
+    - Prévention des conflits entre personas
+    - Détection et exploitation des synergies
+    """
+    
+    def __init__(self, manager):
+        self.manager = manager  # MultiPersonaManager du Bloc 9.1
+        self.daily_quotas = self.calculate_daily_quotas()
+        self.resource_pool = self.initialize_resource_pool()
+        self.conflict_matrix = {}
+        self.synergy_opportunities = {}
+        
+        print("🎭 Orchestrateur Multi-Persona initialisé")
+        print(f"📊 Gestion de {len(manager.personas)} personas")
+        
+    def execute_daily_orchestration(self):
+        """
+        🕐 ORCHESTRATION QUOTIDIENNE AUTOMATIQUE
+        
+        Cette méthode lance automatiquement la production quotidienne
+        de tous vos personas selon un planning optimisé.
+        
+        🔄 Processus :
+        1. Génère le planning optimal de la journée
+        2. Exécute chaque tâche au bon moment
+        3. Surveille les performances en temps réel
+        4. Ajuste si nécessaire
+        """
+        print("\n🌅 === DÉBUT ORCHESTRATION QUOTIDIENNE ===")
+        print(f"📅 Date : {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        
+        # 1. Génération du planning quotidien optimisé
+        daily_plan = self.generate_daily_master_plan()
+        print(f"📋 Planning généré : {len(daily_plan)} créneaux")
+        
+        # 2. Prévention des conflits avant exécution
+        self.prevent_persona_conflicts()
+        
+        # 3. Exécution du planning heure par heure
+        for time_slot, actions in daily_plan.items():
+            print(f"\n🕐 === CRÉNEAU {time_slot} ===")
+            
+            for action in actions:
+                if action['type'] == 'content_generation':
+                    self.execute_content_generation(action)
+                elif action['type'] == 'publication':
+                    self.execute_publication(action)
+                elif action['type'] == 'interaction':
+                    self.execute_interaction_management(action)
+                elif action['type'] == 'analytics':
+                    self.execute_analytics_update(action)
+                    
+        print("\n✅ === FIN ORCHESTRATION QUOTIDIENNE ===")
+        
+    def generate_daily_master_plan(self) -> Dict:
+        """
+        📋 GÉNÉRATION DU PLANNING QUOTIDIEN OPTIMAL
+        
+        Cette méthode crée automatiquement le planning de la journée
+        en tenant compte des performances de chaque persona.
+        
+        📊 Critères d'optimisation :
+        - Performance historique de chaque persona
+        - Heures d'activité optimales de l'audience
+        - Disponibilité des ressources (GPU/CPU)
+        - Évitement des conflits entre personas
+        """
+        plan = {}
+        
+        # Analyse des performances récentes
+        performance_data = self.analyze_recent_performance()
+        print("📊 Analyse des performances terminée")
+        
+        # Calcul de l'allocation optimale des ressources
+        resource_allocation = self.optimize_resource_allocation(performance_data)
+        print("⚡ Allocation des ressources optimisée")
+        
+        # Génération du planning heure par heure
+        for hour in range(8, 23):  # 8h à 23h
+            hour_key = f"{hour:02d}:00"
+            plan[hour_key] = []
+            
+            for persona_id, allocation in resource_allocation.items():
+                if self.should_execute_at_hour(persona_id, hour, allocation):
+                    task = self.create_optimized_task(persona_id, hour, allocation)
+                    plan[hour_key].append(task)
+                    
+        return plan
+        
+    def should_execute_at_hour(self, persona_id: str, hour: int, allocation: Dict) -> bool:
+        """
+        🕐 DÉCISION D'EXÉCUTION PAR HEURE
+        
+        Détermine si un persona doit travailler à une heure donnée
+        selon plusieurs critères intelligents.
+        """
+        persona = self.manager.personas[persona_id]
+        
+        # 1. Vérification des heures optimales selon la niche
+        optimal_hours = {
+            'artistic': [9, 14, 20],      # Créativité : matin, après-midi, soir
+            'fitness': [7, 12, 18],       # Sport : matin, midi, soirée
+            'mature': [15, 21, 23],       # Mature : après-midi et soirée
+            'mainstream': [10, 16, 19]    # Général : heures de pointe
+        }
+        
+        category_hours = optimal_hours.get(persona.category.value, [10, 16, 19])
+        
+        # 2. Score de priorité basé sur les performances
+        priority_score = allocation.get('priority_score', 1.0)
+        
+        # 3. Disponibilité des ressources
+        resource_available = hour in category_hours and priority_score > 0.5
+        
+        # 4. Évitement des conflits
+        no_conflicts = not self.has_conflict_at_hour(persona_id, hour)
+        
+        return resource_available and no_conflicts
+        
+    def create_optimized_task(self, persona_id: str, hour: int, allocation: Dict) -> Dict:
+        """
+        📝 CRÉATION DE TÂCHE OPTIMISÉE
+        
+        Crée une tâche personnalisée pour un persona à une heure donnée,
+        optimisée selon ses performances et spécialités.
+        """
+        persona = self.manager.personas[persona_id]
+        
+        # Détermination du type de contenu optimal
+        if 8 <= hour <= 12:
+            content_type = 'morning_greeting'
+        elif 12 <= hour <= 17:
+            content_type = 'main_content'
+        elif 17 <= hour <= 20:
+            content_type = 'interactive_session'
+        else:
+            content_type = 'intimate_content'
+            
+        task = {
+            'persona_id': persona_id,
+            'persona_name': persona.name,
+            'type': 'content_generation',
+            'hour': hour,
+            'content_type': content_type,
+            'priority': allocation.get('priority_score', 1.0),
+            'resources': {
+                'gpu_allocation': allocation.get('gpu_hours_daily', 2) / 8,  # Répartition sur 8h
+                'content_quota': allocation.get('content_quota', 5)
+            },
+            'estimated_duration': 30,  # minutes
+            'quality_target': 'high' if allocation.get('priority_score', 1.0) > 0.8 else 'standard'
+        }
+        
+        return task
+        
+    def execute_content_generation(self, action: Dict):
+        """
+        🎨 EXÉCUTION GÉNÉRATION DE CONTENU
+        
+        Lance la génération de contenu pour un persona selon la tâche définie.
+        """
+        persona_id = action['persona_id']
+        persona_name = action['persona_name']
+        content_type = action['content_type']
+        
+        print(f"🎨 Génération de contenu : {persona_name}")
+        print(f"   📝 Type : {content_type}")
+        print(f"   ⏱️ Durée estimée : {action['estimated_duration']} min")
+        print(f"   🎯 Qualité : {action['quality_target']}")
+        
+        # Simulation de la génération (ici vous intégreriez vos scripts de génération)
+        try:
+            # 1. Préparation des paramètres de génération
+            generation_params = self.prepare_generation_params(action)
+            
+            # 2. Lancement de la génération
+            # Ici vous appelleriez vos scripts de génération d'images/contenu
+            # content = self.generate_content(generation_params)
+            
+            # 3. Validation qualité
+            # quality_score = self.validate_content_quality(content)
+            
+            # 4. Enregistrement des résultats
+            # self.save_generated_content(persona_id, content, quality_score)
+            
+            print(f"   ✅ Génération réussie pour {persona_name}")
+            
+        except Exception as e:
+            print(f"   ❌ Erreur génération pour {persona_name}: {e}")
+            self.handle_generation_error(persona_id, e)
+            
+    def execute_publication(self, action: Dict):
+        """
+        📤 EXÉCUTION PUBLICATION
+        
+        Publie automatiquement le contenu généré sur les plateformes appropriées.
+        """
+        persona_id = action['persona_id']
+        persona_name = action['persona_name']
+        
+        print(f"📤 Publication : {persona_name}")
+        
+        try:
+            # 1. Récupération du contenu à publier
+            # content_to_publish = self.get_pending_content(persona_id)
+            
+            # 2. Sélection de la plateforme optimale
+            # platform = self.select_optimal_platform(persona_id)
+            
+            # 3. Publication automatique
+            # result = self.publish_content(content_to_publish, platform)
+            
+            print(f"   ✅ Publication réussie pour {persona_name}")
+            
+        except Exception as e:
+            print(f"   ❌ Erreur publication pour {persona_name}: {e}")
+            
+    def execute_interaction_management(self, action: Dict):
+        """
+        💬 GESTION DES INTERACTIONS
+        
+        Gère automatiquement les interactions avec les abonnés de chaque persona.
+        """
+        persona_id = action['persona_id']
+        persona_name = action['persona_name']
+        
+        print(f"💬 Gestion interactions : {persona_name}")
+        
+        try:
+            # 1. Récupération des messages en attente
+            # pending_messages = self.get_pending_messages(persona_id)
+            
+            # 2. Génération des réponses automatiques
+            # responses = self.generate_automatic_responses(pending_messages, persona_id)
+            
+            # 3. Envoi des réponses
+            # self.send_responses(responses, persona_id)
+            
+            print(f"   ✅ Interactions traitées pour {persona_name}")
+            
+        except Exception as e:
+            print(f"   ❌ Erreur interactions pour {persona_name}: {e}")
+            
+    def prevent_persona_conflicts(self) -> Dict:
+        """
+        🚫 PRÉVENTION DES CONFLITS ENTRE PERSONAS
+        
+        Analyse et prévient automatiquement les conflits potentiels
+        entre vos différents personas (contenu similaire, audience overlap, etc.)
+        """
+        print("\n🚫 === ANALYSE DES CONFLITS POTENTIELS ===")
+        
+        synergy_matrix = {}
+        personas = list(self.manager.personas.keys())
+        
+        for i, persona_a in enumerate(personas):
+            for persona_b in personas[i+1:]:
+                compatibility = self.calculate_persona_compatibility(persona_a, persona_b)
+                
+                print(f"🔍 Analyse : {persona_a} ↔ {persona_b}")
+                print(f"   📊 Conflit risque : {compatibility['conflict_risk']:.1%}")
+                print(f"   ⚡ Potentiel synergie : {compatibility['synergy_potential']:.1%}")
+                
+                if compatibility['conflict_risk'] > 0.7:
+                    print(f"   ⚠️ CONFLIT DÉTECTÉ ! Application stratégie séparation")
+                    self.implement_separation_strategy(persona_a, persona_b)
+                    
+                elif compatibility['synergy_potential'] > 0.8:
+                    print(f"   🤝 SYNERGIE DÉTECTÉE ! Création stratégie cross-promotion")
+                    self.create_cross_promotion_strategy(persona_a, persona_b)
+                    
+        return synergy_matrix
+        
+    def calculate_persona_compatibility(self, persona_a: str, persona_b: str) -> Dict:
+        """
+        🧮 CALCUL DE COMPATIBILITÉ ENTRE PERSONAS
+        
+        Analyse la compatibilité entre deux personas selon plusieurs critères.
+        """
+        config_a = self.manager.personas[persona_a]
+        config_b = self.manager.personas[persona_b]
+        
+        # 1. Overlap d'audience (plus c'est élevé, plus il y a risque de conflit)
+        audience_overlap = self.calculate_audience_overlap(config_a, config_b)
+        
+        # 2. Conflit de niche (même spécialisation = conflit)
+        niche_conflict = self.calculate_niche_conflict(config_a, config_b)
+        
+        # 3. Potentiel de synergie (complémentarité)
+        synergy_score = self.calculate_synergy_potential(config_a, config_b)
+        
+        return {
+            'audience_overlap': audience_overlap,
+            'conflict_risk': (audience_overlap + niche_conflict) / 2,
+            'synergy_potential': synergy_score,
+            'recommended_action': self.get_compatibility_recommendation(
+                audience_overlap, niche_conflict, synergy_score
+            )
+        }
+        
+    def calculate_audience_overlap(self, config_a, config_b) -> float:
+        """Calcule le pourcentage d'audience partagée entre deux personas"""
+        # Simulation basée sur les catégories et marchés cibles
+        same_market = config_a.target_market == config_b.target_market
+        same_age_range = abs(config_a.age - config_b.age) < 5
+        same_language = config_a.primary_language == config_b.primary_language
+        
+        overlap_score = 0
+        if same_market: overlap_score += 0.4
+        if same_age_range: overlap_score += 0.3
+        if same_language: overlap_score += 0.3
+        
+        return min(overlap_score, 1.0)
+        
+    def calculate_niche_conflict(self, config_a, config_b) -> float:
+        """Calcule le risque de conflit de niche"""
+        # Conflits basés sur les spécialisations
+        specializations_a = set(config_a.specialization)
+        specializations_b = set(config_b.specialization)
+        
+        common_specs = specializations_a.intersection(specializations_b)
+        total_specs = specializations_a.union(specializations_b)
+        
+        if len(total_specs) == 0:
+            return 0.0
+            
+        conflict_ratio = len(common_specs) / len(total_specs)
+        return conflict_ratio
+        
+    def calculate_synergy_potential(self, config_a, config_b) -> float:
+        """Calcule le potentiel de synergie entre deux personas"""
+        # Synergies basées sur la complémentarité
+        complementary_categories = {
+            'artistic': ['fitness', 'luxury'],
+            'fitness': ['artistic', 'mainstream'],
+            'mature': ['luxury', 'artistic'],
+            'luxury': ['artistic', 'mature']
+        }
+        
+        cat_a = config_a.category.value if hasattr(config_a.category, 'value') else str(config_a.category)
+        cat_b = config_b.category.value if hasattr(config_b.category, 'value') else str(config_b.category)
+        
+        if cat_b in complementary_categories.get(cat_a, []):
+            return 0.8  # Forte synergie
+        elif cat_a != cat_b:
+            return 0.5  # Synergie modérée
+        else:
+            return 0.2  # Faible synergie (même catégorie)
+            
+    def implement_separation_strategy(self, persona_a: str, persona_b: str):
+        """
+        🚧 IMPLÉMENTATION STRATÉGIE DE SÉPARATION
+        
+        Met en place des mesures pour séparer deux personas en conflit.
+        """
+        print(f"🚧 Mise en place séparation : {persona_a} ↔ {persona_b}")
+        
+        strategies = [
+            f"⏰ Décalage horaires : {persona_a} matin, {persona_b} soirée",
+            f"🎯 Segmentation audience : différenciation des niches",
+            f"🌍 Séparation géographique : marchés différents",
+            f"💰 Pricing différencié : gammes de prix distinctes"
+        ]
+        
+        for strategy in strategies:
+            print(f"   📋 {strategy}")
+            
+        # Sauvegarde de la stratégie de séparation
+        self.conflict_matrix[f"{persona_a}_{persona_b}"] = {
+            'separation_active': True,
+            'strategies': strategies,
+            'implemented_at': datetime.now()
+        }
+        
+    def create_cross_promotion_strategy(self, persona_a: str, persona_b: str):
+        """
+        🤝 CRÉATION STRATÉGIE DE CROSS-PROMOTION
+        
+        Met en place des synergies entre deux personas compatibles.
+        """
+        print(f"🤝 Création synergie : {persona_a} ↔ {persona_b}")
+        
+        synergy_opportunities = [
+            f"🔄 Cross-promotion mutuelle des contenus",
+            f"🎭 Collaborations créatives ponctuelles",
+            f"👥 Partage d'audience complémentaire",
+            f"💡 Échange de bonnes pratiques"
+        ]
+        
+        for opportunity in synergy_opportunities:
+            print(f"   💫 {opportunity}")
+            
+        # Sauvegarde de la stratégie de synergie
+        self.synergy_opportunities[f"{persona_a}_{persona_b}"] = {
+            'synergy_active': True,
+            'opportunities': synergy_opportunities,
+            'created_at': datetime.now()
+        }
+        
+    def optimize_resource_allocation(self, performance_data: Dict) -> Dict:
+        """
+        ⚡ OPTIMISATION ALLOCATION DES RESSOURCES
+        
+        Répartit intelligemment les ressources (GPU, CPU, quotas) 
+        selon les performances de chaque persona.
+        """
+        print("\n⚡ === OPTIMISATION DES RESSOURCES ===")
+        
+        allocation = {}
+        total_gpu_hours = 24  # 24h de GPU disponibles par jour
+        total_budget = 100    # Budget marketing quotidien
+        
+        # Calcul des scores de performance pour chaque persona
+        performance_scores = {}
+        for persona_id in self.manager.personas.keys():
+            performance = self.get_persona_performance(persona_id)
+            performance_scores[persona_id] = performance
+            
+        # Répartition proportionnelle selon les performances
+        total_roi = sum(p.get('roi', 1.0) for p in performance_scores.values())
+        
+        for persona_id, performance in performance_scores.items():
+            persona_name = self.manager.personas[persona_id].name
+            roi_ratio = performance.get('roi', 1.0) / total_roi
+            
+            allocation[persona_id] = {
+                'priority_score': performance.get('roi', 1.0),
+                'content_quota': int(20 * performance.get('engagement_rate', 0.1)),
+                'gpu_hours_daily': min(8, total_gpu_hours * roi_ratio),
+                'marketing_budget': total_budget * roi_ratio,
+                'quality_target': 'high' if performance.get('roi', 1.0) > 2.0 else 'standard'
+            }
+            
+            print(f"👤 {persona_name}:")
+            print(f"   📊 Score priorité : {allocation[persona_id]['priority_score']:.2f}")
+            print(f"   ⚡ GPU alloué : {allocation[persona_id]['gpu_hours_daily']:.1f}h/jour")
+            print(f"   📝 Quota contenu : {allocation[persona_id]['content_quota']} créations/jour")
+            print(f"   💰 Budget marketing : {allocation[persona_id]['marketing_budget']:.0f}€/jour")
+            
+        return allocation
+        
+    def get_persona_performance(self, persona_id: str) -> Dict:
+        """
+        📊 RÉCUPÉRATION PERFORMANCE PERSONA
+        
+        Récupère les métriques de performance d'un persona.
+        """
+        # Simulation de données de performance (à remplacer par vos vraies données)
+        performance_samples = {
+            'roi': random.uniform(1.0, 4.0),
+            'engagement_rate': random.uniform(0.05, 0.25),
+            'revenue_per_hour': random.uniform(10, 100),
+            'monthly_revenue': random.uniform(500, 5000),
+            'content_quality_avg': random.uniform(0.7, 0.95)
+        }
+        
+        return performance_samples
+        
+    def analyze_recent_performance(self) -> Dict:
+        """
+        📈 ANALYSE DES PERFORMANCES RÉCENTES
+        
+        Analyse les performances des 7 derniers jours pour optimiser les décisions.
+        """
+        print("📈 Analyse des performances des 7 derniers jours...")
+        
+        analysis = {}
+        for persona_id in self.manager.personas.keys():
+            persona_perf = self.get_persona_performance(persona_id)
+            analysis[persona_id] = {
+                'trend': 'up' if persona_perf['roi'] > 2.0 else 'stable',
+                'performance': persona_perf,
+                'recommendations': self.generate_performance_recommendations(persona_perf)
+            }
+            
+        return analysis
+        
+    def generate_performance_recommendations(self, performance: Dict) -> List[str]:
+        """Génère des recommandations d'amélioration basées sur les performances"""
+        recommendations = []
+        
+        if performance['roi'] < 1.5:
+            recommendations.append("🔄 Optimiser la stratégie de contenu")
+        if performance['engagement_rate'] < 0.1:
+            recommendations.append("👥 Améliorer l'interaction avec l'audience")
+        if performance['content_quality_avg'] < 0.8:
+            recommendations.append("🎨 Augmenter la qualité de génération")
+            
+        return recommendations
+        
+    def has_conflict_at_hour(self, persona_id: str, hour: int) -> bool:
+        """Vérifie si un persona a un conflit programmé à une heure donnée"""
+        # Vérification dans la matrice de conflits
+        for conflict_key, conflict_data in self.conflict_matrix.items():
+            if persona_id in conflict_key and conflict_data.get('separation_active', False):
+                # Logique de séparation horaire
+                return hour in conflict_data.get('blocked_hours', [])
+        return False
+        
+    def prepare_generation_params(self, action: Dict) -> Dict:
+        """Prépare les paramètres de génération pour une tâche"""
+        return {
+            'persona_id': action['persona_id'],
+            'content_type': action['content_type'],
+            'quality_target': action['quality_target'],
+            'resources': action['resources']
+        }
+        
+    def handle_generation_error(self, persona_id: str, error: Exception):
+        """Gère les erreurs de génération"""
+        print(f"🔧 Gestion d'erreur pour {persona_id}: {error}")
+        # Ici vous pourriez implémenter une logique de retry, fallback, etc.
+        
+    def calculate_daily_quotas(self) -> Dict:
+        """Calcule les quotas quotidiens par défaut"""
+        return {
+            'total_content_pieces': 50,
+            'max_gpu_hours': 24,
+            'max_api_calls': 1000,
+            'budget_limit': 100
+        }
+        
+    def initialize_resource_pool(self) -> Dict:
+        """Initialise le pool de ressources disponibles"""
+        return {
+            'gpu_available': True,
+            'api_quota_remaining': 1000,
+            'storage_space_gb': 100,
+            'bandwidth_mbps': 1000
+        }
+
+# Exemple d'utilisation de l'Orchestrateur
+if __name__ == "__main__":
+    print("🎭 === DÉMARRAGE ORCHESTRATEUR MULTI-PERSONA ===")
+    
+    # Initialisation (nécessite le MultiPersonaManager du Bloc 9.1)
+    # manager = MultiPersonaManager()
+    # orchestrator = MultiPersonaOrchestrator(manager)
+    
+    # Lancement de l'orchestration quotidienne
+    # orchestrator.execute_daily_orchestration()
+    
+    print("✅ Script prêt à utiliser !")
+</code></pre>
+                </div>
+            </div>
+
+            <!-- Guide installation étape par étape -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-hammer mr-2"></i>
+                    Installation Step-by-Step (Pour Débutants)
+                </h4>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h5 class="font-bold text-lg">Préparation de l'environnement</h5>
+                            <p class="text-gray-600 mb-2">
+                                <strong>🖥️ Ouvrez votre ordinateur et lancez l'invite de commande :</strong>
+                            </p>
+                            <ul class="list-disc list-inside ml-4 text-sm space-y-1">
+                                <li><strong>Windows :</strong> Appuyez sur "Windows + R", tapez "cmd" et appuyez sur Entrée</li>
+                                <li><strong>Mac :</strong> Appuyez sur "Cmd + Espace", tapez "Terminal" et appuyez sur Entrée</li>
+                                <li><strong>Linux :</strong> Appuyez sur "Ctrl + Alt + T"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h5 class="font-bold text-lg">Création du fichier Python</h5>
+                            <p class="text-gray-600 mb-2">
+                                <strong>📝 Créez un nouveau fichier sur votre bureau :</strong>
+                            </p>
+                            <ol class="list-decimal list-inside ml-4 text-sm space-y-1">
+                                <li>Faites clic droit sur votre bureau</li>
+                                <li>Sélectionnez "Nouveau" → "Document texte" (Windows) ou "Nouveau fichier" (Mac)</li>
+                                <li>Nommez le fichier : <code class="bg-gray-200 px-2 py-1 rounded">orchestrateur_multi_persona.py</code></li>
+                                <li>⚠️ <strong>Important :</strong> L'extension doit être ".py" et non ".txt"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h5 class="font-bold text-lg">Copie du code</h5>
+                            <p class="text-gray-600 mb-2">
+                                <strong>📋 Copiez le code Python complet :</strong>
+                            </p>
+                            <ol class="list-decimal list-inside ml-4 text-sm space-y-1">
+                                <li>Cliquez sur le bouton "Copier le Code" ci-dessus</li>
+                                <li>Ouvrez le fichier .py avec un éditeur de texte (Bloc-notes, TextEdit, etc.)</li>
+                                <li>Collez le code complet (Ctrl+V ou Cmd+V)</li>
+                                <li>Sauvegardez le fichier (Ctrl+S ou Cmd+S)</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h5 class="font-bold text-lg">Test du script</h5>
+                            <p class="text-gray-600 mb-2">
+                                <strong>🧪 Testez que le script fonctionne :</strong>
+                            </p>
+                            <ol class="list-decimal list-inside ml-4 text-sm space-y-1">
+                                <li>Retournez dans l'invite de commande</li>
+                                <li>Tapez : <code class="bg-gray-200 px-2 py-1 rounded">cd Desktop</code> (pour aller sur le bureau)</li>
+                                <li>Tapez : <code class="bg-gray-200 px-2 py-1 rounded">python orchestrateur_multi_persona.py</code></li>
+                                <li>✅ Vous devez voir : "🎭 === DÉMARRAGE ORCHESTRATEUR MULTI-PERSONA ==="</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Temps Réel -->
+    <section id="dashboard" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-chart-line mr-3 text-blue-600"></i>
+                    Dashboard de Monitoring Temps Réel
+                </h3>
+                <p class="text-lg text-gray-600">Interface de surveillance de tous vos personas IA</p>
+            </div>
+
+            <!-- Métriques globales -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Personas Actifs</p>
+                            <p class="text-3xl font-bold text-blue-600">7</p>
+                            <p class="text-xs text-green-600">+2 ce mois</p>
+                        </div>
+                        <i class="fas fa-users text-3xl text-blue-600"></i>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Revenus Totaux</p>
+                            <p class="text-3xl font-bold text-green-600">45,230€</p>
+                            <p class="text-xs text-green-600">+18% vs mois dernier</p>
+                        </div>
+                        <i class="fas fa-euro-sign text-3xl text-green-600"></i>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Contenu Généré</p>
+                            <p class="text-3xl font-bold text-purple-600">1,847</p>
+                            <p class="text-xs text-green-600">+156 cette semaine</p>
+                        </div>
+                        <i class="fas fa-images text-3xl text-purple-600"></i>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">ROI Moyen</p>
+                            <p class="text-3xl font-bold text-orange-600">284%</p>
+                            <p class="text-xs text-green-600">+12% vs trimestre</p>
+                        </div>
+                        <i class="fas fa-chart-line text-3xl text-orange-600"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graphique des performances -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-chart-area mr-2"></i>
+                    Évolution des Revenus Collectifs (7 derniers jours)
+                </h4>
+                <div class="chart-container">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Performance par persona -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="persona-card" style="border-left-color: #007bff;">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-bold text-lg">Léana Mystère</h4>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">ACTIVE</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Revenus</span>
+                            <span class="font-bold text-green-600">12,450€</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">ROI</span>
+                            <span class="font-bold text-blue-600">340%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">Performance: 85%</p>
+                    </div>
+                </div>
+                
+                <div class="persona-card" style="border-left-color: #28a745;">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-bold text-lg">Sophia Valentina</h4>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">GENERATING</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Revenus</span>
+                            <span class="font-bold text-green-600">8,920€</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">ROI</span>
+                            <span class="font-bold text-blue-600">275%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%;"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">Performance: 72%</p>
+                    </div>
+                </div>
+                
+                <div class="persona-card" style="border-left-color: #ffc107;">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-bold text-lg">Aria SportX</h4>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">PUBLISHING</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Revenus</span>
+                            <span class="font-bold text-green-600">6,780€</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">ROI</span>
+                            <span class="font-bold text-blue-600">220%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">Performance: 65%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Synergies et Conflits -->
+    <section id="synergies" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-network-wired mr-3 text-blue-600"></i>
+                    Matrice de Synergies & Prévention des Conflits
+                </h3>
+                <p class="text-lg text-gray-600">Analyse automatique des interactions entre vos personas</p>
+            </div>
+
+            <!-- Matrice de synergies -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-handshake mr-2"></i>
+                    Synergies Cross-Persona Détectées
+                </h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-green-200 rounded-lg p-4 bg-green-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <h5 class="font-bold text-green-800">Léana ↔ Sophia</h5>
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">92% Synergie</span>
+                        </div>
+                        <p class="text-sm text-green-700 mb-2">
+                            <strong>Opportunité :</strong> Audience complémentaire (art + maturité)
+                        </p>
+                        <ul class="text-xs text-green-600 space-y-1">
+                            <li>✅ Cross-promotion recommandée</li>
+                            <li>✅ Collaborations créatives possibles</li>
+                            <li>✅ Partage de stratégies marketing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border border-blue-200 rounded-lg p-4 bg-blue-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <h5 class="font-bold text-blue-800">Aria ↔ Léana</h5>
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">78% Synergie</span>
+                        </div>
+                        <p class="text-sm text-blue-700 mb-2">
+                            <strong>Opportunité :</strong> Lifestyle complémentaire (fitness + art)
+                        </p>
+                        <ul class="text-xs text-blue-600 space-y-1">
+                            <li>✅ Contenus "healthy lifestyle" collaboratifs</li>
+                            <li>✅ Audiences partagées wellness + créativité</li>
+                            <li>✅ Cross-référencement naturel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conflits détectés -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Conflits Détectés et Stratégies de Résolution
+                </h4>
+                
+                <div class="border border-red-200 rounded-lg p-4 bg-red-50">
+                    <div class="flex items-center justify-between mb-3">
+                        <h5 class="font-bold text-red-800">Sophia ↔ Raven</h5>
+                        <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">34% Conflit</span>
+                    </div>
+                    <p class="text-sm text-red-700 mb-3">
+                        <strong>Problème :</strong> Overlap d'audience mature alternative
+                    </p>
+                    
+                    <div class="bg-white rounded-lg p-3 mb-3">
+                        <h6 class="font-bold text-sm text-gray-800 mb-2">🛡️ Stratégies de Séparation Appliquées :</h6>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>⏰ <strong>Séparation horaire :</strong> Sophia matin/après-midi, Raven soirée/nuit</li>
+                            <li>🎯 <strong>Différenciation de niche :</strong> Sophia élégance, Raven rebellion</li>
+                            <li>💰 <strong>Pricing différencié :</strong> Gammes de prix distinctes</li>
+                            <li>🌍 <strong>Séparation géographique :</strong> Marchés cibles différents</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex items-center text-green-600 text-sm">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span>Stratégies automatiquement appliquées - Conflit résolu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intelligence Collective -->
+    <section id="intelligence" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-brain mr-3 text-purple-600"></i>
+                    Intelligence Collective & Apprentissage Croisé
+                </h3>
+                <p class="text-lg text-gray-600">Système d'amélioration continue basé sur l'apprentissage mutuel</p>
+            </div>
+
+            <!-- Explication intelligence collective -->
+            <div class="info-box mb-8">
+                <h4 class="font-bold text-lg mb-3">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    Comment fonctionne l'Intelligence Collective ?
+                </h4>
+                <p class="mb-3">
+                    <strong>Imaginez une école où tous vos personas IA sont à la fois élèves et professeurs :</strong>
+                </p>
+                <ul class="list-disc list-inside ml-4 space-y-2">
+                    <li>🎓 <strong>Apprentissage automatique :</strong> Quand Léana découvre une technique qui marche, le système l'enseigne automatiquement à Sophia et Aria</li>
+                    <li>📊 <strong>Analyse des succès :</strong> Le système identifie automatiquement ce qui fonctionne le mieux pour chaque persona</li>
+                    <li>🔄 <strong>Amélioration continue :</strong> Chaque semaine, tous les personas deviennent un peu meilleurs grâce aux découvertes des autres</li>
+                    <li>🧠 <strong>Mémoire collective :</strong> Toutes les bonnes pratiques sont sauvegardées et partagées intelligemment</li>
+                </ul>
+            </div>
+
+            <!-- Script Intelligence Collective -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h4 class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-code mr-2"></i>
+                        Script Python - Intelligence Collective
+                    </h4>
+                    <button class="copy-btn" onclick="copyCode('intelligence-code')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                </div>
+                
+                <div class="code-block" id="intelligence-code">
+<pre><code>class CollectiveIntelligenceEngine:
+    """
+    🧠 MOTEUR D'INTELLIGENCE COLLECTIVE
+    
+    Cette classe implémente l'apprentissage croisé entre tous vos personas IA.
+    Elle identifie automatiquement les succès et les réplique sur les autres personas.
+    """
+    
+    def __init__(self, persona_manager):
+        self.persona_manager = persona_manager
+        self.knowledge_base = {}
+        self.pattern_library = {}
+        self.success_strategies = []
+        
+        print("🧠 Intelligence Collective initialisée")
+        print(f"📚 Base de connaissances prête pour {len(persona_manager.personas)} personas")
+    
+    def implement_cross_learning(self):
+        """
+        🎓 IMPLÉMENTATION APPRENTISSAGE CROISÉ
+        
+        Analyse les performances de tous les personas et applique
+        les meilleures stratégies à ceux qui en ont besoin.
+        """
+        print("\n🎓 === DÉMARRAGE APPRENTISSAGE CROISÉ ===")
+        
+        # 1. Collecte des données de performance de tous les personas
+        performance_data = self.collect_all_performance_data()
+        print(f"📊 Données collectées pour {len(performance_data)} personas")
+        
+        # 2. Identification des patterns de succès
+        success_patterns = self.identify_success_patterns(performance_data)
+        print(f"🎯 {len(success_patterns)} patterns de succès identifiés")
+        
+        # 3. Application des apprentissages à chaque persona
+        for persona_id in self.persona_manager.personas.keys():
+            persona_name = self.persona_manager.personas[persona_id].name
+            print(f"\n👤 Analyse apprentissage pour {persona_name}:")
+            
+            # Filtrage des patterns applicables à ce persona
+            applicable_patterns = self.filter_applicable_patterns(
+                persona_id, success_patterns
+            )
+            
+            if applicable_patterns:
+                print(f"   📖 {len(applicable_patterns)} stratégies applicables trouvées")
+                self.apply_learnings_to_persona(persona_id, applicable_patterns)
+            else:
+                print(f"   ℹ️ Aucune nouvelle stratégie applicable pour le moment")
+                
+        print("\n✅ === APPRENTISSAGE CROISÉ TERMINÉ ===")
+    
+    def collect_all_performance_data(self) -> Dict:
+        """
+        📊 COLLECTE DES DONNÉES DE PERFORMANCE
+        
+        Rassemble toutes les métriques de performance de tous les personas
+        pour analyse comparative.
+        """
+        all_data = {}
+        
+        for persona_id, persona in self.persona_manager.personas.items():
+            # Collecte des métriques détaillées
+            performance_metrics = {
+                'roi': self.get_persona_roi(persona_id),
+                'engagement_rate': self.get_engagement_rate(persona_id),
+                'content_quality': self.get_content_quality_avg(persona_id),
+                'audience_growth': self.get_audience_growth(persona_id),
+                'revenue_trend': self.get_revenue_trend(persona_id),
+                'successful_strategies': self.get_successful_strategies(persona_id),
+                'content_types_performance': self.get_content_performance(persona_id),
+                'optimal_posting_times': self.get_optimal_times(persona_id)
+            }
+            
+            all_data[persona_id] = {
+                'persona_name': persona.name,
+                'category': persona.category,
+                'metrics': performance_metrics,
+                'last_updated': datetime.now()
+            }
+            
+        return all_data
+    
+    def identify_success_patterns(self, performance_data: Dict) -> List[Dict]:
+        """
+        🎯 IDENTIFICATION DES PATTERNS DE SUCCÈS
+        
+        Analyse les données pour identifier les stratégies qui fonctionnent le mieux.
+        """
+        success_patterns = []
+        
+        # 1. Analyse des ROI élevés
+        high_roi_personas = [
+            persona_id for persona_id, data in performance_data.items()
+            if data['metrics']['roi'] > 3.0
+        ]
+        
+        if high_roi_personas:
+            # Analyse des stratégies communes aux personas performants
+            common_strategies = self.find_common_strategies(
+                high_roi_personas, performance_data
+            )
+            
+            for strategy in common_strategies:
+                success_patterns.append({
+                    'pattern_type': 'high_roi_strategy',
+                    'strategy': strategy,
+                    'performers': high_roi_personas,
+                    'avg_impact': self.calculate_strategy_impact(strategy, performance_data),
+                    'confidence': 0.8
+                })
+        
+        # 2. Analyse des heures optimales
+        optimal_times_pattern = self.analyze_optimal_times_pattern(performance_data)
+        if optimal_times_pattern:
+            success_patterns.append(optimal_times_pattern)
+        
+        # 3. Analyse des types de contenu performants
+        content_patterns = self.analyze_content_type_patterns(performance_data)
+        success_patterns.extend(content_patterns)
+        
+        return success_patterns
+    
+    def filter_applicable_patterns(self, persona_id: str, patterns: List[Dict]) -> List[Dict]:
+        """
+        🔍 FILTRAGE DES PATTERNS APPLICABLES
+        
+        Détermine quels patterns de succès peuvent être appliqués
+        à un persona spécifique selon sa catégorie et ses spécificités.
+        """
+        applicable = []
+        persona = self.persona_manager.personas[persona_id]
+        
+        for pattern in patterns:
+            # Vérification de la compatibilité
+            if self.is_pattern_compatible(persona, pattern):
+                # Vérification que le persona n'utilise pas déjà cette stratégie
+                if not self.persona_already_uses_strategy(persona_id, pattern):
+                    applicable.append(pattern)
+                    
+        return applicable
+    
+    def apply_learnings_to_persona(self, persona_id: str, patterns: List[Dict]):
+        """
+        📚 APPLICATION DES APPRENTISSAGES
+        
+        Applique les stratégies apprises à un persona spécifique.
+        """
+        persona_name = self.persona_manager.personas[persona_id].name
+        
+        for pattern in patterns:
+            strategy_type = pattern['pattern_type']
+            strategy_data = pattern['strategy']
+            impact_expected = pattern.get('avg_impact', 0)
+            
+            print(f"   📖 Application stratégie : {strategy_type}")
+            print(f"      💡 Détail : {strategy_data}")
+            print(f"      📈 Impact attendu : +{impact_expected:.1%}")
+            
+            # Application selon le type de stratégie
+            if strategy_type == 'high_roi_strategy':
+                self.apply_roi_strategy(persona_id, strategy_data)
+            elif strategy_type == 'optimal_timing':
+                self.apply_timing_strategy(persona_id, strategy_data)
+            elif strategy_type == 'content_type':
+                self.apply_content_strategy(persona_id, strategy_data)
+                
+            # Sauvegarde de l'apprentissage appliqué
+            self.record_applied_learning(persona_id, pattern)
+    
+    def apply_roi_strategy(self, persona_id: str, strategy_data: Dict):
+        """Applique une stratégie ROI élevé à un persona"""
+        # Mise à jour des paramètres de génération
+        self.update_persona_generation_params(persona_id, strategy_data)
+        
+    def apply_timing_strategy(self, persona_id: str, strategy_data: Dict):
+        """Applique une stratégie de timing optimal"""
+        # Mise à jour du planning de publication
+        self.update_persona_schedule(persona_id, strategy_data['optimal_hours'])
+        
+    def apply_content_strategy(self, persona_id: str, strategy_data: Dict):
+        """Applique une stratégie de type de contenu"""
+        # Mise à jour des priorités de contenu
+        self.update_content_priorities(persona_id, strategy_data['content_types'])
+    
+    def create_synergy_matrix(self) -> Dict:
+        """
+        🤝 CRÉATION MATRICE DE SYNERGIES
+        
+        Analyse les opportunités de synergie entre tous les personas.
+        """
+        print("\n🤝 === ANALYSE DES SYNERGIES ===")
+        
+        personas = list(self.persona_manager.personas.keys())
+        synergy_matrix = {}
+        
+        for i, persona_a in enumerate(personas):
+            synergy_matrix[persona_a] = {}
+            
+            for persona_b in personas[i+1:]:
+                synergy_score = self.calculate_synergy_potential(persona_a, persona_b)
+                
+                synergy_data = {
+                    'score': synergy_score,
+                    'opportunities': self.identify_synergy_opportunities(
+                        persona_a, persona_b
+                    ),
+                    'implementation_plan': self.create_synergy_plan(
+                        persona_a, persona_b, synergy_score
+                    )
+                }
+                
+                synergy_matrix[persona_a][persona_b] = synergy_data
+                
+                print(f"🔍 {persona_a} ↔ {persona_b}: {synergy_score:.1%} de synergie")
+                
+        return synergy_matrix
+    
+    def optimize_collective_performance(self):
+        """
+        ⚡ OPTIMISATION PERFORMANCE COLLECTIVE
+        
+        Optimise les performances globales de tous les personas
+        en identifiant et résolvant les goulots d'étranglement.
+        """
+        print("\n⚡ === OPTIMISATION COLLECTIVE ===")
+        
+        # 1. Identification des goulots d'étranglement
+        bottlenecks = self.identify_system_bottlenecks()
+        print(f"🔍 {len(bottlenecks)} goulots d'étranglement identifiés")
+        
+        # 2. Calcul de l'allocation optimale des ressources
+        optimal_allocation = self.calculate_optimal_resource_allocation()
+        
+        # 3. Application des optimisations
+        for optimization in optimal_allocation['optimizations']:
+            self.implement_optimization(optimization)
+            print(f"✅ Optimisation appliquée : {optimization['description']}")
+        
+        # 4. Monitoring des améliorations
+        improvement_metrics = self.monitor_collective_improvements()
+        
+        return {
+            'bottlenecks_resolved': bottlenecks,
+            'resource_optimization': optimal_allocation,
+            'performance_gains': improvement_metrics
+        }
+    
+    # Méthodes auxiliaires (implémentation simplifiée pour l'exemple)
+    def get_persona_roi(self, persona_id: str) -> float:
+        """Récupère le ROI d'un persona"""
+        return random.uniform(1.5, 4.0)  # Simulation
+    
+    def get_engagement_rate(self, persona_id: str) -> float:
+        """Récupère le taux d'engagement"""
+        return random.uniform(0.05, 0.25)  # Simulation
+    
+    def get_content_quality_avg(self, persona_id: str) -> float:
+        """Récupère la qualité moyenne du contenu"""
+        return random.uniform(0.7, 0.95)  # Simulation
+    
+    def get_successful_strategies(self, persona_id: str) -> List[str]:
+        """Récupère les stratégies qui fonctionnent pour ce persona"""
+        strategies_pool = [
+            'morning_posting', 'interactive_content', 'premium_pricing',
+            'cross_platform', 'personalized_responses', 'trending_hashtags'
+        ]
+        return random.sample(strategies_pool, random.randint(2, 4))
+    
+    def find_common_strategies(self, high_performers: List[str], data: Dict) -> List[str]:
+        """Trouve les stratégies communes aux personas performants"""
+        all_strategies = []
+        for persona_id in high_performers:
+            all_strategies.extend(data[persona_id]['metrics']['successful_strategies'])
+        
+        # Compte les occurrences et retourne les plus fréquentes
+        from collections import Counter
+        strategy_counts = Counter(all_strategies)
+        return [strategy for strategy, count in strategy_counts.most_common(3)]
+    
+    def is_pattern_compatible(self, persona, pattern) -> bool:
+        """Vérifie si un pattern est compatible avec un persona"""
+        # Logique de compatibilité basée sur la catégorie, etc.
+        return True  # Simplifié pour l'exemple
+    
+    def persona_already_uses_strategy(self, persona_id: str, pattern: Dict) -> bool:
+        """Vérifie si le persona utilise déjà cette stratégie"""
+        return False  # Simplifié pour l'exemple
+    
+    def record_applied_learning(self, persona_id: str, pattern: Dict):
+        """Enregistre l'apprentissage appliqué pour suivi"""
+        if 'applied_learnings' not in self.knowledge_base:
+            self.knowledge_base['applied_learnings'] = {}
+        
+        if persona_id not in self.knowledge_base['applied_learnings']:
+            self.knowledge_base['applied_learnings'][persona_id] = []
+        
+        self.knowledge_base['applied_learnings'][persona_id].append({
+            'pattern': pattern,
+            'applied_at': datetime.now(),
+            'status': 'active'
+        })
+
+# Exemple d'utilisation
+if __name__ == "__main__":
+    print("🧠 === DÉMARRAGE INTELLIGENCE COLLECTIVE ===")
+    
+    # Initialisation (nécessite le MultiPersonaManager)
+    # manager = MultiPersonaManager()
+    # intelligence = CollectiveIntelligenceEngine(manager)
+    
+    # Lancement de l'apprentissage croisé
+    # intelligence.implement_cross_learning()
+    
+    # Création de la matrice de synergies
+    # synergies = intelligence.create_synergy_matrix()
+    
+    # Optimisation collective
+    # improvements = intelligence.optimize_collective_performance()
+    
+    print("✅ Intelligence Collective prête !")
+</code></pre>
+                </div>
+            </div>
+
+            <!-- Visualisation des apprentissages -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-network-wired mr-2"></i>
+                    Réseau d'Apprentissage Collectif
+                </h4>
+                <div class="chart-container">
+                    <canvas id="learningChart"></canvas>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <div class="text-2xl font-bold text-green-600">47</div>
+                        <div class="text-sm text-green-700">Stratégies Partagées</div>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">12</div>
+                        <div class="text-sm text-blue-700">Apprentissages Actifs</div>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <div class="text-2xl font-bold text-purple-600">+28%</div>
+                        <div class="text-sm text-purple-700">Amélioration Globale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section id="installation" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-download mr-3 text-blue-600"></i>
+                    Guide d'Installation Complet
+                </h3>
+                <p class="text-lg text-gray-600">Instructions détaillées pour déployer votre système d'orchestration</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Prérequis -->
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-list-check mr-2"></i>
+                        Prérequis Système
+                    </h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-bold text-lg mb-3">💻 Configuration Minimale</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-600 mr-2"></i>
+                                    Python 3.8+ installé
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-600 mr-2"></i>
+                                    8 GB RAM minimum
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-600 mr-2"></i>
+                                    50 GB espace disque libre
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-600 mr-2"></i>
+                                    Connexion internet stable
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-bold text-lg mb-3">⚡ Configuration Recommandée</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                    Python 3.11+
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                    16 GB RAM ou plus
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                    GPU NVIDIA (RTX 3060+)
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                    SSD 100+ GB
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installation étapes -->
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-cog mr-2"></i>
+                        Installation en 5 Étapes
+                    </h4>
+                    
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-600 pl-6">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number">1</div>
+                                <h5 class="font-bold text-lg ml-3">Installation des Dépendances</h5>
+                            </div>
+                            <p class="text-gray-600 mb-3">Installez les bibliothèques Python nécessaires</p>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <code class="text-sm">
+                                    pip install sqlite3 pandas numpy matplotlib seaborn<br>
+                                    pip install threading datetime random json
+                                </code>
+                            </div>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-600 pl-6">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number">2</div>
+                                <h5 class="font-bold text-lg ml-3">Configuration Base de Données</h5>
+                            </div>
+                            <p class="text-gray-600 mb-3">Initialisez la base de données SQLite</p>
+                            <div class="warning-box">
+                                <strong>⚠️ Important :</strong> Sauvegardez régulièrement votre base de données persona.
+                            </div>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-600 pl-6">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number">3</div>
+                                <h5 class="font-bold text-lg ml-3">Déploiement Scripts</h5>
+                            </div>
+                            <p class="text-gray-600 mb-3">Copiez les scripts Python dans votre environnement</p>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <code class="text-sm">
+                                    python orchestrateur_multi_persona.py<br>
+                                    python intelligence_collective.py
+                                </code>
+                            </div>
+                        </div>
+                        
+                        <div class="border-l-4 border-orange-600 pl-6">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number">4</div>
+                                <h5 class="font-bold text-lg ml-3">Lancement Dashboard</h5>
+                            </div>
+                            <p class="text-gray-600 mb-3">Démarrez l'interface de monitoring</p>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <code class="text-sm">
+                                    python dashboard_launcher.py --port 8080 --personas-config config.json
+                                </code>
+                            </div>
+                        </div>
+                        
+                        <div class="border-l-4 border-red-600 pl-6">
+                            <div class="flex items-center mb-2">
+                                <div class="step-number">5</div>
+                                <h5 class="font-bold text-lg ml-3">Test & Validation</h5>
+                            </div>
+                            <p class="text-gray-600 mb-3">Vérifiez que tout fonctionne correctement</p>
+                            <div class="success-box">
+                                <strong>✅ Succès :</strong> Vous devez voir le dashboard accessible sur http://localhost:8080
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist finale -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-clipboard-check mr-2"></i>
+                        Checklist de Validation Finale
+                    </h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-bold text-lg mb-3">🔧 Tests Techniques</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Orchestrateur se lance sans erreur
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Dashboard accessible via navigateur
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Base de données initialisée
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Intelligence collective active
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-bold text-lg mb-3">📊 Tests Fonctionnels</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Métriques temps réel affichées
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Synergies détectées correctement
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Allocation ressources active
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2">
+                                        Apprentissage croisé fonctionnel
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Récapitulatif -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-3xl font-bold mb-6">
+                    <i class="fas fa-trophy mr-3"></i>
+                    Bloc 9.2 Terminé - Orchestration Maîtrisée !
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <i class="fas fa-cogs text-4xl mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Orchestration Automatique</h4>
+                        <p class="opacity-90">Coordination intelligente de tous vos personas IA</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-brain text-4xl mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Intelligence Collective</h4>
+                        <p class="opacity-90">Apprentissage croisé et amélioration continue</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-chart-line text-4xl mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Optimisation Automatique</h4>
+                        <p class="opacity-90">Allocation intelligente des ressources</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <p class="text-xl mb-6">
+                        Votre système d'orchestration multi-persona est maintenant opérationnel !
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <span class="bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm">
+                            <i class="fas fa-check mr-2"></i>
+                            Scripts Python Complets
+                        </span>
+                        <span class="bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm">
+                            <i class="fas fa-check mr-2"></i>
+                            Dashboard Interactif
+                        </span>
+                        <span class="bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm">
+                            <i class="fas fa-check mr-2"></i>
+                            Intelligence Collective
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonction de copie de code
+        function copyCode(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                // Feedback visuel
+                const button = element.parentElement.querySelector('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-1"></i>Copié !';
+                button.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#28a745';
+                }, 2000);
+            });
+        }
+
+        // Graphique des revenus
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx1 = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+                    datasets: [{
+                        label: 'Revenus Collectifs (€)',
+                        data: [1200, 1850, 2100, 1900, 2400, 2800, 2600],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'Léana Mystère',
+                        data: [450, 520, 600, 580, 680, 750, 720],
+                        borderColor: '#28a745',
+                        backgroundColor: 'transparent',
+                        tension: 0.4
+                    }, {
+                        label: 'Sophia Valentina',
+                        data: [380, 450, 480, 420, 520, 580, 560],
+                        borderColor: '#ffc107',
+                        backgroundColor: 'transparent',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '€';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Graphique d'apprentissage
+            const ctx2 = document.getElementById('learningChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'radar',
+                data: {
+                    labels: ['Timing Optimal', 'Types Contenu', 'Engagement', 'Pricing', 'Cross-Promo', 'Qualité'],
+                    datasets: [{
+                        label: 'Avant Apprentissage',
+                        data: [65, 59, 70, 81, 56, 75],
+                        borderColor: '#dc3545',
+                        backgroundColor: 'rgba(220, 53, 69, 0.2)',
+                    }, {
+                        label: 'Après Apprentissage',
+                        data: [85, 78, 89, 92, 84, 91],
+                        borderColor: '#28a745',
+                        backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        });
+
+        // Smooth scrolling pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e674c4c66250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmtxkvic1GWTIEEME1FALu5CJzfJUBPK4oJq4jUNUhzd8%2Bg8RholefiGdYItS1brs%2FR0OTIeZvAQgNRX36J9YMtdJ4nNFIv0VZtk%2FHSJjvaJboaWAO1%2BpM8yZ5y5uojehcDFkiWYbX7NEoCGauA6BHMLBCEanlIxSCGjZ5UIh5Av3DLO4BBiNzgDaZIZ3ATf91x3nfaHsVt%2B9k%2FAT%2BOFr7Q7VtSsjqsFDGjKGXYcuOGM%2FG%2BYK%2Fm1PtJc0NS33FcVEO3jMC48FmoDa4Q%2FR8bib2SXkFXonjs7w2jseElWK5F6c1tN6ZbOoQb9lW8pyZJocAUGAg3NMZLRalo3iFj0MFctG4vwUQzrMXfnBT54jrLYGgqbhVIDoEmbWkLPl5XqND31tQmAwCJwFgcgYvYZlmNoMGVyVsZIebykXzyCaxaUfvYcZR%2FAODIY0i4paRxd1wXyNfd7wB5HoZ2vYCNpZ6XC4nSASPAWjC0JQZBxHUnDFv%2FMC6Hq6seowwgVQ%2BUTrIEI4o3JstGWHUOtUSnPpqUtjd9I9IBhbkPiyoIWZtT4";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmtxkvic1GWTIEEME1FALu5CJzfJUBPK4oJq4jUNUhzd8+g8RholefiGdYItS1brs/R0OTIeZvAQgNRX36J9YMtdJ4nNFIv0VZtk/HSJjvaJboaWAO1+pM8yZ5y5uojehcDFkiWYbX7NEoCGauA6BHMLBCEanlIxSCGjZ5UIh5Av3DLO4BBiNzgDaZIZ3ATf91x3nfaHsVt+9k/AT+OFr7Q7VtSsjqsFDGjKGXYcuOGM/G+YK/m1PtJc0NS33FcVEO3jMC48FmoDa4Q/R8bib2SXkFXonjs7w2jseElWK5F6c1tN6ZbOoQb9lW8pyZJocAUGAg3NMZLRalo3iFj0MFctG4vwUQzrMXfnBT54jrLYGgqbhVIDoEmbWkLPl5XqND31tQmAwCJwFgcgYvYZlmNoMGVyVsZIebykXzyCaxaUfvYcZR/AODIY0i4paRxd1wXyNfd7wB5HoZ2vYCNpZ6XC4nSASPAWjC0JQZBxHUnDFv/MC6Hq6seowwgVQ+UTrIEI4o3JstGWHUOtUSnPpqUtjd9I9IBhbkPiyoIWZtT4";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

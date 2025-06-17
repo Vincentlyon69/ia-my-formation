@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 8 PARTIE 1.1 - Base de Données & Infrastructure</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .step-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        .step-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #374151;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background: #4b5563;
+        }
+        .alert-box {
+            border-left: 4px solid #f59e0b;
+            background: #fef3c7;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            border-left: 4px solid #10b981;
+            background: #d1fae5;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .interactive-element:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-database text-5xl mb-4"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-2">BLOC 8 PARTIE 1.1</h1>
+                <h2 class="text-2xl font-light mb-4">Base de Données & Infrastructure SQLite</h2>
+                <p class="text-lg max-w-4xl mx-auto leading-relaxed">
+                    Infrastructure complète et base de données SQLite pour système de publication automatisée MYM. 
+                    Création schéma, configuration, gestion données avec scripts Python complets.
+                </p>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <span class="bg-white bg-opacity-20 rounded-full px-4 py-2 text-sm">
+                        <i class="fas fa-database mr-2"></i>SQLite Avancé
+                    </span>
+                    <span class="bg-white bg-opacity-20 rounded-full px-4 py-2 text-sm">
+                        <i class="fas fa-code mr-2"></i>Scripts Python
+                    </span>
+                    <span class="bg-white bg-opacity-20 rounded-full px-4 py-2 text-sm">
+                        <i class="fas fa-cogs mr-2"></i>Infrastructure
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-6">
+                <a href="#objectifs" class="text-blue-600 hover:text-blue-800 font-medium">Objectifs</a>
+                <a href="#architecture" class="text-blue-600 hover:text-blue-800 font-medium">Architecture</a>
+                <a href="#schema" class="text-blue-600 hover:text-blue-800 font-medium">Schéma BDD</a>
+                <a href="#installation" class="text-blue-600 hover:text-blue-800 font-medium">Installation</a>
+                <a href="#scripts" class="text-blue-600 hover:text-blue-800 font-medium">Scripts Python</a>
+                <a href="#gestion" class="text-blue-600 hover:text-blue-800 font-medium">Gestion</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Objectifs -->
+    <section id="objectifs" class="py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-target mr-3 text-blue-600"></i>
+                Objectifs de l'Infrastructure
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 step-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-database text-3xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold">Base Centralisée</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Stockage centralisé du contenu</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Métadonnées complètes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Historique des publications</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Analytics intégrés</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 step-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-clock text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-bold">Planification</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Calendrier automatisé</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimisation horaires</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Gestion des priorités</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Backup automatique</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 step-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-users text-3xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-bold">Interactions</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Suivi des abonnés</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Historique conversations</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Segmentation audience</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Personnalisation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Architecture -->
+    <section id="architecture" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-sitemap mr-3 text-blue-600"></i>
+                Architecture de la Base de Données
+            </h2>
+
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Structure Modulaire SQLite</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-blue-600">
+                            <i class="fas fa-table mr-2"></i>Tables Principales
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <h5 class="font-bold text-blue-800">content_library</h5>
+                                <p class="text-sm text-gray-600">Stockage central de tout le contenu généré</p>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <h5 class="font-bold text-green-800">publication_schedule</h5>
+                                <p class="text-sm text-gray-600">Planification et calendrier des publications</p>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <h5 class="font-bold text-purple-800">subscriber_interactions</h5>
+                                <p class="text-sm text-gray-600">Historique et données des interactions</p>
+                            </div>
+                            <div class="bg-orange-50 rounded-lg p-4">
+                                <h5 class="font-bold text-orange-800">analytics_data</h5>
+                                <p class="text-sm text-gray-600">Métriques et données d'analyse</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-green-600">
+                            <i class="fas fa-link mr-2"></i>Relations et Index
+                        </h4>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-project-diagram text-4xl text-gray-600"></i>
+                            </div>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>content_id → Foreign Keys</li>
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>subscriber_id → Relations</li>
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Index optimisés pour performance</li>
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Contraintes d'intégrité</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Schéma -->
+    <section id="schema" class="py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-code mr-3 text-blue-600"></i>
+                Schéma SQLite Complet
+            </h2>
+
+            <!-- Script de création de la base -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-hammer mr-2 text-blue-600"></i>
+                    Script de Création de la Base
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('create-schema')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="create-schema" class="code-block">
+<span style="color: #569cd6;">import</span> sqlite3
+<span style="color: #569cd6;">import</span> os
+<span style="color: #569cd6;">from</span> datetime <span style="color: #569cd6;">import</span> datetime
+<span style="color: #569cd6;">import</span> json
+
+<span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">MYMDatabaseManager</span>:
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">__init__</span>(<span style="color: #9cdcfe;">self</span>, <span style="color: #9cdcfe;">db_path</span>=<span style="color: #ce9178;">"mym_automation.db"</span>):
+        <span style="color: #9cdcfe;">self</span>.db_path = db_path
+        <span style="color: #9cdcfe;">self</span>.connection = <span style="color: #569cd6;">None</span>
+        <span style="color: #9cdcfe;">self</span>.initialize_database()
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">initialize_database</span>(<span style="color: #9cdcfe;">self</span>):
+        <span style="color: #6a9955;">"""Initialisation complète de la base de données"""</span>
+        <span style="color: #9cdcfe;">self</span>.connection = sqlite3.connect(<span style="color: #9cdcfe;">self</span>.db_path)
+        <span style="color: #9cdcfe;">self</span>.connection.row_factory = sqlite3.Row
+        
+        <span style="color: #9cdcfe;">self</span>.create_content_library_table()
+        <span style="color: #9cdcfe;">self</span>.create_publication_schedule_table()
+        <span style="color: #9cdcfe;">self</span>.create_subscriber_interactions_table()
+        <span style="color: #9cdcfe;">self</span>.create_analytics_data_table()
+        <span style="color: #9cdcfe;">self</span>.create_system_config_table()
+        <span style="color: #9cdcfe;">self</span>.create_indexes()
+        
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"✅ Base de données MYM initialisée avec succès"</span>)
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Table content_library -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-images mr-2 text-blue-600"></i>
+                    Table: content_library
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('content-table')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="content-table" class="code-block">
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">create_content_library_table</span>(<span style="color: #9cdcfe;">self</span>):
+    <span style="color: #6a9955;">"""Création table bibliothèque de contenu"""</span>
+    <span style="color: #9cdcfe;">create_sql</span> = <span style="color: #ce9178;">"""
+    CREATE TABLE IF NOT EXISTS content_library (
+        content_id TEXT PRIMARY KEY,
+        content_type TEXT NOT NULL CHECK(content_type IN ('image', 'video', 'text', 'story')),
+        file_path TEXT NOT NULL,
+        title TEXT NOT NULL,
+        description TEXT,
+        tags TEXT, -- JSON array of tags
+        nsfw_level INTEGER CHECK(nsfw_level BETWEEN 1 AND 10),
+        persona_id TEXT DEFAULT 'leana_mystere',
+        
+        -- Métadonnées techniques
+        file_size_mb REAL,
+        resolution TEXT, -- "1024x1024"
+        duration_seconds INTEGER, -- pour vidéos
+        
+        -- Métadonnées de génération
+        prompt_used TEXT,
+        negative_prompt TEXT,
+        model_used TEXT,
+        generation_settings TEXT, -- JSON
+        
+        -- Status et validation
+        status TEXT DEFAULT 'generated' CHECK(status IN ('generated', 'validated', 'published', 'archived')),
+        quality_score REAL DEFAULT 0.0,
+        validation_notes TEXT,
+        
+        -- Données de performance
+        views_count INTEGER DEFAULT 0,
+        likes_count INTEGER DEFAULT 0,
+        comments_count INTEGER DEFAULT 0,
+        revenue_generated REAL DEFAULT 0.0,
+        
+        -- Timestamps
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        published_at TIMESTAMP,
+        last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        
+        -- Backup et sécurité
+        backup_location TEXT,
+        encryption_status TEXT DEFAULT 'encrypted',
+        access_level TEXT DEFAULT 'premium' CHECK(access_level IN ('free', 'premium', 'vip', 'custom'))
+    );
+    """</span>
+    
+    <span style="color: #9cdcfe;">self</span>.connection.execute(create_sql)
+    <span style="color: #9cdcfe;">self</span>.connection.commit()
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"✅ Table content_library créée"</span>)
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Table publication_schedule -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-calendar mr-2 text-green-600"></i>
+                    Table: publication_schedule
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('schedule-table')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="schedule-table" class="code-block">
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">create_publication_schedule_table</span>(<span style="color: #9cdcfe;">self</span>):
+    <span style="color: #6a9955;">"""Création table planning de publication"""</span>
+    <span style="color: #9cdcfe;">create_sql</span> = <span style="color: #ce9178;">"""
+    CREATE TABLE IF NOT EXISTS publication_schedule (
+        schedule_id TEXT PRIMARY KEY,
+        content_id TEXT NOT NULL,
+        
+        -- Planning
+        scheduled_datetime TIMESTAMP NOT NULL,
+        platform TEXT DEFAULT 'mym' CHECK(platform IN ('mym', 'onlyfans', 'instagram', 'twitter')),
+        publication_type TEXT CHECK(publication_type IN ('post', 'story', 'live', 'message')),
+        
+        -- Configuration publication
+        caption TEXT,
+        hashtags TEXT, -- JSON array
+        pricing_tier TEXT CHECK(pricing_tier IN ('free', 'premium', 'vip', 'ppv')),
+        custom_price REAL,
+        
+        -- Audience et ciblage
+        target_audience TEXT, -- JSON: {"age_min": 18, "age_max": 45, "gender": "all"}
+        geographic_targeting TEXT, -- JSON array de pays/régions
+        
+        -- Status et tracking
+        status TEXT DEFAULT 'scheduled' CHECK(status IN ('scheduled', 'publishing', 'published', 'failed', 'cancelled')),
+        attempts_count INTEGER DEFAULT 0,
+        last_attempt_at TIMESTAMP,
+        error_message TEXT,
+        
+        -- Analytics et performance
+        engagement_predicted REAL, -- Score prédictif 0-1
+        optimal_time_score REAL, -- Score de l'heure optimale
+        competition_level TEXT CHECK(competition_level IN ('low', 'medium', 'high')),
+        
+        -- Automation
+        auto_publish BOOLEAN DEFAULT 1,
+        retry_on_failure BOOLEAN DEFAULT 1,
+        max_retry_attempts INTEGER DEFAULT 3,
+        
+        -- Timestamps
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        published_at TIMESTAMP,
+        
+        -- Relations
+        FOREIGN KEY (content_id) REFERENCES content_library (content_id)
+    );
+    """</span>
+    
+    <span style="color: #9cdcfe;">self</span>.connection.execute(create_sql)
+    <span style="color: #9cdcfe;">self</span>.connection.commit()
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"✅ Table publication_schedule créée"</span>)
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Table subscriber_interactions -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-comments mr-2 text-purple-600"></i>
+                    Table: subscriber_interactions
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('interactions-table')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="interactions-table" class="code-block">
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">create_subscriber_interactions_table</span>(<span style="color: #9cdcfe;">self</span>):
+    <span style="color: #6a9955;">"""Création table interactions abonnés"""</span>
+    <span style="color: #9cdcfe;">create_sql</span> = <span style="color: #ce9178;">"""
+    CREATE TABLE IF NOT EXISTS subscriber_interactions (
+        interaction_id TEXT PRIMARY KEY,
+        subscriber_id TEXT NOT NULL,
+        
+        -- Informations abonné
+        subscriber_username TEXT,
+        subscriber_tier TEXT CHECK(subscriber_tier IN ('free', 'premium', 'vip', 'whale')),
+        subscription_date TIMESTAMP,
+        total_spent REAL DEFAULT 0.0,
+        
+        -- Données interaction
+        interaction_type TEXT CHECK(interaction_type IN ('message', 'like', 'comment', 'tip', 'purchase', 'view')),
+        content_id TEXT, -- Peut être NULL pour interactions générales
+        message_content TEXT,
+        
+        -- Analyse sentiment et intention
+        sentiment_score REAL, -- -1 à 1 (négatif à positif)
+        intent_category TEXT, -- 'compliment', 'request', 'complaint', 'flirt', 'business'
+        keywords_detected TEXT, -- JSON array
+        
+        -- Réponse automatique
+        auto_response_sent BOOLEAN DEFAULT 0,
+        response_template_used TEXT,
+        response_content TEXT,
+        response_timestamp TIMESTAMP,
+        
+        -- Données comportementales
+        session_duration INTEGER, -- en secondes
+        pages_viewed INTEGER,
+        last_seen TIMESTAMP,
+        device_type TEXT, -- 'mobile', 'desktop', 'tablet'
+        
+        -- Scoring et segmentation
+        engagement_score REAL DEFAULT 0.0, -- 0-100
+        loyalty_score REAL DEFAULT 0.0, -- 0-100  
+        monetization_potential REAL DEFAULT 0.0, -- 0-100
+        risk_score REAL DEFAULT 0.0, -- 0-100 (spam, problématique)
+        
+        -- Préférences détectées
+        content_preferences TEXT, -- JSON: {"nsfw_level": [5,7], "types": ["image", "video"]}
+        interaction_frequency TEXT, -- 'daily', 'weekly', 'monthly', 'occasional'
+        peak_activity_hours TEXT, -- JSON array [18, 19, 20, 21]
+        
+        -- Timestamps
+        interaction_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        
+        -- Relations
+        FOREIGN KEY (content_id) REFERENCES content_library (content_id)
+    );
+    """</span>
+    
+    <span style="color: #9cdcfe;">self</span>.connection.execute(create_sql)
+    <span style="color: #9cdcfe;">self</span>.connection.commit()
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"✅ Table subscriber_interactions créée"</span>)
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Installation -->
+    <section id="installation" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-download mr-3 text-blue-600"></i>
+                Installation et Configuration
+            </h2>
+
+            <!-- Étape 1: Prérequis -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-list mr-2 text-blue-600"></i>
+                    Étape 1: Vérification des Prérequis
+                </h3>
+                
+                <div class="alert-box">
+                    <h4 class="font-bold text-orange-800 mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Prérequis Obligatoires
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Python 3.8+ installé</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Modules sqlite3 et json (inclus)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Espace disque minimum: 5GB</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Permissions d'écriture sur le disque</li>
+                    </ul>
+                </div>
+
+                <div class="relative mt-4">
+                    <button class="copy-btn" onclick="copyCode('prereq-check')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="prereq-check" class="code-block">
+<span style="color: #6a9955;"># Vérification prérequis système</span>
+<span style="color: #569cd6;">import</span> sys
+<span style="color: #569cd6;">import</span> sqlite3
+<span style="color: #569cd6;">import</span> os
+<span style="color: #569cd6;">import</span> shutil
+
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">check_prerequisites</span>():
+    <span style="color: #6a9955;">"""Vérification complète des prérequis"""</span>
+    <span style="color: #9cdcfe;">checks</span> = []
+    
+    <span style="color: #6a9955;"># Version Python</span>
+    <span style="color: #569cd6;">if</span> sys.version_info >= (3, 8):
+        <span style="color: #9cdcfe;">checks</span>.append((<span style="color: #ce9178;">"Python 3.8+"</span>, <span style="color: #569cd6;">True</span>))
+    <span style="color: #569cd6;">else</span>:
+        <span style="color: #9cdcfe;">checks</span>.append((<span style="color: #ce9178;">"Python 3.8+"</span>, <span style="color: #569cd6;">False</span>))
+    
+    <span style="color: #6a9955;"># SQLite disponible</span>
+    <span style="color: #569cd6;">try</span>:
+        sqlite3.connect(<span style="color: #ce9178;">":memory:"</span>).close()
+        <span style="color: #9cdcfe;">checks</span>.append((<span style="color: #ce9178;">"SQLite3"</span>, <span style="color: #569cd6;">True</span>))
+    <span style="color: #569cd6;">except</span>:
+        <span style="color: #9cdcfe;">checks</span>.append((<span style="color: #ce9178;">"SQLite3"</span>, <span style="color: #569cd6;">False</span>))
+    
+    <span style="color: #6a9955;"># Espace disque</span>
+    <span style="color: #9cdcfe;">free_space_gb</span> = shutil.disk_usage(<span style="color: #ce9178;">"."</span>)[2] / (1024**3)
+    <span style="color: #9cdcfe;">checks</span>.append((<span style="color: #ce9178;">f"Espace disque ({free_space_gb:.1f}GB)"</span>, free_space_gb >= 5))
+    
+    <span style="color: #6a9955;"># Affichage résultats</span>
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"🔍 Vérification des prérequis:"</span>)
+    <span style="color: #569cd6;">for</span> check_name, passed <span style="color: #569cd6;">in</span> checks:
+        <span style="color: #9cdcfe;">status</span> = <span style="color: #ce9178;">"✅"</span> <span style="color: #569cd6;">if</span> passed <span style="color: #569cd6;">else</span> <span style="color: #ce9178;">"❌"</span>
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"  {status} {check_name}"</span>)
+    
+    <span style="color: #569cd6;">return</span> <span style="color: #dcdcaa;">all</span>(check[1] <span style="color: #569cd6;">for</span> check <span style="color: #569cd6;">in</span> checks)
+
+<span style="color: #6a9955;"># Exécution</span>
+<span style="color: #569cd6;">if</span> check_prerequisites():
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"✅ Tous les prérequis sont satisfaits!"</span>)
+<span style="color: #569cd6;">else</span>:
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"❌ Certains prérequis ne sont pas satisfaits"</span>)
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Étape 2: Installation -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-cog mr-2 text-green-600"></i>
+                    Étape 2: Installation de la Base de Données
+                </h3>
+                
+                <div class="success-box">
+                    <h4 class="font-bold text-green-800 mb-2">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Instructions d'Installation
+                    </h4>
+                    <ol class="space-y-2">
+                        <li><strong>1.</strong> Créez un dossier pour votre projet MYM</li>
+                        <li><strong>2.</strong> Copiez le script complet ci-dessous</li>
+                        <li><strong>3.</strong> Exécutez le script d'installation</li>
+                        <li><strong>4.</strong> Vérifiez la création de la base</li>
+                    </ol>
+                </div>
+
+                <div class="relative mt-4">
+                    <button class="copy-btn" onclick="copyCode('installation-script')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="installation-script" class="code-block">
+<span style="color: #6a9955;"># Script d'installation complet</span>
+<span style="color: #569cd6;">import</span> os
+<span style="color: #569cd6;">import</span> sqlite3
+<span style="color: #569cd6;">from</span> datetime <span style="color: #569cd6;">import</span> datetime
+<span style="color: #569cd6;">import</span> json
+
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">install_mym_database</span>():
+    <span style="color: #6a9955;">"""Installation complète de la base MYM"""</span>
+    <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"🚀 Début installation base de données MYM..."</span>)
+    
+    <span style="color: #6a9955;"># 1. Création du dossier de données</span>
+    <span style="color: #9cdcfe;">data_dir</span> = <span style="color: #ce9178;">"mym_data"</span>
+    <span style="color: #569cd6;">if</span> <span style="color: #569cd6;">not</span> os.path.exists(data_dir):
+        os.makedirs(data_dir)
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"📁 Dossier {data_dir} créé"</span>)
+    
+    <span style="color: #6a9955;"># 2. Sous-dossiers organisationnels</span>
+    <span style="color: #9cdcfe;">subdirs</span> = [<span style="color: #ce9178;">"content"</span>, <span style="color: #ce9178;">"backups"</span>, <span style="color: #ce9178;">"exports"</span>, <span style="color: #ce9178;">"logs"</span>]
+    <span style="color: #569cd6;">for</span> subdir <span style="color: #569cd6;">in</span> subdirs:
+        <span style="color: #9cdcfe;">full_path</span> = os.path.join(data_dir, subdir)
+        <span style="color: #569cd6;">if</span> <span style="color: #569cd6;">not</span> os.path.exists(full_path):
+            os.makedirs(full_path)
+            <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"📁 Sous-dossier {subdir} créé"</span>)
+    
+    <span style="color: #6a9955;"># 3. Initialisation de la base</span>
+    <span style="color: #9cdcfe;">db_path</span> = os.path.join(data_dir, <span style="color: #ce9178;">"mym_automation.db"</span>)
+    <span style="color: #9cdcfe;">db_manager</span> = MYMDatabaseManager(db_path)
+    
+    <span style="color: #6a9955;"># 4. Insertion de données de test</span>
+    <span style="color: #9cdcfe;">db_manager</span>.insert_sample_data()
+    
+    <span style="color: #6a9955;"># 5. Vérification de l'installation</span>
+    <span style="color: #569cd6;">if</span> <span style="color: #9cdcfe;">db_manager</span>.verify_installation():
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"✅ Installation terminée avec succès!"</span>)
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"📊 Base de données: {db_path}"</span>)
+        <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">True</span>
+    <span style="color: #569cd6;">else</span>:
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"❌ Erreur lors de l'installation"</span>)
+        <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">False</span>
+
+<span style="color: #6a9955;"># Lancement installation</span>
+<span style="color: #569cd6;">if</span> __name__ == <span style="color: #ce9178;">"__main__"</span>:
+    install_mym_database()
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Scripts Python -->
+    <section id="scripts" class="py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-code mr-3 text-blue-600"></i>
+                Scripts Python Complets
+            </h2>
+
+            <!-- Manager principal -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-database mr-2 text-blue-600"></i>
+                    Classe MYMDatabaseManager Complète
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('full-manager')">
+                        <i class="fas fa-copy mr-1"></i>Copier
+                    </button>
+                    <pre id="full-manager" class="code-block">
+<span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">MYMDatabaseManager</span>:
+    <span style="color: #6a9955;">"""Manager principal pour toutes les opérations de base de données"""</span>
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">__init__</span>(<span style="color: #9cdcfe;">self</span>, <span style="color: #9cdcfe;">db_path</span>=<span style="color: #ce9178;">"mym_automation.db"</span>):
+        <span style="color: #9cdcfe;">self</span>.db_path = db_path
+        <span style="color: #9cdcfe;">self</span>.connection = <span style="color: #569cd6;">None</span>
+        <span style="color: #9cdcfe;">self</span>.initialize_database()
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">add_content</span>(<span style="color: #9cdcfe;">self</span>, <span style="color: #9cdcfe;">content_data</span>):
+        <span style="color: #6a9955;">"""Ajout nouveau contenu à la bibliothèque"""</span>
+        <span style="color: #9cdcfe;">sql</span> = <span style="color: #ce9178;">"""
+        INSERT INTO content_library (
+            content_id, content_type, file_path, title, description,
+            tags, nsfw_level, persona_id, prompt_used, model_used,
+            quality_score, status
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """</span>
+        
+        <span style="color: #569cd6;">try</span>:
+            <span style="color: #9cdcfe;">self</span>.connection.execute(sql, (
+                content_data[<span style="color: #ce9178;">'content_id'</span>],
+                content_data[<span style="color: #ce9178;">'content_type'</span>],
+                content_data[<span style="color: #ce9178;">'file_path'</span>],
+                content_data[<span style="color: #ce9178;">'title'</span>],
+                content_data.get(<span style="color: #ce9178;">'description'</span>, <span style="color: #ce9178;">''</span>),
+                json.dumps(content_data.get(<span style="color: #ce9178;">'tags'</span>, [])),
+                content_data.get(<span style="color: #ce9178;">'nsfw_level'</span>, 1),
+                content_data.get(<span style="color: #ce9178;">'persona_id'</span>, <span style="color: #ce9178;">'leana_mystere'</span>),
+                content_data.get(<span style="color: #ce9178;">'prompt_used'</span>, <span style="color: #ce9178;">''</span>),
+                content_data.get(<span style="color: #ce9178;">'model_used'</span>, <span style="color: #ce9178;">''</span>),
+                content_data.get(<span style="color: #ce9178;">'quality_score'</span>, 0.0),
+                content_data.get(<span style="color: #ce9178;">'status'</span>, <span style="color: #ce9178;">'generated'</span>)
+            ))
+            <span style="color: #9cdcfe;">self</span>.connection.commit()
+            <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"✅ Contenu ajouté: {content_data['content_id']}"</span>)
+            <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">True</span>
+        <span style="color: #569cd6;">except</span> sqlite3.Error <span style="color: #569cd6;">as</span> e:
+            <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"❌ Erreur ajout contenu: {e}"</span>)
+            <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">False</span>
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">schedule_publication</span>(<span style="color: #9cdcfe;">self</span>, <span style="color: #9cdcfe;">schedule_data</span>):
+        <span style="color: #6a9955;">"""Planification d'une publication"""</span>
+        <span style="color: #9cdcfe;">sql</span> = <span style="color: #ce9178;">"""
+        INSERT INTO publication_schedule (
+            schedule_id, content_id, scheduled_datetime, platform,
+            publication_type, caption, pricing_tier, status
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """</span>
+        
+        <span style="color: #569cd6;">try</span>:
+            <span style="color: #9cdcfe;">self</span>.connection.execute(sql, (
+                schedule_data[<span style="color: #ce9178;">'schedule_id'</span>],
+                schedule_data[<span style="color: #ce9178;">'content_id'</span>],
+                schedule_data[<span style="color: #ce9178;">'scheduled_datetime'</span>],
+                schedule_data.get(<span style="color: #ce9178;">'platform'</span>, <span style="color: #ce9178;">'mym'</span>),
+                schedule_data.get(<span style="color: #ce9178;">'publication_type'</span>, <span style="color: #ce9178;">'post'</span>),
+                schedule_data.get(<span style="color: #ce9178;">'caption'</span>, <span style="color: #ce9178;">''</span>),
+                schedule_data.get(<span style="color: #ce9178;">'pricing_tier'</span>, <span style="color: #ce9178;">'premium'</span>),
+                <span style="color: #ce9178;">'scheduled'</span>
+            ))
+            <span style="color: #9cdcfe;">self</span>.connection.commit()
+            <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"✅ Publication planifiée: {schedule_data['schedule_id']}"</span>)
+            <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">True</span>
+        <span style="color: #569cd6;">except</span> sqlite3.Error <span style="color: #569cd6;">as</span> e:
+            <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"❌ Erreur planification: {e}"</span>)
+            <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">False</span>
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">get_pending_publications</span>(<span style="color: #9cdcfe;">self</span>):
+        <span style="color: #6a9955;">"""Récupération des publications en attente"""</span>
+        <span style="color: #9cdcfe;">sql</span> = <span style="color: #ce9178;">"""
+        SELECT ps.*, cl.file_path, cl.title, cl.content_type
+        FROM publication_schedule ps
+        JOIN content_library cl ON ps.content_id = cl.content_id
+        WHERE ps.status = 'scheduled' 
+        AND ps.scheduled_datetime <= datetime('now', '+1 hour')
+        ORDER BY ps.scheduled_datetime ASC
+        """</span>
+        
+        <span style="color: #9cdcfe;">cursor</span> = <span style="color: #9cdcfe;">self</span>.connection.execute(sql)
+        <span style="color: #9cdcfe;">results</span> = cursor.fetchall()
+        
+        <span style="color: #569cd6;">return</span> [dict(row) <span style="color: #569cd6;">for</span> row <span style="color: #569cd6;">in</span> results]
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">log_interaction</span>(<span style="color: #9cdcfe;">self</span>, <span style="color: #9cdcfe;">interaction_data</span>):
+        <span style="color: #6a9955;">"""Enregistrement d'une interaction abonné"""</span>
+        <span style="color: #9cdcfe;">sql</span> = <span style="color: #ce9178;">"""
+        INSERT INTO subscriber_interactions (
+            interaction_id, subscriber_id, subscriber_username,
+            interaction_type, message_content, sentiment_score,
+            engagement_score
+        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        """</span>
+        
+        <span style="color: #569cd6;">try</span>:
+            <span style="color: #9cdcfe;">self</span>.connection.execute(sql, (
+                interaction_data[<span style="color: #ce9178;">'interaction_id'</span>],
+                interaction_data[<span style="color: #ce9178;">'subscriber_id'</span>],
+                interaction_data.get(<span style="color: #ce9178;">'subscriber_username'</span>, <span style="color: #ce9178;">'Anonymous'</span>),
+                interaction_data[<span style="color: #ce9178;">'interaction_type'</span>],
+                interaction_data.get(<span style="color: #ce9178;">'message_content'</span>, <span style="color: #ce9178;">''</span>),
+                interaction_data.get(<span style="color: #ce9178;">'sentiment_score'</span>, 0.0),
+                interaction_data.get(<span style="color: #ce9178;">'engagement_score'</span>, 0.0)
+            ))
+            <span style="color: #9cdcfe;">self</span>.connection.commit()
+            <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">True</span>
+        <span style="color: #569cd6;">except</span> sqlite3.Error <span style="color: #569cd6;">as</span> e:
+            <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"❌ Erreur log interaction: {e}"</span>)
+            <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">False</span>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Gestion -->
+    <section id="gestion" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-tasks mr-3 text-blue-600"></i>
+                Gestion et Maintenance
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Backup automatique -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-save mr-2 text-green-600"></i>
+                        Backup Automatique
+                    </h3>
+                    
+                    <div class="relative">
+                        <button class="copy-btn" onclick="copyCode('backup-script')">
+                            <i class="fas fa-copy mr-1"></i>Copier
+                        </button>
+                        <pre id="backup-script" class="code-block">
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">create_backup</span>(<span style="color: #9cdcfe;">self</span>):
+    <span style="color: #6a9955;">"""Création backup automatique"""</span>
+    <span style="color: #569cd6;">import</span> shutil
+    <span style="color: #569cd6;">from</span> datetime <span style="color: #569cd6;">import</span> datetime
+    
+    <span style="color: #9cdcfe;">timestamp</span> = datetime.now().strftime(<span style="color: #ce9178;">"%Y%m%d_%H%M%S"</span>)
+    <span style="color: #9cdcfe;">backup_name</span> = <span style="color: #ce9178;">f"mym_backup_{timestamp}.db"</span>
+    <span style="color: #9cdcfe;">backup_path</span> = os.path.join(<span style="color: #ce9178;">"mym_data/backups"</span>, backup_name)
+    
+    <span style="color: #569cd6;">try</span>:
+        shutil.copy2(<span style="color: #9cdcfe;">self</span>.db_path, backup_path)
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"✅ Backup créé: {backup_path}"</span>)
+        <span style="color: #569cd6;">return</span> backup_path
+    <span style="color: #569cd6;">except</span> Exception <span style="color: #569cd6;">as</span> e:
+        <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">f"❌ Erreur backup: {e}"</span>)
+        <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">None</span>
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Statistiques -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-chart-bar mr-2 text-purple-600"></i>
+                        Statistiques Base
+                    </h3>
+                    
+                    <div class="relative">
+                        <button class="copy-btn" onclick="copyCode('stats-script')">
+                            <i class="fas fa-copy mr-1"></i>Copier
+                        </button>
+                        <pre id="stats-script" class="code-block">
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">get_database_stats</span>(<span style="color: #9cdcfe;">self</span>):
+    <span style="color: #6a9955;">"""Statistiques de la base"""</span>
+    <span style="color: #9cdcfe;">stats</span> = {}
+    
+    <span style="color: #6a9955;"># Contenu total</span>
+    <span style="color: #9cdcfe;">cursor</span> = <span style="color: #9cdcfe;">self</span>.connection.execute(
+        <span style="color: #ce9178;">"SELECT COUNT(*) FROM content_library"</span>
+    )
+    <span style="color: #9cdcfe;">stats</span>[<span style="color: #ce9178;">'total_content'</span>] = cursor.fetchone()[0]
+    
+    <span style="color: #6a9955;"># Publications programmées</span>
+    <span style="color: #9cdcfe;">cursor</span> = <span style="color: #9cdcfe;">self</span>.connection.execute(
+        <span style="color: #ce9178;">"SELECT COUNT(*) FROM publication_schedule WHERE status='scheduled'"</span>
+    )
+    <span style="color: #9cdcfe;">stats</span>[<span style="color: #ce9178;">'scheduled_posts'</span>] = cursor.fetchone()[0]
+    
+    <span style="color: #6a9955;"># Interactions aujourd'hui</span>
+    <span style="color: #9cdcfe;">cursor</span> = <span style="color: #9cdcfe;">self</span>.connection.execute(
+        <span style="color: #ce9178;">"SELECT COUNT(*) FROM subscriber_interactions WHERE DATE(interaction_timestamp) = DATE('now')"</span>
+    )
+    <span style="color: #9cdcfe;">stats</span>[<span style="color: #ce9178;">'today_interactions'</span>] = cursor.fetchone()[0]
+    
+    <span style="color: #569cd6;">return</span> stats
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-database mr-2"></i>
+                    BLOC 8.1.1 - COMPLET
+                </h3>
+                <p class="text-gray-400 mb-4">Infrastructure et base de données SQLite pour automatisation MYM</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <i class="fas fa-database text-2xl text-blue-400 mb-2"></i>
+                        <h4 class="font-bold">Base SQLite</h4>
+                        <p class="text-sm text-gray-300">Structure complète opérationnelle</p>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <i class="fas fa-code text-2xl text-green-400 mb-2"></i>
+                        <h4 class="font-bold">Scripts Python</h4>
+                        <p class="text-sm text-gray-300">Manager complet ready</p>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <i class="fas fa-cog text-2xl text-purple-400 mb-2"></i>
+                        <h4 class="font-bold">Installation</h4>
+                        <p class="text-sm text-gray-300">Guide step-by-step</p>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <i class="fas fa-shield-alt text-2xl text-red-400 mb-2"></i>
+                        <h4 class="font-bold">Sécurité</h4>
+                        <p class="text-sm text-gray-300">Backup & maintenance</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-sm text-gray-500">
+                    Prêt pour BLOC 8.1.2 - Publication Automatisée Selenium
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction de copie de code
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const text = codeElement.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                // Feedback visuel
+                const button = codeElement.parentElement.querySelector('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-1"></i>Copié!';
+                button.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#374151';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Erreur copie: ', err);
+            });
+        }
+        
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation des éléments au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments step-card
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e620c794e250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhbvjPVKN0k1NCfC%2FPTbA%2FcoaFASaH1iMMvIhJyEyUGgNL3riyhF7ieakoxFDNqCubrhNjD0Pc%2B28Aa6vbLYPCvUaJWViWvKKb5BDEI%2Bl9PsdjnokZtPEIzgZJ4NaQh0nPdnjiX9K%2FqX3OUcTcMqTO7QPNb3%2FETzh288WgfhdpMcQUBE2I2eTVwGkZUmUbUiExnt4I2V8eaNNhO8OCwGAmcgRbgEo09b32MYN31%2BVmoBGbedcYCV5nZUS9A0ZBDAqnBp4Cl8iYf2Ub6y%2BpTobSdsvwVZNrYSc4njoeC7E2Mn7S1u2E7c8d8CWxANtAVkkyyZssS9Xv%2FoN%2FXvjRLdAGdc7bEFAU7oTDnU%2FE69rMylhw7lcl3UeIyhCWNFeKEEKFt8qQoXWo5HcLs4Pv9EsaPQ1VZFWEMoNmMqtbkH54sNUKMvzypvsjCgPmJb%2FlYqpb6axNI2R6F%2BSVpi6q0Y6Vn8sXJAH4FibmPbETbQEuIq%2F07eeOMo%2F%2B%2F3r1QIF3%2BFGpBnHVBdOhwUIgbRi8oUw1gj4VmAnNKbRW%2FCQwiB%2FfWd";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhbvjPVKN0k1NCfC/PTbA/coaFASaH1iMMvIhJyEyUGgNL3riyhF7ieakoxFDNqCubrhNjD0Pc+28Aa6vbLYPCvUaJWViWvKKb5BDEI+l9PsdjnokZtPEIzgZJ4NaQh0nPdnjiX9K/qX3OUcTcMqTO7QPNb3/ETzh288WgfhdpMcQUBE2I2eTVwGkZUmUbUiExnt4I2V8eaNNhO8OCwGAmcgRbgEo09b32MYN31+VmoBGbedcYCV5nZUS9A0ZBDAqnBp4Cl8iYf2Ub6y+pTobSdsvwVZNrYSc4njoeC7E2Mn7S1u2E7c8d8CWxANtAVkkyyZssS9Xv/oN/XvjRLdAGdc7bEFAU7oTDnU/E69rMylhw7lcl3UeIyhCWNFeKEEKFt8qQoXWo5HcLs4Pv9EsaPQ1VZFWEMoNmMqtbkH54sNUKMvzypvsjCgPmJb/lYqpb6axNI2R6F+SVpi6q0Y6Vn8sXJAH4FibmPbETbQEuIq/07eeOMo/+/3r1QIF3+FGpBnHVBdOhwUIgbRi8oUw1gj4VmAnNKbRW/CQwiB/fWd";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

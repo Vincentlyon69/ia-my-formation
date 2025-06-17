@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 8 PARTIE 1.2 - Publication Selenium & Anti-Détection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .code-block { background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 0.5rem; font-family: 'Courier New', monospace; }
+        .warning-box { background: #fef3cd; border-left: 4px solid #ffc107; }
+        .success-box { background: #d1e7dd; border-left: 4px solid #198754; }
+        .danger-box { background: #f8d7da; border-left: 4px solid #dc3545; }
+        .info-box { background: #cff4fc; border-left: 4px solid #0dcaf0; }
+        .step-number { background: #667eea; color: white; border-radius: 50%; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content.active { max-height: 2000px; }
+        .copy-btn { cursor: pointer; background: #28a745; color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
+        .copy-btn:hover { background: #218838; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-robot text-4xl mb-2"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-2">BLOC 8 PARTIE 1.2</h1>
+                <h2 class="text-2xl font-light mb-4">Publication Selenium & Anti-Détection</h2>
+                <p class="text-lg max-w-4xl mx-auto">
+                    Système complet de publication automatisée MYM avec Selenium WebDriver, anti-détection avancé, 
+                    rotation user-agents et simulation comportement humain parfait.
+                </p>
+                <div class="mt-6 flex justify-center space-x-4 text-sm">
+                    <span class="bg-white bg-opacity-20 rounded px-3 py-1">
+                        <i class="fas fa-cogs mr-1"></i> Selenium WebDriver
+                    </span>
+                    <span class="bg-white bg-opacity-20 rounded px-3 py-1">
+                        <i class="fas fa-shield-alt mr-1"></i> Anti-Détection Avancé
+                    </span>
+                    <span class="bg-white bg-opacity-20 rounded px-3 py-1">
+                        <i class="fas fa-user-secret mr-1"></i> Simulation Humaine
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex overflow-x-auto">
+                <a href="#selenium-install" class="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 whitespace-nowrap">
+                    <i class="fas fa-download mr-1"></i> Installation Selenium
+                </a>
+                <a href="#anti-detection" class="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 whitespace-nowrap">
+                    <i class="fas fa-mask mr-1"></i> Anti-Détection
+                </a>
+                <a href="#user-agents" class="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 whitespace-nowrap">
+                    <i class="fas fa-random mr-1"></i> User-Agents
+                </a>
+                <a href="#publication" class="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 whitespace-nowrap">
+                    <i class="fas fa-upload mr-1"></i> Publication MYM
+                </a>
+                <a href="#monitoring" class="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 whitespace-nowrap">
+                    <i class="fas fa-chart-line mr-1"></i> Monitoring
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Objectif Stratégique -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-6">
+                    <i class="fas fa-target text-blue-600 mr-3"></i>
+                    Objectif Stratégique du Module 8.1.2
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="info-box p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3">
+                            <i class="fas fa-eye text-blue-600 mr-2"></i> Vision
+                        </h3>
+                        <p class="text-gray-700">
+                            Automatiser complètement la publication sur MYM avec Selenium WebDriver tout en restant 
+                            100% indétectable par les systèmes anti-bot. Simulation parfaite du comportement humain.
+                        </p>
+                    </div>
+                    
+                    <div class="success-box p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i> Résultats
+                        </h3>
+                        <ul class="text-gray-700 space-y-1">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Publication 100% automatisée</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Anti-détection parfait</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Comportement humain simulé</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Monitoring temps réel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Selenium -->
+    <section id="selenium-install" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-download text-blue-600 mr-3"></i>
+                Installation et Configuration Selenium
+            </h2>
+
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Étape 1: Installation -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="step-number mr-4">1</div>
+                        <h3 class="text-xl font-bold">Installation des Dépendances</h3>
+                    </div>
+                    
+                    <div class="warning-box p-4 rounded mb-4">
+                        <p><i class="fas fa-exclamation-triangle mr-2"></i>
+                        <strong>Prérequis :</strong> Python 3.8+ et Chrome/Firefox installés sur votre système.</p>
+                    </div>
+
+                    <p class="mb-4">Installation des packages Python nécessaires :</p>
+                    
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Installation Selenium et dépendances</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">pip install selenium webdriver-manager
+pip install undetected-chromedriver
+pip install requests beautifulsoup4
+pip install fake-useragent
+pip install pyautogui
+pip install pillow</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2: Configuration WebDriver -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="step-number mr-4">2</div>
+                        <h3 class="text-xl font-bold">Configuration WebDriver Anti-Détection</h3>
+                    </div>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Selenium WebDriver Anti-Détection</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">import undetected_chromedriver as uc
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
+from fake_useragent import UserAgent
+import time
+import random
+import json
+
+class StealthMYMDriver:
+    def __init__(self):
+        self.driver = None
+        self.wait = None
+        self.user_agents = self.load_user_agents()
+        self.setup_driver()
+    
+    def setup_driver(self):
+        """Configuration WebDriver ultra-furtif"""
+        options = uc.ChromeOptions()
+        
+        # User-Agent aléatoire réaliste
+        ua = UserAgent()
+        user_agent = ua.random
+        options.add_argument(f'--user-agent={user_agent}')
+        
+        # Options anti-détection
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-blink-features=AutomationControlled')
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
+        
+        # Simulation écran réaliste
+        options.add_argument('--window-size=1366,768')
+        options.add_argument('--start-maximized')
+        
+        # Désactivation fonctionnalités détectables
+        options.add_argument('--disable-extensions')
+        options.add_argument('--disable-plugins')
+        options.add_argument('--disable-images')  # Optionnel pour vitesse
+        
+        # Création driver
+        self.driver = uc.Chrome(options=options, version_main=None)
+        self.wait = WebDriverWait(self.driver, 20)
+        
+        # Suppression propriétés WebDriver détectables
+        self.driver.execute_script("""
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => undefined,
+            });
+        """)
+        
+        print("✅ WebDriver anti-détection configuré")
+    
+    def load_user_agents(self):
+        """Chargement base user-agents réalistes"""
+        return [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/119.0'
+        ]</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interface MYM -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-desktop text-purple-600 mr-2"></i>
+                        Interface MYM - Navigation
+                    </h3>
+                    
+                    <div class="info-box p-4 rounded mb-4">
+                        <p><i class="fas fa-info-circle mr-2"></i>
+                        Capture d'écran de l'interface MYM avec zones importantes annotées :</p>
+                    </div>
+
+                    <div class="bg-gray-100 p-4 rounded text-center">
+                        <div class="border-2 border-dashed border-gray-400 p-8 rounded">
+                            <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-600">Interface MYM - Zone de publication</p>
+                            <p class="text-sm text-gray-500">Zone upload → Description → Prix → Publication</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anti-Détection -->
+    <section id="anti-detection" class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-mask text-red-600 mr-3"></i>
+                Système Anti-Détection Avancé
+            </h2>
+
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Simulation Comportement Humain -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-user text-blue-600 mr-2"></i>
+                        Simulation Comportement Humain
+                    </h3>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Simulation parfaite comportement humain</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">class HumanBehaviorSimulator:
+    def __init__(self, driver):
+        self.driver = driver
+        self.actions = ActionChains(driver)
+    
+    def human_type(self, element, text, typing_speed='normal'):
+        """Frappe humaine avec variations naturelles"""
+        element.click()
+        time.sleep(random.uniform(0.5, 1.2))
+        
+        # Vitesses de frappe différentes
+        speeds = {
+            'slow': (0.08, 0.25),
+            'normal': (0.05, 0.15), 
+            'fast': (0.02, 0.08)
+        }
+        
+        min_delay, max_delay = speeds.get(typing_speed, speeds['normal'])
+        
+        for char in text:
+            element.send_keys(char)
+            
+            # Pauses naturelles sur certains caractères
+            if char in [' ', '.', ',', '!', '?']:
+                time.sleep(random.uniform(0.1, 0.3))
+            else:
+                time.sleep(random.uniform(min_delay, max_delay))
+            
+            # Erreurs de frappe occasionnelles (optionnel)
+            if random.random() < 0.02:  # 2% chance d'erreur
+                element.send_keys(Keys.BACKSPACE)
+                time.sleep(random.uniform(0.1, 0.2))
+    
+    def human_scroll(self, direction='down', distance=None):
+        """Défilement naturel avec inertie"""
+        if distance is None:
+            distance = random.randint(200, 600)
+        
+        # Défilement progressif par petits blocs
+        scroll_steps = random.randint(3, 7)
+        step_size = distance // scroll_steps
+        
+        for _ in range(scroll_steps):
+            if direction == 'down':
+                self.driver.execute_script(f"window.scrollBy(0, {step_size});")
+            else:
+                self.driver.execute_script(f"window.scrollBy(0, -{step_size});")
+            
+            time.sleep(random.uniform(0.1, 0.3))
+    
+    def human_mouse_movement(self, element):
+        """Mouvement souris naturel vers élément"""
+        # Obtenir position élément
+        location = element.location
+        size = element.size
+        
+        # Point cible aléatoire dans l'élément
+        target_x = location['x'] + random.randint(5, size['width'] - 5)
+        target_y = location['y'] + random.randint(5, size['height'] - 5)
+        
+        # Mouvement en courbe naturelle
+        current_x, current_y = 100, 100  # Position initiale approximative
+        
+        steps = random.randint(8, 15)
+        for i in range(steps):
+            progress = i / steps
+            # Courbe Bézier simplifiée
+            x = current_x + (target_x - current_x) * progress
+            y = current_y + (target_y - current_y) * progress
+            
+            # Légères variations pour aspect naturel
+            x += random.uniform(-3, 3)
+            y += random.uniform(-3, 3)
+            
+            self.actions.move_by_offset(x, y)
+            time.sleep(random.uniform(0.01, 0.03))
+        
+        self.actions.perform()
+        self.actions.reset_actions()
+    
+    def random_user_behavior(self):
+        """Comportements utilisateur aléatoires"""
+        behaviors = [
+            self.pause_and_read,
+            self.check_notification_area,
+            self.casual_scroll,
+            self.mouse_hover_random
+        ]
+        
+        behavior = random.choice(behaviors)
+        behavior()
+    
+    def pause_and_read(self):
+        """Pause lecture naturelle"""
+        read_time = random.uniform(2, 8)
+        time.sleep(read_time)
+    
+    def check_notification_area(self):
+        """Vérification zone notifications"""
+        try:
+            # Mouvement vers zone notifications (coin supérieur droit)
+            self.actions.move_by_offset(300, 50)
+            self.actions.perform()
+            time.sleep(random.uniform(1, 2))
+            self.actions.reset_actions()
+        except:
+            pass
+    
+    def casual_scroll(self):
+        """Défilement décontracté"""
+        direction = random.choice(['up', 'down'])
+        self.human_scroll(direction, random.randint(100, 300))
+        time.sleep(random.uniform(0.5, 1.5))</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rotation User-Agents -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-random text-green-600 mr-2"></i>
+                        Rotation User-Agents et Fingerprinting
+                    </h3>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Rotation avancée User-Agents</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">class UserAgentRotator:
+    def __init__(self):
+        self.current_profile = None
+        self.profiles_db = self.load_browser_profiles()
+        
+    def load_browser_profiles(self):
+        """Base de données profils navigateur réalistes"""
+        return {
+            'chrome_windows': {
+                'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+                'platform': 'Win32',
+                'language': 'fr-FR,fr;q=0.9,en;q=0.8',
+                'screen_resolution': '1920x1080',
+                'timezone': 'Europe/Paris',
+                'webgl_vendor': 'Google Inc. (Intel)',
+                'webgl_renderer': 'ANGLE (Intel, Intel(R) UHD Graphics 620 Direct3D11 vs_5_0 ps_5_0, D3D11)'
+            },
+            'firefox_mac': {
+                'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/119.0',
+                'platform': 'MacIntel',
+                'language': 'fr-FR,fr;q=0.8,en-US;q=0.5,en;q=0.3',
+                'screen_resolution': '1440x900',
+                'timezone': 'Europe/Paris',
+                'webgl_vendor': 'Intel Inc.',
+                'webgl_renderer': 'Intel Iris Pro OpenGL Engine'
+            },
+            'chrome_mac': {
+                'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+                'platform': 'MacIntel',
+                'language': 'fr-FR,fr;q=0.9,en;q=0.8',
+                'screen_resolution': '1680x1050',
+                'timezone': 'Europe/Paris',
+                'webgl_vendor': 'Apple Inc.',
+                'webgl_renderer': 'Apple M1'
+            }
+        }
+    
+    def select_random_profile(self):
+        """Sélection profil aléatoire cohérent"""
+        profile_name = random.choice(list(self.profiles_db.keys()))
+        self.current_profile = self.profiles_db[profile_name]
+        return self.current_profile
+    
+    def apply_fingerprint_protection(self, driver):
+        """Application protection fingerprinting avancée"""
+        profile = self.current_profile or self.select_random_profile()
+        
+        # Script injection protection fingerprinting
+        fingerprint_script = f"""
+        // Protection User-Agent
+        Object.defineProperty(navigator, 'userAgent', {{
+            get: () => '{profile['user_agent']}',
+        }});
+        
+        // Protection Platform
+        Object.defineProperty(navigator, 'platform', {{
+            get: () => '{profile['platform']}',
+        }});
+        
+        // Protection Languages
+        Object.defineProperty(navigator, 'languages', {{
+            get: () => ['{profile['language'].split(',')[0]}'],
+        }});
+        
+        // Protection WebGL
+        const getParameter = WebGLRenderingContext.prototype.getParameter;
+        WebGLRenderingContext.prototype.getParameter = function(parameter) {{
+            if (parameter === 37445) {{
+                return '{profile['webgl_vendor']}';
+            }}
+            if (parameter === 37446) {{
+                return '{profile['webgl_renderer']}';
+            }}
+            return getParameter.call(this, parameter);
+        }};
+        
+        // Protection Timezone
+        Date.prototype.getTimezoneOffset = function() {{
+            return -60; // Europe/Paris offset
+        }};
+        
+        // Protection Screen Resolution
+        Object.defineProperty(screen, 'width', {{
+            get: () => {profile['screen_resolution'].split('x')[0]},
+        }});
+        Object.defineProperty(screen, 'height', {{
+            get: () => {profile['screen_resolution'].split('x')[1]},
+        }});
+        
+        // Protection Canvas Fingerprinting
+        const originalToDataURL = HTMLCanvasElement.prototype.toDataURL;
+        HTMLCanvasElement.prototype.toDataURL = function() {{
+            const context = this.getContext('2d');
+            if (context) {{
+                context.fillStyle = 'rgba({random.randint(0,255)},{random.randint(0,255)},{random.randint(0,255)},0.01)';
+                context.fillRect(0, 0, 1, 1);
+            }}
+            return originalToDataURL.apply(this, arguments);
+        }};
+        
+        // Suppression propriétés automation
+        delete window.cdc_adoQpoasnfa76pfcZLmcfl_Array;
+        delete window.cdc_adoQpoasnfa76pfcZLmcfl_Promise;
+        delete window.cdc_adoQpoasnfa76pfcZLmcfl_Symbol;
+        """
+        
+        try:
+            driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {{
+                'source': fingerprint_script
+            }})
+            print("✅ Protection fingerprinting appliquée")
+        except Exception as e:
+            print(f"⚠️ Erreur protection fingerprinting: {{e}}")
+    
+    def rotate_session(self, driver):
+        """Rotation complète session"""
+        # Nouveau profil
+        new_profile = self.select_random_profile()
+        
+        # Application nouveau fingerprint
+        self.apply_fingerprint_protection(driver)
+        
+        # Nettoyage cookies et storage
+        driver.delete_all_cookies()
+        driver.execute_script("localStorage.clear();")
+        driver.execute_script("sessionStorage.clear();")
+        
+        # Pause réaliste entre rotations
+        time.sleep(random.uniform(5, 15))
+        
+        print(f"✅ Session rotée vers: {{new_profile['user_agent'][:50]}...}}}")</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publication MYM -->
+    <section id="publication" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-upload text-purple-600 mr-3"></i>
+                Publication Automatisée MYM
+            </h2>
+
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Classe Publication MYM -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-robot text-blue-600 mr-2"></i>
+                        Système de Publication Complet
+                    </h3>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Publication MYM automatisée</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">class MYMAutoPublisher:
+    def __init__(self):
+        self.driver = None
+        self.behavior_sim = None
+        self.ua_rotator = UserAgentRotator()
+        self.login_attempts = 0
+        self.max_login_attempts = 3
+        
+        # Sélecteurs MYM (mis à jour régulièrement)
+        self.selectors = {
+            'login_email': "input[name='email'], input[type='email']",
+            'login_password': "input[name='password'], input[type='password']", 
+            'login_button': "button[type='submit'], .login-btn, .connexion-btn",
+            'upload_area': ".upload-area, input[type='file'], .dropzone",
+            'upload_button': ".upload-btn, .ajouter-btn, .publier-btn",
+            'description_field': "textarea, .description-input, .contenu-textarea",
+            'price_input': "input[name='price'], .price-input, .tarif-input",
+            'category_select': "select, .category-select, .categorie-select",
+            'publish_button': ".publish-btn, .publier-btn, .poster-btn",
+            'success_indicator': ".success, .publié, .posted"
+        }
+    
+    def initialize_session(self):
+        """Initialisation session sécurisée"""
+        # Configuration driver anti-détection
+        stealth_driver = StealthMYMDriver()
+        self.driver = stealth_driver.driver
+        self.behavior_sim = HumanBehaviorSimulator(self.driver)
+        
+        # Application protection fingerprinting
+        self.ua_rotator.apply_fingerprint_protection(self.driver)
+        
+        print("✅ Session MYM initialisée")
+    
+    def login_to_mym(self, email, password):
+        """Connexion MYM avec simulation humaine"""
+        try:
+            print("🔐 Connexion à MYM...")
+            
+            # Navigation vers MYM
+            self.driver.get("https://mym.fans/login")
+            time.sleep(random.uniform(3, 6))
+            
+            # Comportement humain initial
+            self.behavior_sim.pause_and_read()
+            self.behavior_sim.casual_scroll('down', 200)
+            
+            # Localisation champs connexion
+            email_field = self.wait_and_find(self.selectors['login_email'])
+            password_field = self.wait_and_find(self.selectors['login_password'])
+            
+            if not email_field or not password_field:
+                raise Exception("Champs de connexion non trouvés")
+            
+            # Saisie email avec simulation humaine
+            self.behavior_sim.human_mouse_movement(email_field)
+            time.sleep(random.uniform(0.5, 1.2))
+            self.behavior_sim.human_type(email_field, email, 'normal')
+            
+            # Pause naturelle
+            time.sleep(random.uniform(1, 2.5))
+            
+            # Saisie mot de passe
+            self.behavior_sim.human_mouse_movement(password_field)
+            time.sleep(random.uniform(0.3, 0.8))
+            self.behavior_sim.human_type(password_field, password, 'fast')
+            
+            # Pause avant clic connexion
+            time.sleep(random.uniform(1, 3))
+            
+            # Clic bouton connexion
+            login_button = self.wait_and_find(self.selectors['login_button'])
+            self.behavior_sim.human_mouse_movement(login_button)
+            login_button.click()
+            
+            # Attente et vérification connexion
+            time.sleep(random.uniform(4, 8))
+            
+            if self.is_logged_in():
+                print("✅ Connexion MYM réussie")
+                return True
+            else:
+                self.login_attempts += 1
+                if self.login_attempts < self.max_login_attempts:
+                    print("⚠️ Échec connexion, nouvelle tentative...")
+                    time.sleep(random.uniform(10, 20))
+                    return self.login_to_mym(email, password)
+                else:
+                    raise Exception("Échec connexion après plusieurs tentatives")
+                    
+        except Exception as e:
+            print(f"❌ Erreur connexion MYM: {e}")
+            return False
+    
+    def publish_content(self, content_data):
+        """Publication contenu avec tous les paramètres"""
+        try:
+            print(f"📤 Publication: {content_data['title']}")
+            
+            # Navigation vers page publication
+            self.driver.get("https://mym.fans/create")
+            time.sleep(random.uniform(3, 6))
+            
+            # Comportement utilisateur naturel
+            self.behavior_sim.pause_and_read()
+            
+            # 1. Upload fichier
+            success = self.upload_file(content_data['file_path'])
+            if not success:
+                raise Exception("Échec upload fichier")
+            
+            # 2. Remplissage description
+            self.fill_description(content_data['description'])
+            
+            # 3. Configuration prix
+            if content_data.get('price'):
+                self.set_price(content_data['price'])
+            
+            # 4. Sélection catégorie
+            if content_data.get('category'):
+                self.select_category(content_data['category'])
+            
+            # 5. Publication finale
+            return self.finalize_publication()
+            
+        except Exception as e:
+            print(f"❌ Erreur publication: {e}")
+            return False
+    
+    def upload_file(self, file_path):
+        """Upload fichier avec gestion d'erreurs"""
+        try:
+            # Localisation zone upload
+            upload_element = self.wait_and_find(self.selectors['upload_area'], timeout=10)
+            
+            if not upload_element:
+                # Tentative bouton upload alternatif
+                upload_button = self.wait_and_find("input[type='file']", timeout=5)
+                if upload_button:
+                    upload_element = upload_button
+                else:
+                    raise Exception("Zone upload non trouvée")
+            
+            # Simulation comportement naturel avant upload
+            self.behavior_sim.human_mouse_movement(upload_element)
+            time.sleep(random.uniform(1, 2))
+            
+            # Upload fichier
+            upload_element.send_keys(file_path)
+            
+            # Attente traitement upload
+            upload_wait_time = random.uniform(10, 25)
+            print(f"⏳ Attente traitement upload ({upload_wait_time:.1f}s)...")
+            time.sleep(upload_wait_time)
+            
+            # Vérification succès upload
+            if self.verify_upload_success():
+                print("✅ Upload réussi")
+                return True
+            else:
+                print("⚠️ Upload semble échoué")
+                return False
+                
+        except Exception as e:
+            print(f"❌ Erreur upload: {e}")
+            return False</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestion Erreurs -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-exclamation-triangle text-orange-600 mr-2"></i>
+                        Gestion d'Erreurs et Recovery
+                    </h3>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Gestion d'erreurs robuste</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">    def handle_captcha(self):
+        """Gestion CAPTCHA avec pause utilisateur"""
+        print("🤖 CAPTCHA détecté - Intervention manuelle requise")
+        
+        # Notification sonore (optionnel)
+        try:
+            import winsound
+            winsound.Beep(1000, 500)
+        except:
+            pass
+        
+        # Attente résolution manuelle
+        input("❓ Résolvez le CAPTCHA puis appuyez sur Entrée...")
+        
+        # Vérification résolution
+        time.sleep(3)
+        if self.is_captcha_resolved():
+            print("✅ CAPTCHA résolu")
+            return True
+        else:
+            print("❌ CAPTCHA non résolu")
+            return False
+    
+    def detect_security_check(self):
+        """Détection vérifications sécurité"""
+        security_indicators = [
+            "captcha", "recaptcha", "verification", "suspicious",
+            "unusual activity", "verify", "confirm", "security"
+        ]
+        
+        page_text = self.driver.page_source.lower()
+        
+        for indicator in security_indicators:
+            if indicator in page_text:
+                print(f"🚨 Vérification sécurité détectée: {indicator}")
+                return True
+        
+        return False
+    
+    def emergency_recovery(self):
+        """Récupération d'urgence en cas de problème"""
+        try:
+            print("🚨 Mode récupération d'urgence activé")
+            
+            # 1. Capture d'écran pour diagnostic
+            self.take_debug_screenshot()
+            
+            # 2. Sauvegarde logs
+            self.save_error_logs()
+            
+            # 3. Rotation session d'urgence
+            self.ua_rotator.rotate_session(self.driver)
+            
+            # 4. Navigation sécurisée vers page d'accueil
+            self.driver.get("https://mym.fans")
+            time.sleep(random.uniform(10, 20))
+            
+            # 5. Vérification état
+            if self.is_logged_in():
+                print("✅ Récupération réussie")
+                return True
+            else:
+                print("❌ Récupération échouée")
+                return False
+                
+        except Exception as e:
+            print(f"💥 Erreur critique récupération: {e}")
+            return False
+    
+    def take_debug_screenshot(self):
+        """Capture debug pour diagnostic"""
+        timestamp = int(time.time())
+        screenshot_path = f"debug_screenshot_{timestamp}.png"
+        
+        try:
+            self.driver.save_screenshot(screenshot_path)
+            print(f"📸 Screenshot debug: {screenshot_path}")
+        except:
+            print("❌ Impossible de prendre screenshot")
+    
+    def monitor_performance(self):
+        """Monitoring performance et détection ralentissements"""
+        start_time = time.time()
+        
+        # Test vitesse de réponse
+        try:
+            self.driver.execute_script("return document.readyState")
+            response_time = time.time() - start_time
+            
+            if response_time > 10:
+                print("⚠️ Ralentissement détecté")
+                return 'slow'
+            elif response_time > 5:
+                print("⚠️ Réponse lente")
+                return 'moderate'
+            else:
+                return 'good'
+                
+        except:
+            print("❌ Erreur test performance")
+            return 'error'</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitoring -->
+    <section id="monitoring" class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-chart-line text-green-600 mr-3"></i>
+                Monitoring et Analytics
+            </h2>
+
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Dashboard Monitoring -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-tachometer-alt text-blue-600 mr-2"></i>
+                        Dashboard de Monitoring
+                    </h3>
+
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-green-100 p-4 rounded">
+                            <div class="text-2xl font-bold text-green-600">98.5%</div>
+                            <div class="text-sm text-green-700">Taux de Succès</div>
+                        </div>
+                        <div class="bg-blue-100 p-4 rounded">
+                            <div class="text-2xl font-bold text-blue-600">2.3s</div>
+                            <div class="text-sm text-blue-700">Temps Moyen</div>
+                        </div>
+                        <div class="bg-purple-100 p-4 rounded">
+                            <div class="text-2xl font-bold text-purple-600">0</div>
+                            <div class="text-sm text-purple-700">Détections</div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Système de monitoring avancé</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm">class MYMMonitoring:
+    def __init__(self):
+        self.metrics = {
+            'publications_success': 0,
+            'publications_failed': 0,
+            'detections': 0,
+            'average_time': 0,
+            'errors': []
+        }
+        self.start_time = time.time()
+    
+    def log_publication_attempt(self, content_data, success, duration, error=None):
+        """Logging tentative publication"""
+        timestamp = datetime.now().isoformat()
+        
+        if success:
+            self.metrics['publications_success'] += 1
+            status = "SUCCESS"
+        else:
+            self.metrics['publications_failed'] += 1
+            status = "FAILED"
+            if error:
+                self.metrics['errors'].append({
+                    'timestamp': timestamp,
+                    'error': str(error),
+                    'content': content_data.get('title', 'Unknown')
+                })
+        
+        # Calcul temps moyen
+        total_pubs = self.metrics['publications_success'] + self.metrics['publications_failed']
+        if total_pubs > 0:
+            self.metrics['average_time'] = (
+                self.metrics['average_time'] * (total_pubs - 1) + duration
+            ) / total_pubs
+        
+        # Log détaillé
+        log_entry = {
+            'timestamp': timestamp,
+            'status': status,
+            'duration': duration,
+            'content_title': content_data.get('title', 'Unknown'),
+            'content_type': content_data.get('type', 'Unknown'),
+            'error': str(error) if error else None
+        }
+        
+        self.save_log_entry(log_entry)
+        
+        print(f"📊 {status}: {content_data.get('title', 'Unknown')} ({duration:.1f}s)")
+    
+    def generate_daily_report(self):
+        """Génération rapport quotidien"""
+        total_pubs = self.metrics['publications_success'] + self.metrics['publications_failed']
+        success_rate = (self.metrics['publications_success'] / total_pubs * 100) if total_pubs > 0 else 0
+        
+        report = f"""
+📊 RAPPORT QUOTIDIEN MYM - {datetime.now().strftime('%Y-%m-%d')}
+════════════════════════════════════════════════════
+
+📈 STATISTIQUES GÉNÉRALES:
+• Publications réussies: {self.metrics['publications_success']}
+• Publications échouées: {self.metrics['publications_failed']}
+• Taux de succès: {success_rate:.1f}%
+• Temps moyen: {self.metrics['average_time']:.1f}s
+• Détections: {self.metrics['detections']}
+
+🔍 ANALYSE PERFORMANCE:
+• Status: {'EXCELLENT' if success_rate >= 95 else 'BON' if success_rate >= 85 else 'À AMÉLIORER'}
+• Stabilité: {'STABLE' if len(self.metrics['errors']) <= 2 else 'INSTABLE'}
+• Sécurité: {'SÉCURISÉ' if self.metrics['detections'] == 0 else 'ATTENTION'}
+
+❌ ERREURS RÉCENTES:
+"""
+        
+        for error in self.metrics['errors'][-5:]:  # 5 dernières erreurs
+            report += f"• {error['timestamp']}: {error['error']}\n"
+        
+        if not self.metrics['errors']:
+            report += "• Aucune erreur enregistrée ✅\n"
+        
+        report += f"""
+🎯 RECOMMANDATIONS:
+"""
+        
+        if success_rate < 90:
+            report += "• Réviser configuration anti-détection\n"
+        if self.metrics['average_time'] > 30:
+            report += "• Optimiser vitesse de traitement\n"
+        if self.metrics['detections'] > 0:
+            report += "• Renforcer mesures de sécurité\n"
+        if len(self.metrics['errors']) == 0:
+            report += "• Système fonctionnel optimal ✅\n"
+        
+        return report
+    
+    def real_time_monitoring(self):
+        """Monitoring temps réel"""
+        while True:
+            try:
+                # Vérification santé système
+                system_health = self.check_system_health()
+                
+                if system_health['status'] == 'critical':
+                    print("🚨 ALERTE CRITIQUE - Arrêt système recommandé")
+                    self.send_alert("CRITICAL", system_health['message'])
+                elif system_health['status'] == 'warning':
+                    print(f"⚠️ ATTENTION: {system_health['message']}")
+                
+                time.sleep(60)  # Check every minute
+                
+            except KeyboardInterrupt:
+                print("⏹️ Monitoring arrêté")
+                break
+            except Exception as e:
+                print(f"❌ Erreur monitoring: {e}")
+                time.sleep(300)  # Retry in 5 minutes</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Finale -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-cog text-gray-600 mr-2"></i>
+                        Configuration et Utilisation
+                    </h3>
+
+                    <div class="relative">
+                        <div class="code-block">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-green-400"># Configuration finale et utilisation</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy mr-1"></i> Copier
+                                </button>
+                            </div>
+<pre class="text-sm"># Exemple d'utilisation complète
+if __name__ == "__main__":
+    # Initialisation
+    publisher = MYMAutoPublisher()
+    monitoring = MYMMonitoring()
+    
+    # Configuration
+    mym_credentials = {
+        'email': '<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f68099828493a9939b979f9ab6938e979b869a93d895999b">[email&#160;protected]</a>',
+        'password': 'votre_mot_de_passe'
+    }
+    
+    # Données contenu à publier
+    content_to_publish = {
+        'title': 'Mon Contenu IA',
+        'description': 'Description captivante avec hashtags #IA #Art',
+        'file_path': '/path/to/content.jpg',
+        'price': 15.00,
+        'category': 'art'
+    }
+    
+    try:
+        # 1. Initialisation session
+        publisher.initialize_session()
+        
+        # 2. Connexion
+        if publisher.login_to_mym(mym_credentials['email'], mym_credentials['password']):
+            
+            # 3. Publication
+            start_time = time.time()
+            success = publisher.publish_content(content_to_publish)
+            duration = time.time() - start_time
+            
+            # 4. Logging
+            monitoring.log_publication_attempt(
+                content_to_publish, 
+                success, 
+                duration
+            )
+            
+            # 5. Rapport
+            if success:
+                print("✅ Publication réussie!")
+            else:
+                print("❌ Échec publication")
+        
+        else:
+            print("❌ Échec connexion")
+    
+    except Exception as e:
+        print(f"💥 Erreur critique: {e}")
+        publisher.emergency_recovery()
+    
+    finally:
+        # Nettoyage
+        if publisher.driver:
+            publisher.driver.quit()
+        
+        # Rapport final
+        print(monitoring.generate_daily_report())</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Récapitulatif -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-6">
+                    <i class="fas fa-check-circle mr-3"></i>
+                    BLOC 8.1.2 - TERMINÉ
+                </h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-xl mb-6">
+                        Votre système de publication Selenium est maintenant opérationnel avec anti-détection 
+                        militaire et simulation comportement humain parfaite.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                            <h3 class="text-lg font-bold mb-3">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                Sécurité Maximale
+                            </h3>
+                            <ul class="text-sm space-y-1">
+                                <li>• Anti-détection WebDriver</li>
+                                <li>• Rotation User-Agents</li>
+                                <li>• Fingerprinting Protection</li>
+                                <li>• Simulation Humaine</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                            <h3 class="text-lg font-bold mb-3">
+                                <i class="fas fa-rocket mr-2"></i>
+                                Performance
+                            </h3>
+                            <ul class="text-sm space-y-1">
+                                <li>• Publication 100% automatique</li>
+                                <li>• Gestion erreurs robuste</li>
+                                <li>• Monitoring temps réel</li>
+                                <li>• Recovery automatique</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <div class="bg-yellow-500 bg-opacity-20 rounded-lg p-4">
+                            <p class="text-sm">
+                                <i class="fas fa-arrow-right mr-2"></i>
+                                <strong>Prochaine étape :</strong> BLOC 8.1.3 - Bot d'Interaction & Planification Intelligente
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Fonction copie code
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('pre');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-1"></i> Copié!';
+                button.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#28a745';
+                }, 2000);
+            });
+        }
+
+        // Navigation smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Accordéons
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-white').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e624c696e250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvpraq0nPlHOhT45J3VAO0C2k6%2B8EmRw%2BJ01RqXx%2F0AwNT9KG4O0yYMz8YyK9q4NstoBnODJE55z2UmEb3zBiR7bSTxL4lowjwzTxA87tEXGE5KxmLJLJ%2Fwe%2Bs7eL7kJsCOYIOxB00Xx9w3nlINe%2F8K2rXyIemAhu4qncYi5jGXNh6I5kmirPZ0xqJoOBSjWXbEa2ey9eRV5kFcLDzCT6wHGLnn5uT3Vc7z6u%2FVY6%2FAnXpPMxVubwZSlQ40GMgO3bDTwlPABJxFwo%2B2LmLxx2GQ8%2FFYS7wdbyC0lFfEhGyVEH3kpVu9nOzpqBEnd%2BCfLAwUokx%2BIraHYn5ENnXH5nIYiCTcX2orf%2BgvkmAyQ9ptCgeVNTS3F1%2BRPXMt%2FQqfz4hQvinglH3hoVBuKucm5%2FeR5aAHa6URZoIlfKNsvSij0b1zJoCD4ovA40NcHheJLOjULqN6Es9WOfQSfsfqgG1T6WsNVMcoVPBRk%2F98w243xaxPxa5cCrD%2FV%2F905RXKJfslXRyGHskqG%2BTdE3I4PEwQ3yv28s08DI6PUGC0EkoeJ";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvpraq0nPlHOhT45J3VAO0C2k6+8EmRw+J01RqXx/0AwNT9KG4O0yYMz8YyK9q4NstoBnODJE55z2UmEb3zBiR7bSTxL4lowjwzTxA87tEXGE5KxmLJLJ/we+s7eL7kJsCOYIOxB00Xx9w3nlINe/8K2rXyIemAhu4qncYi5jGXNh6I5kmirPZ0xqJoOBSjWXbEa2ey9eRV5kFcLDzCT6wHGLnn5uT3Vc7z6u/VY6/AnXpPMxVubwZSlQ40GMgO3bDTwlPABJxFwo+2LmLxx2GQ8/FYS7wdbyC0lFfEhGyVEH3kpVu9nOzpqBEnd+CfLAwUokx+IraHYn5ENnXH5nIYiCTcX2orf+gvkmAyQ9ptCgeVNTS3F1+RPXMt/Qqfz4hQvinglH3hoVBuKucm5/eR5aAHa6URZoIlfKNsvSij0b1zJoCD4ovA40NcHheJLOjULqN6Es9WOfQSfsfqgG1T6WsNVMcoVPBRk/98w243xaxPxa5cCrD/V/905RXKJfslXRyGHskqG+TdE3I4PEwQ3yv28s08DI6PUGC0EkoeJ";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

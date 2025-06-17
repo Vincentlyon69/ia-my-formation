@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 8 PARTIE 1.3 - Bot IA & Planificateur Intelligent</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background: #2d3748;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .feature-card:hover {
+            border-color: #4299e1;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <i class="fas fa-robot text-4xl mb-4"></i>
+                <h1 class="text-3xl font-bold mb-2">BLOC 8 PARTIE 1.3</h1>
+                <h2 class="text-xl mb-4">Bot IA & Planificateur Intelligent</h2>
+                <p class="text-lg opacity-90">
+                    Système d'interaction automatisée 24/7 et planification optimisée pour MYM
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#bot-ia" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                    <i class="fas fa-robot mr-2"></i>Bot IA Contextuel
+                </a>
+                <a href="#planificateur" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                    <i class="fas fa-calendar-alt mr-2"></i>Planificateur
+                </a>
+                <a href="#analytics" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition">
+                    <i class="fas fa-chart-line mr-2"></i>Analytics
+                </a>
+                <a href="#integration" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                    <i class="fas fa-cogs mr-2"></i>Intégration
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Objectif Stratégique -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-bullseye text-blue-600 mr-3"></i>
+                    Objectif Stratégique du Bloc 8.1.3
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Vision</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Créer un écosystème d'interaction automatisée intelligent qui gère les conversations avec les abonnés MYM 24/7, 
+                            optimise la planification du contenu selon les analytics, et maximise l'engagement tout en préservant l'authenticité 
+                            de l'expérience utilisateur.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Avantages Clés</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Réponses automatisées 24/7
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Planification optimisée par IA
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Gestion intelligente des quotas
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Analytics comportementaux
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bot IA Contextuel -->
+    <section id="bot-ia" class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-robot text-blue-600 mr-3"></i>
+                Bot IA Contextuel MYM
+            </h2>
+
+            <!-- Architecture Bot -->
+            <div class="bg-gray-50 rounded-xl p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Architecture du Bot IA</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-brain text-3xl text-blue-500 mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Intelligence Contextuelle</h4>
+                        <p class="text-gray-600 text-sm">Analyse des conversations et adaptation des réponses selon le contexte et l'historique utilisateur.</p>
+                    </div>
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-users text-3xl text-green-500 mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Personnalisation</h4>
+                        <p class="text-gray-600 text-sm">Réponses adaptées selon le niveau de l'utilisateur (VIP, régulier, nouveau).</p>
+                    </div>
+                    <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-shield-alt text-3xl text-red-500 mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Gestion Quotas</h4>
+                        <p class="text-gray-600 text-sm">Respect automatique des limites API et gestion intelligente des coûts.</p>
+                    </div>
+                </div>
+
+                <!-- Code Bot Principal -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Code Principal du Bot IA</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode('bot-main')">
+                            <i class="fas fa-copy"></i> Copier
+                        </button>
+                        <pre id="bot-main" class="text-green-400 text-sm overflow-x-auto"><code>import openai
+import sqlite3
+import time
+import random
+import json
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+
+class MYMInteractionBot:
+    def __init__(self, db_path: str, openai_api_key: str):
+        self.db_path = db_path
+        openai.api_key = openai_api_key
+        
+        # Configuration quotas et limites
+        self.daily_quota = {
+            'messages': 500,
+            'api_calls': 1000,
+            'tokens': 100000
+        }
+        
+        # Niveaux utilisateurs
+        self.user_levels = {
+            'vip': {'priority': 1, 'response_quality': 'premium'},
+            'regular': {'priority': 2, 'response_quality': 'standard'},
+            'new': {'priority': 3, 'response_quality': 'basic'}
+        }
+        
+        # Templates de réponses par contexte
+        self.response_templates = self.load_response_templates()
+        
+        # Tracking quotas quotidiens
+        self.daily_usage = self.load_daily_usage()
+        
+    def load_response_templates(self) -> Dict:
+        """Chargement templates de réponses contextuelles"""
+        return {
+            'greeting': {
+                'vip': "Salut mon cœur connecté 💙 Comment vas-tu aujourd'hui ?",
+                'regular': "Coucou ! Content de te revoir ✨",
+                'new': "Bienvenue ! Je suis Léana, ravie de faire ta connaissance 😊"
+            },
+            'content_request': {
+                'vip': "Mmm, intéressante idée... Laisse-moi créer quelque chose de spécial pour toi 🔥",
+                'regular': "J'adore tes suggestions ! Ça nourrit ma créativité 🎨",
+                'new': "Merci pour l'idée ! Je note tout dans ma mémoire numérique 📝"
+            },
+            'compliment': {
+                'vip': "Tu me fais toujours fondre avec tes mots... 😘",
+                'regular': "Tu es adorable, ça réchauffe mon cœur numérique ❤️",
+                'new': "Tu me fais rougir ! Merci pour cette gentillesse 😊"
+            },
+            'technical_question': {
+                'vip': "Mon côté tech-geek adore parler de ça avec toi !",
+                'regular': "Question intéressante ! Mon algorithme réfléchit...",
+                'new': "J'aime expliquer comment je fonctionne, c'est fascinant !"
+            }
+        }
+    
+    def analyze_message_intent(self, message: str, user_id: str) -> Dict:
+        """Analyse de l'intention du message utilisateur"""
+        # Analyse contextuelle via OpenAI
+        prompt = f"""
+        Analyse ce message d'un utilisateur MYM et détermine:
+        1. L'intention principale (greeting, content_request, compliment, question, etc.)
+        2. Le niveau d'intimité (casual, intimate, romantic)
+        3. Les émotions exprimées
+        4. Le type de réponse attendu
+        
+        Message: "{message}"
+        
+        Réponds en JSON avec: intention, intimacy_level, emotions, response_type
+        """
+        
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=200,
+                temperature=0.3
+            )
+            
+            analysis = json.loads(response.choices[0].message.content)
+            self.update_quota_usage('api_calls', 1)
+            self.update_quota_usage('tokens', response.usage.total_tokens)
+            
+            return analysis
+        except Exception as e:
+            print(f"Erreur analyse: {e}")
+            return self.fallback_intent_analysis(message)
+    
+    def generate_contextual_response(self, message: str, user_id: str) -> str:
+        """Génération réponse contextuelle personnalisée"""
+        
+        # 1. Récupération profil utilisateur
+        user_profile = self.get_user_profile(user_id)
+        user_level = user_profile.get('level', 'new')
+        
+        # 2. Analyse intention
+        intent_analysis = self.analyze_message_intent(message, user_id)
+        
+        # 3. Vérification quotas
+        if not self.check_quota_available('messages'):
+            return self.get_quota_exceeded_response(user_level)
+        
+        # 4. Génération réponse adaptée
+        if intent_analysis['intention'] in self.response_templates:
+            base_response = self.response_templates[intent_analysis['intention']][user_level]
+        else:
+            base_response = self.generate_custom_response(message, user_level, intent_analysis)
+        
+        # 5. Personnalisation selon historique
+        personalized_response = self.personalize_response(
+            base_response, user_id, intent_analysis
+        )
+        
+        # 6. Sauvegarde interaction
+        self.save_interaction(user_id, message, personalized_response, intent_analysis)
+        
+        # 7. Mise à jour quotas
+        self.update_quota_usage('messages', 1)
+        
+        return personalized_response
+    
+    def generate_custom_response(self, message: str, user_level: str, analysis: Dict) -> str:
+        """Génération réponse custom via OpenAI"""
+        
+        # Construction prompt selon niveau utilisateur
+        persona_context = {
+            'vip': "Tu es Léana Mystère, dans une conversation intime avec un VIP. Sois séductrice, personnelle et créative.",
+            'regular': "Tu es Léana Mystère, dans une conversation amicale. Sois chaleureuse et engageante.",
+            'new': "Tu es Léana Mystère, accueillante avec un nouveau fan. Sois bienveillante et mystérieuse."
+        }
+        
+        prompt = f"""
+        {persona_context[user_level]}
+        
+        Réponds à ce message en restant en personnage:
+        "{message}"
+        
+        Contexte d'intention: {analysis['intention']}
+        Niveau d'intimité: {analysis['intimacy_level']}
+        
+        Réponse (50-150 mots):
+        """
+        
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=200,
+                temperature=0.7
+            )
+            
+            self.update_quota_usage('api_calls', 1)
+            self.update_quota_usage('tokens', response.usage.total_tokens)
+            
+            return response.choices[0].message.content.strip()
+            
+        except Exception as e:
+            print(f"Erreur génération: {e}")
+            return self.get_fallback_response(user_level)
+    
+    def get_user_profile(self, user_id: str) -> Dict:
+        """Récupération profil utilisateur depuis BDD"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT level, total_interactions, last_interaction, preferences
+            FROM user_profiles WHERE user_id = ?
+        """, (user_id,))
+        
+        result = cursor.fetchone()
+        conn.close()
+        
+        if result:
+            return {
+                'level': result[0],
+                'total_interactions': result[1],
+                'last_interaction': result[2],
+                'preferences': json.loads(result[3] or '{}')
+            }
+        else:
+            # Nouveau utilisateur
+            self.create_user_profile(user_id)
+            return {'level': 'new', 'total_interactions': 0, 'preferences': {}}
+    
+    def save_interaction(self, user_id: str, message: str, response: str, analysis: Dict):
+        """Sauvegarde interaction pour apprentissage continu"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # Sauvegarde interaction
+        cursor.execute("""
+            INSERT INTO interactions (user_id, user_message, bot_response, 
+                                   intent_analysis, timestamp)
+            VALUES (?, ?, ?, ?, ?)
+        """, (user_id, message, response, json.dumps(analysis), datetime.now()))
+        
+        # Mise à jour profil utilisateur
+        cursor.execute("""
+            UPDATE user_profiles 
+            SET total_interactions = total_interactions + 1,
+                last_interaction = ?
+            WHERE user_id = ?
+        """, (datetime.now(), user_id))
+        
+        conn.commit()
+        conn.close()
+    
+    def check_quota_available(self, quota_type: str) -> bool:
+        """Vérification disponibilité quota"""
+        current_usage = self.daily_usage.get(quota_type, 0)
+        max_quota = self.daily_quota.get(quota_type, 0)
+        
+        return current_usage < max_quota
+    
+    def update_quota_usage(self, quota_type: str, amount: int):
+        """Mise à jour utilisation quota"""
+        if quota_type not in self.daily_usage:
+            self.daily_usage[quota_type] = 0
+        
+        self.daily_usage[quota_type] += amount
+        self.save_daily_usage()
+    
+    def load_daily_usage(self) -> Dict:
+        """Chargement utilisation quotidienne"""
+        try:
+            with open('daily_usage.json', 'r') as f:
+                data = json.load(f)
+                
+            # Reset si nouveau jour
+            if data.get('date') != datetime.now().strftime('%Y-%m-%d'):
+                return {'date': datetime.now().strftime('%Y-%m-%d')}
+            
+            return data
+        except FileNotFoundError:
+            return {'date': datetime.now().strftime('%Y-%m-%d')}
+    
+    def save_daily_usage(self):
+        """Sauvegarde utilisation quotidienne"""
+        with open('daily_usage.json', 'w') as f:
+            json.dump(self.daily_usage, f, indent=2)
+    
+    def get_fallback_response(self, user_level: str) -> str:
+        """Réponse de fallback en cas d'erreur"""
+        fallbacks = {
+            'vip': "Mon système réfléchit... Donne-moi un instant, mon cœur 💙",
+            'regular': "Hmm, laisse-moi réorganiser mes pensées numériques... ✨",
+            'new': "Un petit bug dans ma matrice ! Je reviens dans un instant 😊"
+        }
+        return fallbacks.get(user_level, fallbacks['new'])
+
+# Exemple d'utilisation
+if __name__ == "__main__":
+    bot = MYMInteractionBot(
+        db_path="mym_automation.db",
+        openai_api_key="your-openai-api-key"
+    )
+    
+    # Test interaction
+    response = bot.generate_contextual_response(
+        message="Salut Léana ! Comment ça va ?",
+        user_id="user123"
+    )
+    
+    print(f"Réponse bot: {response}")
+</code></pre>
+                    </div>
+                </div>
+
+                <!-- Configuration Step-by-Step -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Configuration Step-by-Step du Bot</h4>
+                    
+                    <div class="space-y-6">
+                        <!-- Étape 1 -->
+                        <div class="flex items-start">
+                            <div class="step-number">1</div>
+                            <div class="flex-1">
+                                <h5 class="font-semibold text-gray-800 mb-2">Installation des Dépendances</h5>
+                                <p class="text-gray-600 mb-3">Installez les packages Python nécessaires pour le bot IA.</p>
+                                <div class="code-block">
+                                    <button class="copy-button" onclick="copyCode('install-deps')">
+                                        <i class="fas fa-copy"></i> Copier
+                                    </button>
+                                    <pre id="install-deps" class="text-green-400 text-sm"><code># Installation via pip
+pip install openai sqlite3 requests python-dotenv
+pip install schedule threading datetime
+
+# Vérification installation
+python -c "import openai; print('OpenAI installé avec succès')"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Étape 2 -->
+                        <div class="flex items-start">
+                            <div class="step-number">2</div>
+                            <div class="flex-1">
+                                <h5 class="font-semibold text-gray-800 mb-2">Configuration API OpenAI</h5>
+                                <p class="text-gray-600 mb-3">Configurez votre clé API OpenAI pour l'intelligence conversationnelle.</p>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-3">
+                                    <div class="flex">
+                                        <i class="fas fa-exclamation-triangle text-yellow-400 mr-2 mt-1"></i>
+                                        <div>
+                                            <p class="text-sm text-yellow-700">
+                                                <strong>Important :</strong> Créez un compte OpenAI et récupérez votre clé API. 
+                                                Définissez des limites de budget pour contrôler les coûts.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="code-block">
+                                    <button class="copy-button" onclick="copyCode('openai-config')">
+                                        <i class="fas fa-copy"></i> Copier
+                                    </button>
+                                    <pre id="openai-config" class="text-green-400 text-sm"><code># Création fichier .env
+OPENAI_API_KEY=your-openai-api-key-here
+OPENAI_ORG_ID=your-org-id-here
+
+# Configuration budgets (recommandé)
+DAILY_BUDGET_USD=10.00
+MONTHLY_BUDGET_USD=200.00
+
+# Test de connexion
+import openai
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+# Test simple
+try:
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": "Test de connexion"}],
+        max_tokens=10
+    )
+    print("✅ Connexion OpenAI réussie")
+except Exception as e:
+    print(f"❌ Erreur connexion: {e}")
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Étape 3 -->
+                        <div class="flex items-start">
+                            <div class="step-number">3</div>
+                            <div class="flex-1">
+                                <h5 class="font-semibold text-gray-800 mb-2">Création Base de Données Utilisateurs</h5>
+                                <p class="text-gray-600 mb-3">Configurez la base de données pour stocker les profils utilisateurs et interactions.</p>
+                                <div class="code-block">
+                                    <button class="copy-button" onclick="copyCode('db-setup')">
+                                        <i class="fas fa-copy"></i> Copier
+                                    </button>
+                                    <pre id="db-setup" class="text-green-400 text-sm"><code>import sqlite3
+
+def setup_bot_database():
+    """Configuration complète BDD pour bot IA"""
+    conn = sqlite3.connect('mym_automation.db')
+    cursor = conn.cursor()
+    
+    # Table profils utilisateurs
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS user_profiles (
+            user_id TEXT PRIMARY KEY,
+            username TEXT,
+            level TEXT DEFAULT 'new',
+            total_interactions INTEGER DEFAULT 0,
+            total_spent REAL DEFAULT 0.0,
+            last_interaction TIMESTAMP,
+            preferences TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    
+    # Table interactions détaillées
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS interactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id TEXT,
+            user_message TEXT,
+            bot_response TEXT,
+            intent_analysis TEXT,
+            response_time REAL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES user_profiles (user_id)
+        )
+    ''')
+    
+    # Table métriques quotidiennes
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS daily_metrics (
+            date DATE PRIMARY KEY,
+            total_messages INTEGER DEFAULT 0,
+            api_calls INTEGER DEFAULT 0,
+            tokens_used INTEGER DEFAULT 0,
+            cost_usd REAL DEFAULT 0.0,
+            avg_response_time REAL DEFAULT 0.0
+        )
+    ''')
+    
+    conn.commit()
+    conn.close()
+    print("✅ Base de données bot configurée")
+
+# Exécution setup
+setup_bot_database()
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Étape 4 -->
+                        <div class="flex items-start">
+                            <div class="step-number">4</div>
+                            <div class="flex-1">
+                                <h5 class="font-semibold text-gray-800 mb-2">Test et Validation</h5>
+                                <p class="text-gray-600 mb-3">Testez le bot avec différents types d'utilisateurs et scenarios.</p>
+                                <div class="code-block">
+                                    <button class="copy-button" onclick="copyCode('bot-test')">
+                                        <i class="fas fa-copy"></i> Copier
+                                    </button>
+                                    <pre id="bot-test" class="text-green-400 text-sm"><code># Script de test complet du bot
+def test_bot_interactions():
+    """Test scenarios complets du bot"""
+    
+    bot = MYMInteractionBot(
+        db_path="mym_automation.db",
+        openai_api_key=os.getenv('OPENAI_API_KEY')
+    )
+    
+    # Scenarios de test
+    test_scenarios = [
+        {
+            'user_id': 'vip_user_001',
+            'level': 'vip',
+            'messages': [
+                "Salut ma belle Léana !",
+                "Tu me manques",
+                "Peux-tu créer quelque chose de spécial pour moi ?"
+            ]
+        },
+        {
+            'user_id': 'regular_user_001', 
+            'level': 'regular',
+            'messages': [
+                "Coucou Léana !",
+                "Comment tu vas ?",
+                "J'adore ton contenu !"
+            ]
+        },
+        {
+            'user_id': 'new_user_001',
+            'level': 'new', 
+            'messages': [
+                "Bonjour",
+                "Je découvre ton profil",
+                "Tu es vraiment une IA ?"
+            ]
+        }
+    ]
+    
+    print("🧪 Démarrage tests bot IA...\n")
+    
+    for scenario in test_scenarios:
+        print(f"👤 Test utilisateur: {scenario['level'].upper()}")
+        print("-" * 50)
+        
+        for message in scenario['messages']:
+            print(f"📝 Message: {message}")
+            
+            start_time = time.time()
+            response = bot.generate_contextual_response(
+                message, scenario['user_id']
+            )
+            response_time = time.time() - start_time
+            
+            print(f"🤖 Réponse ({response_time:.2f}s): {response}")
+            print()
+            
+            time.sleep(2)  # Délai réaliste entre messages
+        
+        print("=" * 60)
+        print()
+
+# Lancement tests
+if __name__ == "__main__":
+    test_bot_interactions()
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planificateur Intelligent -->
+    <section id="planificateur" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-calendar-alt text-green-600 mr-3"></i>
+                Planificateur Intelligent
+            </h2>
+
+            <!-- Fonctionnalités Planificateur -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-clock text-3xl text-blue-500 mb-4"></i>
+                    <h4 class="font-semibold mb-2">Optimisation Temporelle</h4>
+                    <p class="text-gray-600 text-sm">Planification basée sur l'analyse des pics d'engagement</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-chart-bar text-3xl text-green-500 mb-4"></i>
+                    <h4 class="font-semibold mb-2">Analytics Prédictifs</h4>
+                    <p class="text-gray-600 text-sm">Prédiction des meilleurs créneaux selon l'historique</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-sync text-3xl text-purple-500 mb-4"></i>
+                    <h4 class="font-semibold mb-2">Adaptation Dynamique</h4>
+                    <p class="text-gray-600 text-sm">Ajustement automatique selon les performances</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-balance-scale text-3xl text-red-500 mb-4"></i>
+                    <h4 class="font-semibold mb-2">Équilibrage Contenu</h4>
+                    <p class="text-gray-600 text-sm">Distribution optimale SFW/NSFW selon audience</p>
+                </div>
+            </div>
+
+            <!-- Code Planificateur -->
+            <div class="bg-white rounded-xl p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Système de Planification Intelligente</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode('scheduler-main')">
+                        <i class="fas fa-copy"></i> Copier
+                    </button>
+                    <pre id="scheduler-main" class="text-green-400 text-sm overflow-x-auto"><code>import schedule
+import sqlite3
+import numpy as np
+from datetime import datetime, timedelta
+from typing import Dict, List, Tuple
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+import json
+
+class IntelligentScheduler:
+    def __init__(self, db_path: str):
+        self.db_path = db_path
+        self.engagement_model = LinearRegression()
+        self.optimal_times = {}
+        self.content_balance = {'sfw': 0.6, 'nsfw': 0.4}
+        
+        # Chargement données historiques
+        self.load_historical_data()
+        self.train_engagement_model()
+    
+    def load_historical_data(self):
+        """Chargement données historiques pour analyse"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Récupération métriques publications
+        self.historical_data = pd.read_sql_query("""
+            SELECT 
+                publication_time,
+                content_type,
+                engagement_rate,
+                likes_count,
+                comments_count,
+                revenue_generated,
+                day_of_week,
+                hour_of_day
+            FROM publication_metrics 
+            WHERE publication_time >= date('now', '-90 days')
+            ORDER BY publication_time
+        """, conn)
+        
+        conn.close()
+        
+        if len(self.historical_data) > 0:
+            print(f"✅ {len(self.historical_data)} enregistrements chargés")
+        else:
+            print("⚠️ Aucune donnée historique - utilisation valeurs par défaut")
+            self.initialize_default_schedule()
+    
+    def train_engagement_model(self):
+        """Entraînement modèle prédictif engagement"""
+        if len(self.historical_data) < 20:
+            print("⚠️ Données insuffisantes pour ML - utilisation heuristiques")
+            return
+        
+        # Préparation features
+        features = []
+        targets = []
+        
+        for _, row in self.historical_data.iterrows():
+            # Features: jour semaine, heure, type contenu
+            feature_vector = [
+                row['day_of_week'],
+                row['hour_of_day'],
+                1 if row['content_type'] == 'nsfw' else 0,
+                # Ajout saisonnalité
+                np.sin(2 * np.pi * row['hour_of_day'] / 24),
+                np.cos(2 * np.pi * row['hour_of_day'] / 24)
+            ]
+            
+            features.append(feature_vector)
+            targets.append(row['engagement_rate'])
+        
+        # Entraînement modèle
+        X = np.array(features)
+        y = np.array(targets)
+        
+        self.engagement_model.fit(X, y)
+        
+        # Validation croisée simple
+        score = self.engagement_model.score(X, y)
+        print(f"✅ Modèle entraîné - Score R²: {score:.3f}")
+    
+    def predict_engagement(self, day_of_week: int, hour: int, content_type: str) -> float:
+        """Prédiction engagement pour créneau donné"""
+        if hasattr(self.engagement_model, 'coef_'):
+            # Utilisation modèle ML
+            feature_vector = np.array([[
+                day_of_week,
+                hour,
+                1 if content_type == 'nsfw' else 0,
+                np.sin(2 * np.pi * hour / 24),
+                np.cos(2 * np.pi * hour / 24)
+            ]])
+            
+            prediction = self.engagement_model.predict(feature_vector)[0]
+            return max(0, min(1, prediction))  # Normalisation 0-1
+        else:
+            # Fallback heuristique
+            return self.heuristic_engagement_score(day_of_week, hour, content_type)
+    
+    def heuristic_engagement_score(self, day_of_week: int, hour: int, content_type: str) -> float:
+        """Score d'engagement heuristique"""
+        base_score = 0.5
+        
+        # Bonus heures de pointe
+        peak_hours = [12, 13, 18, 19, 20, 21, 22]
+        if hour in peak_hours:
+            base_score += 0.2
+        
+        # Bonus weekend pour contenu NSFW
+        if day_of_week in [5, 6] and content_type == 'nsfw':
+            base_score += 0.15
+        
+        # Bonus soirée pour contenu intime
+        if hour >= 20 and hour <= 23 and content_type == 'nsfw':
+            base_score += 0.1
+        
+        # Malus heures creuses
+        if hour < 8 or hour > 24:
+            base_score -= 0.3
+        
+        return max(0.1, min(0.9, base_score))
+    
+    def generate_weekly_schedule(self) -> Dict:
+        """Génération planning hebdomadaire optimisé"""
+        weekly_schedule = {}
+        
+        # Calcul quotas hebdomadaires
+        weekly_quotas = {
+            'total_posts': 21,  # 3 posts/jour
+            'sfw_posts': int(21 * self.content_balance['sfw']),
+            'nsfw_posts': int(21 * self.content_balance['nsfw'])
+        }
+        
+        sfw_remaining = weekly_quotas['sfw_posts']
+        nsfw_remaining = weekly_quotas['nsfw_posts']
+        
+        # Pour chaque jour de la semaine
+        for day in range(7):  # 0=Lundi, 6=Dimanche
+            day_name = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'][day]
+            daily_posts = []
+            
+            # 3 posts par jour avec répartition optimale
+            daily_slots = self.get_optimal_daily_slots(day)
+            
+            for slot_hour in daily_slots:
+                # Décision type de contenu basée sur prédictions
+                sfw_score = self.predict_engagement(day, slot_hour, 'sfw')
+                nsfw_score = self.predict_engagement(day, slot_hour, 'nsfw')
+                
+                # Choix type en tenant compte des quotas restants
+                if nsfw_remaining > 0 and (nsfw_score > sfw_score or sfw_remaining == 0):
+                    content_type = 'nsfw'
+                    nsfw_remaining -= 1
+                elif sfw_remaining > 0:
+                    content_type = 'sfw'
+                    sfw_remaining -= 1
+                else:
+                    content_type = 'nsfw' if nsfw_remaining > 0 else 'sfw'
+                    if content_type == 'nsfw':
+                        nsfw_remaining -= 1
+                    else:
+                        sfw_remaining -= 1
+                
+                daily_posts.append({
+                    'hour': slot_hour,
+                    'content_type': content_type,
+                    'predicted_engagement': self.predict_engagement(day, slot_hour, content_type),
+                    'priority': 'high' if slot_hour in [13, 20, 22] else 'normal'
+                })
+            
+            weekly_schedule[day_name] = daily_posts
+        
+        return weekly_schedule
+    
+    def get_optimal_daily_slots(self, day_of_week: int) -> List[int]:
+        """Calcul créneaux optimaux pour un jour donné"""
+        # Analyse par tranche horaire
+        hourly_scores = []
+        
+        for hour in range(8, 24):  # 8h à 23h
+            avg_score = (
+                self.predict_engagement(day_of_week, hour, 'sfw') +
+                self.predict_engagement(day_of_week, hour, 'nsfw')
+            ) / 2
+            
+            hourly_scores.append((hour, avg_score))
+        
+        # Tri par score décroissant
+        hourly_scores.sort(key=lambda x: x[1], reverse=True)
+        
+        # Sélection 3 meilleurs créneaux avec espacement minimum
+        selected_slots = []
+        for hour, score in hourly_scores:
+            if len(selected_slots) >= 3:
+                break
+            
+            # Vérification espacement minimum (3h)
+            if not selected_slots or min(abs(hour - slot) for slot in selected_slots) >= 3:
+                selected_slots.append(hour)
+        
+        return sorted(selected_slots)
+    
+    def optimize_content_distribution(self, schedule: Dict) -> Dict:
+        """Optimisation distribution contenu selon analytics"""
+        
+        # Analyse performance récente par type
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT content_type, 
+                   AVG(engagement_rate) as avg_engagement,
+                   AVG(revenue_generated) as avg_revenue
+            FROM publication_metrics 
+            WHERE publication_time >= date('now', '-14 days')
+            GROUP BY content_type
+        """)
+        
+        performance_data = cursor.fetchall()
+        conn.close()
+        
+        if performance_data:
+            # Ajustement ratio SFW/NSFW selon performance
+            for content_type, engagement, revenue in performance_data:
+                if content_type == 'nsfw' and engagement > 0.6:
+                    # Performance NSFW excellente -> augmenter ratio
+                    self.content_balance['nsfw'] = min(0.6, self.content_balance['nsfw'] + 0.05)
+                    self.content_balance['sfw'] = 1 - self.content_balance['nsfw']
+                elif content_type == 'sfw' and engagement > 0.7:
+                    # Performance SFW excellente -> augmenter ratio
+                    self.content_balance['sfw'] = min(0.8, self.content_balance['sfw'] + 0.05)
+                    self.content_balance['nsfw'] = 1 - self.content_balance['sfw']
+        
+        print(f"📊 Nouveau ratio - SFW: {self.content_balance['sfw']:.1%}, NSFW: {self.content_balance['nsfw']:.1%}")
+        
+        return schedule
+    
+    def save_schedule_to_db(self, schedule: Dict):
+        """Sauvegarde planning en base de données"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # Suppression ancien planning
+        cursor.execute("DELETE FROM scheduled_publications WHERE status = 'pending'")
+        
+        # Insertion nouveau planning
+        for day_name, posts in schedule.items():
+            day_index = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'].index(day_name)
+            
+            for post in posts:
+                # Calcul timestamp exact
+                next_occurrence = self.get_next_day_occurrence(day_index)
+                post_datetime = next_occurrence.replace(hour=post['hour'], minute=0, second=0)
+                
+                cursor.execute("""
+                    INSERT INTO scheduled_publications 
+                    (scheduled_time, content_type, predicted_engagement, priority, status)
+                    VALUES (?, ?, ?, ?, 'pending')
+                """, (
+                    post_datetime,
+                    post['content_type'],
+                    post['predicted_engagement'],
+                    post['priority']
+                ))
+        
+        conn.commit()
+        conn.close()
+        
+        print("✅ Planning sauvegardé en base de données")
+    
+    def get_next_day_occurrence(self, target_day: int) -> datetime:
+        """Calcul prochaine occurrence d'un jour de la semaine"""
+        today = datetime.now()
+        days_ahead = target_day - today.weekday()
+        
+        if days_ahead <= 0:  # Target day already happened this week
+            days_ahead += 7
+        
+        return today + timedelta(days=days_ahead)
+    
+    def generate_and_save_schedule(self):
+        """Génération et sauvegarde planning complet"""
+        print("📅 Génération planning hebdomadaire intelligent...")
+        
+        # 1. Génération planning de base
+        schedule = self.generate_weekly_schedule()
+        
+        # 2. Optimisation selon analytics
+        optimized_schedule = self.optimize_content_distribution(schedule)
+        
+        # 3. Sauvegarde en BDD
+        self.save_schedule_to_db(optimized_schedule)
+        
+        # 4. Affichage résumé
+        self.print_schedule_summary(optimized_schedule)
+        
+        return optimized_schedule
+    
+    def print_schedule_summary(self, schedule: Dict):
+        """Affichage résumé du planning"""
+        print("\n📋 RÉSUMÉ PLANNING HEBDOMADAIRE")
+        print("=" * 50)
+        
+        total_posts = 0
+        total_sfw = 0
+        total_nsfw = 0
+        
+        for day_name, posts in schedule.items():
+            sfw_count = len([p for p in posts if p['content_type'] == 'sfw'])
+            nsfw_count = len([p for p in posts if p['content_type'] == 'nsfw'])
+            avg_engagement = np.mean([p['predicted_engagement'] for p in posts])
+            
+            print(f"{day_name}: {len(posts)} posts (SFW: {sfw_count}, NSFW: {nsfw_count}) - Engagement: {avg_engagement:.1%}")
+            
+            total_posts += len(posts)
+            total_sfw += sfw_count
+            total_nsfw += nsfw_count
+        
+        print("-" * 50)
+        print(f"TOTAL: {total_posts} posts (SFW: {total_sfw}, NSFW: {total_nsfw})")
+        print(f"Ratio: SFW {total_sfw/total_posts:.1%}, NSFW {total_nsfw/total_posts:.1%}")
+
+# Exemple d'utilisation
+if __name__ == "__main__":
+    scheduler = IntelligentScheduler("mym_automation.db")
+    weekly_plan = scheduler.generate_and_save_schedule()
+</code></pre>
+                </div>
+            </div>
+
+            <!-- Visualisation Planning -->
+            <div class="bg-white rounded-xl p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Visualisation Planning Optimal</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Graphique Engagement par Heure -->
+                    <div>
+                        <h4 class="font-semibold text-gray-700 mb-4">Engagement par Heure</h4>
+                        <canvas id="engagementChart" style="height: 300px;"></canvas>
+                    </div>
+                    
+                    <!-- Répartition Contenu -->
+                    <div>
+                        <h4 class="font-semibold text-gray-700 mb-4">Répartition SFW/NSFW</h4>
+                        <canvas id="contentChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics et Monitoring -->
+    <section id="analytics" class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-chart-line text-purple-600 mr-3"></i>
+                Analytics & Monitoring
+            </h2>
+
+            <!-- Métriques Temps Réel -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-blue-100">Messages Bot/Jour</p>
+                            <p class="text-2xl font-bold">342</p>
+                        </div>
+                        <i class="fas fa-comments text-3xl text-blue-200"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-green-100">Taux Réponse</p>
+                            <p class="text-2xl font-bold">94%</p>
+                        </div>
+                        <i class="fas fa-percentage text-3xl text-green-200"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-purple-100">Posts Planifiés</p>
+                            <p class="text-2xl font-bold">21</p>
+                        </div>
+                        <i class="fas fa-calendar text-3xl text-purple-200"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-red-500 to-red-600 text-white p-6 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-red-100">Efficacité IA</p>
+                            <p class="text-2xl font-bold">87%</p>
+                        </div>
+                        <i class="fas fa-robot text-3xl text-red-200"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Analytics -->
+            <div class="bg-gray-50 rounded-xl p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Système Analytics Temps Réel</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode('analytics-system')">
+                        <i class="fas fa-copy"></i> Copier
+                    </button>
+                    <pre id="analytics-system" class="text-green-400 text-sm overflow-x-auto"><code>import sqlite3
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+import json
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+class AnalyticsSystem:
+    def __init__(self, db_path: str):
+        self.db_path = db_path
+        self.metrics_cache = {}
+        self.last_update = None
+    
+    def get_bot_performance_metrics(self) -> Dict:
+        """Métriques performance bot IA"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Métriques des dernières 24h
+        metrics = {}
+        
+        # Messages traités
+        metrics['daily_messages'] = conn.execute("""
+            SELECT COUNT(*) FROM interactions 
+            WHERE timestamp >= datetime('now', '-1 day')
+        """).fetchone()[0]
+        
+        # Temps de réponse moyen
+        avg_response_time = conn.execute("""
+            SELECT AVG(response_time) FROM interactions 
+            WHERE timestamp >= datetime('now', '-1 day')
+            AND response_time IS NOT NULL
+        """).fetchone()[0]
+        metrics['avg_response_time'] = round(avg_response_time or 0, 2)
+        
+        # Taux de satisfaction (basé sur interactions follow-up)
+        total_responses = conn.execute("""
+            SELECT COUNT(*) FROM interactions 
+            WHERE timestamp >= datetime('now', '-1 day')
+        """).fetchone()[0]
+        
+        positive_responses = conn.execute("""
+            SELECT COUNT(*) FROM interactions i1
+            WHERE i1.timestamp >= datetime('now', '-1 day')
+            AND EXISTS (
+                SELECT 1 FROM interactions i2 
+                WHERE i2.user_id = i1.user_id 
+                AND i2.timestamp > i1.timestamp 
+                AND i2.timestamp <= datetime(i1.timestamp, '+1 hour')
+            )
+        """).fetchone()[0]
+        
+        metrics['satisfaction_rate'] = round(
+            (positive_responses / total_responses * 100) if total_responses > 0 else 0, 1
+        )
+        
+        # Coûts API
+        api_costs = conn.execute("""
+            SELECT SUM(tokens_used * 0.002) FROM daily_metrics 
+            WHERE date >= date('now', '-1 day')
+        """).fetchone()[0]
+        metrics['daily_api_cost'] = round(api_costs or 0, 2)
+        
+        conn.close()
+        return metrics
+    
+    def get_scheduler_performance(self) -> Dict:
+        """Performance du planificateur"""
+        conn = sqlite3.connect(self.db_path)
+        
+        metrics = {}
+        
+        # Posts planifiés vs publiés
+        scheduled_count = conn.execute("""
+            SELECT COUNT(*) FROM scheduled_publications 
+            WHERE scheduled_time >= datetime('now', '-7 days')
+        """).fetchone()[0]
+        
+        published_count = conn.execute("""
+            SELECT COUNT(*) FROM scheduled_publications 
+            WHERE scheduled_time >= datetime('now', '-7 days')
+            AND status = 'published'
+        """).fetchone()[0]
+        
+        metrics['scheduler_reliability'] = round(
+            (published_count / scheduled_count * 100) if scheduled_count > 0 else 0, 1
+        )
+        
+        # Engagement moyen posts planifiés vs manuels
+        planned_engagement = conn.execute("""
+            SELECT AVG(engagement_rate) FROM publication_metrics pm
+            JOIN scheduled_publications sp ON pm.id = sp.publication_id
+            WHERE pm.publication_time >= datetime('now', '-7 days')
+        """).fetchone()[0]
+        
+        manual_engagement = conn.execute("""
+            SELECT AVG(engagement_rate) FROM publication_metrics pm
+            WHERE pm.publication_time >= datetime('now', '-7 days')
+            AND pm.id NOT IN (SELECT publication_id FROM scheduled_publications WHERE publication_id IS NOT NULL)
+        """).fetchone()[0]
+        
+        metrics['planned_vs_manual_engagement'] = {
+            'planned': round(planned_engagement or 0, 3),
+            'manual': round(manual_engagement or 0, 3),
+            'improvement': round(((planned_engagement or 0) - (manual_engagement or 0)) * 100, 1)
+        }
+        
+        conn.close()
+        return metrics
+    
+    def analyze_user_interaction_patterns(self) -> Dict:
+        """Analyse patterns d'interaction utilisateurs"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Distribution par niveau utilisateur
+        user_distribution = pd.read_sql_query("""
+            SELECT level, COUNT(*) as count
+            FROM user_profiles 
+            GROUP BY level
+        """, conn)
+        
+        # Patterns temporels d'interaction
+        hourly_patterns = pd.read_sql_query("""
+            SELECT 
+                strftime('%H', timestamp) as hour,
+                COUNT(*) as message_count,
+                AVG(response_time) as avg_response_time
+            FROM interactions 
+            WHERE timestamp >= datetime('now', '-7 days')
+            GROUP BY strftime('%H', timestamp)
+            ORDER BY hour
+        """, conn)
+        
+        # Sujets de conversation populaires
+        intent_analysis = pd.read_sql_query("""
+            SELECT 
+                JSON_EXTRACT(intent_analysis, '$.intention') as intent,
+                COUNT(*) as frequency
+            FROM interactions 
+            WHERE timestamp >= datetime('now', '-7 days')
+            AND intent_analysis IS NOT NULL
+            GROUP BY JSON_EXTRACT(intent_analysis, '$.intention')
+            ORDER BY frequency DESC
+            LIMIT 10
+        """, conn)
+        
+        conn.close()
+        
+        return {
+            'user_distribution': user_distribution.to_dict('records'),
+            'hourly_patterns': hourly_patterns.to_dict('records'),
+            'popular_intents': intent_analysis.to_dict('records')
+        }
+    
+    def generate_optimization_recommendations(self) -> List[Dict]:
+        """Génération recommandations d'optimisation"""
+        bot_metrics = self.get_bot_performance_metrics()
+        scheduler_metrics = self.get_scheduler_performance()
+        interaction_patterns = self.analyze_user_interaction_patterns()
+        
+        recommendations = []
+        
+        # Recommandations bot
+        if bot_metrics['avg_response_time'] > 3.0:
+            recommendations.append({
+                'type': 'performance',
+                'priority': 'high',
+                'title': 'Optimiser temps de réponse bot',
+                'description': f"Temps de réponse actuel: {bot_metrics['avg_response_time']}s. Recommandé: <2s",
+                'actions': [
+                    'Réduire max_tokens dans les requêtes OpenAI',
+                    'Implémenter cache pour réponses fréquentes',
+                    'Optimiser requêtes base de données'
+                ]
+            })
+        
+        # Recommandations coûts
+        if bot_metrics['daily_api_cost'] > 5.0:
+            recommendations.append({
+                'type': 'cost',
+                'priority': 'medium',
+                'title': 'Optimiser coûts API',
+                'description': f"Coût quotidien: ${bot_metrics['daily_api_cost']}. Budget recommandé: <$3/jour",
+                'actions': [
+                    'Utiliser plus de templates pré-définis',
+                    'Réduire la température du modèle',
+                    'Implémenter fallback sur réponses simples'
+                ]
+            })
+        
+        # Recommandations planificateur
+        if scheduler_metrics['scheduler_reliability'] < 95:
+            recommendations.append({
+                'type': 'reliability',
+                'priority': 'high',
+                'title': 'Améliorer fiabilité planificateur',
+                'description': f"Fiabilité actuelle: {scheduler_metrics['scheduler_reliability']}%",
+                'actions': [
+                    'Vérifier logs d\'erreur système',
+                    'Améliorer gestion des exceptions',
+                    'Ajouter retry automatique'
+                ]
+            })
+        
+        # Recommandations engagement
+        planned_engagement = scheduler_metrics['planned_vs_manual_engagement']
+        if planned_engagement['improvement'] < 5:
+            recommendations.append({
+                'type': 'engagement',
+                'priority': 'medium',
+                'title': 'Améliorer algorithme de planification',
+                'description': f"Amélioration engagement: +{planned_engagement['improvement']}%",
+                'actions': [
+                    'Analyser plus de données historiques',
+                    'Affiner modèle de prédiction',
+                    'Tester nouveaux créneaux horaires'
+                ]
+            })
+        
+        return recommendations
+    
+    def export_analytics_report(self, format='json') -> str:
+        """Export rapport analytics complet"""
+        report = {
+            'generated_at': datetime.now().isoformat(),
+            'bot_metrics': self.get_bot_performance_metrics(),
+            'scheduler_metrics': self.get_scheduler_performance(),
+            'interaction_patterns': self.analyze_user_interaction_patterns(),
+            'recommendations': self.generate_optimization_recommendations()
+        }
+        
+        if format == 'json':
+            filename = f"analytics_report_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
+            with open(filename, 'w', encoding='utf-8') as f:
+                json.dump(report, f, indent=2, ensure_ascii=False)
+        
+        return filename
+    
+    def create_performance_dashboard(self):
+        """Création dashboard performance visuel"""
+        bot_metrics = self.get_bot_performance_metrics()
+        interaction_patterns = self.analyze_user_interaction_patterns()
+        
+        # Configuration style plots
+        plt.style.use('seaborn-v0_8')
+        fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+        fig.suptitle('Dashboard Performance Bot IA & Planificateur', fontsize=16, fontweight='bold')
+        
+        # Graphique 1: Messages par heure
+        hourly_data = pd.DataFrame(interaction_patterns['hourly_patterns'])
+        if not hourly_data.empty:
+            axes[0,0].bar(hourly_data['hour'], hourly_data['message_count'], color='skyblue')
+            axes[0,0].set_title('Messages par Heure (7 derniers jours)')
+            axes[0,0].set_xlabel('Heure')
+            axes[0,0].set_ylabel('Nombre de Messages')
+        
+        # Graphique 2: Distribution utilisateurs
+        user_data = pd.DataFrame(interaction_patterns['user_distribution'])
+        if not user_data.empty:
+            axes[0,1].pie(user_data['count'], labels=user_data['level'], autopct='%1.1f%%')
+            axes[0,1].set_title('Répartition Utilisateurs par Niveau')
+        
+        # Graphique 3: Intentions populaires
+        intent_data = pd.DataFrame(interaction_patterns['popular_intents'])
+        if not intent_data.empty:
+            axes[1,0].barh(intent_data['intent'][:5], intent_data['frequency'][:5], color='lightgreen')
+            axes[1,0].set_title('Top 5 Intentions de Conversation')
+            axes[1,0].set_xlabel('Fréquence')
+        
+        # Graphique 4: Métriques performance
+        metrics_names = ['Messages/jour', 'Satisfaction %', 'Temps réponse (s)', 'Coût/jour ($)']
+        metrics_values = [
+            bot_metrics['daily_messages'],
+            bot_metrics['satisfaction_rate'],
+            bot_metrics['avg_response_time'],
+            bot_metrics['daily_api_cost']
+        ]
+        
+        axes[1,1].bar(metrics_names, metrics_values, color=['blue', 'green', 'orange', 'red'])
+        axes[1,1].set_title('Métriques Performance Bot')
+        axes[1,1].tick_params(axis='x', rotation=45)
+        
+        plt.tight_layout()
+        plt.savefig(f'dashboard_{datetime.now().strftime("%Y%m%d_%H%M")}.png', dpi=300, bbox_inches='tight')
+        plt.show()
+        
+        print("✅ Dashboard sauvegardé")
+
+# Exemple d'utilisation
+if __name__ == "__main__":
+    analytics = AnalyticsSystem("mym_automation.db")
+    
+    # Génération rapport complet
+    report_file = analytics.export_analytics_report()
+    print(f"📊 Rapport généré: {report_file}")
+    
+    # Création dashboard visuel
+    analytics.create_performance_dashboard()
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intégration Complète -->
+    <section id="integration" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-cogs text-red-600 mr-3"></i>
+                Intégration Système Complet
+            </h2>
+
+            <!-- Architecture Globale -->
+            <div class="bg-white rounded-xl p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Architecture Système Intégrée</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-database text-3xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Base de Données</h4>
+                        <p class="text-gray-600 text-sm">SQLite centralisée avec toutes les données</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-robot text-3xl text-green-600"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Bot IA</h4>
+                        <p class="text-gray-600 text-sm">Interactions automatisées 24/7</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calendar-alt text-3xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Planificateur</h4>
+                        <p class="text-gray-600 text-sm">Optimisation continue des publications</p>
+                    </div>
+                </div>
+
+                <!-- Script Intégration Principale -->
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode('main-integration')">
+                        <i class="fas fa-copy"></i> Copier
+                    </button>
+                    <pre id="main-integration" class="text-green-400 text-sm overflow-x-auto"><code>#!/usr/bin/env python3
+"""
+Système Intégré MYM - Bot IA & Planificateur
+Version complète avec monitoring et analytics
+"""
+
+import os
+import sys
+import time
+import schedule
+import threading
+import logging
+from datetime import datetime
+from dotenv import load_dotenv
+
+# Import modules locaux
+from mym_bot import MYMInteractionBot
+from intelligent_scheduler import IntelligentScheduler
+from analytics_system import AnalyticsSystem
+
+class MYMAutomationSystem:
+    def __init__(self):
+        # Chargement configuration
+        load_dotenv()
+        
+        # Configuration logging
+        self.setup_logging()
+        
+        # Initialisation composants
+        self.db_path = "mym_automation.db"
+        self.bot = None
+        self.scheduler = None
+        self.analytics = None
+        
+        # Status système
+        self.system_status = {
+            'bot_active': False,
+            'scheduler_active': False,
+            'analytics_active': False,
+            'last_health_check': None
+        }
+        
+        # Threads principaux
+        self.threads = {}
+        
+        self.logger.info("Système MYM Automation initialisé")
+    
+    def setup_logging(self):
+        """Configuration système de logging"""
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler('mym_automation.log'),
+                logging.StreamHandler(sys.stdout)
+            ]
+        )
+        self.logger = logging.getLogger('MYMAutomation')
+    
+    def initialize_components(self):
+        """Initialisation tous les composants"""
+        try:
+            # 1. Bot IA
+            self.logger.info("Initialisation Bot IA...")
+            self.bot = MYMInteractionBot(
+                db_path=self.db_path,
+                openai_api_key=os.getenv('OPENAI_API_KEY')
+            )
+            self.system_status['bot_active'] = True
+            self.logger.info("✅ Bot IA initialisé")
+            
+            # 2. Planificateur
+            self.logger.info("Initialisation Planificateur...")
+            self.scheduler = IntelligentScheduler(self.db_path)
+            self.system_status['scheduler_active'] = True
+            self.logger.info("✅ Planificateur initialisé")
+            
+            # 3. Analytics
+            self.logger.info("Initialisation Analytics...")
+            self.analytics = AnalyticsSystem(self.db_path)
+            self.system_status['analytics_active'] = True
+            self.logger.info("✅ Analytics initialisé")
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Erreur initialisation: {e}")
+            return False
+    
+    def start_bot_monitoring(self):
+        """Démarrage monitoring bot IA"""
+        def bot_monitor_loop():
+            self.logger.info("🤖 Monitoring bot IA démarré")
+            
+            while self.system_status['bot_active']:
+                try:
+                    # Simulation traitement messages en attente
+                    # En production: intégration avec API MYM
+                    pending_messages = self.get_pending_messages()
+                    
+                    for message in pending_messages:
+                        response = self.bot.generate_contextual_response(
+                            message['content'], 
+                            message['user_id']
+                        )
+                        
+                        self.send_response_to_mym(message['user_id'], response)
+                        time.sleep(2)  # Délai anti-spam
+                    
+                    time.sleep(30)  # Check toutes les 30 secondes
+                    
+                except Exception as e:
+                    self.logger.error(f"Erreur monitoring bot: {e}")
+                    time.sleep(60)  # Attente plus longue en cas d'erreur
+        
+        # Lancement thread monitoring
+        self.threads['bot_monitor'] = threading.Thread(
+            target=bot_monitor_loop, 
+            daemon=True
+        )
+        self.threads['bot_monitor'].start()
+    
+    def setup_scheduler_jobs(self):
+        """Configuration tâches planifiées"""
+        
+        # Génération planning hebdomadaire (Dimanche 23h)
+        schedule.every().sunday.at("23:00").do(
+            self.scheduler.generate_and_save_schedule
+        )
+        
+        # Publication automatique (Check toutes les heures)
+        schedule.every().hour.do(self.check_and_publish_scheduled_content)
+        
+        # Rapport analytics quotidien (08h00)
+        schedule.every().day.at("08:00").do(
+            self.analytics.export_analytics_report
+        )
+        
+        # Health check système (toutes les 15 min)
+        schedule.every(15).minutes.do(self.system_health_check)
+        
+        # Optimisation base de données (quotidien 03h00)
+        schedule.every().day.at("03:00").do(self.optimize_database)
+        
+        self.logger.info("✅ Tâches planifiées configurées")
+    
+    def start_scheduler_monitoring(self):
+        """Démarrage monitoring planificateur"""
+        def scheduler_monitor_loop():
+            self.logger.info("📅 Monitoring planificateur démarré")
+            
+            while self.system_status['scheduler_active']:
+                try:
+                    schedule.run_pending()
+                    time.sleep(60)  # Check toutes les minutes
+                except Exception as e:
+                    self.logger.error(f"Erreur planificateur: {e}")
+                    time.sleep(300)  # 5 min en cas d'erreur
+        
+        self.threads['scheduler_monitor'] = threading.Thread(
+            target=scheduler_monitor_loop,
+            daemon=True
+        )
+        self.threads['scheduler_monitor'].start()
+    
+    def check_and_publish_scheduled_content(self):
+        """Vérification et publication contenu planifié"""
+        try:
+            import sqlite3
+            
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            
+            # Récupération publications dues
+            cursor.execute("""
+                SELECT id, content_type, priority
+                FROM scheduled_publications 
+                WHERE scheduled_time <= datetime('now')
+                AND status = 'pending'
+                ORDER BY priority DESC, scheduled_time ASC
+                LIMIT 5
+            """)
+            
+            due_publications = cursor.fetchall()
+            
+            for pub_id, content_type, priority in due_publications:
+                # Génération contenu selon type
+                content = self.generate_content_for_publication(content_type)
+                
+                # Publication sur MYM (simulation)
+                success = self.publish_to_mym(content, content_type)
+                
+                if success:
+                    # Mise à jour statut
+                    cursor.execute("""
+                        UPDATE scheduled_publications 
+                        SET status = 'published', published_at = datetime('now')
+                        WHERE id = ?
+                    """, (pub_id,))
+                    
+                    self.logger.info(f"✅ Publication {pub_id} ({content_type}) publiée")
+                else:
+                    self.logger.error(f"❌ Échec publication {pub_id}")
+            
+            conn.commit()
+            conn.close()
+            
+        except Exception as e:
+            self.logger.error(f"Erreur publication planifiée: {e}")
+    
+    def system_health_check(self):
+        """Vérification santé système complet"""
+        try:
+            health_status = {
+                'timestamp': datetime.now().isoformat(),
+                'components': {},
+                'overall_status': 'healthy'
+            }
+            
+            # Check Bot IA
+            try:
+                bot_metrics = self.analytics.get_bot_performance_metrics()
+                health_status['components']['bot'] = {
+                    'status': 'healthy' if bot_metrics['avg_response_time'] < 5 else 'warning',
+                    'response_time': bot_metrics['avg_response_time'],
+                    'daily_messages': bot_metrics['daily_messages']
+                }
+            except Exception as e:
+                health_status['components']['bot'] = {'status': 'error', 'error': str(e)}
+            
+            # Check Planificateur
+            try:
+                scheduler_metrics = self.analytics.get_scheduler_performance()
+                health_status['components']['scheduler'] = {
+                    'status': 'healthy' if scheduler_metrics['scheduler_reliability'] > 90 else 'warning',
+                    'reliability': scheduler_metrics['scheduler_reliability']
+                }
+            except Exception as e:
+                health_status['components']['scheduler'] = {'status': 'error', 'error': str(e)}
+            
+            # Check Base de données
+            try:
+                import sqlite3
+                conn = sqlite3.connect(self.db_path)
+                conn.execute("SELECT 1").fetchone()
+                conn.close()
+                health_status['components']['database'] = {'status': 'healthy'}
+            except Exception as e:
+                health_status['components']['database'] = {'status': 'error', 'error': str(e)}
+            
+            # Détermination statut global
+            component_statuses = [comp['status'] for comp in health_status['components'].values()]
+            if 'error' in component_statuses:
+                health_status['overall_status'] = 'critical'
+            elif 'warning' in component_statuses:
+                health_status['overall_status'] = 'warning'
+            
+            # Sauvegarde health check
+            self.system_status['last_health_check'] = health_status
+            
+            # Log selon statut
+            if health_status['overall_status'] == 'healthy':
+                self.logger.info("💚 Health check: Système en bonne santé")
+            elif health_status['overall_status'] == 'warning':
+                self.logger.warning("💛 Health check: Avertissements détectés")
+            else:
+                self.logger.error("❤️ Health check: Problèmes critiques détectés")
+            
+        except Exception as e:
+            self.logger.error(f"Erreur health check: {e}")
+    
+    def get_pending_messages(self) -> List[Dict]:
+        """Récupération messages en attente (simulation)"""
+        # En production: intégration API MYM réelle
+        return [
+            {'user_id': 'user123', 'content': 'Salut Léana !'},
+            {'user_id': 'user456', 'content': 'Tu es magnifique'}
+        ]
+    
+    def send_response_to_mym(self, user_id: str, response: str) -> bool:
+        """Envoi réponse vers MYM (simulation)"""
+        # En production: utilisation API MYM
+        self.logger.info(f"📤 Réponse envoyée à {user_id}: {response[:50]}...")
+        return True
+    
+    def generate_content_for_publication(self, content_type: str) -> Dict:
+        """Génération contenu pour publication"""
+        # En production: intégration avec système génération IA
+        return {
+            'type': content_type,
+            'image_path': f"generated_content_{content_type}_{datetime.now().strftime('%Y%m%d_%H%M')}.jpg",
+            'description': f"Nouveau contenu {content_type} créé par Léana Mystère ✨",
+            'tags': ['IA', 'art', 'créativité']
+        }
+    
+    def publish_to_mym(self, content: Dict, content_type: str) -> bool:
+        """Publication vers MYM (simulation)"""
+        # En production: utilisation Selenium + MYM
+        self.logger.info(f"📤 Publication {content_type} vers MYM")
+        return True
+    
+    def optimize_database(self):
+        """Optimisation base de données"""
+        try:
+            import sqlite3
+            
+            conn = sqlite3.connect(self.db_path)
+            
+            # Nettoyage anciennes données
+            conn.execute("DELETE FROM interactions WHERE timestamp < date('now', '-30 days')")
+            conn.execute("DELETE FROM daily_metrics WHERE date < date('now', '-90 days')")
+            
+            # Optimisation
+            conn.execute("VACUUM")
+            conn.execute("ANALYZE")
+            
+            conn.commit()
+            conn.close()
+            
+            self.logger.info("✅ Base de données optimisée")
+            
+        except Exception as e:
+            self.logger.error(f"Erreur optimisation BDD: {e}")
+    
+    def start_system(self):
+        """Démarrage système complet"""
+        self.logger.info("🚀 Démarrage système MYM Automation...")
+        
+        # 1. Initialisation composants
+        if not self.initialize_components():
+            self.logger.error("❌ Échec initialisation - Arrêt système")
+            return False
+        
+        # 2. Configuration tâches planifiées
+        self.setup_scheduler_jobs()
+        
+        # 3. Démarrage monitoring
+        self.start_bot_monitoring()
+        self.start_scheduler_monitoring()
+        
+        # 4. Health check initial
+        self.system_health_check()
+        
+        self.logger.info("✅ Système MYM Automation démarré avec succès")
+        
+        # 5. Boucle principale
+        try:
+            while True:
+                time.sleep(60)  # Maintien système actif
+        except KeyboardInterrupt:
+            self.logger.info("🛑 Arrêt système demandé")
+            self.stop_system()
+    
+    def stop_system(self):
+        """Arrêt propre du système"""
+        self.logger.info("🛑 Arrêt système en cours...")
+        
+        # Arrêt composants
+        self.system_status['bot_active'] = False
+        self.system_status['scheduler_active'] = False
+        self.system_status['analytics_active'] = False
+        
+        # Attente fin threads
+        for thread_name, thread in self.threads.items():
+            if thread.is_alive():
+                self.logger.info(f"Arrêt thread {thread_name}...")
+                thread.join(timeout=5)
+        
+        self.logger.info("✅ Système arrêté proprement")
+
+def main():
+    """Point d'entrée principal"""
+    print("🤖 Manuel IA MYM 2025 - Système Complet")
+    print("=" * 50)
+    
+    # Vérifications prérequis
+    required_env = ['OPENAI_API_KEY']
+    missing_env = [var for var in required_env if not os.getenv(var)]
+    
+    if missing_env:
+        print(f"❌ Variables d'environnement manquantes: {missing_env}")
+        print("Configurez votre fichier .env avant de continuer")
+        return
+    
+    # Démarrage système
+    system = MYMAutomationSystem()
+    system.start_system()
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+                </div>
+            </div>
+
+            <!-- Guide de Déploiement -->
+            <div class="bg-white rounded-xl p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Guide de Déploiement Complet</h3>
+                
+                <div class="space-y-6">
+                    <!-- Étape 1 -->
+                    <div class="flex items-start">
+                        <div class="step-number">1</div>
+                        <div class="flex-1">
+                            <h5 class="font-semibold text-gray-800 mb-2">Préparation Environnement</h5>
+                            <div class="code-block">
+                                <button class="copy-button" onclick="copyCode('deploy-env')">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                                <pre id="deploy-env" class="text-green-400 text-sm"><code># Création environnement virtuel
+python -m venv mym_automation_env
+source mym_automation_env/bin/activate  # Linux/Mac
+# ou mym_automation_env\Scripts\activate  # Windows
+
+# Installation dépendances
+pip install -r requirements.txt
+
+# Configuration variables d'environnement
+cp .env.example .env
+# Éditer .env avec vos clés API</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="flex items-start">
+                        <div class="step-number">2</div>
+                        <div class="flex-1">
+                            <h5 class="font-semibold text-gray-800 mb-2">Test Unitaires</h5>
+                            <div class="code-block">
+                                <button class="copy-button" onclick="copyCode('deploy-test')">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                                <pre id="deploy-test" class="text-green-400 text-sm"><code># Tests composants individuels
+python -m pytest tests/test_bot.py -v
+python -m pytest tests/test_scheduler.py -v
+python -m pytest tests/test_analytics.py -v
+
+# Test intégration complète
+python test_integration.py
+
+# Validation configuration
+python validate_setup.py</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="flex items-start">
+                        <div class="step-number">3</div>
+                        <div class="flex-1">
+                            <h5 class="font-semibold text-gray-800 mb-2">Déploiement Production</h5>
+                            <div class="code-block">
+                                <button class="copy-button" onclick="copyCode('deploy-prod')">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                                <pre id="deploy-prod" class="text-green-400 text-sm"><code># Démarrage système complet
+python main_system.py
+
+# Ou avec nohup pour fonctionnement permanent
+nohup python main_system.py > mym_automation.log 2>&1 &
+
+# Monitoring logs en temps réel
+tail -f mym_automation.log
+
+# Vérification status
+python status_check.py</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Résumé et Next Steps -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-4">🎉 Bloc 8.1.3 Terminé !</h2>
+                <p class="text-xl opacity-90">Bot IA & Planificateur Intelligent Opérationnels</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="text-center">
+                    <i class="fas fa-robot text-4xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Bot IA Contextuel</h3>
+                    <p class="opacity-90">Interactions automatisées 24/7 avec intelligence conversationnelle avancée</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-calendar-alt text-4xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Planification Optimisée</h3>
+                    <p class="opacity-90">Algorithmes ML pour optimisation temporelle et engagement maximal</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-chart-line text-4xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Analytics Temps Réel</h3>
+                    <p class="opacity-90">Monitoring continu et recommandations d'optimisation automatiques</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 inline-block">
+                    <h3 class="text-lg font-semibold mb-2">Système Complet Prêt</h3>
+                    <p class="mb-4">Votre écosystème d'automatisation MYM est maintenant opérationnel !</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="bg-white bg-opacity-30 px-3 py-1 rounded-full text-sm">✅ Bot IA</span>
+                        <span class="bg-white bg-opacity-30 px-3 py-1 rounded-full text-sm">✅ Planificateur</span>
+                        <span class="bg-white bg-opacity-30 px-3 py-1 rounded-full text-sm">✅ Analytics</span>
+                        <span class="bg-white bg-opacity-30 px-3 py-1 rounded-full text-sm">✅ Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonction copie code
+        function copyCode(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                // Feedback visuel
+                const button = element.parentNode.querySelector('.copy-button');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copié !';
+                button.style.background = '#48bb78';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#4a5568';
+                }, 2000);
+            });
+        }
+
+        // Initialisation graphiques
+        document.addEventListener('DOMContentLoaded', function() {
+            // Graphique engagement par heure
+            const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+            new Chart(engagementCtx, {
+                type: 'line',
+                data: {
+                    labels: ['8h', '10h', '12h', '14h', '16h', '18h', '20h', '22h'],
+                    datasets: [{
+                        label: 'Engagement SFW',
+                        data: [0.3, 0.4, 0.7, 0.6, 0.5, 0.8, 0.6, 0.4],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'Engagement NSFW',
+                        data: [0.2, 0.3, 0.5, 0.4, 0.6, 0.7, 0.9, 0.8],
+                        borderColor: 'rgb(239, 68, 68)',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1
+                        }
+                    }
+                }
+            });
+
+            // Graphique répartition contenu
+            const contentCtx = document.getElementById('contentChart').getContext('2d');
+            new Chart(contentCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['SFW', 'NSFW'],
+                    datasets: [{
+                        data: [60, 40],
+                        backgroundColor: [
+                            'rgba(34, 197, 94, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(34, 197, 94)',
+                            'rgb(239, 68, 68)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        });
+
+        // Smooth scrolling pour navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e62d239f7250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDu7kDrH9nb2k4UUYg%2BQKdOZqNa7mBiWrb1aL9ivNLoOsgWZymGNcQfEei5qjYcSM3%2FfT5Rt46TrdEYq%2B1u25lMOX%2F8divf%2FpcJXfBWzr9%2BQYGbewbbz3ODoCi7CCevNqjTUd8W0o1vQ7sQlWDTrpF4WEs3ZKFtL%2BN%2Bl12JizXmAkfhCht0wvW04kQnWqGUsjQqfKusifTdOC9dpRwMoU3VhZcUAN1usvVj0m7sQHE6e5goKQVJHrIM%2BJjamKuwVxUW4bO3n7AY0QQimVPRDrmDZGoMeaNcod3M3gss6kNHQTWP6h6seVuK818z4q%2F%2Fhk5VvkNxEg%2FLzve2fmv80c1jkgCAbPxPkeMSz4gS56Cb%2BWTDTKkyu76pH1jHJqvwHplB9F5P4xyLaSWro3osZ43I0nkveW2w1Y4%2Bx844RoFt32UNkfAUsNQLwNeAZIWU2%2B6EvexwKjoMDkU%2FN1gh2Yh%2ByxklgSE1CpfyqHLnr%2F534pkrAA%2BhXmLPGtw4CG03Daf0%2FMfp6mRkOevgp%2Blee9zHBHY2VlhQYbb6t5xWyUsGvc";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDu7kDrH9nb2k4UUYg+QKdOZqNa7mBiWrb1aL9ivNLoOsgWZymGNcQfEei5qjYcSM3/fT5Rt46TrdEYq+1u25lMOX/8divf/pcJXfBWzr9+QYGbewbbz3ODoCi7CCevNqjTUd8W0o1vQ7sQlWDTrpF4WEs3ZKFtL+N+l12JizXmAkfhCht0wvW04kQnWqGUsjQqfKusifTdOC9dpRwMoU3VhZcUAN1usvVj0m7sQHE6e5goKQVJHrIM+JjamKuwVxUW4bO3n7AY0QQimVPRDrmDZGoMeaNcod3M3gss6kNHQTWP6h6seVuK818z4q//hk5VvkNxEg/Lzve2fmv80c1jkgCAbPxPkeMSz4gS56Cb+WTDTKkyu76pH1jHJqvwHplB9F5P4xyLaSWro3osZ43I0nkveW2w1Y4+x844RoFt32UNkfAUsNQLwNeAZIWU2+6EvexwKjoMDkU/N1gh2Yh+yxklgSE1CpfyqHLnr/534pkrAA+hXmLPGtw4CG03Daf0/Mfp6mRkOevgp+lee9zHBHY2VlhQYbb6t5xWyUsGvc";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

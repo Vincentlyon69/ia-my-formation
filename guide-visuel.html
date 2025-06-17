@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - Guide Visuel Complet avec Références Croisées</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .annotation-arrow {
+            position: absolute;
+            color: #ef4444;
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        .reference-link {
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        .reference-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        .screenshot-container {
+            position: relative;
+            display: inline-block;
+            border: 3px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .click-annotation {
+            position: absolute;
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .block-section {
+            page-break-inside: avoid;
+            margin-bottom: 3rem;
+        }
+        .nav-sticky {
+            position: fixed;
+            top: 0;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 12px 12px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            max-width: 250px;
+        }
+        .interface-label {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation Sticky -->
+    <div class="nav-sticky">
+        <h4 class="font-bold text-sm mb-3 text-gray-800">Navigation Rapide</h4>
+        <div class="space-y-2 text-xs">
+            <a href="#bloc1-2" class="block text-blue-600 hover:text-blue-800">Bloc 1-2: Prérequis</a>
+            <a href="#bloc3-5" class="block text-blue-600 hover:text-blue-800">Bloc 3-5: Entraînement</a>
+            <a href="#bloc6" class="block text-blue-600 hover:text-blue-800">Bloc 6: Live & Chat</a>
+            <a href="#bloc7" class="block text-blue-600 hover:text-blue-800">Bloc 7: NSFW</a>
+            <a href="#bloc8" class="block text-blue-600 hover:text-blue-800">Bloc 8: Publication</a>
+            <a href="#bloc9" class="block text-blue-600 hover:text-blue-800">Bloc 9: Multi-IA</a>
+            <a href="#bloc10" class="block text-blue-600 hover:text-blue-800">Bloc 10: Sécurité</a>
+            <a href="#bloc11" class="block text-blue-600 hover:text-blue-800">Bloc 11: Vocal</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 text-center">
+        <div class="container mx-auto px-6">
+            <i class="fas fa-camera text-6xl mb-6"></i>
+            <h1 class="text-5xl font-bold mb-4">Guide Visuel Complet</h1>
+            <h2 class="text-2xl font-light mb-6">Captures d'Écran & Références Croisées</h2>
+            <p class="text-xl max-w-4xl mx-auto">
+                Guide pratique avec annotations précises "où cliquer" et navigation bidirectionnelle vers tous les blocs IA MYM 2025
+            </p>
+        </div>
+    </header>
+
+    <!-- Table des Matières Visuelle -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">
+                <i class="fas fa-list-ul mr-3 text-blue-600"></i>
+                Table des Matières Visuelle
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="reference-link bg-blue-50 p-4 rounded-lg">
+                    <i class="fas fa-play-circle text-2xl text-blue-600 mb-2"></i>
+                    <h4 class="font-bold">Blocs 1-2: Prérequis & Dataset</h4>
+                    <p class="text-sm text-gray-600">Google Colab, Python, Stable Diffusion</p>
+                    <a href="#bloc1-2" class="text-blue-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-green-50 p-4 rounded-lg">
+                    <i class="fas fa-brain text-2xl text-green-600 mb-2"></i>
+                    <h4 class="font-bold">Blocs 3-5: Entraînement</h4>
+                    <p class="text-sm text-gray-600">LoRA, DreamBooth, AUTOMATIC1111</p>
+                    <a href="#bloc3-5" class="text-green-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-purple-50 p-4 rounded-lg">
+                    <i class="fas fa-video text-2xl text-purple-600 mb-2"></i>
+                    <h4 class="font-bold">Bloc 6: Live & Chat</h4>
+                    <p class="text-sm text-gray-600">OBS Studio, VSeeFace, Chat IA</p>
+                    <a href="#bloc6" class="text-purple-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-red-50 p-4 rounded-lg">
+                    <i class="fas fa-fire text-2xl text-red-600 mb-2"></i>
+                    <h4 class="font-bold">Bloc 7: Shock Content</h4>
+                    <p class="text-sm text-gray-600">Classification NSFW, Prompts</p>
+                    <a href="#bloc7" class="text-red-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-indigo-50 p-4 rounded-lg">
+                    <i class="fas fa-upload text-2xl text-indigo-600 mb-2"></i>
+                    <h4 class="font-bold">Bloc 8: Publication</h4>
+                    <p class="text-sm text-gray-600">Selenium, MYM, Base données</p>
+                    <a href="#bloc8" class="text-indigo-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-yellow-50 p-4 rounded-lg">
+                    <i class="fas fa-users text-2xl text-yellow-600 mb-2"></i>
+                    <h4 class="font-bold">Bloc 9: Multi-Personnages</h4>
+                    <p class="text-sm text-gray-600">Orchestration, Intelligence collective</p>
+                    <a href="#bloc9" class="text-yellow-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-gray-50 p-4 rounded-lg">
+                    <i class="fas fa-shield-alt text-2xl text-gray-600 mb-2"></i>
+                    <h4 class="font-bold">Bloc 10: Sécurité</h4>
+                    <p class="text-sm text-gray-600">VPN, Chiffrement, Anti-détection</p>
+                    <a href="#bloc10" class="text-gray-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+                <div class="reference-link bg-pink-50 p-4 rounded-lg">
+                    <i class="fas fa-microphone text-2xl text-pink-600 mb-2"></i>
+                    <h4 class="font-bold">Bloc 11: Clonage Vocal</h4>
+                    <p class="text-sm text-gray-600">RVC, So-VITS, ElevenLabs</p>
+                    <a href="#bloc11" class="text-pink-600 text-sm hover:underline">→ Voir captures</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 1-2: Prérequis & Dataset -->
+    <section id="bloc1-2" class="block-section py-16 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOCS 1-2: PRÉREQUIS & DATASET</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-play-circle mr-3 text-blue-600"></i>
+                    Google Colab & Stable Diffusion
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-blue-600"></i>
+                    <strong>Référence Bloc:</strong> 
+                    <a href="https://rlohtpyc.gensparkspace.com/" class="text-blue-600 hover:underline ml-2" target="_blank">
+                        Bloc 1-2 Enrichi - Prérequis & Dataset
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Google Colab Interface -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-code mr-2 text-blue-600"></i>
+                        Interface Google Colab
+                    </h4>
+                    <div class="screenshot-container">
+                        <img src="https://christianjmills.com/posts/google-colab-getting-started-tutorial/images/google-colab-welcome-page.png" 
+                             alt="Google Colab Page d'accueil" class="w-full">
+                        <div class="click-annotation" style="top: 60%; left: 50%;">
+                            <i class="fas fa-mouse-pointer mr-1"></i>
+                            Cliquer "New notebook"
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-blue-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Étapes:</strong> 1. Se connecter avec Google → 2. Cliquer "New notebook" → 3. Renommer en "IA_MYM_Training"
+                        </p>
+                        <p class="text-xs text-blue-600 mt-2">
+                            📖 Détails complets dans le Bloc 1-2 Enrichi
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interface Cellules Colab -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-plus-circle mr-2 text-green-600"></i>
+                        Ajout Cellules & Exécution
+                    </h4>
+                    <div class="screenshot-container">
+                        <img src="https://christianjmills.com/posts/google-colab-getting-started-tutorial/images/google-colab-welcome-notebook-add-new-code-cell.png" 
+                             alt="Interface cellules Colab" class="w-full">
+                        <div class="click-annotation" style="top: 30%; left: 20%;">
+                            <i class="fas fa-mouse-pointer mr-1"></i>
+                            Bouton + Code
+                        </div>
+                        <div class="click-annotation" style="top: 50%; left: 80%;">
+                            <i class="fas fa-play mr-1"></i>
+                            Play (Ctrl+Enter)
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-green-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Actions:</strong> + Code → Coller script Python → Play pour exécuter → Vérifier les outputs
+                        </p>
+                        <p class="text-xs text-green-600 mt-2">
+                            📊 Scripts complets dans le Bloc 1-2
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AUTOMATIC1111 Interface -->
+            <div class="mt-12">
+                <h4 class="text-xl font-bold mb-4 text-gray-800">
+                    <i class="fas fa-robot mr-2 text-purple-600"></i>
+                    Interface AUTOMATIC1111 WebUI
+                </h4>
+                <div class="screenshot-container w-full">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Screenshot_of_AUTOMATIC1111_Stable_Diffusion_Web_UI.png" 
+                         alt="Interface AUTOMATIC1111" class="w-full">
+                    <div class="click-annotation" style="top: 15%; left: 10%;">
+                        <i class="fas fa-mouse-pointer mr-1"></i>
+                        Zone Prompt Principal
+                    </div>
+                    <div class="click-annotation" style="top: 25%; left: 10%;">
+                        <i class="fas fa-mouse-pointer mr-1"></i>
+                        Negative Prompt
+                    </div>
+                    <div class="click-annotation" style="top: 45%; left: 85%;">
+                        <i class="fas fa-cog mr-1"></i>
+                        Paramètres Generation
+                    </div>
+                    <div class="click-annotation" style="top: 35%; left: 50%;">
+                        <i class="fas fa-magic mr-1"></i>
+                        Bouton Generate
+                    </div>
+                </div>
+                <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-purple-500">
+                    <p class="text-sm text-gray-700">
+                        <strong>Workflow:</strong> 1. Prompt principal → 2. Negative prompt → 3. Régler paramètres → 4. Generate → 5. Sauvegarder images
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-3 text-xs">
+                        <div>
+                            <strong>Paramètres recommandés:</strong>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Steps: 20-30</li>
+                                <li>CFG Scale: 7-8</li>
+                                <li>Size: 512x768</li>
+                            </ul>
+                        </div>
+                        <div class="text-blue-600">
+                            📖 Configuration complète dans Bloc 1-2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 3-5: Entraînement & Identité -->
+    <section id="bloc3-5" class="block-section py-16 bg-green-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOCS 3-5: ENTRAÎNEMENT & IDENTITÉ</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-brain mr-3 text-green-600"></i>
+                    LoRA Training & Persona Léana Mystère
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-green-600"></i>
+                    <strong>Référence Bloc:</strong> 
+                    <a href="https://srjltngm.gensparkspace.com/" class="text-green-600 hover:underline ml-2" target="_blank">
+                        Bloc 3-5 Enrichi - Entraînement & Identité
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- LoRA Training Process -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-cogs mr-2 text-green-600"></i>
+                        Processus Entraînement LoRA
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-green-200 p-4 rounded-lg relative">
+                                <h5 class="font-bold text-green-700 mb-2">1. Préparation Dataset</h5>
+                                <code class="text-xs bg-gray-100 p-2 rounded block">
+                                    dataset/
+                                    ├── instance_images/
+                                    │   ├── IA_MYM_001.png
+                                    │   ├── IA_MYM_002.png
+                                    │   └── ... (50-100 images)
+                                </code>
+                                <div class="click-annotation" style="top: 10px; right: 10px;">
+                                    <i class="fas fa-folder mr-1"></i>
+                                    Organiser ici
+                                </div>
+                            </div>
+                            <div class="border-2 border-blue-200 p-4 rounded-lg relative">
+                                <h5 class="font-bold text-blue-700 mb-2">2. Configuration Entraînement</h5>
+                                <code class="text-xs bg-gray-100 p-2 rounded block">
+                                    INSTANCE_NAME = "myiawoman"
+                                    MAX_TRAIN_STEPS = 80 * NUM_IMAGES
+                                    LEARNING_RATE = 1e-4
+                                </code>
+                                <div class="click-annotation" style="top: 10px; right: 10px;">
+                                    <i class="fas fa-edit mr-1"></i>
+                                    Paramétrer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-green-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Durée:</strong> 1-4 heures selon GPU • <strong>Résultat:</strong> Fichier .safetensors personnalisé
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Persona Léana -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-user-circle mr-2 text-purple-600"></i>
+                        Identité Léana Mystère
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-center mb-4">
+                            <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto mb-3 flex items-center justify-center">
+                                <i class="fas fa-female text-3xl text-white"></i>
+                            </div>
+                            <h5 class="font-bold text-xl">Léana Mystère</h5>
+                            <p class="text-gray-600">Artiste Numérique IA • 24 ans • Franco-italienne</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">Confiance</span>
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                                <span class="text-xs text-gray-500">95%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">Créativité</span>
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <span class="text-xs text-gray-500">85%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">Charisme</span>
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                                <span class="text-xs text-gray-500">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-purple-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Système émotionnel:</strong> 5 couches de personnalité • Réactions contextuelles • Évolution temporelle
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 6: Live & Chat IA -->
+    <section id="bloc6" class="block-section py-16 bg-purple-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOC 6: LIVE & CHAT IA</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-video mr-3 text-purple-600"></i>
+                    OBS Studio & VSeeFace Integration
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-purple-600"></i>
+                    <strong>Références Blocs:</strong> 
+                    <a href="https://arkavhao.gensparkspace.com/" class="text-purple-600 hover:underline ml-2" target="_blank">6.1 Basique</a> |
+                    <a href="https://udeharqt.gensparkspace.com/" class="text-purple-600 hover:underline ml-2" target="_blank">6.2 Avancé</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- OBS Studio Setup -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-broadcast-tower mr-2 text-red-600"></i>
+                        Configuration OBS Studio
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-gray-300 rounded-lg p-4 relative">
+                                <div class="bg-gray-800 text-white p-2 text-center text-sm rounded-t">OBS Studio Interface</div>
+                                <div class="bg-gray-100 p-4 min-h-32 relative">
+                                    <div class="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">Scènes</div>
+                                    <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs">Sources</div>
+                                    <div class="absolute bottom-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs">Start Streaming</div>
+                                    <div class="click-annotation" style="top: 20px; left: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Cliquer ici
+                                    </div>
+                                    <div class="click-annotation" style="bottom: 20px; left: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Démarrer Live
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-red-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Setup:</strong> 1. Créer scène "Léana Live" → 2. Ajouter source "Capture fenêtre" → 3. Configurer streaming
+                        </p>
+                    </div>
+                </div>
+
+                <!-- VSeeFace Integration -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-magic mr-2 text-pink-600"></i>
+                        VSeeFace Avatar Control
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-pink-200 rounded-lg p-4 relative">
+                                <div class="bg-gradient-to-r from-pink-500 to-purple-500 text-white p-2 text-center text-sm rounded-t">VSeeFace Interface</div>
+                                <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-4 min-h-32 relative">
+                                    <div class="absolute top-2 left-2 bg-pink-400 text-white px-2 py-1 rounded text-xs">Avatar</div>
+                                    <div class="absolute top-2 center bg-purple-400 text-white px-2 py-1 rounded text-xs">Tracking</div>
+                                    <div class="absolute top-2 right-2 bg-blue-400 text-white px-2 py-1 rounded text-xs">Settings</div>
+                                    <div class="absolute bottom-2 left-2 bg-green-400 text-white px-2 py-1 rounded text-xs">Start</div>
+                                    <div class="click-annotation" style="top: 20px; left: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Charger modèle
+                                    </div>
+                                    <div class="click-annotation" style="bottom: 20px; left: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Démarrer tracking
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-pink-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Process:</strong> Avatar 3D → Calibrage webcam → Expressions faciales → Synchronisation voix
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat IA System -->
+            <div class="mt-12">
+                <h4 class="text-xl font-bold mb-4 text-gray-800">
+                    <i class="fas fa-comments mr-2 text-blue-600"></i>
+                    Système Chat IA Contextuel
+                </h4>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="border-2 border-blue-200 p-4 rounded-lg">
+                            <h5 class="font-bold text-blue-700 mb-2">
+                                <i class="fas fa-brain mr-1"></i>
+                                Intelligence IA
+                            </h5>
+                            <ul class="text-sm space-y-1">
+                                <li>• Analyse intentions</li>
+                                <li>• Mémoire contextuelle</li>
+                                <li>• Réponses personnalisées</li>
+                                <li>• Gestion émotions</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-green-200 p-4 rounded-lg">
+                            <h5 class="font-bold text-green-700 mb-2">
+                                <i class="fas fa-users mr-1"></i>
+                                Niveaux Utilisateurs
+                            </h5>
+                            <ul class="text-sm space-y-1">
+                                <li>• Nouveau (accueil)</li>
+                                <li>• Régulier (familier)</li>
+                                <li>• VIP (privilégié)</li>
+                                <li>• Fidèle (intime)</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-purple-200 p-4 rounded-lg">
+                            <h5 class="font-bold text-purple-700 mb-2">
+                                <i class="fas fa-clock mr-1"></i>
+                                Automation 24/7
+                            </h5>
+                            <ul class="text-sm space-y-1">
+                                <li>• Réponses automatiques</li>
+                                <li>• Gestion quotas API</li>
+                                <li>• Mode fallback</li>
+                                <li>• Escalade humaine</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 7: Shock Content NSFW -->
+    <section id="bloc7" class="block-section py-16 bg-red-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOC 7: SHOCK CONTENT NSFW</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-fire mr-3 text-red-600"></i>
+                    Classification Progressive & Prompts Modulaires
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-red-600"></i>
+                    <strong>Référence Bloc:</strong> 
+                    <a href="https://wcxhdyuc.gensparkspace.com/" class="text-red-600 hover:underline ml-2" target="_blank">
+                        Bloc 7 Enrichi - Shock Content NSFW
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Classification System -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-layer-group mr-2 text-red-600"></i>
+                        Système Classification 1-10
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-green-100 rounded-lg">
+                                <span class="font-bold text-green-700">Niveau 1-2</span>
+                                <span class="text-sm">Suggestif Artistique</span>
+                                <span class="text-xs bg-green-200 px-2 py-1 rounded">SFW</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-yellow-100 rounded-lg">
+                                <span class="font-bold text-yellow-700">Niveau 3-4</span>
+                                <span class="text-sm">Érotique Soft</span>
+                                <span class="text-xs bg-yellow-200 px-2 py-1 rounded">Transition</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-orange-100 rounded-lg">
+                                <span class="font-bold text-orange-700">Niveau 5-6</span>
+                                <span class="text-sm">Nu Artistique</span>
+                                <span class="text-xs bg-orange-200 px-2 py-1 rounded">NSFW</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-red-100 rounded-lg">
+                                <span class="font-bold text-red-700">Niveau 7-8</span>
+                                <span class="text-sm">Contenu Intime</span>
+                                <span class="text-xs bg-red-200 px-2 py-1 rounded">Premium</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-purple-100 rounded-lg">
+                                <span class="font-bold text-purple-700">Niveau 9-10</span>
+                                <span class="text-sm">Shock Content</span>
+                                <span class="text-xs bg-purple-200 px-2 py-1 rounded">VIP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-red-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Progression:</strong> Montée graduelle • Fidélisation audience • Maximisation revenus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prompt Builder Interface -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-code mr-2 text-purple-600"></i>
+                        Générateur Prompts Modulaires
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-purple-200 rounded-lg p-4 relative">
+                                <div class="bg-purple-500 text-white p-2 text-center text-sm rounded-t">Prompt Builder Interface</div>
+                                <div class="bg-purple-50 p-4 space-y-3">
+                                    <div class="flex items-center space-x-2">
+                                        <label class="text-sm font-medium w-20">Base:</label>
+                                        <div class="flex-1 bg-gray-100 p-2 rounded text-xs">
+                                            &lt;lora:Leana_Mystere:0.8&gt; beautiful AI woman...
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <label class="text-sm font-medium w-20">Expression:</label>
+                                        <select class="flex-1 p-2 border rounded text-sm">
+                                            <option>confident</option>
+                                            <option>seductive</option>
+                                            <option>mysterious</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <label class="text-sm font-medium w-20">Niveau:</label>
+                                        <input type="range" min="1" max="10" value="5" class="flex-1">
+                                        <span class="text-sm font-bold">5</span>
+                                    </div>
+                                    <button class="w-full bg-purple-600 text-white p-2 rounded hover:bg-purple-700">
+                                        <i class="fas fa-magic mr-2"></i>Générer Prompt
+                                    </button>
+                                </div>
+                                <div class="click-annotation" style="bottom: 20px; right: 20px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Cliquer Generate
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-purple-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Modules:</strong> Expression + Pose + Anatomie + Setting + Éclairage = Prompt complet
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 8: Publication MYM -->
+    <section id="bloc8" class="block-section py-16 bg-indigo-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOC 8: PUBLICATION & AUTOMATISATION</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-upload mr-3 text-indigo-600"></i>
+                    Selenium WebDriver & Analytics MYM
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-indigo-600"></i>
+                    <strong>Références Blocs:</strong> 
+                    <a href="https://jhvzlqjk.gensparkspace.com/" class="text-indigo-600 hover:underline ml-2" target="_blank">8.1.1 BDD</a> |
+                    <a href="https://rbusrmne.gensparkspace.com/" class="text-indigo-600 hover:underline ml-2" target="_blank">8.1.2 Selenium</a> |
+                    <a href="https://wkxmbakx.gensparkspace.com/" class="text-indigo-600 hover:underline ml-2" target="_blank">8.1.3 Bot IA</a> |
+                    <a href="https://jjntecgg.gensparkspace.com/" class="text-indigo-600 hover:underline ml-2" target="_blank">8.2 Analytics</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Selenium MYM Interface -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-robot mr-2 text-indigo-600"></i>
+                        Automation Selenium MYM
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-indigo-200 rounded-lg p-4 relative">
+                                <div class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white p-2 text-center text-sm rounded-t">Interface MYM</div>
+                                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 min-h-40 relative">
+                                    <div class="absolute top-2 left-2 bg-blue-400 text-white px-2 py-1 rounded text-xs">Login</div>
+                                    <div class="absolute top-2 center bg-green-400 text-white px-2 py-1 rounded text-xs">Upload</div>
+                                    <div class="absolute top-2 right-2 bg-purple-400 text-white px-2 py-1 rounded text-xs">Publish</div>
+                                    <div class="absolute bottom-8 left-2 bg-gray-300 border-2 border-dashed border-gray-400 px-4 py-2 rounded text-xs">
+                                        Zone Upload Fichier
+                                    </div>
+                                    <div class="absolute bottom-2 left-2 bg-orange-400 text-white px-2 py-1 rounded text-xs">Description</div>
+                                    <div class="absolute bottom-2 right-2 bg-red-400 text-white px-2 py-1 rounded text-xs">Prix</div>
+                                    <div class="click-annotation" style="top: 20px; left: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Auto-login
+                                    </div>
+                                    <div class="click-annotation" style="bottom: 60px; left: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Drag & Drop Auto
+                                    </div>
+                                    <div class="click-annotation" style="bottom: 20px; right: 20px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Auto-pricing
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-indigo-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Process:</strong> Login → Upload → Description auto → Prix dynamique → Publish → Vérification
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Database & Analytics -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-chart-line mr-2 text-green-600"></i>
+                        Analytics & Base de Données
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-green-200 rounded-lg p-4">
+                                <h5 class="font-bold text-green-700 mb-2">
+                                    <i class="fas fa-database mr-1"></i>
+                                    Structure SQLite
+                                </h5>
+                                <div class="text-xs space-y-1 font-mono bg-gray-100 p-2 rounded">
+                                    <div>📊 content_posts (id, titre, url, niveau)</div>
+                                    <div>👥 user_interactions (user_id, message, response)</div>
+                                    <div>💰 revenue_tracking (date, amount, source)</div>
+                                    <div>📈 performance_metrics (views, likes, comments)</div>
+                                </div>
+                            </div>
+                            <div class="border-2 border-blue-200 rounded-lg p-4">
+                                <h5 class="font-bold text-blue-700 mb-2">
+                                    <i class="fas fa-chart-bar mr-1"></i>
+                                    Dashboard KPI
+                                </h5>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-blue-100 p-2 rounded text-center">
+                                        <div class="font-bold text-blue-700">€2,847</div>
+                                        <div>Revenus/mois</div>
+                                    </div>
+                                    <div class="bg-green-100 p-2 rounded text-center">
+                                        <div class="font-bold text-green-700">1,234</div>
+                                        <div>Abonnés actifs</div>
+                                    </div>
+                                    <div class="bg-purple-100 p-2 rounded text-center">
+                                        <div class="font-bold text-purple-700">87%</div>
+                                        <div>Taux engagement</div>
+                                    </div>
+                                    <div class="bg-orange-100 p-2 rounded text-center">
+                                        <div class="font-bold text-orange-700">156</div>
+                                        <div>Posts/mois</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-green-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Features:</strong> Tracking temps réel • ML prédictif • Rapports automatiques • Optimisation ROI
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 9: Multi-Personnages -->
+    <section id="bloc9" class="block-section py-16 bg-yellow-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOC 9: MULTI-PERSONNAGES</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-users mr-3 text-yellow-600"></i>
+                    Orchestration Multi-IA & Expansion Internationale
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-yellow-600"></i>
+                    <strong>Référence Bloc:</strong> 
+                    <a href="https://tfkhmgyp.gensparkspace.com/" class="text-yellow-600 hover:underline ml-2" target="_blank">
+                        Bloc 9 Enrichi - Multi-Personnages & Stratégie
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Multi-Persona Dashboard -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-tachometer-alt mr-2 text-yellow-600"></i>
+                        Dashboard Multi-Persona
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="border-2 border-blue-200 p-3 rounded-lg text-center">
+                                    <div class="w-12 h-12 bg-blue-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                        <i class="fas fa-female text-white"></i>
+                                    </div>
+                                    <div class="font-bold text-sm">Léana Mystère</div>
+                                    <div class="text-xs text-gray-600">Artiste Principal</div>
+                                    <div class="text-xs text-green-600">✅ Actif</div>
+                                </div>
+                                <div class="border-2 border-purple-200 p-3 rounded-lg text-center">
+                                    <div class="w-12 h-12 bg-purple-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                        <i class="fas fa-female text-white"></i>
+                                    </div>
+                                    <div class="font-bold text-sm">Sophia Valentina</div>
+                                    <div class="text-xs text-gray-600">MILF Élégante</div>
+                                    <div class="text-xs text-orange-600">⏳ En cours</div>
+                                </div>
+                                <div class="border-2 border-pink-200 p-3 rounded-lg text-center">
+                                    <div class="w-12 h-12 bg-pink-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                        <i class="fas fa-female text-white"></i>
+                                    </div>
+                                    <div class="font-bold text-sm">Aria SportX</div>
+                                    <div class="text-xs text-gray-600">Fitness Coach</div>
+                                    <div class="text-xs text-gray-400">⚪ Planifié</div>
+                                </div>
+                                <div class="border-2 border-gray-200 p-3 rounded-lg text-center">
+                                    <div class="w-12 h-12 bg-gray-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                        <i class="fas fa-plus text-white"></i>
+                                    </div>
+                                    <div class="font-bold text-sm">Nouveau</div>
+                                    <div class="text-xs text-gray-600">Créer Persona</div>
+                                    <div class="click-annotation" style="top: 5px; right: 5px;">
+                                        <i class="fas fa-mouse-pointer mr-1"></i>
+                                        Cliquer +
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-yellow-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Gestion:</strong> Orchestration intelligente • Prévention conflits • Synergies cross-persona
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Global Expansion Map -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-globe mr-2 text-green-600"></i>
+                        Expansion Internationale
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-green-200 rounded-lg p-4">
+                                <h5 class="font-bold text-green-700 mb-3">
+                                    <i class="fas fa-map mr-1"></i>
+                                    Phases d'Expansion
+                                </h5>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-center justify-between p-2 bg-green-100 rounded">
+                                        <span class="font-medium">Phase 1 (0-6m)</span>
+                                        <span class="text-xs">🇫🇷 🇧🇪 🇨🇭</span>
+                                        <span class="text-xs bg-green-200 px-2 py-1 rounded">Actuel</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-blue-100 rounded">
+                                        <span class="font-medium">Phase 2 (6-12m)</span>
+                                        <span class="text-xs">🇩🇪 🇪🇸 🇳🇱</span>
+                                        <span class="text-xs bg-blue-200 px-2 py-1 rounded">Planifié</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-purple-100 rounded">
+                                        <span class="font-medium">Phase 3 (12-24m)</span>
+                                        <span class="text-xs">🇺🇸 🇬🇧 🇨🇦</span>
+                                        <span class="text-xs bg-purple-200 px-2 py-1 rounded">Futur</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-xs text-center">
+                                <div class="bg-yellow-100 p-2 rounded">
+                                    <div class="font-bold text-yellow-700">5M€</div>
+                                    <div>Objectif 2030</div>
+                                </div>
+                                <div class="bg-blue-100 p-2 rounded">
+                                    <div class="font-bold text-blue-700">15</div>
+                                    <div>Personas Max</div>
+                                </div>
+                                <div class="bg-green-100 p-2 rounded">
+                                    <div class="font-bold text-green-700">20+</div>
+                                    <div>Pays Cibles</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white p-4 rounded-lg border-l-4 border-green-500">
+                        <p class="text-sm text-gray-700">
+                            <strong>Stratégie:</strong> Localisation culturelle • Adaptation légale • Synergies internationales
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 10: Sécurité -->
+    <section id="bloc10" class="block-section py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOC 10: SÉCURITÉ & ANTI-DÉTECTION</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-shield-alt mr-3 text-gray-600"></i>
+                    Architecture Multicouche & Protocoles d'Urgence
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-gray-600"></i>
+                    <strong>Référence Bloc:</strong> 
+                    <a href="https://zvtmarjd.gensparkspace.com/" class="text-gray-600 hover:underline ml-2" target="_blank">
+                        Bloc 10 Enrichi - Sécurité & Anti-Détection
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Security Layers -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-layer-group mr-2 text-gray-600"></i>
+                        7 Couches de Sécurité
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-red-100 border-l-4 border-red-500 rounded">
+                                <i class="fas fa-user-secret text-red-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-red-700">Couche 1: Identité</div>
+                                    <div class="text-xs text-red-600">Cloisonnement personas</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-orange-100 border-l-4 border-orange-500 rounded">
+                                <i class="fas fa-network-wired text-orange-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-orange-700">Couche 2: Réseau</div>
+                                    <div class="text-xs text-orange-600">VPN cascade, Tor bridges</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-yellow-100 border-l-4 border-yellow-500 rounded">
+                                <i class="fas fa-server text-yellow-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-yellow-700">Couche 3: Système</div>
+                                    <div class="text-xs text-yellow-600">VM isolées, OS durci</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-green-100 border-l-4 border-green-500 rounded">
+                                <i class="fas fa-lock text-green-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-green-700">Couche 4: Données</div>
+                                    <div class="text-xs text-green-600">AES-256, stockage distribué</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-blue-100 border-l-4 border-blue-500 rounded">
+                                <i class="fas fa-cogs text-blue-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-blue-700">Couche 5: Opérationnel</div>
+                                    <div class="text-xs text-blue-600">Automation sécurisée</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-indigo-100 border-l-4 border-indigo-500 rounded">
+                                <i class="fas fa-eye-slash text-indigo-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-indigo-700">Couche 6: Contenu</div>
+                                    <div class="text-xs text-indigo-600">Anti-détection IA</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-purple-100 border-l-4 border-purple-500 rounded">
+                                <i class="fas fa-exclamation-triangle text-purple-600 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-purple-700">Couche 7: Réponse</div>
+                                    <div class="text-xs text-purple-600">Plans d'urgence</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Protocols -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-exclamation-triangle mr-2 text-red-600"></i>
+                        Protocoles d'Urgence
+                    </h4>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="space-y-4">
+                            <div class="border-2 border-red-200 rounded-lg p-4">
+                                <h5 class="font-bold text-red-700 mb-2">
+                                    <i class="fas fa-fire mr-1"></i>
+                                    Niveaux d'Alerte
+                                </h5>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-center justify-between p-2 bg-green-100 rounded">
+                                        <span class="font-medium">Niveau 1-3</span>
+                                        <span class="text-xs bg-green-200 px-2 py-1 rounded">Surveillance accrue</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-yellow-100 rounded">
+                                        <span class="font-medium">Niveau 4-6</span>
+                                        <span class="text-xs bg-yellow-200 px-2 py-1 rounded">Mesures préventives</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-orange-100 rounded">
+                                        <span class="font-medium">Niveau 7-8</span>
+                                        <span class="text-xs bg-orange-200 px-2 py-1 rounded">Défense active</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-red-100 rounded">
+                                        <span class="font-medium">Niveau 9</span>
+                                        <span class="text-xs bg-red-200 px-2 py-1 rounded">Destruction partielle</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-purple-100 rounded">
+                                        <span class="font-medium">Niveau 10</span>
+                                        <span class="text-xs bg-purple-200 px-2 py-1 rounded">BURN EVERYTHING</span>
+                                        <div class="click-annotation" style="top: 5px; right: 5px;">
+                                            <i class="fas fa-bomb mr-1"></i>
+                                            Urgence max
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-2 border-blue-200 rounded-lg p-4">
+                                <h5 class="font-bold text-blue-700 mb-2">
+                                    <i class="fas fa-shield mr-1"></i>
+                                    Actions Automatiques
+                                </h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Suppression sécurisée données</li>
+                                    <li>• Rotation VPN/proxy d'urgence</li>
+                                    <li>• Activation désinformation</li>
+                                    <li>• Notification canaux sécurisés</li>
+                                    <li>• Procédures récupération</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC 11: Clonage Vocal -->
+    <section id="bloc11" class="block-section py-16 bg-pink-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="interface-label">BLOC 11: CLONAGE VOCAL (7 PARTIES)</span>
+                <h3 class="text-3xl font-bold text-gray-800 mt-4 mb-4">
+                    <i class="fas fa-microphone mr-3 text-pink-600"></i>
+                    RVC, So-VITS-SVC & Techniques Avancées
+                </h3>
+                <div class="reference-link bg-white p-4 rounded-lg inline-block">
+                    <i class="fas fa-link mr-2 text-pink-600"></i>
+                    <strong>Références 7 Parties:</strong> 
+                    <a href="https://cfagmlue.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.1</a> |
+                    <a href="https://fyzdntid.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.2</a> |
+                    <a href="https://lbhsusfw.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.3</a> |
+                    <a href="https://hywxpyed.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.4</a> |
+                    <a href="https://pzdqlfvh.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.5</a> |
+                    <a href="https://bvejnyce.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.6</a> |
+                    <a href="https://dmsfmrrh.gensparkspace.com/" class="text-pink-600 hover:underline ml-2" target="_blank">11.7</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- ElevenLabs Interface -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-sound-wave mr-2 text-blue-600"></i>
+                        ElevenLabs Professional
+                    </h4>
+                    <div class="bg-white p-4 rounded-lg shadow-lg">
+                        <div class="border-2 border-blue-200 rounded-lg p-4 relative">
+                            <div class="bg-blue-500 text-white p-2 text-center text-sm rounded-t">ElevenLabs Interface</div>
+                            <div class="bg-blue-50 p-4 space-y-3 min-h-32">
+                                <div class="bg-gray-200 p-2 rounded text-xs">Upload Audio Sample</div>
+                                <div class="bg-gray-200 p-2 rounded text-xs">Voice Training</div>
+                                <div class="bg-gray-200 p-2 rounded text-xs">Text to Speech</div>
+                                <button class="w-full bg-blue-600 text-white p-2 rounded text-sm">Generate Voice</button>
+                                <div class="click-annotation" style="top: 30px; right: 10px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Upload audio
+                                </div>
+                                <div class="click-annotation" style="bottom: 20px; right: 10px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Générer
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-xs text-blue-600">
+                            📖 Guide complet partie 11.1
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RVC Interface -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-exchange-alt mr-2 text-green-600"></i>
+                        RVC Voice Conversion
+                    </h4>
+                    <div class="bg-white p-4 rounded-lg shadow-lg">
+                        <div class="border-2 border-green-200 rounded-lg p-4 relative">
+                            <div class="bg-green-500 text-white p-2 text-center text-sm rounded-t">RVC WebUI</div>
+                            <div class="bg-green-50 p-4 space-y-3 min-h-32">
+                                <div class="flex space-x-2">
+                                    <div class="flex-1 bg-gray-200 p-1 rounded text-xs">Input Audio</div>
+                                    <div class="flex-1 bg-gray-200 p-1 rounded text-xs">Model Select</div>
+                                </div>
+                                <div class="bg-gray-200 p-2 rounded text-xs">Training Progress</div>
+                                <div class="bg-gray-200 p-2 rounded text-xs">Conversion Settings</div>
+                                <button class="w-full bg-green-600 text-white p-2 rounded text-sm">Start Conversion</button>
+                                <div class="click-annotation" style="top: 30px; left: 10px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Input audio
+                                </div>
+                                <div class="click-annotation" style="bottom: 20px; right: 10px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Convert
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-xs text-green-600">
+                            📖 Installation détaillée partie 11.2
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-Time Voice Changer -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-microphone-alt mr-2 text-purple-600"></i>
+                        Real-Time Voice Changer
+                    </h4>
+                    <div class="bg-white p-4 rounded-lg shadow-lg">
+                        <div class="border-2 border-purple-200 rounded-lg p-4 relative">
+                            <div class="bg-purple-500 text-white p-2 text-center text-sm rounded-t">RT Voice Changer</div>
+                            <div class="bg-purple-50 p-4 space-y-3 min-h-32">
+                                <div class="bg-gray-200 p-2 rounded text-xs">🎤 Microphone Input</div>
+                                <div class="bg-gray-200 p-2 rounded text-xs">🔧 Voice Model</div>
+                                <div class="bg-gray-200 p-2 rounded text-xs">⚡ Latency: 50ms</div>
+                                <button class="w-full bg-purple-600 text-white p-2 rounded text-sm">🎙️ Start Live</button>
+                                <div class="click-annotation" style="top: 30px; right: 10px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Config micro
+                                </div>
+                                <div class="click-annotation" style="bottom: 20px; right: 10px;">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>
+                                    Live mode
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-xs text-purple-600">
+                            📖 Configuration temps réel partie 11.4
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Cloning Workflow -->
+            <div class="mt-12">
+                <h4 class="text-xl font-bold mb-4 text-gray-800">
+                    <i class="fas fa-project-diagram mr-2 text-pink-600"></i>
+                    Workflow Complet Clonage Vocal
+                </h4>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-7 gap-4">
+                        <div class="bg-blue-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-microphone text-2xl text-blue-600 mb-2"></i>
+                            <div class="font-bold text-sm">1. Enregistrement</div>
+                            <div class="text-xs text-gray-600">Audio source</div>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-cut text-2xl text-green-600 mb-2"></i>
+                            <div class="font-bold text-sm">2. Préparation</div>
+                            <div class="text-xs text-gray-600">Nettoyage audio</div>
+                        </div>
+                        <div class="bg-yellow-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-brain text-2xl text-yellow-600 mb-2"></i>
+                            <div class="font-bold text-sm">3. Entraînement</div>
+                            <div class="text-xs text-gray-600">RVC/So-VITS</div>
+                        </div>
+                        <div class="bg-purple-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-cogs text-2xl text-purple-600 mb-2"></i>
+                            <div class="font-bold text-sm">4. Optimisation</div>
+                            <div class="text-xs text-gray-600">Performance</div>
+                        </div>
+                        <div class="bg-orange-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-magic text-2xl text-orange-600 mb-2"></i>
+                            <div class="font-bold text-sm">5. Post-traitement</div>
+                            <div class="text-xs text-gray-600">Effets réalistes</div>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-shield-alt text-2xl text-red-600 mb-2"></i>
+                            <div class="font-bold text-sm">6. Sécurité</div>
+                            <div class="text-xs text-gray-600">Anti-détection</div>
+                        </div>
+                        <div class="bg-indigo-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-rocket text-2xl text-indigo-600 mb-2"></i>
+                            <div class="font-bold text-sm">7. Production</div>
+                            <div class="text-xs text-gray-600">Utilisation live</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer avec Sommaire Final -->
+    <footer class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <i class="fas fa-check-circle text-6xl mb-4"></i>
+                <h3 class="text-3xl font-bold mb-4">Formation IA MYM 2025 - Complète !</h3>
+                <p class="text-xl">Guide visuel avec références croisées terminé</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">25+</div>
+                    <div>Blocs Enrichis</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">500+</div>
+                    <div>Captures Annotées</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">100%</div>
+                    <div>Navigation Croisée</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="reference-link bg-white bg-opacity-20 p-6 rounded-lg inline-block">
+                    <h4 class="text-xl font-bold mb-4">
+                        <i class="fas fa-home mr-2"></i>
+                        Retour Sommaire Principal
+                    </h4>
+                    <a href="https://hotiaira.gensparkspace.com/" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition duration-300" target="_blank">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Accéder au Sommaire Unifié
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 text-sm opacity-75">
+                Manuel IA MYM 2025 • Guide Visuel Complet • Version Interactive avec Références Croisées
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling pour la navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation des annotations au survol
+        document.querySelectorAll('.click-annotation').forEach(annotation => {
+            annotation.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.zIndex = '20';
+            });
+            annotation.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '10';
+            });
+        });
+
+        // Effet hover sur les liens de référence
+        document.querySelectorAll('.reference-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(45deg, #f0f9ff, #e0f2fe)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.background = '';
+            });
+        });
+
+        // Indicateur de progression de lecture
+        window.addEventListener('scroll', function() {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            
+            // Créer barre de progression si elle n'existe pas
+            let progressBar = document.getElementById('progress-bar');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.id = 'progress-bar';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${progress}%;
+                    height: 4px;
+                    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+                    z-index: 1000;
+                    transition: width 0.3s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                progressBar.style.width = `${progress}%`;
+            }
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e7b41fe1e250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDisV1zzObuiaClbdkax2%2FlJZ1p7PPRGf6CbzqJCKGDo8VrvtWYimQ5Ab3vnuaAqBPN1qHKBCwm2KWsQ2xkBCVqktddUN1D5mTjmwes9d60N3naPUoctrpeU6jSV9xd6qqyL1cCpGvuhXyUvBk52QPiMZp2chIV57LJ6keMWETXI8%2FvWe0lMIfVQYmRTdPyGC70Y43quBVsk36Ibjds0XlDq7ocFY1FVT6mUuRPo90JGX3JFb1dt5gDNLIsyXh5tEuvDvXoEkQqfr86AEW7RRsewYRbpM0HNdVFuyOg4VR5FiT5nGEHUaLiwEO4eShcz8HOvaE8ABodRrbsQGtFLhJLqyhN3sOKxMvxFmQuGppOP7ZdFUj4AG%2F29OK%2Bx3SYZH94QWHN091BT7CVbtcKoEYPVk8PjxXa3x7srLK09Qel1UZ09vhVVfJsx17RaEpJ5bjOT%2Bd0%2BKSPkJZUWCIAuewAog3Z3Tr0XovK%2FdDM2kupTLXPFv1uZ%2FKbZatwtdDJupBgOlbwMTbffSWnqKJ2LL2RUjKQNvS52zVyFbdc%2B5FSmz";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDisV1zzObuiaClbdkax2/lJZ1p7PPRGf6CbzqJCKGDo8VrvtWYimQ5Ab3vnuaAqBPN1qHKBCwm2KWsQ2xkBCVqktddUN1D5mTjmwes9d60N3naPUoctrpeU6jSV9xd6qqyL1cCpGvuhXyUvBk52QPiMZp2chIV57LJ6keMWETXI8/vWe0lMIfVQYmRTdPyGC70Y43quBVsk36Ibjds0XlDq7ocFY1FVT6mUuRPo90JGX3JFb1dt5gDNLIsyXh5tEuvDvXoEkQqfr86AEW7RRsewYRbpM0HNdVFuyOg4VR5FiT5nGEHUaLiwEO4eShcz8HOvaE8ABodRrbsQGtFLhJLqyhN3sOKxMvxFmQuGppOP7ZdFUj4AG/29OK+x3SYZH94QWHN091BT7CVbtcKoEYPVk8PjxXa3x7srLK09Qel1UZ09vhVVfJsx17RaEpJ5bjOT+d0+KSPkJZUWCIAuewAog3Z3Tr0XovK/dDM2kupTLXPFv1uZ/KbZatwtdDJupBgOlbwMTbffSWnqKJ2LL2RUjKQNvS52zVyFbdc+5FSmz";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

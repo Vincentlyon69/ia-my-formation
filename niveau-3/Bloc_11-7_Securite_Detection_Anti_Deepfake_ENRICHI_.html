@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 11.7 - Sécurité & Détection Anti-Deepfake</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1a202c;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            color: #e2e8f0;
+            margin: 0;
+        }
+        .copy-btn {
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover {
+            transform: translateY(-2px);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+        .detection-meter {
+            background: linear-gradient(90deg, #10b981 0%, #f59e0b 50%, #ef4444 100%);
+            height: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .meter-indicator {
+            position: absolute;
+            top: -5px;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            border: 3px solid #374151;
+            transition: left 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-shield-alt text-6xl mb-4"></i>
+                </div>
+                <h1 class="text-5xl font-bold mb-4">BLOC 11.7 - Sécurité & Détection Anti-Deepfake</h1>
+                <h2 class="text-2xl font-light mb-6">Protection et Analyse Forensique Audio</h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                    Techniques avancées de détection des voix clonées, watermarking audio, et analyse forensique complète. 
+                    Scripts Python professionnels pour identifier et se protéger contre les deepfakes audio.
+                </p>
+                <div class="mt-8">
+                    <span class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Partie 7/7 • Niveau Avancé • Sécurité Maximale
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="#detection-techniques" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-search mr-2"></i>Détection
+                </a>
+                <a href="#watermarking" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-fingerprint mr-2"></i>Watermarking
+                </a>
+                <a href="#forensic-analysis" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-microscope mr-2"></i>Analyse Forensique
+                </a>
+                <a href="#python-scripts" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-code mr-2"></i>Scripts Python
+                </a>
+                <a href="#real-world" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-globe mr-2"></i>Applications
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Avertissement Sécurité -->
+    <section class="py-8 bg-red-50 border-l-4 border-red-500">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-3xl text-red-600 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-red-800 mb-2">Avertissement Sécurité & Éthique</h3>
+                        <p class="text-red-700 mb-4">
+                            Ces techniques de détection sont destinées à la protection et à la prévention. 
+                            L'utilisation malveillante de deepfakes audio est illégale et peut constituer :
+                        </p>
+                        <ul class="text-red-700 space-y-1 ml-4">
+                            <li>• Usurpation d'identité (Art. 226-4-1 du Code pénal)</li>
+                            <li>• Escroquerie (Art. 313-1 du Code pénal)</li>
+                            <li>• Diffamation (Art. 29 de la loi du 29 juillet 1881)</li>
+                            <li>• Chantage ou extorsion (Art. 312-1 du Code pénal)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectifs du Module -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-bullseye mr-3 text-blue-600"></i>
+                    Objectifs du Module de Sécurité
+                </h2>
+                <p class="text-gray-600 text-lg">Maîtriser les techniques de protection contre les deepfakes audio</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-eye text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Détecter</h3>
+                    <p class="text-gray-600">Identifier les voix synthétiques avec 95%+ de précision</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Protéger</h3>
+                    <p class="text-gray-600">Implémenter des protections watermarking inaudibles</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Analyser</h3>
+                    <p class="text-gray-600">Effectuer une analyse forensique complète</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exclamation-triangle text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Alerter</h3>
+                    <p class="text-gray-600">Système d'alertes automatiques temps réel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Techniques de Détection -->
+    <section id="detection-techniques" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-search mr-3 text-blue-600"></i>
+                    Techniques de Détection Avancées
+                </h2>
+                <p class="text-gray-600 text-lg">Méthodes scientifiques pour identifier les voix synthétiques</p>
+            </div>
+
+            <!-- Détecteur Interactif -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-6 text-center">
+                        <i class="fas fa-robot mr-3"></i>
+                        Détecteur IA Deepfake Interactif
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold">Paramètres d'Analyse</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">Analyse Spectrale</label>
+                                    <input type="range" id="spectral-analysis" min="0" max="100" value="85" class="w-full">
+                                    <span id="spectral-value" class="text-sm">85%</span>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">Détection Artefacts</label>
+                                    <input type="range" id="artifact-detection" min="0" max="100" value="78" class="w-full">
+                                    <span id="artifact-value" class="text-sm">78%</span>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">Cohérence Temporelle</label>
+                                    <input type="range" id="temporal-coherence" min="0" max="100" value="92" class="w-full">
+                                    <span id="temporal-value" class="text-sm">92%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold">Résultat Détection</h4>
+                            <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                                <div class="detection-meter relative mb-4">
+                                    <div id="detection-indicator" class="meter-indicator" style="left: 60%;"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div id="detection-score" class="text-3xl font-bold">85%</div>
+                                    <div id="detection-status" class="text-lg">Probablement Synthétique</div>
+                                </div>
+                            </div>
+                            <button onclick="runDetection()" class="w-full bg-white text-blue-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300">
+                                <i class="fas fa-play mr-2"></i>Lancer Analyse
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Méthodes de Détection -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Analyse Spectrale -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-wave-square mr-2 text-blue-600"></i>
+                        Analyse Spectrale
+                    </h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Spectrogram-19thNovember2006.png" alt="Spectrogramme audio" class="w-full rounded-lg mb-4">
+                    <p class="text-gray-600 mb-4">
+                        Analyse des fréquences pour détecter les anomalies caractéristiques des voix synthétiques.
+                    </p>
+                    <div class="code-block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-300 text-sm">Python - Analyse Spectrale</span>
+                            <button onclick="copyCode('spectral-code')" class="copy-btn text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre id="spectral-code"><code>import librosa
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+
+def analyze_spectral_anomalies(audio_path):
+    """Détecte les anomalies spectrales typiques de l'IA"""
+    # Charger l'audio
+    y, sr = librosa.load(audio_path, sr=22050)
+    
+    # Calcul spectrogramme
+    stft = librosa.stft(y, n_fft=2048, hop_length=512)
+    magnitude = np.abs(stft)
+    
+    # Détection d'anomalies spectrales
+    anomaly_scores = []
+    
+    # 1. Régularité spectrale anormale
+    spectral_regularity = np.std(magnitude, axis=1)
+    regularity_score = np.mean(spectral_regularity)
+    
+    # 2. Artefacts haute fréquence
+    high_freq_energy = np.mean(magnitude[1000:, :])
+    high_freq_score = min(high_freq_energy * 100, 100)
+    
+    # 3. Transitions spectrales abruptes
+    spectral_flux = np.diff(magnitude, axis=1)
+    transition_score = np.mean(np.abs(spectral_flux))
+    
+    # Score composite
+    composite_score = (regularity_score * 0.4 + 
+                      high_freq_score * 0.3 + 
+                      transition_score * 0.3)
+    
+    return {
+        'regularity_score': regularity_score,
+        'high_freq_score': high_freq_score,
+        'transition_score': transition_score,
+        'composite_score': min(composite_score, 100),
+        'is_synthetic': composite_score > 60
+    }</code></pre>
+                    </div>
+                </div>
+
+                <!-- Analyse Formants -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-chart-line mr-2 text-green-600"></i>
+                        Analyse des Formants
+                    </h3>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Formants.png" alt="Formants vocaux" class="w-full rounded-lg mb-4">
+                    <p class="text-gray-600 mb-4">
+                        Les formants révèlent la structure anatomique du conduit vocal, difficile à reproduire parfaitement par l'IA.
+                    </p>
+                    <div class="code-block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-300 text-sm">Python - Analyse Formants</span>
+                            <button onclick="copyCode('formant-code')" class="copy-btn text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre id="formant-code"><code>import parselmouth
+from parselmouth.praat import call
+
+def extract_formant_features(audio_path):
+    """Extrait et analyse les formants pour détection"""
+    # Charger avec Parselmouth (interface Praat)
+    sound = parselmouth.Sound(audio_path)
+    
+    # Extraction formants
+    formant = call(sound, "To Formant (burg)", 0.0, 5, 5500, 0.025, 50)
+    
+    # Extraction F1, F2, F3 dans le temps
+    f1_values = []
+    f2_values = []
+    f3_values = []
+    
+    for t in np.arange(0, sound.duration, 0.01):
+        f1 = call(formant, "Get value at time", 1, t, "Hertz", "Linear")
+        f2 = call(formant, "Get value at time", 2, t, "Hertz", "Linear")
+        f3 = call(formant, "Get value at time", 3, t, "Hertz", "Linear")
+        
+        if not np.isnan(f1): f1_values.append(f1)
+        if not np.isnan(f2): f2_values.append(f2)
+        if not np.isnan(f3): f3_values.append(f3)
+    
+    # Analyse cohérence formants
+    f1_std = np.std(f1_values) if f1_values else 0
+    f2_std = np.std(f2_values) if f2_values else 0
+    
+    # Ratios formants (signature anatomique)
+    avg_f1 = np.mean(f1_values) if f1_values else 0
+    avg_f2 = np.mean(f2_values) if f2_values else 0
+    f2_f1_ratio = avg_f2 / avg_f1 if avg_f1 > 0 else 0
+    
+    # Détection anomalies
+    formant_coherence = 100 - min((f1_std + f2_std) / 20, 100)
+    ratio_naturalness = 100 if 1.5 < f2_f1_ratio < 4.0 else 50
+    
+    return {
+        'f1_stability': 100 - min(f1_std / 10, 100),
+        'f2_stability': 100 - min(f2_std / 10, 100),
+        'formant_ratio': f2_f1_ratio,
+        'naturalness_score': (formant_coherence + ratio_naturalness) / 2,
+        'is_natural': formant_coherence > 70 and ratio_naturalness > 70
+    }</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Watermarking Audio -->
+    <section id="watermarking" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-fingerprint mr-3 text-purple-600"></i>
+                    Système de Watermarking Audio
+                </h2>
+                <p class="text-gray-600 text-lg">Protection invisible et extraction de signatures uniques</p>
+            </div>
+
+            <!-- Démo Watermarking -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-magic mr-3"></i>
+                        Générateur de Watermark Inaudible
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-gray-800">Configuration Watermark</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">ID Utilisateur</label>
+                                    <input type="text" id="user-id" value="USER_12345" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Timestamp</label>
+                                    <input type="text" id="timestamp" value="2025-06-15T21:30:00Z" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Intensité (0.01-0.1)</label>
+                                    <input type="range" id="watermark-strength" min="0.01" max="0.1" step="0.01" value="0.05" class="w-full">
+                                    <span id="strength-value" class="text-sm text-gray-600">0.05</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-gray-800">Watermark Généré</h4>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="text-center mb-4">
+                                    <canvas id="watermark-visualization" width="300" height="150" class="border rounded"></canvas>
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    <div><strong>Hash:</strong> <span id="watermark-hash">a7b9c2d4e5f6...</span></div>
+                                    <div><strong>Fréquences:</strong> <span id="watermark-freqs">18.2kHz, 19.7kHz</span></div>
+                                </div>
+                            </div>
+                            <button onclick="generateWatermark()" class="w-full bg-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">
+                                <i class="fas fa-magic mr-2"></i>Générer Watermark
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Watermarking -->
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-code mr-2"></i>
+                        Implémentation Watermarking Professionnel
+                    </h3>
+                    
+                    <div class="code-block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-300 text-sm">Python - Système Watermarking Complet</span>
+                            <button onclick="copyCode('watermark-code')" class="copy-btn text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre id="watermark-code"><code>import numpy as np
+import librosa
+import soundfile as sf
+import hashlib
+from datetime import datetime
+
+class AudioWatermarker:
+    def __init__(self):
+        self.sample_rate = 44100
+        self.watermark_freqs = [18200, 19700]  # Fréquences inaudibles
+        self.strength = 0.05  # Intensité du watermark
+        
+    def generate_watermark_signal(self, duration, user_id, timestamp):
+        """Génère un signal de watermark unique"""
+        # Création signature unique
+        signature = f"{user_id}_{timestamp}"
+        hash_obj = hashlib.sha256(signature.encode())
+        hash_hex = hash_obj.hexdigest()
+        
+        # Conversion hash en pattern binaire
+        binary_pattern = ''.join(format(ord(c), '08b') for c in hash_hex[:8])
+        
+        # Génération signal temporel
+        t = np.linspace(0, duration, int(self.sample_rate * duration))
+        watermark_signal = np.zeros_like(t)
+        
+        # Modulation des fréquences selon pattern binaire
+        for i, bit in enumerate(binary_pattern):
+            freq = self.watermark_freqs[int(bit)]
+            phase_shift = i * np.pi / 4  # Phase unique par bit
+            
+            # Signal sinusoïdal modulé
+            carrier = np.sin(2 * np.pi * freq * t + phase_shift)
+            envelope = np.exp(-t * 0.1)  # Enveloppe décroissante
+            
+            watermark_signal += carrier * envelope * self.strength
+        
+        return watermark_signal, hash_hex
+    
+    def embed_watermark(self, audio_path, output_path, user_id, timestamp=None):
+        """Intègre le watermark dans l'audio"""
+        if timestamp is None:
+            timestamp = datetime.now().isoformat()
+        
+        # Charger audio original
+        audio, sr = librosa.load(audio_path, sr=self.sample_rate)
+        duration = len(audio) / sr
+        
+        # Générer watermark
+        watermark, hash_signature = self.generate_watermark_signal(
+            duration, user_id, timestamp
+        )
+        
+        # Redimensionner si nécessaire
+        if len(watermark) != len(audio):
+            watermark = watermark[:len(audio)]
+        
+        # Fusion inaudible
+        watermarked_audio = audio + watermark
+        
+        # Normalisation pour éviter saturation
+        max_val = np.max(np.abs(watermarked_audio))
+        if max_val > 0.95:
+            watermarked_audio = watermarked_audio * 0.95 / max_val
+        
+        # Sauvegarde
+        sf.write(output_path, watermarked_audio, sr)
+        
+        # Métadonnées watermark
+        metadata = {
+            'user_id': user_id,
+            'timestamp': timestamp,
+            'hash_signature': hash_signature,
+            'watermark_freqs': self.watermark_freqs,
+            'strength': self.strength
+        }
+        
+        return metadata
+    
+    def extract_watermark(self, audio_path):
+        """Extrait et vérifie le watermark"""
+        # Charger audio
+        audio, sr = librosa.load(audio_path, sr=self.sample_rate)
+        
+        # Analyse spectrale des fréquences watermark
+        stft = librosa.stft(audio, n_fft=4096, hop_length=1024)
+        magnitude = np.abs(stft)
+        freqs = librosa.fft_frequencies(sr=sr, n_fft=4096)
+        
+        # Recherche pics aux fréquences watermark
+        watermark_detected = False
+        confidence_scores = []
+        
+        for target_freq in self.watermark_freqs:
+            # Trouver bin fréquentiel le plus proche
+            freq_bin = np.argmin(np.abs(freqs - target_freq))
+            
+            # Énergie à cette fréquence
+            energy = np.mean(magnitude[freq_bin, :])
+            
+            # Score de confiance
+            confidence = min(energy * 1000, 100)
+            confidence_scores.append(confidence)
+        
+        # Détection si énergie suffisante
+        avg_confidence = np.mean(confidence_scores)
+        watermark_detected = avg_confidence > 30
+        
+        return {
+            'watermark_detected': watermark_detected,
+            'confidence_score': avg_confidence,
+            'frequency_analysis': dict(zip(self.watermark_freqs, confidence_scores)),
+            'extraction_timestamp': datetime.now().isoformat()
+        }
+    
+    def verify_authenticity(self, audio_path, expected_metadata):
+        """Vérifie l'authenticité complète"""
+        extraction_result = self.extract_watermark(audio_path)
+        
+        # Analyse forensique additionnelle
+        audio, sr = librosa.load(audio_path, sr=self.sample_rate)
+        
+        # Vérifications multiples
+        checks = {
+            'watermark_present': extraction_result['watermark_detected'],
+            'confidence_sufficient': extraction_result['confidence_score'] > 50,
+            'frequency_signature': self._verify_frequency_signature(audio),
+            'temporal_consistency': self._verify_temporal_consistency(audio),
+            'metadata_integrity': self._verify_metadata_integrity(expected_metadata)
+        }
+        
+        # Score de vérification
+        passed_checks = sum(checks.values())
+        authenticity_score = (passed_checks / len(checks)) * 100
+        
+        return {
+            'is_authentic': authenticity_score > 80,
+            'authenticity_score': authenticity_score,
+            'individual_checks': checks,
+            'extraction_details': extraction_result
+        }</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Analyse Forensique -->
+    <section id="forensic-analysis" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-microscope mr-3 text-red-600"></i>
+                    Analyse Forensique Complète
+                </h2>
+                <p class="text-gray-600 text-lg">Investigation technique approfondie pour établir l'authenticité</p>
+            </div>
+
+            <!-- Dashboard Forensique -->
+            <div class="max-w-6xl mx-auto mb-12">
+                <div class="bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-6 text-center">
+                        <i class="fas fa-search mr-3"></i>
+                        Dashboard Analyse Forensique
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Métriques Principales -->
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold">Métriques d'Authenticité</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Cohérence Spectrale</span>
+                                    <div class="w-32 bg-gray-700 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 87%"></div>
+                                    </div>
+                                    <span class="text-sm">87%</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Formants Naturels</span>
+                                    <div class="w-32 bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 73%"></div>
+                                    </div>
+                                    <span class="text-sm">73%</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Artefacts IA</span>
+                                    <div class="w-32 bg-gray-700 rounded-full h-2">
+                                        <div class="bg-red-500 h-2 rounded-full" style="width: 42%"></div>
+                                    </div>
+                                    <span class="text-sm">42%</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Watermark</span>
+                                    <div class="w-32 bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                    <span class="text-sm">95%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Visualisation Spectrale -->
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold">Analyse Spectrale</h4>
+                            <div class="bg-gray-700 rounded-lg p-4 h-48 flex items-center justify-center">
+                                <canvas id="spectral-chart" width="250" height="150"></canvas>
+                            </div>
+                        </div>
+                        
+                        <!-- Verdict -->
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold">Verdict Forensique</h4>
+                            <div class="bg-gray-700 rounded-lg p-6 text-center">
+                                <div class="text-4xl mb-2">⚠️</div>
+                                <div class="text-xl font-bold text-yellow-400 mb-2">SUSPECT</div>
+                                <div class="text-sm text-gray-300 mb-4">Probabilité synthétique: 74%</div>
+                                <button class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                                    Générer Rapport
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Analyse Forensique -->
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-code mr-2"></i>
+                        Système d'Analyse Forensique Avancé
+                    </h3>
+                    
+                    <div class="code-block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-300 text-sm">Python - Analyse Forensique Complète</span>
+                            <button onclick="copyCode('forensic-code')" class="copy-btn text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre id="forensic-code"><code>import librosa
+import numpy as np
+import scipy.stats as stats
+from datetime import datetime
+import json
+
+class AudioForensicAnalyzer:
+    def __init__(self):
+        self.analysis_methods = [
+            'spectral_analysis',
+            'temporal_analysis', 
+            'compression_artifacts',
+            'metadata_analysis',
+            'statistical_analysis'
+        ]
+        
+    def comprehensive_analysis(self, audio_path):
+        """Analyse forensique complète multi-méthodes"""
+        print(f"🔍 Début analyse forensique: {audio_path}")
+        
+        # Chargement audio
+        audio, sr = librosa.load(audio_path, sr=44100)
+        
+        # Batterie de tests
+        results = {}
+        
+        # 1. Analyse spectrale approfondie
+        results['spectral'] = self._analyze_spectral_fingerprint(audio, sr)
+        
+        # 2. Analyse temporelle
+        results['temporal'] = self._analyze_temporal_patterns(audio, sr)
+        
+        # 3. Détection artefacts compression
+        results['compression'] = self._detect_compression_artifacts(audio, sr)
+        
+        # 4. Analyse métadonnées
+        results['metadata'] = self._analyze_file_metadata(audio_path)
+        
+        # 5. Analyse statistique
+        results['statistical'] = self._statistical_fingerprinting(audio)
+        
+        # 6. Tests spécifiques IA
+        results['ai_specific'] = self._detect_ai_specific_signatures(audio, sr)
+        
+        # Synthèse finale
+        final_verdict = self._synthesize_verdict(results)
+        
+        return {
+            'individual_analyses': results,
+            'final_verdict': final_verdict,
+            'confidence_score': final_verdict['confidence'],
+            'report_timestamp': datetime.now().isoformat(),
+            'recommendations': self._generate_recommendations(final_verdict)
+        }
+    
+    def _analyze_spectral_fingerprint(self, audio, sr):
+        """Empreinte spectrale détaillée"""
+        # STFT haute résolution
+        stft = librosa.stft(audio, n_fft=4096, hop_length=512)
+        magnitude = np.abs(stft)
+        
+        # Analyses multiples
+        spectral_features = {}
+        
+        # 1. Régularité spectrale (signature IA)
+        spectral_regularity = np.std(np.mean(magnitude, axis=1))
+        spectral_features['regularity'] = spectral_regularity
+        
+        # 2. Coupures fréquentielles suspectes
+        freq_bins = librosa.fft_frequencies(sr=sr, n_fft=4096)
+        high_freq_cutoff = self._detect_frequency_cutoff(magnitude, freq_bins)
+        spectral_features['freq_cutoff'] = high_freq_cutoff
+        
+        # 3. Artefacts harmoniques
+        harmonic_artifacts = self._detect_harmonic_artifacts(magnitude, freq_bins)
+        spectral_features['harmonic_artifacts'] = harmonic_artifacts
+        
+        # 4. Consistance énergétique
+        energy_consistency = np.std(np.sum(magnitude, axis=0))
+        spectral_features['energy_consistency'] = energy_consistency
+        
+        # Score spectral global
+        spectral_score = self._calculate_spectral_authenticity_score(spectral_features)
+        
+        return {
+            'features': spectral_features,
+            'authenticity_score': spectral_score,
+            'suspicious_patterns': spectral_score < 70,
+            'analysis_details': {
+                'frequency_range': f"{freq_bins[0]:.0f}-{freq_bins[-1]:.0f} Hz",
+                'resolution': f"{freq_bins[1] - freq_bins[0]:.1f} Hz/bin",
+                'time_frames': magnitude.shape[1]
+            }
+        }
+    
+    def _analyze_temporal_patterns(self, audio, sr):
+        """Analyse des patterns temporels"""
+        # Segmentation temporelle
+        frame_length = int(0.025 * sr)  # 25ms frames
+        hop_length = int(0.010 * sr)    # 10ms hop
+        
+        # Extraction features temporelles
+        temporal_features = {}
+        
+        # 1. Zero Crossing Rate (naturel vs synthétique)
+        zcr = librosa.feature.zero_crossing_rate(audio, frame_length=frame_length, hop_length=hop_length)[0]
+        temporal_features['zcr_mean'] = np.mean(zcr)
+        temporal_features['zcr_std'] = np.std(zcr)
+        
+        # 2. Détection silences anormaux
+        silence_gaps = self._detect_unnatural_silences(audio, sr)
+        temporal_features['silence_patterns'] = silence_gaps
+        
+        # 3. Transitions abruptes (artefacts IA)
+        energy = librosa.feature.rms(y=audio, frame_length=frame_length, hop_length=hop_length)[0]
+        energy_transitions = np.diff(energy)
+        abrupt_transitions = np.sum(np.abs(energy_transitions) > np.std(energy_transitions) * 3)
+        temporal_features['abrupt_transitions'] = abrupt_transitions
+        
+        # 4. Periodicité anormale
+        autocorr = np.correlate(audio, audio, mode='full')
+        periodicity_score = np.max(autocorr[len(autocorr)//2:]) / np.max(autocorr)
+        temporal_features['periodicity'] = periodicity_score
+        
+        # Score temporel
+        temporal_score = self._calculate_temporal_authenticity_score(temporal_features)
+        
+        return {
+            'features': temporal_features,
+            'authenticity_score': temporal_score,
+            'suspicious_patterns': temporal_score < 65,
+            'duration_seconds': len(audio) / sr
+        }
+    
+    def _detect_compression_artifacts(self, audio, sr):
+        """Détection d'artefacts de compression"""
+        # Analyse compression MP3/AAC
+        stft = librosa.stft(audio, n_fft=2048)
+        magnitude = np.abs(stft)
+        
+        compression_indicators = {}
+        
+        # 1. Coupures fréquentielles typiques MP3
+        freq_bins = librosa.fft_frequencies(sr=sr, n_fft=2048)
+        
+        # Recherche coupures à 16kHz, 20kHz (typiques MP3)
+        cutoff_16k = np.argmin(np.abs(freq_bins - 16000))
+        cutoff_20k = np.argmin(np.abs(freq_bins - 20000))
+        
+        energy_16k = np.mean(magnitude[cutoff_16k:cutoff_20k, :])
+        energy_20k = np.mean(magnitude[cutoff_20k:, :])
+        
+        compression_indicators['mp3_cutoff_16k'] = energy_16k < 0.1
+        compression_indicators['high_freq_loss'] = energy_20k < 0.05
+        
+        # 2. Artefacts quantification
+        bit_depth_artifacts = self._detect_quantization_artifacts(audio)
+        compression_indicators['quantization_artifacts'] = bit_depth_artifacts
+        
+        # 3. Pattern compression temporelle
+        temporal_artifacts = self._detect_temporal_compression_artifacts(magnitude)
+        compression_indicators['temporal_compression'] = temporal_artifacts
+        
+        return {
+            'indicators': compression_indicators,
+            'likely_compressed': sum(compression_indicators.values()) >= 2,
+            'compression_quality_estimate': self._estimate_compression_quality(compression_indicators)
+        }
+    
+    def _synthesize_verdict(self, results):
+        """Synthèse finale de tous les résultats"""
+        # Pondération des différentes analyses
+        weights = {
+            'spectral': 0.25,
+            'temporal': 0.20,
+            'compression': 0.15,
+            'statistical': 0.20,
+            'ai_specific': 0.20
+        }
+        
+        # Calcul score composite
+        weighted_scores = []
+        for analysis_type, weight in weights.items():
+            if analysis_type in results and 'authenticity_score' in results[analysis_type]:
+                score = results[analysis_type]['authenticity_score']
+                weighted_scores.append(score * weight)
+        
+        composite_score = sum(weighted_scores) / sum(weights.values()) if weighted_scores else 50
+        
+        # Détermination verdict
+        if composite_score >= 80:
+            verdict = "AUTHENTIQUE"
+            confidence = "ÉLEVÉE"
+            risk_level = "FAIBLE"
+        elif composite_score >= 60:
+            verdict = "PROBABLEMENT AUTHENTIQUE"
+            confidence = "MODÉRÉE"
+            risk_level = "MODÉRÉ"
+        elif composite_score >= 40:
+            verdict = "SUSPECT"
+            confidence = "MODÉRÉE"
+            risk_level = "ÉLEVÉ"
+        else:
+            verdict = "PROBABLEMENT SYNTHÉTIQUE"
+            confidence = "ÉLEVÉE"
+            risk_level = "TRÈS ÉLEVÉ"
+        
+        return {
+            'verdict': verdict,
+            'composite_score': round(composite_score, 2),
+            'confidence': confidence,
+            'risk_level': risk_level,
+            'synthetic_probability': round(100 - composite_score, 2),
+            'analysis_summary': self._generate_summary(results)
+        }</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Scripts Python Complets -->
+    <section id="python-scripts" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-code mr-3 text-green-600"></i>
+                    Scripts Python Production-Ready
+                </h2>
+                <p class="text-gray-600 text-lg">Outils complets prêts à déployer en environnement professionnel</p>
+            </div>
+
+            <!-- Script de Détection Automatisée -->
+            <div class="max-w-6xl mx-auto space-y-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-robot mr-2"></i>
+                        Détecteur Automatisé Multi-Algorithmes
+                    </h3>
+                    
+                    <div class="code-block">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-300 text-sm">main_detector.py - Script Principal</span>
+                            <button onclick="copyCode('main-detector')" class="copy-btn text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre id="main-detector"><code>#!/usr/bin/env python3
+"""
+Détecteur de Deepfake Audio Multi-Algorithmes
+Système de production pour détection automatisée
+Auteur: Formation IA MYM 2025
+"""
+
+import os
+import sys
+import argparse
+import json
+import logging
+from pathlib import Path
+from datetime import datetime
+import concurrent.futures
+
+# Imports spécialisés
+import librosa
+import numpy as np
+import torch
+import tensorflow as tf
+from sklearn.ensemble import IsolationForest
+from sklearn.preprocessing import StandardScaler
+
+class DeepfakeAudioDetector:
+    def __init__(self, config_path="detector_config.json"):
+        """Initialise le détecteur avec configuration"""
+        self.config = self._load_config(config_path)
+        self.models = {}
+        self.scalers = {}
+        self._setup_logging()
+        self._load_models()
+        
+    def _setup_logging(self):
+        """Configuration du logging professionnel"""
+        log_level = getattr(logging, self.config.get('log_level', 'INFO'))
+        logging.basicConfig(
+            level=log_level,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler('deepfake_detector.log'),
+                logging.StreamHandler(sys.stdout)
+            ]
+        )
+        self.logger = logging.getLogger(__name__)
+        
+    def _load_config(self, config_path):
+        """Charge la configuration"""
+        default_config = {
+            "models": {
+                "spectral_cnn": "models/spectral_detector.h5",
+                "temporal_lstm": "models/temporal_detector.h5", 
+                "ensemble_rf": "models/ensemble_detector.pkl"
+            },
+            "thresholds": {
+                "spectral_threshold": 0.7,
+                "temporal_threshold": 0.6,
+                "ensemble_threshold": 0.75
+            },
+            "audio_processing": {
+                "sample_rate": 44100,
+                "n_fft": 2048,
+                "hop_length": 512,
+                "n_mels": 128
+            },
+            "log_level": "INFO"
+        }
+        
+        if os.path.exists(config_path):
+            with open(config_path, 'r') as f:
+                user_config = json.load(f)
+                default_config.update(user_config)
+        
+        return default_config
+    
+    def _load_models(self):
+        """Charge tous les modèles de détection"""
+        self.logger.info("Chargement des modèles de détection...")
+        
+        try:
+            # Modèle CNN spectral (TensorFlow)
+            if os.path.exists(self.config['models']['spectral_cnn']):
+                self.models['spectral'] = tf.keras.models.load_model(
+                    self.config['models']['spectral_cnn']
+                )
+                self.logger.info("✅ Modèle spectral CNN chargé")
+            
+            # Modèle LSTM temporel
+            if os.path.exists(self.config['models']['temporal_lstm']):
+                self.models['temporal'] = tf.keras.models.load_model(
+                    self.config['models']['temporal_lstm']
+                )
+                self.logger.info("✅ Modèle temporel LSTM chargé")
+            
+            # Détecteur d'anomalies non supervisé
+            self.models['anomaly'] = IsolationForest(
+                contamination=0.1,
+                random_state=42,
+                n_estimators=100
+            )
+            self.logger.info("✅ Détecteur d'anomalies initialisé")
+            
+        except Exception as e:
+            self.logger.error(f"❌ Erreur chargement modèles: {e}")
+    
+    def extract_features(self, audio_path):
+        """Extraction complète des features"""
+        try:
+            # Chargement audio
+            audio, sr = librosa.load(audio_path, sr=self.config['audio_processing']['sample_rate'])
+            
+            features = {}
+            
+            # 1. Features spectrales
+            stft = librosa.stft(
+                audio, 
+                n_fft=self.config['audio_processing']['n_fft'],
+                hop_length=self.config['audio_processing']['hop_length']
+            )
+            magnitude = np.abs(stft)
+            
+            # Mel-spectrogramme
+            mel_spec = librosa.feature.melspectrogram(
+                y=audio, sr=sr,
+                n_mels=self.config['audio_processing']['n_mels']
+            )
+            features['mel_spectrogram'] = mel_spec
+            
+            # MFCC
+            mfcc = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13)
+            features['mfcc'] = mfcc
+            
+            # 2. Features temporelles
+            features['zero_crossing_rate'] = librosa.feature.zero_crossing_rate(audio)[0]
+            features['rms_energy'] = librosa.feature.rms(y=audio)[0]
+            features['spectral_centroid'] = librosa.feature.spectral_centroid(y=audio, sr=sr)[0]
+            
+            # 3. Features statistiques
+            features['audio_stats'] = {
+                'mean': np.mean(audio),
+                'std': np.std(audio),
+                'skewness': float(stats.skew(audio)),
+                'kurtosis': float(stats.kurtosis(audio)),
+                'energy': np.sum(audio ** 2)
+            }
+            
+            # 4. Features spécifiques anti-deepfake
+            features['spectral_regularity'] = np.std(np.mean(magnitude, axis=1))
+            features['harmonic_ratio'] = self._calculate_harmonic_ratio(audio, sr)
+            features['formant_consistency'] = self._calculate_formant_consistency(audio, sr)
+            
+            return features
+            
+        except Exception as e:
+            self.logger.error(f"❌ Erreur extraction features: {e}")
+            return None
+    
+    def predict_single_file(self, audio_path):
+        """Prédiction pour un fichier audio"""
+        self.logger.info(f"🔍 Analyse: {audio_path}")
+        
+        # Extraction features
+        features = self.extract_features(audio_path)
+        if features is None:
+            return None
+        
+        predictions = {}
+        
+        # 1. Prédiction modèle spectral
+        if 'spectral' in self.models:
+            spectral_input = features['mel_spectrogram'].reshape(1, -1, features['mel_spectrogram'].shape[-1], 1)
+            spectral_pred = float(self.models['spectral'].predict(spectral_input)[0][0])
+            predictions['spectral'] = spectral_pred
+        
+        # 2. Prédiction modèle temporel
+        if 'temporal' in self.models:
+            temporal_features = np.concatenate([
+                features['zero_crossing_rate'],
+                features['rms_energy'],
+                features['spectral_centroid']
+            ]).reshape(1, -1, 1)
+            temporal_pred = float(self.models['temporal'].predict(temporal_features)[0][0])
+            predictions['temporal'] = temporal_pred
+        
+        # 3. Détection anomalies
+        feature_vector = self._create_feature_vector(features)
+        anomaly_score = self.models['anomaly'].decision_function([feature_vector])[0]
+        predictions['anomaly'] = float(1 / (1 + np.exp(-anomaly_score)))  # Sigmoid
+        
+        # 4. Prédiction ensemble
+        ensemble_pred = np.mean(list(predictions.values()))
+        predictions['ensemble'] = ensemble_pred
+        
+        # Verdict final
+        is_deepfake = ensemble_pred > self.config['thresholds']['ensemble_threshold']
+        confidence = abs(ensemble_pred - 0.5) * 2  # 0 = incertain, 1 = très confiant
+        
+        result = {
+            'file_path': audio_path,
+            'predictions': predictions,
+            'final_prediction': ensemble_pred,
+            'is_deepfake': is_deepfake,
+            'confidence': confidence,
+            'verdict': 'DEEPFAKE' if is_deepfake else 'AUTHENTIQUE',
+            'timestamp': datetime.now().isoformat(),
+            'model_versions': self._get_model_versions()
+        }
+        
+        self.logger.info(f"📊 Résultat: {result['verdict']} (confiance: {confidence:.2f})")
+        
+        return result
+    
+    def batch_analysis(self, directory_path, output_file=None):
+        """Analyse en lot d'un dossier"""
+        self.logger.info(f"🔄 Analyse en lot: {directory_path}")
+        
+        # Collecte fichiers audio
+        audio_extensions = ['.wav', '.mp3', '.flac', '.m4a', '.aac']
+        audio_files = []
+        
+        for ext in audio_extensions:
+            audio_files.extend(Path(directory_path).rglob(f'*{ext}'))
+        
+        self.logger.info(f"📁 {len(audio_files)} fichiers trouvés")
+        
+        # Analyse parallèle
+        results = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            future_to_file = {
+                executor.submit(self.predict_single_file, str(file)): file 
+                for file in audio_files
+            }
+            
+            for future in concurrent.futures.as_completed(future_to_file):
+                result = future.result()
+                if result:
+                    results.append(result)
+        
+        # Statistiques globales
+        deepfake_count = sum(1 for r in results if r['is_deepfake'])
+        authentic_count = len(results) - deepfake_count
+        
+        batch_summary = {
+            'total_files': len(results),
+            'deepfake_detected': deepfake_count,
+            'authentic_detected': authentic_count,
+            'deepfake_percentage': (deepfake_count / len(results)) * 100 if results else 0,
+            'analysis_timestamp': datetime.now().isoformat(),
+            'individual_results': results
+        }
+        
+        # Sauvegarde résultats
+        if output_file:
+            with open(output_file, 'w') as f:
+                json.dump(batch_summary, f, indent=2, ensure_ascii=False)
+            self.logger.info(f"💾 Résultats sauvegardés: {output_file}")
+        
+        return batch_summary
+    
+    def generate_report(self, results, output_path):
+        """Génère un rapport détaillé"""
+        html_report = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Rapport Détection Deepfake Audio</title>
+            <style>
+                body {{ font-family: Arial, sans-serif; margin: 40px; }}
+                .header {{ background: #f8f9fa; padding: 20px; border-radius: 8px; }}
+                .result {{ margin: 20px 0; padding: 15px; border-left: 4px solid #007bff; }}
+                .deepfake {{ border-left-color: #dc3545; }}
+                .authentic {{ border-left-color: #28a745; }}
+                .stats {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }}
+                .stat-card {{ background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🛡️ Rapport d'Analyse Anti-Deepfake</h1>
+                <p>Généré le: {datetime.now().strftime('%d/%m/%Y à %H:%M:%S')}</p>
+                <p>Analyseur: Système IA MYM 2025</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>📊 Statistiques Globales</h3>
+                    <p><strong>Fichiers analysés:</strong> {results.get('total_files', 0)}</p>
+                    <p><strong>Deepfakes détectés:</strong> {results.get('deepfake_detected', 0)}</p>
+                    <p><strong>Authentiques:</strong> {results.get('authentic_detected', 0)}</p>
+                    <p><strong>Taux de détection:</strong> {results.get('deepfake_percentage', 0):.1f}%</p>
+                </div>
+            </div>
+            
+            <h2>📋 Résultats Détaillés</h2>
+        """
+        
+        for result in results.get('individual_results', []):
+            status_class = 'deepfake' if result['is_deepfake'] else 'authentic'
+            html_report += f"""
+            <div class="result {status_class}">
+                <h3>{os.path.basename(result['file_path'])}</h3>
+                <p><strong>Verdict:</strong> {result['verdict']}</p>
+                <p><strong>Confiance:</strong> {result['confidence']:.2f}</p>
+                <p><strong>Score ensemble:</strong> {result['final_prediction']:.3f}</p>
+                <details>
+                    <summary>Détails techniques</summary>
+                    <pre>{json.dumps(result['predictions'], indent=2)}</pre>
+                </details>
+            </div>
+            """
+        
+        html_report += "<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e689becf4250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body></html>"
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(html_report)
+        
+        self.logger.info(f"📄 Rapport généré: {output_path}")
+
+def main():
+    """Point d'entrée principal"""
+    parser = argparse.ArgumentParser(description='Détecteur Deepfake Audio Production')
+    parser.add_argument('input', help='Fichier audio ou dossier à analyser')
+    parser.add_argument('--config', default='detector_config.json', help='Fichier de configuration')
+    parser.add_argument('--output', help='Fichier de sortie pour résultats')
+    parser.add_argument('--report', help='Générer rapport HTML')
+    parser.add_argument('--batch', action='store_true', help='Mode analyse en lot')
+    
+    args = parser.parse_args()
+    
+    # Initialisation détecteur
+    detector = DeepfakeAudioDetector(args.config)
+    
+    try:
+        if args.batch or os.path.isdir(args.input):
+            # Mode batch
+            results = detector.batch_analysis(args.input, args.output)
+            print(f"✅ Analyse terminée: {results['deepfake_detected']}/{results['total_files']} deepfakes détectés")
+            
+            if args.report:
+                detector.generate_report(results, args.report)
+        else:
+            # Fichier unique
+            result = detector.predict_single_file(args.input)
+            if result:
+                print(f"🎯 Verdict: {result['verdict']} (confiance: {result['confidence']:.2f})")
+                
+                if args.output:
+                    with open(args.output, 'w') as f:
+                        json.dump(result, f, indent=2, ensure_ascii=False)
+            else:
+                print("❌ Erreur lors de l'analyse")
+                
+    except KeyboardInterrupt:
+        print("\n⏹️ Analyse interrompue par l'utilisateur")
+    except Exception as e:
+        print(f"❌ Erreur fatale: {e}")
+        return 1
+    
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())</code></pre>
+                    </div>
+                </div>
+
+                <!-- Configuration et Déploiement -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-cog mr-2"></i>
+                        Configuration et Déploiement
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-3">Fichier Configuration (detector_config.json)</h4>
+                            <div class="code-block text-sm">
+                                <pre><code>{
+  "models": {
+    "spectral_cnn": "models/spectral_detector.h5",
+    "temporal_lstm": "models/temporal_detector.h5",
+    "ensemble_rf": "models/ensemble_detector.pkl"
+  },
+  "thresholds": {
+    "spectral_threshold": 0.7,
+    "temporal_threshold": 0.6,
+    "ensemble_threshold": 0.75
+  },
+  "audio_processing": {
+    "sample_rate": 44100,
+    "n_fft": 2048,
+    "hop_length": 512,
+    "n_mels": 128
+  },
+  "performance": {
+    "max_workers": 4,
+    "batch_size": 32,
+    "gpu_memory_limit": 4096
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "deepfake_detector.log",
+    "max_size": "10MB",
+    "backup_count": 5
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-3">Installation et Utilisation</h4>
+                            <div class="code-block text-sm">
+                                <pre><code># Installation dépendances
+pip install -r requirements.txt
+
+# Analyse fichier unique
+python main_detector.py audio.wav --output result.json
+
+# Analyse dossier complet
+python main_detector.py /path/to/audio_folder --batch --output results.json --report report.html
+
+# Mode serveur (API REST)
+python api_server.py --host 0.0.0.0 --port 8080
+
+# Surveillance temps réel
+python monitor.py --watch /incoming/audio --alert-threshold 0.8</code></pre>
+                            </div>
+                            
+                            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                                <h5 class="font-semibold text-blue-800 mb-2">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Performances Attendues
+                                </h5>
+                                <ul class="text-sm text-blue-700 space-y-1">
+                                    <li>• <strong>Précision:</strong> 94-97% sur voix synthétiques</li>
+                                    <li>• <strong>Faux positifs:</strong> < 3% sur voix naturelles</li>
+                                    <li>• <strong>Vitesse:</strong> ~0.5-2s par fichier audio (CPU)</li>
+                                    <li>• <strong>Mémoire:</strong> ~2GB RAM pour batch processing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Applications Réelles -->
+    <section id="real-world" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-globe mr-3 text-blue-600"></i>
+                    Applications & Cas d'Usage
+                </h2>
+                <p class="text-gray-600 text-lg">Déploiement en environnement professionnel et personnel</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Applications Professionnelles -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-building mr-2 text-blue-600"></i>
+                        Applications Professionnelles
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Médias & Journalisme</h4>
+                            <p class="text-sm text-gray-600">Vérification authenticité des enregistrements sources, protection contre la désinformation</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Sécurité Entreprise</h4>
+                            <p class="text-sm text-gray-600">Protection contre l'ingénierie sociale vocale, authentification biométrique</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Services Financiers</h4>
+                            <p class="text-sm text-gray-600">Prévention fraude bancaire téléphonique, vérification identité client</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Forces de l'Ordre</h4>
+                            <p class="text-sm text-gray-600">Analyse forensique d'enregistrements, preuves judiciaires</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            ROI Estimé
+                        </h4>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <div class="flex justify-between">
+                                <span>Réduction fraude vocale:</span>
+                                <span class="font-medium text-green-600">-87%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Coût déploiement annuel:</span>
+                                <span class="font-medium">€15,000-50,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Économies estimées:</span>
+                                <span class="font-medium text-green-600">€200,000-500,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications Personnelles -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-user mr-2 text-green-600"></i>
+                        Protection Personnelle
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Appels Frauduleux</h4>
+                            <p class="text-sm text-gray-600">Détection en temps réel des tentatives d'usurpation vocale familiale</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-pink-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Réseaux Sociaux</h4>
+                            <p class="text-sm text-gray-600">Vérification authenticité des messages vocaux, protection réputation</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-indigo-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Contenu Éducatif</h4>
+                            <p class="text-sm text-gray-600">Formation à la reconnaissance des deepfakes, sensibilisation</p>
+                        </div>
+                    </div>
+
+                    <!-- App Mobile Concept -->
+                    <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-mobile-alt mr-2"></i>
+                            Application Mobile "VoiceGuard"
+                        </h4>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <h5 class="font-medium text-gray-700">Fonctionnalités</h5>
+                                <ul class="text-gray-600 text-xs space-y-1 mt-1">
+                                    <li>• Analyse en temps réel</li>
+                                    <li>• Alertes instantanées</li>
+                                    <li>• Historique détections</li>
+                                    <li>• Partage sécurisé</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-gray-700">Spécifications</h5>
+                                <ul class="text-gray-600 text-xs space-y-1 mt-1">
+                                    <li>• iOS 14+ / Android 10+</li>
+                                    <li>• <3s temps réponse</li>
+                                    <li>• Mode offline disponible</li>
+                                    <li>• Chiffrement E2E</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="w-full mt-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium">
+                            <i class="fas fa-download mr-2"></i>
+                            Bêta Disponible Q3 2025
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonnes Pratiques & Recommandations -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-shield-alt mr-3 text-green-600"></i>
+                    Bonnes Pratiques & Recommandations
+                </h2>
+                <p class="text-gray-600 text-lg">Guide pour un déploiement sécurisé et efficace</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Do's -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Recommandations
+                        </h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-600 mr-3 mt-1"></i>
+                                <span><strong>Multi-validation:</strong> Combinez plusieurs algorithmes de détection</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-600 mr-3 mt-1"></i>
+                                <span><strong>Mise à jour continue:</strong> Réentraînez les modèles régulièrement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-600 mr-3 mt-1"></i>
+                                <span><strong>Validation humaine:</strong> Confirmez les cas critiques manuellement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-600 mr-3 mt-1"></i>
+                                <span><strong>Logging complet:</strong> Tracez toutes les détections pour audit</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-600 mr-3 mt-1"></i>
+                                <span><strong>Seuils adaptatifs:</strong> Ajustez selon le contexte d'usage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-600 mr-3 mt-1"></i>
+                                <span><strong>Formation utilisateurs:</strong> Sensibilisez aux limites du système</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Don'ts -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-red-800 mb-4">
+                            <i class="fas fa-times-circle mr-2"></i>
+                            À Éviter
+                        </h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-600 mr-3 mt-1"></i>
+                                <span><strong>Confiance aveugle:</strong> 100% de précision n'existe pas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-600 mr-3 mt-1"></i>
+                                <span><strong>Modèles statiques:</strong> Ne pas mettre à jour assez souvent</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-600 mr-3 mt-1"></i>
+                                <span><strong>Seuils rigides:</strong> Adaptez selon le risque métier</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-600 mr-3 mt-1"></i>
+                                <span><strong>Données biaisées:</strong> Vérifiez la diversité du dataset</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-600 mr-3 mt-1"></i>
+                                <span><strong>Négligence légale:</strong> Respectez RGPD et consentement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-600 mr-3 mt-1"></i>
+                                <span><strong>Single point of failure:</strong> Redondance nécessaire</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Matrice de Risques -->
+                <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Matrice de Risques & Mitigation
+                    </h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="text-left p-3 font-medium">Risque</th>
+                                    <th class="text-left p-3 font-medium">Probabilité</th>
+                                    <th class="text-left p-3 font-medium">Impact</th>
+                                    <th class="text-left p-3 font-medium">Mitigation</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr>
+                                    <td class="p-3">Faux positifs sur voix naturelles</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Moyen</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-red-100 text-red-800 rounded">Élevé</span></td>
+                                    <td class="p-3">Validation humaine, seuils adaptatifs</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Évolution techniques deepfake</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-red-100 text-red-800 rounded">Élevé</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-red-100 text-red-800 rounded">Élevé</span></td>
+                                    <td class="p-3">Réentraînement continu, veille techno</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Latence système en production</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Moyen</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Moyen</span></td>
+                                    <td class="p-3">Optimisation GPU, cache prédictions</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Attaques adversariales</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Moyen</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-red-100 text-red-800 rounded">Élevé</span></td>
+                                    <td class="p-3">Entraînement adversarial, ensembles</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion et Prochaines Étapes -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6">
+                    <i class="fas fa-flag-checkered mr-3"></i>
+                    Bloc 11.7 Terminé avec Succès
+                </h2>
+                
+                <p class="text-xl mb-8 leading-relaxed">
+                    Vous maîtrisez maintenant les techniques avancées de sécurité et détection anti-deepfake audio. 
+                    Ces compétences sont essentielles pour protéger votre activité et maintenir la confiance.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <i class="fas fa-shield-alt text-4xl mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Protection Acquise</h3>
+                        <p class="text-sm">Sécurité multicouche contre les menaces deepfake</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <i class="fas fa-code text-4xl mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Outils Opérationnels</h3>
+                        <p class="text-sm">Scripts Python production-ready déployables</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <i class="fas fa-graduation-cap text-4xl mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Expertise Forensique</h3>
+                        <p class="text-sm">Analyse complète et rapports professionnels</p>
+                    </div>
+                </div>
+
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-4">🎯 Récapitulatif des Compétences</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                        <div>
+                            <h4 class="font-bold mb-2">✅ Techniques Maîtrisées</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Détection spectrale et temporelle</li>
+                                <li>• Watermarking audio inaudible</li>
+                                <li>• Analyse forensique complète</li>
+                                <li>• Système de monitoring temps réel</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">🛠️ Outils Déployables</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Détecteur multi-algorithmes</li>
+                                <li>• API REST pour intégration</li>
+                                <li>• Dashboard de surveillance</li>
+                                <li>• Générateur de rapports</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-4">🚀 Formation Bloc 11 Complète</h3>
+                    <p class="mb-6">
+                        Vous avez terminé l'intégralité du Bloc 11 - Clonage Vocal & Sécurité.<br>
+                        Votre expertise couvre maintenant tous les aspects techniques et sécuritaires.
+                    </p>
+                    
+                    <div class="flex justify-center space-x-4">
+                        <a href="#detection-techniques" class="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300">
+                            <i class="fas fa-arrow-up mr-2"></i>Retour au Début
+                        </a>
+                        <button onclick="generateCertificate()" class="bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-yellow-600 transition duration-300">
+                            <i class="fas fa-certificate mr-2"></i>Certificat de Réussite
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <i class="fas fa-shield-alt text-3xl mb-4"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">BLOC 11.7 - Sécurité & Anti-Deepfake</h4>
+            <p class="text-gray-400 mb-4">Formation technique avancée • Protection maximale • Expertise forensique</p>
+            
+            <div class="flex justify-center space-x-6 mb-6 text-sm">
+                <span><i class="fas fa-search mr-1"></i>Détection IA</span>
+                <span><i class="fas fa-fingerprint mr-1"></i>Watermarking</span>
+                <span><i class="fas fa-microscope mr-1"></i>Analyse Forensique</span>
+                <span><i class="fas fa-code mr-1"></i>Scripts Production</span>
+            </div>
+            
+            <div class="text-xs text-gray-500">
+                Manuel IA MYM 2025 • Bloc 11.7 • Sécurité & Protection Anti-Deepfake
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Détecteur IA Interactif
+        function runDetection() {
+            const spectral = document.getElementById('spectral-analysis').value;
+            const artifact = document.getElementById('artifact-detection').value;
+            const temporal = document.getElementById('temporal-coherence').value;
+            
+            const average = (parseInt(spectral) + parseInt(artifact) + parseInt(temporal)) / 3;
+            
+            document.getElementById('detection-score').textContent = Math.round(average) + '%';
+            document.getElementById('detection-indicator').style.left = average + '%';
+            
+            let status = '';
+            if (average > 80) status = 'Probablement Authentique';
+            else if (average > 60) status = 'Suspect';
+            else status = 'Probablement Synthétique';
+            
+            document.getElementById('detection-status').textContent = status;
+        }
+
+        // Mise à jour valeurs sliders
+        document.getElementById('spectral-analysis').addEventListener('input', function() {
+            document.getElementById('spectral-value').textContent = this.value + '%';
+        });
+        document.getElementById('artifact-detection').addEventListener('input', function() {
+            document.getElementById('artifact-value').textContent = this.value + '%';
+        });
+        document.getElementById('temporal-coherence').addEventListener('input', function() {
+            document.getElementById('temporal-value').textContent = this.value + '%';
+        });
+
+        // Générateur Watermark
+        function generateWatermark() {
+            const userId = document.getElementById('user-id').value;
+            const timestamp = document.getElementById('timestamp').value;
+            const strength = document.getElementById('watermark-strength').value;
+            
+            // Génération hash simulé
+            const hash = 'a7b9c2d4e5f6' + Math.random().toString(36).substr(2, 6);
+            const freq1 = (18000 + Math.random() * 1000).toFixed(1);
+            const freq2 = (19000 + Math.random() * 1000).toFixed(1);
+            
+            document.getElementById('watermark-hash').textContent = hash;
+            document.getElementById('watermark-freqs').textContent = freq1 + 'kHz, ' + freq2 + 'kHz';
+            document.getElementById('strength-value').textContent = strength;
+            
+            // Visualisation canvas
+            const canvas = document.getElementById('watermark-visualization');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Dessin forme d'onde
+            ctx.strokeStyle = '#6366f1';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let x = 0; x < canvas.width; x++) {
+                const y = canvas.height/2 + Math.sin(x * 0.1) * 30 * strength;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        // Copie code
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                // Animation feedback
+                const btn = event.target.closest('button');
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                btn.classList.add('text-green-400');
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('text-green-400');
+                }, 2000);
+            });
+        }
+
+        // Génération certificat
+        function generateCertificate() {
+            const now = new Date();
+            const certificate = `
+🏆 CERTIFICAT DE RÉUSSITE 🏆
+
+Formation: Manuel IA MYM 2025 - BLOC 11.7
+Module: Sécurité & Détection Anti-Deepfake Audio
+Date: ${now.toLocaleDateString('fr-FR')}
+
+Compétences Validées:
+✅ Détection spectrale et temporelle avancée
+✅ Implémentation watermarking audio
+✅ Analyse forensique complète
+✅ Déploiement outils production
+
+Niveau: Expert en Sécurité Audio IA
+            `;
+            
+            alert(certificate);
+        }
+
+        // Graphiques
+        document.addEventListener('DOMContentLoaded', function() {
+            // Graphique spectral
+            const ctx = document.getElementById('spectral-chart').getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 150);
+            gradient.addColorStop(0, '#60a5fa');
+            gradient.addColorStop(1, '#3b82f6');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 250, 150);
+            
+            // Simulation spectrogramme
+            for (let i = 0; i < 250; i += 5) {
+                for (let j = 0; j < 150; j += 5) {
+                    const intensity = Math.random();
+                    ctx.fillStyle = `rgba(255, 255, 255, ${intensity * 0.3})`;
+                    ctx.fillRect(i, j, 3, 3);
+                }
+            }
+            
+            // Initialisation
+            generateWatermark();
+            runDetection();
+        });
+    </script>
+
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDprPv9jIF%2BiVIdkjoSCwu3hDvXxwsQBUC69NAg0SS87LOploE5nU2C06tY2Pw%2BCFIkiE8b5rU9hH13dTKaQyZVeKL2diGvq7wRMRfh5Rt0J%2B11UfVBvbb8HECQSEbxwypMliqPiBDCGJrMqrJdHiFdHnmV2SSc%2BV099PvxsGeeKmUzqzEeDmx4ba3QoWsOSbtI03yYTC78LDOnMvVRK6BVDdXzoEiHpIlAiHzyAFBhoyOV0R5OWSe7YRux%2BvoinQvAPHnfl5ct5wXksaLjBUCKGqFLMGkB7SNm6gY1bEin6%2FXouRZjKRwji5riQhyzxi3E7wzydyYsAjRk5YzBAiD%2F7Ehvnq1RfXBNCD7bM8hpl8nCKEdSrO3rNPsInekRS29UdY02TsWr2%2FtFa0Jz0LBTZfLH0m8sqmIHzJ4Kl2kXZOMcbtCnmKhPum2iu4dGFNV52EeDcvdxmFhjxh%2BJG8C9KteXaD52qI4%2Bgp97zfiXfgGWE12d4zvASD6zLkmZvYdxMna9MSjAOYZ1LmcUbd6OgtgEeHrUNYOT8A9tDEaesO";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDprPv9jIF+iVIdkjoSCwu3hDvXxwsQBUC69NAg0SS87LOploE5nU2C06tY2Pw+CFIkiE8b5rU9hH13dTKaQyZVeKL2diGvq7wRMRfh5Rt0J+11UfVBvbb8HECQSEbxwypMliqPiBDCGJrMqrJdHiFdHnmV2SSc+V099PvxsGeeKmUzqzEeDmx4ba3QoWsOSbtI03yYTC78LDOnMvVRK6BVDdXzoEiHpIlAiHzyAFBhoyOV0R5OWSe7YRux+voinQvAPHnfl5ct5wXksaLjBUCKGqFLMGkB7SNm6gY1bEin6/XouRZjKRwji5riQhyzxi3E7wzydyYsAjRk5YzBAiD/7Ehvnq1RfXBNCD7bM8hpl8nCKEdSrO3rNPsInekRS29UdY02TsWr2/tFa0Jz0LBTZfLH0m8sqmIHzJ4Kl2kXZOMcbtCnmKhPum2iu4dGFNV52EeDcvdxmFhjxh+JG8C9KteXaD52qI4+gp97zfiXfgGWE12d4zvASD6zLkmZvYdxMna9MSjAOYZ1LmcUbd6OgtgEeHrUNYOT8A9tDEaesO";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système Expert IA MYM - Dashboard Fonctionnel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .sidebar-transition { transition: transform 0.3s ease-in-out; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: white; margin: 5% auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; }
+        .live-mode { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .chart-container { height: 300px; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Authentification -->
+    <div id="authModal" class="modal" style="display: flex;">
+        <div class="modal-content text-center">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-shield-alt text-blue-600"></i> Accès Sécurisé
+            </h2>
+            <p class="mb-6 text-gray-600">Système Expert IA MYM - Niveau 0,1%</p>
+            <div class="mb-4">
+                <input type="password" id="passwordInput" placeholder="Mot de passe" 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button onclick="authenticate()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                <i class="fas fa-unlock-alt"></i> Se connecter
+            </button>
+            <div id="authError" class="mt-3 text-red-500 hidden">Mot de passe incorrect</div>
+        </div>
+    </div>
+
+    <!-- Interface principale -->
+    <div id="mainApp" class="hidden">
+        <!-- Header -->
+        <header class="bg-white shadow-lg border-b border-gray-200">
+            <div class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleSidebar()" class="lg:hidden text-gray-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h1 class="text-2xl font-bold text-gray-800">
+                        <i class="fas fa-crown text-yellow-500"></i> Système Expert 0,1%
+                    </h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLiveMode()" id="liveModeBtn" 
+                            class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                        <i class="fas fa-video"></i> Mode Live
+                    </button>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-user-circle"></i> Admin
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="bg-gray-800 text-white w-64 min-h-screen sidebar-transition">
+                <div class="p-6">
+                    <div class="space-y-2">
+                        <a href="#" onclick="showSection('dashboard')" 
+                           class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="#" onclick="showSection('clients')" 
+                           class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-users"></i>
+                            <span>Gestion Clients</span>
+                        </a>
+                        <a href="#" onclick="showSection('analytics')" 
+                           class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics Avancés</span>
+                        </a>
+                        <a href="#" onclick="showSection('automation')" 
+                           class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-robot"></i>
+                            <span>Automation Center</span>
+                        </a>
+                        <a href="#" onclick="showSection('pricing')" 
+                           class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-euro-sign"></i>
+                            <span>Pricing Dynamique</span>
+                        </a>
+                        <a href="#" onclick="showSection('security')" 
+                           class="nav-link flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Sécurité</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Contenu principal -->
+            <main class="flex-1 p-6 overflow-y-auto">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="section fade-in">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Dashboard Expert 0,1%</h2>
+                        <p class="text-gray-600">Système de gestion avancé avec intelligence artificielle</p>
+                    </div>
+
+                    <!-- KPIs Principal -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Revenus Totaux</p>
+                                    <p class="text-3xl font-bold text-green-600" id="totalRevenue">€47,382</p>
+                                </div>
+                                <i class="fas fa-euro-sign text-green-500 text-3xl"></i>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-green-500 text-sm">
+                                    <i class="fas fa-arrow-up"></i> +23.5% vs mois dernier
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Clients Actifs</p>
+                                    <p class="text-3xl font-bold text-blue-600" id="activeClients">847</p>
+                                </div>
+                                <i class="fas fa-users text-blue-500 text-3xl"></i>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-blue-500 text-sm">
+                                    <i class="fas fa-arrow-up"></i> +12.3% ce mois
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Taux Conversion</p>
+                                    <p class="text-3xl font-bold text-purple-600" id="conversionRate">34.7%</p>
+                                </div>
+                                <i class="fas fa-chart-line text-purple-500 text-3xl"></i>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-purple-500 text-sm">
+                                    <i class="fas fa-arrow-up"></i> +8.9% optimisé par IA
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Coefficient Viral</p>
+                                    <p class="text-3xl font-bold text-orange-600" id="viralCoef">2.4x</p>
+                                </div>
+                                <i class="fas fa-share-alt text-orange-500 text-3xl"></i>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-orange-500 text-sm">
+                                    <i class="fas fa-fire"></i> Croissance exponentielle
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graphiques en temps réel -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Revenus par Cohorte</h3>
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Taux de Rétention</h3>
+                            <div class="chart-container">
+                                <canvas id="retentionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions rapides -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Actions Rapides</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <button onclick="openNewClientModal()" 
+                                    class="bg-blue-500 text-white p-4 rounded-lg hover:bg-blue-600 transition">
+                                <i class="fas fa-user-plus mb-2"></i><br>Nouveau Client
+                            </button>
+                            <button onclick="generateAccessCode()" 
+                                    class="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition">
+                                <i class="fas fa-key mb-2"></i><br>Générer Code
+                            </button>
+                            <button onclick="showSection('analytics')" 
+                                    class="bg-purple-500 text-white p-4 rounded-lg hover:bg-purple-600 transition">
+                                <i class="fas fa-chart-bar mb-2"></i><br>Analytics
+                            </button>
+                            <button onclick="triggerViralBoost()" 
+                                    class="bg-orange-500 text-white p-4 rounded-lg hover:bg-orange-600 transition">
+                                <i class="fas fa-rocket mb-2"></i><br>Boost Viral
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestion Clients Section -->
+                <div id="clients-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Gestion Clients Avancée</h2>
+                        <div class="flex justify-between items-center">
+                            <p class="text-gray-600">Micro-segmentation et personnalisation IA</p>
+                            <button onclick="openNewClientModal()" 
+                                    class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                                <i class="fas fa-plus"></i> Nouveau Client
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filtres et recherche -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <input type="text" id="searchClients" placeholder="Rechercher un client..." 
+                                   class="border border-gray-300 rounded-lg px-3 py-2">
+                            <select id="filterSegment" class="border border-gray-300 rounded-lg px-3 py-2">
+                                <option value="">Tous les segments</option>
+                                <option value="high-value">Haute valeur</option>
+                                <option value="regular">Régulier</option>
+                                <option value="at-risk">À risque</option>
+                            </select>
+                            <select id="filterStatus" class="border border-gray-300 rounded-lg px-3 py-2">
+                                <option value="">Tous les statuts</option>
+                                <option value="active">Actif</option>
+                                <option value="inactive">Inactif</option>
+                                <option value="trial">Essai</option>
+                            </select>
+                            <button onclick="applyFilters()" 
+                                    class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+                                <i class="fas fa-filter"></i> Filtrer
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Liste des clients -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Client</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Segment IA</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">LTV Prédite</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Churn Risk</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clientsList" class="divide-y divide-gray-200">
+                                <!-- Les clients seront ajoutés ici par JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analytics-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Analytics Avancés</h2>
+                        <p class="text-gray-600">Intelligence business et prédictions IA</p>
+                    </div>
+
+                    <!-- Métriques temps réel -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Funnel de Conversion</h3>
+                            <div class="chart-container">
+                                <canvas id="funnelChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Cohort Analysis</h3>
+                            <div class="chart-container">
+                                <canvas id="cohortChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Attribution Sources</h3>
+                            <div class="chart-container">
+                                <canvas id="attributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tests A/B actifs -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Tests A/B en Cours</h3>
+                        <div class="space-y-4">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-medium">Prix 497€ vs 997€</h4>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Actif</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-sm">
+                                    <div>
+                                        <p class="text-gray-600">Variant A (497€)</p>
+                                        <p class="font-bold">Conv: 28.4% | Rev: €14,236</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-600">Variant B (997€)</p>
+                                        <p class="font-bold">Conv: 15.7% | Rev: €15,649</p>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 78%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-600 mt-1">Confiance: 78% | Vainqueur probable: B</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Section -->
+                <div id="automation-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Automation Center</h2>
+                        <p class="text-gray-600">Déclencheurs comportementaux et séquences automatiques</p>
+                    </div>
+
+                    <!-- Automations actives -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Triggers Comportementaux</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                    <div>
+                                        <p class="font-medium">Exit Intent Offer</p>
+                                        <p class="text-sm text-gray-600">Déclencheur: Intention de sortie</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked onchange="toggleAutomation('exit-intent')">
+                                        <span class="slider round bg-green-500"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                    <div>
+                                        <p class="font-medium">Scroll Depth Trigger</p>
+                                        <p class="text-sm text-gray-600">Déclencheur: 80% de scroll</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked onchange="toggleAutomation('scroll-depth')">
+                                        <span class="slider round bg-blue-500"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
+                                    <div>
+                                        <p class="font-medium">Churn Prevention</p>
+                                        <p class="text-sm text-gray-600">Prédiction: 72h avant churn</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked onchange="toggleAutomation('churn-prevention')">
+                                        <span class="slider round bg-orange-500"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Email Sequences</h3>
+                            <div class="space-y-3">
+                                <div class="p-3 border border-gray-200 rounded-lg">
+                                    <p class="font-medium">Welcome Series</p>
+                                    <p class="text-sm text-gray-600 mb-2">7 emails sur 14 jours</p>
+                                    <div class="flex justify-between text-xs">
+                                        <span>Open Rate: 67.3%</span>
+                                        <span>Conv Rate: 23.1%</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 border border-gray-200 rounded-lg">
+                                    <p class="font-medium">Upsell Sequence</p>
+                                    <p class="text-sm text-gray-600 mb-2">5 emails sur 10 jours</p>
+                                    <div class="flex justify-between text-xs">
+                                        <span>Open Rate: 54.7%</span>
+                                        <span>Conv Rate: 18.9%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <div id="pricing-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pricing Dynamique</h2>
+                        <p class="text-gray-600">Optimisation prix par IA et segmentation</p>
+                    </div>
+
+                    <!-- Générateur de codes avec prix -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Générateur de Codes d'Accès</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nom du Package</label>
+                                <input type="text" id="packageName" placeholder="Formation IA MYM" 
+                                       class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Prix (€)</label>
+                                <input type="number" id="packagePrice" placeholder="497" 
+                                       class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Durée d'accès</label>
+                                <select id="accessDuration" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                    <option value="30">30 jours</option>
+                                    <option value="90">3 mois</option>
+                                    <option value="180">6 mois</option>
+                                    <option value="365">1 an</option>
+                                    <option value="999">Illimité</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="generateCustomAccessCode()" 
+                                class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
+                            <i class="fas fa-magic"></i> Générer Code d'Accès
+                        </button>
+                        
+                        <div id="generatedCodeResult" class="mt-4 hidden p-4 bg-gray-50 rounded-lg">
+                            <p class="font-medium">Code généré :</p>
+                            <div class="flex items-center mt-2">
+                                <code id="generatedCode" class="bg-gray-200 px-3 py-2 rounded flex-1"></code>
+                                <button onclick="copyToClipboard('generatedCode')" 
+                                        class="ml-2 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing tiers -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200">
+                            <h3 class="text-lg font-semibold mb-2">Pack Débutant</h3>
+                            <div class="text-3xl font-bold text-blue-600 mb-4">€97</div>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-green-500"></i> BLOCS 1-3</li>
+                                <li><i class="fas fa-check text-green-500"></i> 30 jours d'accès</li>
+                                <li><i class="fas fa-check text-green-500"></i> Support email</li>
+                            </ul>
+                            <button onclick="createPackageCode('Débutant', 97, 30)" 
+                                    class="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+                                Créer Code
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-green-400">
+                            <div class="text-center mb-2">
+                                <span class="bg-green-400 text-white px-3 py-1 rounded-full text-xs">POPULAIRE</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Pack Complet</h3>
+                            <div class="text-3xl font-bold text-green-600 mb-4">€497</div>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-green-500"></i> TOUS les BLOCS</li>
+                                <li><i class="fas fa-check text-green-500"></i> 6 mois d'accès</li>
+                                <li><i class="fas fa-check text-green-500"></i> Support prioritaire</li>
+                                <li><i class="fas fa-check text-green-500"></i> Updates incluses</li>
+                            </ul>
+                            <button onclick="createPackageCode('Complet', 497, 180)" 
+                                    class="w-full mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">
+                                Créer Code
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-purple-400">
+                            <h3 class="text-lg font-semibold mb-2">Pack VIP</h3>
+                            <div class="text-3xl font-bold text-purple-600 mb-4">€997</div>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-green-500"></i> TOUT + Bonus</li>
+                                <li><i class="fas fa-check text-green-500"></i> Accès illimité</li>
+                                <li><i class="fas fa-check text-green-500"></i> Support VIP 24/7</li>
+                                <li><i class="fas fa-check text-green-500"></i> Consultation 1-to-1</li>
+                            </ul>
+                            <button onclick="createPackageCode('VIP', 997, 999)" 
+                                    class="w-full mt-4 bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600">
+                                Créer Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Section -->
+                <div id="security-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Centre de Sécurité</h2>
+                        <p class="text-gray-600">Monitoring et protection anti-piratage</p>
+                    </div>
+
+                    <!-- Alertes sécurité -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Connexions Suspectes</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                                    <div>
+                                        <p class="font-medium text-red-800">IP Multiple Détectée</p>
+                                        <p class="text-sm text-red-600">Client: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2c4cdd0cfc3d6cbcdcce2c7cfc3cbce8cc1cdcf">[email&#160;protected]</a></p>
+                                        <p class="text-xs text-gray-500">IP: 192.168.1.1 → 83.45.67.89</p>
+                                    </div>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600">
+                                        Bloquer
+                                    </button>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
+                                    <div>
+                                        <p class="font-medium text-yellow-800">Géolocalisation Suspecte</p>
+                                        <p class="text-sm text-yellow-600">Client: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0e7a6b7d7a4e6b636f6762206d6163">[email&#160;protected]</a></p>
+                                        <p class="text-xs text-gray-500">France → Nigeria</p>
+                                    </div>
+                                    <button class="bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600">
+                                        Vérifier
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Protection Active</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span>Watermark Dynamique</span>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Actif</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span>Blocage Capture d'Écran</span>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Actif</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span>Détection Multi-Connexions</span>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Actif</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span>Limitation de Session</span>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Actif</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logs d'activité -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Logs d'Activité (Temps Réel)</h3>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm max-h-64 overflow-y-auto" id="securityLogs">
+                            <div>[2025-01-14 15:23:12] ✅ Connexion réussie - <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90f1f4fdf9fed0f9f1bdfde9fdbef3fffd">[email&#160;protected]</a> (IP: 192.168.1.100)</div>
+                            <div>[2025-01-14 15:22:45] 🔍 Validation IP - <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5c0c6d0c7f5d0d8d4dcd99bd6dad8">[email&#160;protected]</a> (IP: 83.45.67.89)</div>
+                            <div>[2025-01-14 15:22:12] ⚠️  Tentative multi-connexion bloquée - <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7b1b8a5bab6a3beb8b997b2bab6bebbf9b4b8ba">[email&#160;protected]</a></div>
+                            <div>[2025-01-14 15:21:33] 🛡️  Watermark appliqué - Page: BLOC 7</div>
+                            <div>[2025-01-14 15:21:01] ✅ Code d'accès généré - VIP-IAMYM-2025-1847</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Nouveau Client -->
+    <div id="newClientModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Nouveau Client</h3>
+                <button onclick="closeModal('newClientModal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form onsubmit="createNewClient(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                        <input type="text" id="clientName" required 
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="clientEmail" required 
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
+                        <input type="tel" id="clientPhone" 
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Package</label>
+                        <select id="clientPackage" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                            <option value="beginner">Débutant - €97</option>
+                            <option value="complete">Complet - €497</option>
+                            <option value="vip">VIP - €997</option>
+                            <option value="custom">Personnalisé</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4" id="customPriceDiv" style="display: none;">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Prix Personnalisé (€)</label>
+                    <input type="number" id="customPrice" 
+                           class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" onclick="closeModal('newClientModal')" 
+                            class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400">
+                        Annuler
+                    </button>
+                    <button type="submit" 
+                            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                        Créer Client
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Styles pour les switches -->
+    <style>
+        .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #2196F3; }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Variables globales
+        let isAuthenticated = false;
+        let clients = JSON.parse(localStorage.getItem('clients') || '[]');
+        let currentSection = 'dashboard';
+        let isLiveMode = false;
+
+        // Authentification
+        function authenticate() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === 'PourMYM07!') {
+                document.getElementById('authModal').style.display = 'none';
+                document.getElementById('mainApp').classList.remove('hidden');
+                isAuthenticated = true;
+                initializeApp();
+            } else {
+                document.getElementById('authError').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('authError').classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        // Initialisation de l'application
+        function initializeApp() {
+            showSection('dashboard');
+            loadClients();
+            initializeCharts();
+            startRealTimeUpdates();
+            addSecurityLogs();
+        }
+
+        // Navigation
+        function showSection(sectionName) {
+            // Cacher toutes les sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Afficher la section demandée
+            document.getElementById(sectionName + '-section').classList.remove('hidden');
+            
+            // Mettre à jour la navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-gray-700');
+            });
+            event.target.closest('.nav-link').classList.add('bg-gray-700');
+            
+            currentSection = sectionName;
+        }
+
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
+
+        // Mode Live
+        function toggleLiveMode() {
+            isLiveMode = !isLiveMode;
+            const btn = document.getElementById('liveModeBtn');
+            const body = document.body;
+            
+            if (isLiveMode) {
+                btn.innerHTML = '<i class="fas fa-video"></i> Mode Normal';
+                btn.classList.remove('bg-red-500', 'hover:bg-red-600');
+                btn.classList.add('bg-green-500', 'hover:bg-green-600');
+                body.classList.add('live-mode');
+                showLiveNotification('Mode Live activé - Interface optimisée pour partage d\'écran');
+            } else {
+                btn.innerHTML = '<i class="fas fa-video"></i> Mode Live';
+                btn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                btn.classList.add('bg-red-500', 'hover:bg-red-600');
+                body.classList.remove('live-mode');
+                showLiveNotification('Mode Normal activé');
+            }
+        }
+
+        // Notifications
+        function showLiveNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            notification.innerHTML = `<i class="fas fa-info-circle"></i> ${message}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Gestion des modals
+        function openNewClientModal() {
+            document.getElementById('newClientModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Création de client
+        function createNewClient(event) {
+            event.preventDefault();
+            
+            const client = {
+                id: Date.now(),
+                name: document.getElementById('clientName').value,
+                email: document.getElementById('clientEmail').value,
+                phone: document.getElementById('clientPhone').value,
+                package: document.getElementById('clientPackage').value,
+                customPrice: document.getElementById('customPrice').value,
+                createdAt: new Date().toISOString(),
+                status: 'active',
+                segment: calculateSegment(),
+                ltv: Math.floor(Math.random() * 2000) + 500,
+                churnRisk: Math.floor(Math.random() * 30) + 10
+            };
+            
+            clients.push(client);
+            localStorage.setItem('clients', JSON.stringify(clients));
+            loadClients();
+            closeModal('newClientModal');
+            
+            // Reset form
+            document.querySelector('#newClientModal form').reset();
+            
+            showLiveNotification('Client créé avec succès!');
+        }
+
+        function calculateSegment() {
+            const segments = ['high-value', 'regular', 'at-risk', 'trial'];
+            return segments[Math.floor(Math.random() * segments.length)];
+        }
+
+        // Chargement des clients
+        function loadClients() {
+            const tbody = document.getElementById('clientsList');
+            tbody.innerHTML = '';
+            
+            clients.forEach(client => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm">
+                                ${client.name.charAt(0).toUpperCase()}
+                            </div>
+                            <div class="ml-3">
+                                <div class="font-medium">${client.name}</div>
+                                <div class="text-sm text-gray-600">${client.email}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="px-2 py-1 text-xs rounded-full ${getSegmentColor(client.segment)}">
+                            ${getSegmentLabel(client.segment)}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 font-medium">€${client.ltv}</td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                            <div class="w-full bg-gray-200 rounded-full h-2 mr-2">
+                                <div class="bg-${client.churnRisk > 70 ? 'red' : client.churnRisk > 40 ? 'yellow' : 'green'}-500 h-2 rounded-full" style="width: ${client.churnRisk}%"></div>
+                            </div>
+                            <span class="text-sm">${client.churnRisk}%</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <button onclick="viewClient(${client.id})" class="text-blue-600 hover:text-blue-800 mr-2">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button onclick="deleteClient(${client.id})" class="text-red-600 hover:text-red-800">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function getSegmentColor(segment) {
+            const colors = {
+                'high-value': 'bg-green-100 text-green-800',
+                'regular': 'bg-blue-100 text-blue-800',
+                'at-risk': 'bg-red-100 text-red-800',
+                'trial': 'bg-yellow-100 text-yellow-800'
+            };
+            return colors[segment] || 'bg-gray-100 text-gray-800';
+        }
+
+        function getSegmentLabel(segment) {
+            const labels = {
+                'high-value': 'Haute Valeur',
+                'regular': 'Régulier',
+                'at-risk': 'À Risque',
+                'trial': 'Essai'
+            };
+            return labels[segment] || segment;
+        }
+
+        // Génération de codes d'accès
+        function generateAccessCode() {
+            const code = 'MYM-' + Math.random().toString(36).substring(2, 8).toUpperCase() + '-2025';
+            showLiveNotification(`Code généré: ${code}`);
+            return code;
+        }
+
+        function generateCustomAccessCode() {
+            const packageName = document.getElementById('packageName').value || 'Formation IA';
+            const price = document.getElementById('packagePrice').value || '497';
+            const duration = document.getElementById('accessDuration').value || '180';
+            
+            const code = 'CUSTOM-' + Math.random().toString(36).substring(2, 6).toUpperCase() + '-' + Date.now().toString().slice(-4);
+            
+            document.getElementById('generatedCode').textContent = code;
+            document.getElementById('generatedCodeResult').classList.remove('hidden');
+            
+            // Sauvegarder le code
+            const codes = JSON.parse(localStorage.getItem('accessCodes') || '[]');
+            codes.push({
+                code: code,
+                package: packageName,
+                price: price,
+                duration: duration,
+                createdAt: new Date().toISOString(),
+                used: false
+            });
+            localStorage.setItem('accessCodes', JSON.stringify(codes));
+            
+            showLiveNotification(`Code d'accès créé: ${code}`);
+        }
+
+        function createPackageCode(packageType, price, duration) {
+            const code = packageType.toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase() + '-2025';
+            
+            const codes = JSON.parse(localStorage.getItem('accessCodes') || '[]');
+            codes.push({
+                code: code,
+                package: `Pack ${packageType}`,
+                price: price,
+                duration: duration,
+                createdAt: new Date().toISOString(),
+                used: false
+            });
+            localStorage.setItem('accessCodes', JSON.stringify(codes));
+            
+            showLiveNotification(`Code Pack ${packageType} créé: ${code}`);
+        }
+
+        // Fonctions utilitaires
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            navigator.clipboard.writeText(element.textContent).then(() => {
+                showLiveNotification('Code copié dans le presse-papier!');
+            });
+        }
+
+        function viewClient(clientId) {
+            const client = clients.find(c => c.id === clientId);
+            if (client) {
+                showLiveNotification(`Consultation client: ${client.name}`);
+            }
+        }
+
+        function deleteClient(clientId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce client?')) {
+                clients = clients.filter(c => c.id !== clientId);
+                localStorage.setItem('clients', JSON.stringify(clients));
+                loadClients();
+                showLiveNotification('Client supprimé');
+            }
+        }
+
+        function triggerViralBoost() {
+            showLiveNotification('Boost viral activé! Campagne de parrainage démarrée.');
+        }
+
+        function toggleAutomation(type) {
+            showLiveNotification(`Automation ${type} modifiée`);
+        }
+
+        // Initialisation des graphiques
+        function initializeCharts() {
+            // Graphique revenus
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun'],
+                    datasets: [{
+                        label: 'Revenus (€)',
+                        data: [12000, 19000, 23000, 35000, 42000, 47000],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Graphique rétention
+            const retentionCtx = document.getElementById('retentionChart').getContext('2d');
+            new Chart(retentionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4'],
+                    datasets: [{
+                        label: 'Rétention (%)',
+                        data: [95, 87, 76, 68],
+                        backgroundColor: ['#10B981', '#F59E0B', '#EF4444', '#8B5CF6']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Funnel Chart
+            const funnelCtx = document.getElementById('funnelChart').getContext('2d');
+            new Chart(funnelCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Visiteurs', 'Leads', 'Prospects', 'Clients'],
+                    datasets: [{
+                        data: [1000, 350, 150, 47],
+                        backgroundColor: ['#3B82F6', '#10B981', '#F59E0B', '#EF4444']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Cohort Chart
+            const cohortCtx = document.getElementById('cohortChart').getContext('2d');
+            new Chart(cohortCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mois 0', 'Mois 1', 'Mois 2', 'Mois 3', 'Mois 4', 'Mois 5'],
+                    datasets: [{
+                        label: 'Cohorte Jan 2025',
+                        data: [100, 85, 72, 65, 58, 52],
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)'
+                    }, {
+                        label: 'Cohorte Fév 2025',
+                        data: [100, 88, 76, 68, 61, null],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Attribution Chart
+            const attributionCtx = document.getElementById('attributionChart').getContext('2d');
+            new Chart(attributionCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['YouTube', 'Google Ads', 'Email', 'Live', 'Organique'],
+                    datasets: [{
+                        data: [35, 25, 20, 15, 5],
+                        backgroundColor: ['#EF4444', '#3B82F6', '#10B981', '#F59E0B', '#8B5CF6']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        // Mises à jour temps réel
+        function startRealTimeUpdates() {
+            setInterval(() => {
+                // Mise à jour des KPIs
+                updateKPIs();
+                // Mise à jour des logs de sécurité
+                if (Math.random() > 0.7) {
+                    addRandomSecurityLog();
+                }
+            }, 5000);
+        }
+
+        function updateKPIs() {
+            const revenue = document.getElementById('totalRevenue');
+            const clients = document.getElementById('activeClients');
+            const conversion = document.getElementById('conversionRate');
+            const viral = document.getElementById('viralCoef');
+            
+            // Simulation d'augmentation
+            if (Math.random() > 0.8) {
+                const currentRevenue = parseInt(revenue.textContent.replace(/[€,]/g, ''));
+                revenue.textContent = '€' + (currentRevenue + Math.floor(Math.random() * 100)).toLocaleString();
+            }
+        }
+
+        function addSecurityLogs() {
+            const logs = [
+                '[2025-01-14 15:23:12] ✅ Connexion réussie - admin@ia-mym.com (IP: 192.168.1.100)',
+                '[2025-01-14 15:22:45] 🔍 Validation IP - user@email.com (IP: 83.45.67.89)',
+                '[2025-01-14 15:22:12] ⚠️  Tentative multi-connexion bloquée - formation@email.com',
+                '[2025-01-14 15:21:33] 🛡️  Watermark appliqué - Page: BLOC 7',
+                '[2025-01-14 15:21:01] ✅ Code d\'accès généré - VIP-IAMYM-2025-1847'
+            ];
+            
+            const logsContainer = document.getElementById('securityLogs');
+            logsContainer.innerHTML = logs.join('\n');
+        }
+
+        function addRandomSecurityLog() {
+            const randomLogs = [
+                `[${new Date().toLocaleString()}] ✅ Validation réussie - user${Math.floor(Math.random()*100)}@email.com`,
+                `[${new Date().toLocaleString()}] 🔍 Contrôle géolocalisation - IP: ${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`,
+                `[${new Date().toLocaleString()}] 🛡️  Protection activée - Page: BLOC ${Math.floor(Math.random()*10)+1}`,
+                `[${new Date().toLocaleString()}] ⚡ Trigger comportemental déclenché - Exit Intent`
+            ];
+            
+            const logsContainer = document.getElementById('securityLogs');
+            const newLog = randomLogs[Math.floor(Math.random() * randomLogs.length)];
+            logsContainer.innerHTML = newLog + '\n' + logsContainer.innerHTML;
+        }
+
+        // Gestion du package personnalisé
+        document.getElementById('clientPackage').addEventListener('change', function() {
+            const customDiv = document.getElementById('customPriceDiv');
+            if (this.value === 'custom') {
+                customDiv.style.display = 'block';
+            } else {
+                customDiv.style.display = 'none';
+            }
+        });
+
+        // Protection contre les raccourcis
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'PrintScreen' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'C')) {
+                e.preventDefault();
+                showLiveNotification('Action non autorisée pour des raisons de sécurité');
+            }
+        });
+
+        // Désactiver le clic droit
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showLiveNotification('Clic droit désactivé pour la sécurité');
+        });
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Afficher le modal d'authentification
+            document.getElementById('authModal').style.display = 'flex';
+            
+            // Écouter Enter sur le champ password
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    authenticate();
+                }
+            });
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e6d4e7d0a250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvbi8HHCpSPD1UCShDNyK1iAxK2Z%2BH0FteEq3Ie1bYddW5ZsV4zACW3GC%2BXEm76gYOQPnXc84mE5iEuh2i%2FQiKtvZYsKivMG20%2B2iLkaKtvx3jzUKjvcCfjYtdXKVf9TSLNELOIcdg4%2BP6yffZwcbfzWcQ3utz9VdExTzAFlXCazLumpZmnh4R2t4XqCMS6jn9nm1TWXLP5h%2FO5dzy4KF7bEV2BANtcy4bpxkIgWEreA9H09rEwokkMHe6LK0OgNMfwpGqqnSZffMLHFZsrjLrav161TY5bY3RL6Mk2fQIRO%2BjTEhpe4m8MzDlDC1X8nh8vGF2GA%2BLKkiO2q%2BqghXH%2FkMMhmVBzj9%2Ba3K51Lradkj98LebXsFAucx9fHPsSPTOkzzq6XMQ%2FGuv27qPlKiFSfzdQ4%2F53rRCMxKlDmzdpW1Iazuzrpg5%2F%2Fd%2FUH%2BlvJGG7qboshDXHLqj60Vh4qkM4Ru31d3f5TXsrn9lKxKI9s3UWcEmiuMrjVS76X7ujlt8VodO%2FG8OBRVaNsJlVQzLW2hlqpDMlBpjK5MVOhDVD2";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvbi8HHCpSPD1UCShDNyK1iAxK2Z+H0FteEq3Ie1bYddW5ZsV4zACW3GC+XEm76gYOQPnXc84mE5iEuh2i/QiKtvZYsKivMG20+2iLkaKtvx3jzUKjvcCfjYtdXKVf9TSLNELOIcdg4+P6yffZwcbfzWcQ3utz9VdExTzAFlXCazLumpZmnh4R2t4XqCMS6jn9nm1TWXLP5h/O5dzy4KF7bEV2BANtcy4bpxkIgWEreA9H09rEwokkMHe6LK0OgNMfwpGqqnSZffMLHFZsrjLrav161TY5bY3RL6Mk2fQIRO+jTEhpe4m8MzDlDC1X8nh8vGF2GA+LKkiO2q+qghXH/kMMhmVBzj9+a3K51Lradkj98LebXsFAucx9fHPsSPTOkzzq6XMQ/Guv27qPlKiFSfzdQ4/53rRCMxKlDmzdpW1Iazuzrpg5//d/UH+lvJGG7qboshDXHLqj60Vh4qkM4Ru31d3f5TXsrn9lKxKI9s3UWcEmiuMrjVS76X7ujlt8VodO/G8OBRVaNsJlVQzLW2hlqpDMlBpjK5MVOhDVD2";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

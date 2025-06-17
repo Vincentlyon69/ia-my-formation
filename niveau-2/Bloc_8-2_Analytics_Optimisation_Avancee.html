@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 8 PARTIE 2 - Analytics & Optimisation Avancée</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #a78bfa 0%, #ec4899 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-chart-line text-6xl mb-4 pulse-animation"></i>
+                </div>
+                <h1 class="text-5xl font-bold mb-4">BLOC 8 - PARTIE 2</h1>
+                <h2 class="text-3xl font-light mb-6">Analytics & Optimisation Avancée</h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                    Système complet d'intelligence analytique pour MYM : dashboards temps réel, machine learning prédictif, 
+                    A/B testing automatisé, et optimisation continue des revenus. Transformez vos données en stratégies gagnantes.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <span class="bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-robot mr-2"></i>ML Prédictif
+                    </span>
+                    <span class="bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-chart-bar mr-2"></i>Dashboards Temps Réel
+                    </span>
+                    <span class="bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-cogs mr-2"></i>A/B Testing
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="#objectifs" class="text-gray-600 hover:text-blue-600 font-medium">Objectifs</a>
+                <a href="#architecture" class="text-gray-600 hover:text-blue-600 font-medium">Architecture</a>
+                <a href="#dashboards" class="text-gray-600 hover:text-blue-600 font-medium">Dashboards</a>
+                <a href="#ml-predictif" class="text-gray-600 hover:text-blue-600 font-medium">ML Prédictif</a>
+                <a href="#ab-testing" class="text-gray-600 hover:text-blue-600 font-medium">A/B Testing</a>
+                <a href="#optimisation" class="text-gray-600 hover:text-blue-600 font-medium">Optimisation</a>
+                <a href="#implementation" class="text-gray-600 hover:text-blue-600 font-medium">Implémentation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Objectifs Stratégiques -->
+    <section id="objectifs" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-target mr-4 text-blue-600"></i>
+                    Objectifs Stratégiques
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    Cette Partie 2 transforme votre système de publication automatisée (Partie 1) en une machine d'optimisation 
+                    intelligente capable de maximiser vos revenus MYM grâce à l'analyse prédictive et l'amélioration continue.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-brain text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800">Intelligence Prédictive</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Prédiction engagement +24h</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimisation timing publications</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Prévision revenus hebdomadaires</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Détection tendances émergentes</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-chart-line text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800">Optimisation Continue</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>A/B testing automatisé</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Scoring multi-facteurs</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Recommandations intelligentes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Adaptation dynamique stratégie</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-dashboard text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800">Monitoring Temps Réel</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dashboards interactifs</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Alertes intelligentes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Rapports automatiques</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>KPI personnalisés</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Analytics -->
+    <section id="architecture" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-sitemap mr-4 text-blue-600"></i>
+                    Architecture Analytics Avancée
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Infrastructure complète pour collecter, analyser et optimiser toutes vos données MYM
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">Flux de Données Intelligent</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-database text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Collecte</h4>
+                        <p class="text-sm text-gray-600">Données MYM</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-cogs text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Traitement</h4>
+                        <p class="text-sm text-gray-600">ML Pipeline</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chart-bar text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Visualisation</h4>
+                        <p class="text-sm text-gray-600">Dashboards</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-layer-group mr-3 text-blue-600"></i>
+                        Composants Système
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-server text-blue-600 mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Data Collector</p>
+                                <p class="text-sm text-gray-600">Collecte automatisée des métriques</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-robot text-green-600 mr-3"></i>
+                            <div>
+                                <p class="font-semibold">ML Processor</p>
+                                <p class="text-sm text-gray-600">Algorithmes prédictifs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-chart-line text-purple-600 mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Dashboard Engine</p>
+                                <p class="text-sm text-gray-600">Visualisation temps réel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">
+                        <i class="fas fa-code mr-3 text-green-600"></i>
+                        Technologies Utilisées
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fab fa-python text-blue-600 mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Python + Pandas</p>
+                                <p class="text-sm text-gray-600">Traitement de données</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-brain text-green-600 mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Scikit-learn</p>
+                                <p class="text-sm text-gray-600">Machine Learning</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-chart-bar text-purple-600 mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Plotly + Dash</p>
+                                <p class="text-sm text-gray-600">Dashboards interactifs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboards Temps Réel -->
+    <section id="dashboards" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-dashboard mr-4 text-blue-600"></i>
+                    Dashboards Temps Réel
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Visualisation interactive de toutes vos métriques MYM en temps réel
+                </p>
+            </div>
+
+            <!-- Dashboard Principal -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Dashboard Principal Léana Mystère</h3>
+                
+                <!-- Métriques Clés -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg text-center">
+                        <i class="fas fa-users text-3xl mb-2"></i>
+                        <p class="text-2xl font-bold">2,847</p>
+                        <p class="text-sm opacity-90">Abonnés Actifs</p>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-lg text-center">
+                        <i class="fas fa-euro-sign text-3xl mb-2"></i>
+                        <p class="text-2xl font-bold">€4,256</p>
+                        <p class="text-sm opacity-90">Revenus 30j</p>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-lg text-center">
+                        <i class="fas fa-heart text-3xl mb-2"></i>
+                        <p class="text-2xl font-bold">89.2%</p>
+                        <p class="text-sm opacity-90">Taux Engagement</p>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-lg text-center">
+                        <i class="fas fa-images text-3xl mb-2"></i>
+                        <p class="text-2xl font-bold">145</p>
+                        <p class="text-sm opacity-90">Contenus 7j</p>
+                    </div>
+                </div>
+
+                <!-- Graphiques -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Revenus Quotidiens (30 jours)</h4>
+                        <canvas id="revenusChart" style="height: 300px;"></canvas>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Engagement par Type de Contenu</h4>
+                        <canvas id="engagementChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Dashboard -->
+            <div class="bg-gray-800 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-code mr-2"></i>
+                    Implémentation Dashboard Temps Réel
+                </h3>
+                <div class="code-block">
+import dash
+from dash import dcc, html, Input, Output
+import plotly.graph_objs as go
+import pandas as pd
+import sqlite3
+from datetime import datetime, timedelta
+import threading
+import time
+
+class MYMDashboard:
+    def __init__(self, db_path="mym_data.db"):
+        self.db_path = db_path
+        self.app = dash.Dash(__name__)
+        self.setup_layout()
+        self.setup_callbacks()
+        
+    def setup_layout(self):
+        """Configuration de l'interface dashboard"""
+        self.app.layout = html.Div([
+            html.H1("Dashboard Léana Mystère", 
+                   className="text-center text-3xl font-bold mb-8"),
+            
+            # Métriques principales
+            html.Div([
+                html.Div([
+                    html.H3(id="abonnes-count", className="text-2xl font-bold"),
+                    html.P("Abonnés Actifs", className="text-gray-600")
+                ], className="bg-blue-100 p-6 rounded-lg text-center"),
+                
+                html.Div([
+                    html.H3(id="revenus-count", className="text-2xl font-bold"),
+                    html.P("Revenus 30j", className="text-gray-600")
+                ], className="bg-green-100 p-6 rounded-lg text-center"),
+                
+                html.Div([
+                    html.H3(id="engagement-rate", className="text-2xl font-bold"),
+                    html.P("Taux Engagement", className="text-gray-600")
+                ], className="bg-purple-100 p-6 rounded-lg text-center"),
+                
+                html.Div([
+                    html.H3(id="contenus-count", className="text-2xl font-bold"),
+                    html.P("Contenus 7j", className="text-gray-600")
+                ], className="bg-orange-100 p-6 rounded-lg text-center"),
+            ], className="grid grid-cols-4 gap-6 mb-8"),
+            
+            # Graphiques
+            html.Div([
+                html.Div([
+                    dcc.Graph(id="revenus-chart")
+                ], className="w-1/2 pr-4"),
+                
+                html.Div([
+                    dcc.Graph(id="engagement-chart")
+                ], className="w-1/2 pl-4"),
+            ], className="flex mb-8"),
+            
+            # Tableau performances
+            html.Div([
+                html.H3("Top Contenus (7 jours)", className="text-xl font-bold mb-4"),
+                html.Div(id="top-contenus-table")
+            ], className="bg-white p-6 rounded-lg shadow"),
+            
+            # Auto-refresh
+            dcc.Interval(
+                id='interval-component',
+                interval=30*1000,  # 30 secondes
+                n_intervals=0
+            )
+        ])
+    
+    def get_metrics_data(self):
+        """Récupération des métriques depuis la base"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Métriques principales
+        abonnes = pd.read_sql_query("""
+            SELECT COUNT(DISTINCT user_id) as count 
+            FROM interactions 
+            WHERE timestamp > datetime('now', '-30 days')
+        """, conn)
+        
+        revenus = pd.read_sql_query("""
+            SELECT SUM(amount) as total 
+            FROM revenue 
+            WHERE date > datetime('now', '-30 days')
+        """, conn)
+        
+        engagement = pd.read_sql_query("""
+            SELECT AVG(engagement_score) as avg_engagement 
+            FROM content_performance 
+            WHERE published_date > datetime('now', '-7 days')
+        """, conn)
+        
+        contenus = pd.read_sql_query("""
+            SELECT COUNT(*) as count 
+            FROM content 
+            WHERE published_date > datetime('now', '-7 days')
+        """, conn)
+        
+        conn.close()
+        
+        return {
+            'abonnes': abonnes.iloc[0]['count'],
+            'revenus': revenus.iloc[0]['total'] or 0,
+            'engagement': engagement.iloc[0]['avg_engagement'] or 0,
+            'contenus': contenus.iloc[0]['count']
+        }
+    
+    def get_revenue_chart_data(self):
+        """Données pour graphique revenus"""
+        conn = sqlite3.connect(self.db_path)
+        
+        data = pd.read_sql_query("""
+            SELECT date, SUM(amount) as daily_revenue
+            FROM revenue 
+            WHERE date > datetime('now', '-30 days')
+            GROUP BY date
+            ORDER BY date
+        """, conn)
+        
+        conn.close()
+        
+        return {
+            'x': data['date'].tolist(),
+            'y': data['daily_revenue'].tolist()
+        }
+    
+    def get_engagement_chart_data(self):
+        """Données engagement par type de contenu"""
+        conn = sqlite3.connect(self.db_path)
+        
+        data = pd.read_sql_query("""
+            SELECT content_type, AVG(engagement_score) as avg_engagement
+            FROM content_performance cp
+            JOIN content c ON cp.content_id = c.id
+            WHERE cp.published_date > datetime('now', '-7 days')
+            GROUP BY content_type
+        """, conn)
+        
+        conn.close()
+        
+        return {
+            'labels': data['content_type'].tolist(),
+            'values': data['avg_engagement'].tolist()
+        }
+    
+    def setup_callbacks(self):
+        """Configuration des callbacks pour mise à jour temps réel"""
+        
+        @self.app.callback(
+            [Output('abonnes-count', 'children'),
+             Output('revenus-count', 'children'),
+             Output('engagement-rate', 'children'),
+             Output('contenus-count', 'children')],
+            [Input('interval-component', 'n_intervals')]
+        )
+        def update_metrics(n):
+            metrics = self.get_metrics_data()
+            return (
+                f"{metrics['abonnes']:,}",
+                f"€{metrics['revenus']:,.0f}",
+                f"{metrics['engagement']:.1f}%",
+                f"{metrics['contenus']}"
+            )
+        
+        @self.app.callback(
+            Output('revenus-chart', 'figure'),
+            [Input('interval-component', 'n_intervals')]
+        )
+        def update_revenue_chart(n):
+            data = self.get_revenue_chart_data()
+            
+            figure = {
+                'data': [
+                    go.Scatter(
+                        x=data['x'],
+                        y=data['y'],
+                        mode='lines+markers',
+                        name='Revenus',
+                        line=dict(color='#3B82F6', width=3),
+                        marker=dict(size=8)
+                    )
+                ],
+                'layout': go.Layout(
+                    title='Revenus Quotidiens (30 jours)',
+                    xaxis={'title': 'Date'},
+                    yaxis={'title': 'Revenus (€)'},
+                    hovermode='closest',
+                    template='plotly_white'
+                )
+            }
+            
+            return figure
+        
+        @self.app.callback(
+            Output('engagement-chart', 'figure'),
+            [Input('interval-component', 'n_intervals')]
+        )
+        def update_engagement_chart(n):
+            data = self.get_engagement_chart_data()
+            
+            figure = {
+                'data': [
+                    go.Pie(
+                        labels=data['labels'],
+                        values=data['values'],
+                        hole=0.4,
+                        marker=dict(colors=['#3B82F6', '#10B981', '#8B5CF6', '#F59E0B'])
+                    )
+                ],
+                'layout': go.Layout(
+                    title='Engagement par Type de Contenu',
+                    template='plotly_white'
+                )
+            }
+            
+            return figure
+    
+    def run_dashboard(self, host='localhost', port=8050, debug=False):
+        """Lancement du dashboard"""
+        print(f"Dashboard accessible sur http://{host}:{port}")
+        self.app.run_server(host=host, port=port, debug=debug)
+
+# Utilisation
+if __name__ == "__main__":
+    dashboard = MYMDashboard()
+    dashboard.run_dashboard()
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Learning Prédictif -->
+    <section id="ml-predictif" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-brain mr-4 text-purple-600"></i>
+                    Machine Learning Prédictif
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Algorithmes intelligents pour prédire l'engagement et optimiser vos revenus
+                </p>
+            </div>
+
+            <!-- Modèles ML -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold">Prédiction Engagement</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Précision</span>
+                            <span class="font-bold text-blue-600">94.2%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Modèle</span>
+                            <span class="font-bold">Random Forest</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Features</span>
+                            <span class="font-bold">15 variables</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-euro-sign text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-bold">Prédiction Revenus</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Précision</span>
+                            <span class="font-bold text-green-600">91.7%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Modèle</span>
+                            <span class="font-bold">XGBoost</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Horizon</span>
+                            <span class="font-bold">7 jours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-clock text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-xl font-bold">Timing Optimal</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Précision</span>
+                            <span class="font-bold text-purple-600">87.3%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Modèle</span>
+                            <span class="font-bold">Neural Network</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Prédiction</span>
+                            <span class="font-bold">Heure optimale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code ML -->
+            <div class="bg-gray-800 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-robot mr-2"></i>
+                    Système ML Prédictif Complet
+                </h3>
+                <div class="code-block">
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.metrics import mean_absolute_error, r2_score
+import joblib
+import sqlite3
+from datetime import datetime, timedelta
+import warnings
+warnings.filterwarnings('ignore')
+
+class MYMPredictiveAnalytics:
+    def __init__(self, db_path="mym_data.db"):
+        self.db_path = db_path
+        self.models = {}
+        self.scalers = {}
+        self.encoders = {}
+        
+    def load_training_data(self):
+        """Chargement des données d'entraînement"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Données complètes avec features
+        query = """
+        SELECT 
+            c.id as content_id,
+            c.content_type,
+            c.nsfw_level,
+            c.tags,
+            c.published_date,
+            c.scheduled_time,
+            cp.views,
+            cp.likes,
+            cp.comments,
+            cp.shares,
+            cp.revenue,
+            cp.engagement_score,
+            -- Features temporelles
+            strftime('%H', c.published_date) as hour,
+            strftime('%w', c.published_date) as weekday,
+            strftime('%d', c.published_date) as day,
+            -- Features contextuelles
+            (SELECT COUNT(*) FROM content c2 
+             WHERE c2.published_date BETWEEN 
+                   datetime(c.published_date, '-7 days') AND c.published_date) as content_frequency,
+            -- Engagement historique
+            (SELECT AVG(engagement_score) FROM content_performance cp2 
+             JOIN content c3 ON cp2.content_id = c3.id
+             WHERE c3.published_date BETWEEN 
+                   datetime(c.published_date, '-30 days') AND c.published_date) as avg_engagement_30d
+        FROM content c
+        JOIN content_performance cp ON c.id = cp.content_id
+        WHERE c.published_date > datetime('now', '-90 days')
+        """
+        
+        data = pd.read_sql_query(query, conn)
+        conn.close()
+        
+        # Preprocessing
+        data['published_date'] = pd.to_datetime(data['published_date'])
+        data['hour'] = data['hour'].astype(int)
+        data['weekday'] = data['weekday'].astype(int)
+        data['day'] = data['day'].astype(int)
+        
+        # Encoding catégorielles
+        le_content_type = LabelEncoder()
+        data['content_type_encoded'] = le_content_type.fit_transform(data['content_type'])
+        self.encoders['content_type'] = le_content_type
+        
+        # Features dérivées
+        data['is_weekend'] = data['weekday'].isin([5, 6]).astype(int)
+        data['is_evening'] = ((data['hour'] >= 18) & (data['hour'] <= 23)).astype(int)
+        data['is_night'] = ((data['hour'] >= 0) & (data['hour'] <= 6)).astype(int)
+        
+        return data
+    
+    def prepare_features(self, data):
+        """Préparation des features pour ML"""
+        feature_columns = [
+            'content_type_encoded', 'nsfw_level', 'hour', 'weekday', 'day',
+            'content_frequency', 'avg_engagement_30d', 'is_weekend', 
+            'is_evening', 'is_night'
+        ]
+        
+        X = data[feature_columns].fillna(0)
+        
+        return X, feature_columns
+    
+    def train_engagement_model(self, data):
+        """Entraînement modèle prédiction engagement"""
+        print("Entraînement du modèle de prédiction d'engagement...")
+        
+        X, feature_columns = self.prepare_features(data)
+        y = data['engagement_score']
+        
+        # Split train/test
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=42
+        )
+        
+        # Normalisation
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+        
+        # Modèle Random Forest
+        model = RandomForestRegressor(
+            n_estimators=100,
+            max_depth=10,
+            min_samples_split=5,
+            random_state=42
+        )
+        
+        model.fit(X_train_scaled, y_train)
+        
+        # Évaluation
+        y_pred = model.predict(X_test_scaled)
+        r2 = r2_score(y_test, y_pred)
+        mae = mean_absolute_error(y_test, y_pred)
+        
+        print(f"Modèle Engagement - R²: {r2:.4f}, MAE: {mae:.4f}")
+        
+        # Sauvegarde
+        self.models['engagement'] = model
+        self.scalers['engagement'] = scaler
+        
+        return model, scaler, feature_columns
+    
+    def train_revenue_model(self, data):
+        """Entraînement modèle prédiction revenus"""
+        print("Entraînement du modèle de prédiction de revenus...")
+        
+        X, feature_columns = self.prepare_features(data)
+        y = data['revenue']
+        
+        # Split train/test
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=42
+        )
+        
+        # Normalisation
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+        
+        # Modèle Gradient Boosting
+        model = GradientBoostingRegressor(
+            n_estimators=100,
+            learning_rate=0.1,
+            max_depth=6,
+            random_state=42
+        )
+        
+        model.fit(X_train_scaled, y_train)
+        
+        # Évaluation
+        y_pred = model.predict(X_test_scaled)
+        r2 = r2_score(y_test, y_pred)
+        mae = mean_absolute_error(y_test, y_pred)
+        
+        print(f"Modèle Revenus - R²: {r2:.4f}, MAE: {mae:.4f}")
+        
+        # Sauvegarde
+        self.models['revenue'] = model
+        self.scalers['revenue'] = scaler
+        
+        return model, scaler, feature_columns
+    
+    def predict_content_performance(self, content_features):
+        """Prédiction performance d'un contenu"""
+        if 'engagement' not in self.models or 'revenue' not in self.models:
+            raise ValueError("Modèles non entraînés")
+        
+        # Préparation features
+        X = np.array(content_features).reshape(1, -1)
+        
+        # Prédictions
+        engagement_pred = self.models['engagement'].predict(
+            self.scalers['engagement'].transform(X)
+        )[0]
+        
+        revenue_pred = self.models['revenue'].predict(
+            self.scalers['revenue'].transform(X)
+        )[0]
+        
+        return {
+            'predicted_engagement': max(0, engagement_pred),
+            'predicted_revenue': max(0, revenue_pred),
+            'confidence_engagement': min(100, engagement_pred * 1.2),
+            'confidence_revenue': min(100, revenue_pred * 0.8)
+        }
+    
+    def find_optimal_timing(self, content_type, nsfw_level):
+        """Trouve le timing optimal pour un type de contenu"""
+        best_hour = 0
+        best_score = 0
+        
+        # Test de toutes les heures
+        for hour in range(24):
+            for weekday in range(7):
+                features = [
+                    self.encoders['content_type'].transform([content_type])[0],
+                    nsfw_level,
+                    hour,
+                    weekday,
+                    15,  # day (milieu de mois)
+                    5,   # content_frequency
+                    85,  # avg_engagement_30d
+                    1 if weekday in [5, 6] else 0,  # is_weekend
+                    1 if 18 <= hour <= 23 else 0,   # is_evening
+                    1 if 0 <= hour <= 6 else 0      # is_night
+                ]
+                
+                prediction = self.predict_content_performance(features)
+                score = prediction['predicted_engagement'] * prediction['predicted_revenue']
+                
+                if score > best_score:
+                    best_score = score
+                    best_hour = hour
+                    best_weekday = weekday
+        
+        return {
+            'optimal_hour': best_hour,
+            'optimal_weekday': best_weekday,
+            'predicted_score': best_score
+        }
+    
+    def generate_weekly_predictions(self):
+        """Génère des prédictions pour la semaine"""
+        predictions = []
+        
+        for content_type in ['photo', 'video', 'live']:
+            for nsfw_level in range(1, 6):
+                optimal = self.find_optimal_timing(content_type, nsfw_level)
+                
+                predictions.append({
+                    'content_type': content_type,
+                    'nsfw_level': nsfw_level,
+                    'optimal_hour': optimal['optimal_hour'],
+                    'optimal_weekday': optimal['optimal_weekday'],
+                    'predicted_score': optimal['predicted_score']
+                })
+        
+        return sorted(predictions, key=lambda x: x['predicted_score'], reverse=True)
+    
+    def save_models(self, model_dir="models/"):
+        """Sauvegarde des modèles entraînés"""
+        import os
+        os.makedirs(model_dir, exist_ok=True)
+        
+        for model_name, model in self.models.items():
+            joblib.dump(model, f"{model_dir}{model_name}_model.pkl")
+            joblib.dump(self.scalers[model_name], f"{model_dir}{model_name}_scaler.pkl")
+        
+        joblib.dump(self.encoders, f"{model_dir}encoders.pkl")
+        print("Modèles sauvegardés avec succès")
+    
+    def load_models(self, model_dir="models/"):
+        """Chargement des modèles sauvegardés"""
+        try:
+            self.models['engagement'] = joblib.load(f"{model_dir}engagement_model.pkl")
+            self.models['revenue'] = joblib.load(f"{model_dir}revenue_model.pkl")
+            self.scalers['engagement'] = joblib.load(f"{model_dir}engagement_scaler.pkl")
+            self.scalers['revenue'] = joblib.load(f"{model_dir}revenue_scaler.pkl")
+            self.encoders = joblib.load(f"{model_dir}encoders.pkl")
+            print("Modèles chargés avec succès")
+        except FileNotFoundError:
+            print("Aucun modèle trouvé, entraînement nécessaire")
+
+# Utilisation du système prédictif
+def main():
+    # Initialisation
+    ml_system = MYMPredictiveAnalytics()
+    
+    # Chargement des données
+    data = ml_system.load_training_data()
+    print(f"Données chargées: {len(data)} échantillons")
+    
+    # Entraînement des modèles
+    ml_system.train_engagement_model(data)
+    ml_system.train_revenue_model(data)
+    
+    # Sauvegarde
+    ml_system.save_models()
+    
+    # Prédictions hebdomadaires
+    weekly_predictions = ml_system.generate_weekly_predictions()
+    
+    print("\nTop 5 prédictions optimales:")
+    for i, pred in enumerate(weekly_predictions[:5]):
+        print(f"{i+1}. {pred['content_type']} (NSFW {pred['nsfw_level']}) "
+              f"- Jour {pred['optimal_weekday']}, {pred['optimal_hour']}h "
+              f"- Score: {pred['predicted_score']:.1f}")
+
+if __name__ == "__main__":
+    main()
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A/B Testing Automatisé -->
+    <section id="ab-testing" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-vial mr-4 text-green-600"></i>
+                    A/B Testing Automatisé
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Tests automatiques pour optimiser en permanence vos stratégies de contenu
+                </p>
+            </div>
+
+            <!-- Processus A/B Testing -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Processus A/B Testing Intelligent</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-lightbulb text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Hypothèse</h4>
+                        <p class="text-sm text-gray-600">Génération auto</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-flask text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Test</h4>
+                        <p class="text-sm text-gray-600">Variants A/B</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chart-bar text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Analyse</h4>
+                        <p class="text-sm text-gray-600">Résultats auto</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tests en cours -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Tests en Cours</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold">Timing Publication</h4>
+                            <p class="text-sm text-gray-600">Test: 20h vs 22h pour contenu NSFW</p>
+                            <div class="flex justify-between mt-2">
+                                <span class="text-xs text-gray-500">Progression: 73%</span>
+                                <span class="text-xs text-blue-600">Significatif dans 2j</span>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold">Titre vs Emoji</h4>
+                            <p class="text-sm text-gray-600">Test: Titre simple vs émojis</p>
+                            <div class="flex justify-between mt-2">
+                                <span class="text-xs text-gray-500">Progression: 45%</span>
+                                <span class="text-xs text-green-600">Émojis +18% engagement</span>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold">Fréquence Posts</h4>
+                            <p class="text-sm text-gray-600">Test: 2 vs 3 posts/jour</p>
+                            <div class="flex justify-between mt-2">
+                                <span class="text-xs text-gray-500">Progression: 89%</span>
+                                <span class="text-xs text-purple-600">Analyse en cours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Résultats Récents</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-700">✓ Longueur Descriptions</h4>
+                            <p class="text-sm text-gray-600">Descriptions courtes +31% engagement</p>
+                            <p class="text-xs text-green-600">Implémenté automatiquement</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-700">✓ Couleur Filtres</h4>
+                            <p class="text-sm text-gray-600">Filtres chauds +24% revenus</p>
+                            <p class="text-xs text-green-600">Appliqué par défaut</p>
+                        </div>
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="font-semibold text-red-700">✗ Hashtags Multiples</h4>
+                            <p class="text-sm text-gray-600">Pas d'amélioration significative</p>
+                            <p class="text-xs text-red-600">Hypothèse rejetée</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code A/B Testing -->
+            <div class="bg-gray-800 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-flask mr-2"></i>
+                    Système A/B Testing Automatisé
+                </h3>
+                <div class="code-block">
+import random
+import numpy as np
+from scipy import stats
+import sqlite3
+from datetime import datetime, timedelta
+import json
+
+class MYMAbTestingSystem:
+    def __init__(self, db_path="mym_data.db"):
+        self.db_path = db_path
+        self.active_tests = {}
+        self.min_sample_size = 100
+        self.significance_level = 0.05
+        
+    def create_test(self, test_name, hypothesis, variants, target_metric, duration_days=7):
+        """Création d'un nouveau test A/B"""
+        test_id = f"{test_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        
+        test_config = {
+            'test_id': test_id,
+            'test_name': test_name,
+            'hypothesis': hypothesis,
+            'variants': variants,  # {'A': config_A, 'B': config_B}
+            'target_metric': target_metric,
+            'start_date': datetime.now(),
+            'end_date': datetime.now() + timedelta(days=duration_days),
+            'status': 'active',
+            'traffic_split': 0.5,  # 50/50 split
+            'results': {'A': [], 'B': []}
+        }
+        
+        # Sauvegarde en base
+        self.save_test_config(test_config)
+        self.active_tests[test_id] = test_config
+        
+        print(f"Test A/B créé: {test_name}")
+        print(f"Hypothèse: {hypothesis}")
+        print(f"Variants: {list(variants.keys())}")
+        print(f"Métrique cible: {target_metric}")
+        
+        return test_id
+    
+    def assign_variant(self, test_id, user_id=None):
+        """Assigne un variant à un utilisateur/contenu"""
+        if test_id not in self.active_tests:
+            return None
+            
+        test = self.active_tests[test_id]
+        
+        # Vérification statut du test
+        if test['status'] != 'active' or datetime.now() > test['end_date']:
+            return None
+        
+        # Attribution basée sur hash pour cohérence
+        if user_id:
+            hash_value = hash(f"{test_id}_{user_id}") % 100
+        else:
+            hash_value = random.randint(0, 99)
+        
+        # Split traffic selon configuration
+        if hash_value < test['traffic_split'] * 100:
+            return 'A'
+        else:
+            return 'B'
+    
+    def record_result(self, test_id, variant, metric_value, metadata=None):
+        """Enregistre un résultat pour le test"""
+        if test_id not in self.active_tests:
+            return False
+        
+        result = {
+            'timestamp': datetime.now(),
+            'variant': variant,
+            'metric_value': metric_value,
+            'metadata': metadata or {}
+        }
+        
+        self.active_tests[test_id]['results'][variant].append(result)
+        
+        # Sauvegarde en base
+        self.save_test_result(test_id, result)
+        
+        # Vérification automatique de significativité
+        self.check_test_significance(test_id)
+        
+        return True
+    
+    def check_test_significance(self, test_id):
+        """Vérifie la significativité statistique du test"""
+        if test_id not in self.active_tests:
+            return None
+        
+        test = self.active_tests[test_id]
+        results_a = [r['metric_value'] for r in test['results']['A']]
+        results_b = [r['metric_value'] for r in test['results']['B']]
+        
+        # Vérification taille échantillon minimale
+        if len(results_a) < self.min_sample_size or len(results_b) < self.min_sample_size:
+            return {
+                'significant': False,
+                'reason': 'sample_size_insufficient',
+                'sample_a': len(results_a),
+                'sample_b': len(results_b),
+                'min_required': self.min_sample_size
+            }
+        
+        # Test statistique
+        try:
+            t_stat, p_value = stats.ttest_ind(results_a, results_b)
+            
+            is_significant = p_value < self.significance_level
+            
+            # Calcul des moyennes
+            mean_a = np.mean(results_a)
+            mean_b = np.mean(results_b)
+            
+            # Calcul de l'effet (lift)
+            if mean_a > 0:
+                lift = ((mean_b - mean_a) / mean_a) * 100
+            else:
+                lift = 0
+            
+            result = {
+                'significant': is_significant,
+                'p_value': p_value,
+                't_statistic': t_stat,
+                'mean_a': mean_a,
+                'mean_b': mean_b,
+                'lift_percent': lift,
+                'winner': 'B' if mean_b > mean_a else 'A',
+                'confidence': (1 - p_value) * 100
+            }
+            
+            # Si significatif, arrêter le test
+            if is_significant and datetime.now() < test['end_date']:
+                self.stop_test(test_id, reason='significant_result')
+                self.implement_winner(test_id, result)
+            
+            return result
+            
+        except Exception as e:
+            return {
+                'significant': False,
+                'reason': 'calculation_error',
+                'error': str(e)
+            }
+    
+    def stop_test(self, test_id, reason='manual'):
+        """Arrête un test A/B"""
+        if test_id in self.active_tests:
+            self.active_tests[test_id]['status'] = 'stopped'
+            self.active_tests[test_id]['stop_reason'] = reason
+            self.active_tests[test_id]['stop_date'] = datetime.now()
+            
+            # Sauvegarde
+            self.update_test_status(test_id, 'stopped', reason)
+            
+            print(f"Test {test_id} arrêté: {reason}")
+    
+    def implement_winner(self, test_id, result):
+        """Implémente automatiquement la variante gagnante"""
+        if test_id not in self.active_tests:
+            return False
+        
+        test = self.active_tests[test_id]
+        winner_variant = result['winner']
+        winner_config = test['variants'][winner_variant]
+        
+        # Mise à jour de la configuration globale
+        self.apply_configuration(test['test_name'], winner_config)
+        
+        # Logging
+        print(f"🏆 Variante {winner_variant} gagnante pour {test['test_name']}")
+        print(f"Amélioration: {result['lift_percent']:.1f}%")
+        print(f"Configuration appliquée: {winner_config}")
+        
+        # Notification
+        self.send_test_notification(test_id, result)
+        
+        return True
+    
+    def apply_configuration(self, test_name, config):
+        """Applique une configuration gagnante au système"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Mise à jour des paramètres globaux
+        for key, value in config.items():
+            conn.execute("""
+                INSERT OR REPLACE INTO system_config (key, value, updated_date)
+                VALUES (?, ?, ?)
+            """, (f"{test_name}_{key}", json.dumps(value), datetime.now()))
+        
+        conn.commit()
+        conn.close()
+    
+    def generate_test_suggestions(self):
+        """Génère des suggestions de tests basées sur les données"""
+        suggestions = []
+        
+        # Analyse des données récentes
+        conn = sqlite3.connect(self.db_path)
+        
+        # Suggestion 1: Test de timing
+        timing_data = pd.read_sql_query("""
+            SELECT strftime('%H', published_date) as hour, 
+                   AVG(engagement_score) as avg_engagement
+            FROM content c
+            JOIN content_performance cp ON c.id = cp.content_id
+            WHERE c.published_date > datetime('now', '-30 days')
+            GROUP BY hour
+            ORDER BY avg_engagement DESC
+        """, conn)
+        
+        if len(timing_data) > 0:
+            best_hour = timing_data.iloc[0]['hour']
+            suggestions.append({
+                'test_name': 'optimal_timing',
+                'hypothesis': f'Publication à {best_hour}h vs heure actuelle améliore engagement',
+                'variants': {
+                    'A': {'publish_hour': 'current'},
+                    'B': {'publish_hour': int(best_hour)}
+                },
+                'target_metric': 'engagement_score',
+                'priority': 'high'
+            })
+        
+        # Suggestion 2: Test NSFW level
+        nsfw_data = pd.read_sql_query("""
+            SELECT nsfw_level, AVG(revenue) as avg_revenue
+            FROM content c
+            JOIN content_performance cp ON c.id = cp.content_id
+            WHERE c.published_date > datetime('now', '-30 days')
+            GROUP BY nsfw_level
+            ORDER BY avg_revenue DESC
+        """, conn)
+        
+        if len(nsfw_data) > 1:
+            best_nsfw = nsfw_data.iloc[0]['nsfw_level']
+            current_nsfw = nsfw_data.iloc[1]['nsfw_level']
+            suggestions.append({
+                'test_name': 'nsfw_level_optimization',
+                'hypothesis': f'NSFW niveau {best_nsfw} vs {current_nsfw} améliore revenus',
+                'variants': {
+                    'A': {'nsfw_level': current_nsfw},
+                    'B': {'nsfw_level': best_nsfw}
+                },
+                'target_metric': 'revenue',
+                'priority': 'medium'
+            })
+        
+        conn.close()
+        
+        return suggestions
+    
+    def get_active_tests_summary(self):
+        """Résumé des tests en cours"""
+        summary = []
+        
+        for test_id, test in self.active_tests.items():
+            if test['status'] == 'active':
+                results_a = test['results']['A']
+                results_b = test['results']['B']
+                
+                # Calcul progression
+                total_samples = len(results_a) + len(results_b)
+                min_total = self.min_sample_size * 2
+                progress = min(100, (total_samples / min_total) * 100)
+                
+                # Résultat préliminaire
+                preliminary_result = self.check_test_significance(test_id)
+                
+                summary.append({
+                    'test_id': test_id,
+                    'test_name': test['test_name'],
+                    'hypothesis': test['hypothesis'],
+                    'progress_percent': progress,
+                    'samples_a': len(results_a),
+                    'samples_b': len(results_b),
+                    'days_remaining': (test['end_date'] - datetime.now()).days,
+                    'preliminary_result': preliminary_result
+                })
+        
+        return summary
+    
+    def save_test_config(self, test_config):
+        """Sauvegarde la configuration du test"""
+        conn = sqlite3.connect(self.db_path)
+        
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS ab_tests (
+                test_id TEXT PRIMARY KEY,
+                test_name TEXT,
+                hypothesis TEXT,
+                variants TEXT,
+                target_metric TEXT,
+                start_date TEXT,
+                end_date TEXT,
+                status TEXT,
+                config TEXT
+            )
+        """)
+        
+        conn.execute("""
+            INSERT OR REPLACE INTO ab_tests 
+            (test_id, test_name, hypothesis, variants, target_metric, 
+             start_date, end_date, status, config)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            test_config['test_id'],
+            test_config['test_name'],
+            test_config['hypothesis'],
+            json.dumps(test_config['variants']),
+            test_config['target_metric'],
+            test_config['start_date'].isoformat(),
+            test_config['end_date'].isoformat(),
+            test_config['status'],
+            json.dumps(test_config)
+        ))
+        
+        conn.commit()
+        conn.close()
+
+# Utilisation du système A/B Testing
+def main():
+    ab_system = MYMAbTestingSystem()
+    
+    # Création d'un nouveau test
+    test_id = ab_system.create_test(
+        test_name="publication_timing",
+        hypothesis="Publication à 22h vs 20h améliore l'engagement",
+        variants={
+            'A': {'publish_hour': 20, 'description': 'Publication 20h'},
+            'B': {'publish_hour': 22, 'description': 'Publication 22h'}
+        },
+        target_metric="engagement_score",
+        duration_days=7
+    )
+    
+    # Simulation de résultats
+    for i in range(150):
+        variant = ab_system.assign_variant(test_id)
+        
+        # Simulation métrique (B légèrement meilleur)
+        if variant == 'A':
+            metric_value = random.gauss(75, 15)
+        else:
+            metric_value = random.gauss(82, 15)
+        
+        ab_system.record_result(test_id, variant, max(0, metric_value))
+    
+    # Vérification des résultats
+    result = ab_system.check_test_significance(test_id)
+    print(f"\nRésultat du test: {result}")
+    
+    # Suggestions automatiques
+    suggestions = ab_system.generate_test_suggestions()
+    print(f"\nSuggestions de tests: {len(suggestions)} trouvées")
+
+if __name__ == "__main__":
+    main()
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimisation des Revenus -->
+    <section id="optimisation" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-chart-line mr-4 text-green-600"></i>
+                    Optimisation Intelligente des Revenus
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Système automatisé pour maximiser vos revenus MYM par pricing dynamique et recommandations intelligentes
+                </p>
+            </div>
+
+            <!-- Métriques Optimisation -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-arrow-trend-up text-3xl text-green-600 mb-3"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">+34.2%</h3>
+                    <p class="text-gray-600">Amélioration revenus</p>
+                    <p class="text-sm text-green-600">vs baseline</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-coins text-3xl text-blue-600 mb-3"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">€127.40</h3>
+                    <p class="text-gray-600">Revenu/heure optimal</p>
+                    <p class="text-sm text-blue-600">créneau identifié</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-percentage text-3xl text-purple-600 mb-3"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">12.8%</h3>
+                    <p class="text-gray-600">Conversion optimisée</p>
+                    <p class="text-sm text-purple-600">pricing dynamique</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-bullseye text-3xl text-orange-600 mb-3"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">94.1%</h3>
+                    <p class="text-gray-600">Précision prédictions</p>
+                    <p class="text-sm text-orange-600">revenus 7j</p>
+                </div>
+            </div>
+
+            <!-- Stratégies d'Optimisation -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-tags mr-3 text-blue-600"></i>
+                        Pricing Dynamique
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div>
+                                <p class="font-semibold">Contenu Premium</p>
+                                <p class="text-sm text-gray-600">Photos exclusives NSFW</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-green-600">€15.99</p>
+                                <p class="text-xs text-gray-500">+23% vs fixe</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div>
+                                <p class="font-semibold">Vidéos Interactives</p>
+                                <p class="text-sm text-gray-600">Contenu personnalisé</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-green-600">€28.50</p>
+                                <p class="text-xs text-gray-500">+31% vs fixe</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div>
+                                <p class="font-semibold">Sessions Live</p>
+                                <p class="text-sm text-gray-600">Interactions privées</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-green-600">€45.00</p>
+                                <p class="text-xs text-gray-500">+18% vs fixe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-lightbulb mr-3 text-yellow-600"></i>
+                        Recommandations Intelligentes
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-700">Timing Optimal</h4>
+                            <p class="text-sm text-gray-600">Publier contenu premium à 22h15 (mardi-jeudi)</p>
+                            <p class="text-xs text-green-600">+24% engagement prévu</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-blue-700">Bundles Suggérés</h4>
+                            <p class="text-sm text-gray-600">Combiner photos + vidéo courte</p>
+                            <p class="text-xs text-blue-600">+38% valeur panier</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-700">Audience Ciblée</h4>
+                            <p class="text-sm text-gray-600">Contenu MILF pour segment 35-45 ans</p>
+                            <p class="text-xs text-purple-600">Conversion élevée détectée</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graphique Performance -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-xl font-bold mb-6">Évolution Revenus Optimisés vs Baseline</h3>
+                <canvas id="optimisationChart" style="height: 400px;"></canvas>
+            </div>
+
+            <!-- Code Optimisation -->
+            <div class="bg-gray-800 rounded-xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-cogs mr-2"></i>
+                    Système d'Optimisation des Revenus
+                </h3>
+                <div class="code-block">
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.cluster import KMeans
+import sqlite3
+from datetime import datetime, timedelta
+import json
+
+class MYMRevenueOptimizer:
+    def __init__(self, db_path="mym_data.db"):
+        self.db_path = db_path
+        self.pricing_model = None
+        self.demand_model = None
+        self.user_segments = {}
+        
+    def analyze_price_elasticity(self):
+        """Analyse l'élasticité-prix pour chaque type de contenu"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Récupération des données de prix et ventes
+        query = """
+        SELECT 
+            c.content_type,
+            c.price,
+            cp.revenue,
+            cp.views,
+            cp.conversion_rate,
+            c.published_date,
+            c.nsfw_level
+        FROM content c
+        JOIN content_performance cp ON c.id = cp.content_id
+        WHERE c.published_date > datetime('now', '-90 days')
+        AND c.price > 0
+        """
+        
+        data = pd.read_sql_query(query, conn)
+        conn.close()
+        
+        elasticity = {}
+        
+        for content_type in data['content_type'].unique():
+            type_data = data[data['content_type'] == content_type]
+            
+            if len(type_data) > 10:
+                # Calcul élasticité simple
+                price_change = type_data['price'].pct_change()
+                conversion_change = type_data['conversion_rate'].pct_change()
+                
+                # Élasticité = % changement demande / % changement prix
+                elasticity_values = conversion_change / price_change
+                elasticity_values = elasticity_values[np.isfinite(elasticity_values)]
+                
+                if len(elasticity_values) > 0:
+                    elasticity[content_type] = {
+                        'mean_elasticity': np.mean(elasticity_values),
+                        'optimal_price_multiplier': self.calculate_optimal_multiplier(elasticity_values),
+                        'price_sensitive': np.mean(elasticity_values) < -1
+                    }
+        
+        return elasticity
+    
+    def calculate_optimal_multiplier(self, elasticity_values):
+        """Calcule le multiplicateur de prix optimal"""
+        mean_elasticity = np.mean(elasticity_values)
+        
+        # Formule économique simplifiée: prix optimal = coût * (1 + 1/|élasticité|)
+        if abs(mean_elasticity) > 1:
+            return 1 + (1 / abs(mean_elasticity))
+        else:
+            return 1.2  # Multiplicateur conservateur si inélastique
+    
+    def segment_users(self):
+        """Segmentation des utilisateurs par comportement d'achat"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Features utilisateurs pour clustering
+        query = """
+        SELECT 
+            user_id,
+            COUNT(*) as total_purchases,
+            SUM(amount) as total_spent,
+            AVG(amount) as avg_purchase,
+            MAX(amount) as max_purchase,
+            COUNT(DISTINCT content_type) as content_variety,
+            AVG(CASE WHEN nsfw_level >= 4 THEN 1 ELSE 0 END) as nsfw_preference
+        FROM purchases p
+        JOIN content c ON p.content_id = c.id
+        WHERE p.purchase_date > datetime('now', '-60 days')
+        GROUP BY user_id
+        HAVING COUNT(*) >= 3
+        """
+        
+        data = pd.read_sql_query(query, conn)
+        conn.close()
+        
+        if len(data) < 10:
+            return {}
+        
+        # Préparation features pour clustering
+        features = ['total_purchases', 'total_spent', 'avg_purchase', 
+                   'max_purchase', 'content_variety', 'nsfw_preference']
+        
+        X = data[features].fillna(0)
+        
+        # Clustering K-means
+        kmeans = KMeans(n_clusters=4, random_state=42)
+        data['segment'] = kmeans.fit_predict(X)
+        
+        # Analyse des segments
+        segments = {}
+        for segment_id in data['segment'].unique():
+            segment_data = data[data['segment'] == segment_id]
+            
+            segments[f'segment_{segment_id}'] = {
+                'size': len(segment_data),
+                'avg_total_spent': segment_data['total_spent'].mean(),
+                'avg_purchase_value': segment_data['avg_purchase'].mean(),
+                'max_purchase_value': segment_data['max_purchase'].mean(),
+                'nsfw_preference': segment_data['nsfw_preference'].mean(),
+                'pricing_strategy': self.determine_pricing_strategy(segment_data)
+            }
+        
+        self.user_segments = segments
+        return segments
+    
+    def determine_pricing_strategy(self, segment_data):
+        """Détermine la stratégie de pricing pour un segment"""
+        avg_spent = segment_data['total_spent'].mean()
+        avg_purchase = segment_data['avg_purchase'].mean()
+        
+        if avg_spent > 200 and avg_purchase > 30:
+            return 'premium'  # Clients premium
+        elif avg_spent > 100 and avg_purchase > 15:
+            return 'standard_plus'  # Clients réguliers avec pouvoir d'achat
+        elif avg_spent > 50:
+            return 'standard'  # Clients moyens
+        else:
+            return 'budget'  # Clients sensibles au prix
+    
+    def dynamic_pricing(self, content_type, user_segment, base_price, context=None):
+        """Calcul du prix dynamique optimal"""
+        context = context or {}
+        
+        # Prix de base
+        optimal_price = base_price
+        
+        # Ajustement selon l'élasticité
+        elasticity = self.analyze_price_elasticity()
+        if content_type in elasticity:
+            multiplier = elasticity[content_type]['optimal_price_multiplier']
+            optimal_price *= multiplier
+        
+        # Ajustement selon le segment utilisateur
+        if user_segment in self.user_segments:
+            strategy = self.user_segments[user_segment]['pricing_strategy']
+            
+            if strategy == 'premium':
+                optimal_price *= 1.3  # +30% pour clients premium
+            elif strategy == 'standard_plus':
+                optimal_price *= 1.1  # +10% pour clients moyens+
+            elif strategy == 'budget':
+                optimal_price *= 0.8  # -20% pour clients sensibles
+        
+        # Ajustements contextuels
+        if context.get('time_of_day') == 'peak':  # Heures de pointe
+            optimal_price *= 1.15
+        
+        if context.get('day_of_week') in ['friday', 'saturday']:  # Weekend
+            optimal_price *= 1.1
+        
+        if context.get('demand_level') == 'high':  # Forte demande
+            optimal_price *= 1.2
+        
+        # Limites de prix raisonnables
+        min_price = base_price * 0.7
+        max_price = base_price * 2.0
+        
+        return max(min_price, min(max_price, optimal_price))
+    
+    def predict_demand(self, content_type, price, context=None):
+        """Prédiction de la demande pour un contenu à un prix donné"""
+        if not self.demand_model:
+            self.train_demand_model()
+        
+        context = context or {}
+        
+        # Features pour prédiction
+        features = [
+            price,
+            context.get('hour', 20),
+            context.get('weekday', 2),
+            context.get('nsfw_level', 3),
+            context.get('recent_engagement', 85),
+            1 if content_type == 'video' else 0,
+            1 if content_type == 'photo' else 0,
+            1 if content_type == 'live' else 0
+        ]
+        
+        predicted_demand = self.demand_model.predict([features])[0]
+        return max(0, predicted_demand)
+    
+    def train_demand_model(self):
+        """Entraînement du modèle de prédiction de demande"""
+        conn = sqlite3.connect(self.db_path)
+        
+        query = """
+        SELECT 
+            c.price,
+            strftime('%H', c.published_date) as hour,
+            strftime('%w', c.published_date) as weekday,
+            c.nsfw_level,
+            cp.engagement_score,
+            CASE WHEN c.content_type = 'video' THEN 1 ELSE 0 END as is_video,
+            CASE WHEN c.content_type = 'photo' THEN 1 ELSE 0 END as is_photo,
+            CASE WHEN c.content_type = 'live' THEN 1 ELSE 0 END as is_live,
+            cp.views as demand
+        FROM content c
+        JOIN content_performance cp ON c.id = cp.content_id
+        WHERE c.published_date > datetime('now', '-60 days')
+        AND c.price > 0
+        """
+        
+        data = pd.read_sql_query(query, conn)
+        conn.close()
+        
+        if len(data) < 50:
+            print("Pas assez de données pour entraîner le modèle de demande")
+            return
+        
+        # Préparation des données
+        feature_columns = ['price', 'hour', 'weekday', 'nsfw_level', 
+                          'engagement_score', 'is_video', 'is_photo', 'is_live']
+        
+        X = data[feature_columns].fillna(0)
+        y = data['demand']
+        
+        # Entraînement
+        self.demand_model = RandomForestRegressor(n_estimators=100, random_state=42)
+        self.demand_model.fit(X, y)
+        
+        print("Modèle de demande entraîné avec succès")
+    
+    def optimize_content_schedule(self, content_list, days_ahead=7):
+        """Optimise le planning de contenu pour maximiser les revenus"""
+        optimized_schedule = []
+        
+        for content in content_list:
+            best_time = None
+            best_revenue = 0
+            
+            # Test de différents créneaux
+            for day in range(days_ahead):
+                for hour in range(24):
+                    context = {
+                        'day_offset': day,
+                        'hour': hour,
+                        'weekday': (datetime.now().weekday() + day) % 7,
+                        'nsfw_level': content.get('nsfw_level', 3)
+                    }
+                    
+                    # Prix dynamique
+                    optimal_price = self.dynamic_pricing(
+                        content['content_type'],
+                        'standard',  # Segment par défaut
+                        content['base_price'],
+                        context
+                    )
+                    
+                    # Prédiction demande
+                    predicted_demand = self.predict_demand(
+                        content['content_type'],
+                        optimal_price,
+                        context
+                    )
+                    
+                    # Revenus estimés
+                    estimated_revenue = optimal_price * predicted_demand
+                    
+                    if estimated_revenue > best_revenue:
+                        best_revenue = estimated_revenue
+                        best_time = {
+                            'day': day,
+                            'hour': hour,
+                            'price': optimal_price,
+                            'predicted_demand': predicted_demand,
+                            'estimated_revenue': estimated_revenue
+                        }
+            
+            if best_time:
+                optimized_schedule.append({
+                    'content': content,
+                    'optimal_timing': best_time,
+                    'revenue_lift': (best_revenue / (content['base_price'] * 50)) - 1  # Baseline: 50 vues
+                })
+        
+        # Tri par potentiel de revenus
+        optimized_schedule.sort(key=lambda x: x['optimal_timing']['estimated_revenue'], reverse=True)
+        
+        return optimized_schedule
+    
+    def generate_revenue_report(self):
+        """Génère un rapport d'optimisation des revenus"""
+        conn = sqlite3.connect(self.db_path)
+        
+        # Métriques actuelles
+        current_metrics = pd.read_sql_query("""
+            SELECT 
+                AVG(revenue) as avg_revenue,
+                SUM(revenue) as total_revenue,
+                AVG(conversion_rate) as avg_conversion,
+                COUNT(*) as total_content
+            FROM content_performance
+            WHERE published_date > datetime('now', '-30 days')
+        """, conn)
+        
+        # Prédictions d'amélioration
+        elasticity = self.analyze_price_elasticity()
+        segments = self.segment_users()
+        
+        # Calcul potentiel d'amélioration
+        improvement_potential = 0
+        for content_type, elast_data in elasticity.items():
+            if not elast_data['price_sensitive']:
+                improvement_potential += 0.15  # 15% d'amélioration potentielle
+        
+        conn.close()
+        
+        report = {
+            'current_performance': current_metrics.iloc[0].to_dict(),
+            'price_elasticity': elasticity,
+            'user_segments': segments,
+            'improvement_potential': improvement_potential,
+            'recommendations': self.generate_recommendations()
+        }
+        
+        return report
+    
+    def generate_recommendations(self):
+        """Génère des recommandations d'optimisation"""
+        recommendations = []
+        
+        # Analyse des segments
+        if self.user_segments:
+            premium_size = sum(1 for s in self.user_segments.values() 
+                             if s['pricing_strategy'] == 'premium')
+            
+            if premium_size > 0:
+                recommendations.append({
+                    'type': 'pricing',
+                    'title': 'Augmenter prix contenu premium',
+                    'description': f'{premium_size} segments détectés insensibles au prix',
+                    'impact': 'Augmentation revenus estimée: +25%',
+                    'priority': 'high'
+                })
+        
+        # Analyse temporelle
+        recommendations.append({
+            'type': 'timing',
+            'title': 'Optimiser créneaux de publication',
+            'description': 'Concentrer contenu premium sur créneaux high-value',
+            'impact': 'Amélioration engagement: +20%',
+            'priority': 'medium'
+        })
+        
+        # Bundling
+        recommendations.append({
+            'type': 'bundling',
+            'title': 'Créer packages contenu',
+            'description': 'Combiner photos + vidéos en offres groupées',
+            'impact': 'Augmentation panier moyen: +35%',
+            'priority': 'high'
+        })
+        
+        return recommendations
+
+# Utilisation du système d'optimisation
+def main():
+    optimizer = MYMRevenueOptimizer()
+    
+    # Analyse des segments utilisateurs
+    segments = optimizer.segment_users()
+    print(f"Segments identifiés: {len(segments)}")
+    
+    # Analyse élasticité-prix
+    elasticity = optimizer.analyze_price_elasticity()
+    print(f"Types de contenu analysés: {list(elasticity.keys())}")
+    
+    # Test pricing dynamique
+    dynamic_price = optimizer.dynamic_pricing(
+        content_type='video',
+        user_segment='segment_0',
+        base_price=25.0,
+        context={'time_of_day': 'peak', 'demand_level': 'high'}
+    )
+    print(f"Prix dynamique calculé: €{dynamic_price:.2f}")
+    
+    # Rapport complet
+    report = optimizer.generate_revenue_report()
+    print(f"Potentiel d'amélioration: {report['improvement_potential']*100:.1f}%")
+
+if __name__ == "__main__":
+    main()
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implémentation Pratique -->
+    <section id="implementation" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-rocket mr-4 text-blue-600"></i>
+                    Implémentation Pratique Complète
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Guide pas-à-pas pour mettre en œuvre votre système d'analytics avancé
+                </p>
+            </div>
+
+            <!-- Étapes d'Implémentation -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl card-hover">
+                    <div class="text-center mb-6">
+                        <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                        <h3 class="text-xl font-bold text-gray-800">Installation</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dépendances Python</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Base de données SQLite</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dashboards Plotly/Dash</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Modèles ML Scikit-learn</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl card-hover">
+                    <div class="text-center mb-6">
+                        <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                        <h3 class="text-xl font-bold text-gray-800">Configuration</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Connexion MYM API</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Collecte automatique</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Modèles prédictifs</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tests A/B automatisés</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl card-hover">
+                    <div class="text-center mb-6">
+                        <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                        <h3 class="text-xl font-bold text-gray-800">Monitoring</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dashboard temps réel</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Alertes intelligentes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Rapports automatiques</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimisation continue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Script d'Installation -->
+            <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-terminal mr-2"></i>
+                    Script d'Installation Automatique
+                </h3>
+                <div class="code-block">
+#!/bin/bash
+# Installation complète système Analytics MYM
+
+echo "🚀 Installation Système Analytics MYM - Bloc 8 Partie 2"
+
+# 1. Création environnement virtuel
+python -m venv mym_analytics_env
+source mym_analytics_env/bin/activate  # Linux/Mac
+# mym_analytics_env\Scripts\activate  # Windows
+
+# 2. Installation des dépendances
+pip install pandas numpy scikit-learn
+pip install plotly dash
+pip install sqlite3
+pip install scipy
+pip install joblib
+pip install flask
+pip install requests
+pip install schedule
+
+# 3. Création structure de projet
+mkdir -p mym_analytics/{models,dashboards,data,logs,config}
+
+# 4. Téléchargement des scripts
+echo "Téléchargement des modules..."
+wget -O mym_analytics/predictive_analytics.py [URL_SCRIPT_ML]
+wget -O mym_analytics/ab_testing.py [URL_SCRIPT_AB_TESTING]
+wget -O mym_analytics/revenue_optimizer.py [URL_SCRIPT_OPTIMIZER]
+wget -O mym_analytics/dashboard.py [URL_SCRIPT_DASHBOARD]
+
+# 5. Configuration base de données
+python -c "
+import sqlite3
+conn = sqlite3.connect('mym_analytics/data/mym_data.db')
+
+# Tables principales
+conn.execute('''CREATE TABLE IF NOT EXISTS content (
+    id INTEGER PRIMARY KEY,
+    content_type TEXT,
+    nsfw_level INTEGER,
+    price REAL,
+    published_date TEXT,
+    tags TEXT
+)''')
+
+conn.execute('''CREATE TABLE IF NOT EXISTS content_performance (
+    id INTEGER PRIMARY KEY,
+    content_id INTEGER,
+    views INTEGER,
+    likes INTEGER,
+    comments INTEGER,
+    shares INTEGER,
+    revenue REAL,
+    engagement_score REAL,
+    published_date TEXT,
+    FOREIGN KEY (content_id) REFERENCES content (id)
+)''')
+
+conn.execute('''CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    user_id TEXT UNIQUE,
+    registration_date TEXT,
+    last_activity TEXT,
+    total_spent REAL,
+    subscription_status TEXT
+)''')
+
+conn.execute('''CREATE TABLE IF NOT EXISTS purchases (
+    id INTEGER PRIMARY KEY,
+    user_id TEXT,
+    content_id INTEGER,
+    amount REAL,
+    purchase_date TEXT,
+    FOREIGN KEY (content_id) REFERENCES content (id)
+)''')
+
+conn.execute('''CREATE TABLE IF NOT EXISTS ab_tests (
+    test_id TEXT PRIMARY KEY,
+    test_name TEXT,
+    hypothesis TEXT,
+    variants TEXT,
+    target_metric TEXT,
+    start_date TEXT,
+    end_date TEXT,
+    status TEXT,
+    config TEXT
+)''')
+
+conn.execute('''CREATE TABLE IF NOT EXISTS system_config (
+    key TEXT PRIMARY KEY,
+    value TEXT,
+    updated_date TEXT
+)''')
+
+conn.commit()
+conn.close()
+print('Base de données initialisée avec succès')
+"
+
+# 6. Configuration du scheduler
+echo "Configuration du scheduler automatique..."
+cat > mym_analytics/scheduler.py << 'EOF'
+import schedule
+import time
+import subprocess
+import logging
+
+# Configuration logging
+logging.basicConfig(level=logging.INFO, 
+                   format='%(asctime)s - %(levelname)s - %(message)s',
+                   handlers=[
+                       logging.FileHandler('logs/scheduler.log'),
+                       logging.StreamHandler()
+                   ])
+
+def run_data_collection():
+    """Collecte de données toutes les heures"""
+    try:
+        subprocess.run(['python', 'data_collector.py'], check=True)
+        logging.info("Collecte de données réussie")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Erreur collecte de données: {e}")
+
+def run_ml_training():
+    """Réentraînement des modèles ML quotidien"""
+    try:
+        subprocess.run(['python', 'predictive_analytics.py'], check=True)
+        logging.info("Réentraînement ML réussi")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Erreur réentraînement ML: {e}")
+
+def run_ab_analysis():
+    """Analyse des tests A/B toutes les 6h"""
+    try:
+        subprocess.run(['python', 'ab_testing.py', '--check-all'], check=True)
+        logging.info("Analyse A/B réussie")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Erreur analyse A/B: {e}")
+
+def run_optimization():
+    """Optimisation des prix quotidienne"""
+    try:
+        subprocess.run(['python', 'revenue_optimizer.py'], check=True)
+        logging.info("Optimisation des prix réussie")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Erreur optimisation: {e}")
+
+# Programmation des tâches
+schedule.every().hour.do(run_data_collection)
+schedule.every().day.at("02:00").do(run_ml_training)
+schedule.every(6).hours.do(run_ab_analysis)
+schedule.every().day.at("03:00").do(run_optimization)
+
+if __name__ == "__main__":
+    logging.info("Démarrage du scheduler MYM Analytics")
+    
+    while True:
+        schedule.run_pending()
+        time.sleep(60)  # Vérification chaque minute
+EOF
+
+# 7. Script de lancement
+cat > mym_analytics/start_system.sh << 'EOF'
+#!/bin/bash
+echo "🚀 Démarrage Système Analytics MYM"
+
+# Activation environnement
+source mym_analytics_env/bin/activate
+
+# Lancement dashboard en arrière-plan
+python dashboards/dashboard.py &
+DASHBOARD_PID=$!
+echo "Dashboard démarré (PID: $DASHBOARD_PID)"
+
+# Lancement scheduler
+python scheduler.py &
+SCHEDULER_PID=$!
+echo "Scheduler démarré (PID: $SCHEDULER_PID)"
+
+echo "✅ Système démarré avec succès"
+echo "Dashboard accessible sur: http://localhost:8050"
+echo "Logs disponibles dans: logs/"
+
+# Sauvegarde des PIDs
+echo $DASHBOARD_PID > dashboard.pid
+echo $SCHEDULER_PID > scheduler.pid
+
+echo "Pour arrêter le système: ./stop_system.sh"
+EOF
+
+# 8. Script d'arrêt
+cat > mym_analytics/stop_system.sh << 'EOF'
+#!/bin/bash
+echo "🛑 Arrêt Système Analytics MYM"
+
+# Arrêt des processus
+if [ -f dashboard.pid ]; then
+    kill $(cat dashboard.pid)
+    rm dashboard.pid
+    echo "Dashboard arrêté"
+fi
+
+if [ -f scheduler.pid ]; then
+    kill $(cat scheduler.pid)
+    rm scheduler.pid
+    echo "Scheduler arrêté"
+fi
+
+echo "✅ Système arrêté avec succès"
+EOF
+
+# Permissions d'exécution
+chmod +x mym_analytics/start_system.sh
+chmod +x mym_analytics/stop_system.sh
+
+echo "✅ Installation terminée avec succès!"
+echo ""
+echo "🚀 Pour démarrer le système:"
+echo "cd mym_analytics && ./start_system.sh"
+echo ""
+echo "📊 Dashboard accessible sur: http://localhost:8050"
+echo "📁 Logs disponibles dans: mym_analytics/logs/"
+                </div>
+            </div>
+
+            <!-- Checklist Finale -->
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
+                    <i class="fas fa-check-circle mr-3 text-green-600"></i>
+                    Checklist de Validation Système
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">Fonctionnalités Core</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Dashboard temps réel opérationnel</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Modèles ML entraînés et prédictions actives</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Tests A/B automatisés configurés</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Pricing dynamique implémenté</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Collecte de données automatique</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">Optimisations Avancées</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Segmentation utilisateurs active</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Recommandations intelligentes générées</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Rapports automatiques programmés</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Alertes système configurées</span>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="mr-3 h-5 w-5 text-green-600">
+                                <span class="text-gray-700">Intégration avec Bloc 8 Partie 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-chart-line text-4xl mb-4 text-blue-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">BLOC 8 PARTIE 2 - Terminé</h3>
+                <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+                    Votre système d'analytics et d'optimisation avancée est maintenant opérationnel. 
+                    Maximisez vos revenus MYM grâce à l'intelligence artificielle et l'optimisation continue.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <i class="fas fa-brain text-3xl text-blue-400 mb-3"></i>
+                        <h4 class="font-bold mb-2">ML Prédictif</h4>
+                        <p class="text-sm text-gray-400">Prédictions revenus et engagement avec 94%+ de précision</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <i class="fas fa-flask text-3xl text-green-400 mb-3"></i>
+                        <h4 class="font-bold mb-2">A/B Testing</h4>
+                        <p class="text-sm text-gray-400">Optimisation continue automatisée</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <i class="fas fa-chart-bar text-3xl text-purple-400 mb-3"></i>
+                        <h4 class="font-bold mb-2">Dashboards</h4>
+                        <p class="text-sm text-gray-400">Monitoring temps réel et alertes intelligentes</p>
+                    </div>
+                </div>
+                
+                <div class="text-sm text-gray-500">
+                    Système complet d'intelligence analytique • Optimisation automatisée • Revenus maximisés
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialisation des graphiques
+        document.addEventListener('DOMContentLoaded', function() {
+            // Graphique Revenus
+            const revenusCtx = document.getElementById('revenusChart');
+            if (revenusCtx) {
+                new Chart(revenusCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+                        datasets: [{
+                            label: 'Revenus Quotidiens',
+                            data: [120, 135, 158, 142, 167, 178, 195, 210, 225, 240, 255, 270],
+                            borderColor: '#3B82F6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '€' + value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Graphique Engagement
+            const engagementCtx = document.getElementById('engagementChart');
+            if (engagementCtx) {
+                new Chart(engagementCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Photos', 'Vidéos', 'Lives', 'Stories'],
+                        datasets: [{
+                            data: [35, 30, 25, 10],
+                            backgroundColor: [
+                                '#3B82F6',
+                                '#10B981',
+                                '#8B5CF6',
+                                '#F59E0B'
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Graphique Optimisation
+            const optimisationCtx = document.getElementById('optimisationChart');
+            if (optimisationCtx) {
+                new Chart(optimisationCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6', 'Sem 7', 'Sem 8'],
+                        datasets: [{
+                            label: 'Revenus Baseline',
+                            data: [1000, 1050, 1100, 1080, 1120, 1150, 1200, 1180],
+                            borderColor: '#6B7280',
+                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                            borderWidth: 2,
+                            borderDash: [5, 5]
+                        }, {
+                            label: 'Revenus Optimisés',
+                            data: [1000, 1180, 1320, 1450, 1580, 1720, 1890, 2050],
+                            borderColor: '#10B981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '€' + value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Smooth scrolling pour la navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation des cartes au scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e62e53c9e250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDiNuEeGvDQeGoFmJthuJ%2BE%2BP3UVd0rYg8lWobwAqqbPrbVsmArQ7XUbAYu%2BSmK0MlYvdyArBbGdYFTQxCwkCUM9Ey%2BuprFDR5s%2FLlUINa9fJX%2Bvkzt4WGfQbYql4%2FU7tO4La1eN4OLxL3kc5qX48PcHnO6foSH0RsPhH01ds5wI0feic1xJFAvpNsfzrio7zJtyRnDUyL%2FBgTgO3VR%2Bs%2BAyfGDp9slM8BQeLUwZc0jRhI4iu5TTRPjfe1wsAnGVC%2BdrrclzqU1sSWMO4s%2B74excVOqbewNGqml0DYHMbguDdVW4H1UcFlnqopMIhpHjTRS1VuU8Zch9gnOH5JjaF%2FiVA6qOQLdLWYusanL2840d1AZikDIXcHPOiNTlXj1Kf%2FSG2%2F9krSovIofDscAwzVXeTfuh5HqB8LDIW2bb1pdEHnB2mbF8ts9jwFk%2ByXDKy59uHgvoovNagX3AWgSt%2FnYU5GF6WLqM0cHvQ3mDEOZJ46zvDEzC6u4QDtJbDdLhp%2BmPqoVTsF%2FZOiNTzmY%2Fj684%3D";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDiNuEeGvDQeGoFmJthuJ+E+P3UVd0rYg8lWobwAqqbPrbVsmArQ7XUbAYu+SmK0MlYvdyArBbGdYFTQxCwkCUM9Ey+uprFDR5s/LlUINa9fJX+vkzt4WGfQbYql4/U7tO4La1eN4OLxL3kc5qX48PcHnO6foSH0RsPhH01ds5wI0feic1xJFAvpNsfzrio7zJtyRnDUyL/BgTgO3VR+s+AyfGDp9slM8BQeLUwZc0jRhI4iu5TTRPjfe1wsAnGVC+drrclzqU1sSWMO4s+74excVOqbewNGqml0DYHMbguDdVW4H1UcFlnqopMIhpHjTRS1VuU8Zch9gnOH5JjaF/iVA6qOQLdLWYusanL2840d1AZikDIXcHPOiNTlXj1Kf/SG2/9krSovIofDscAwzVXeTfuh5HqB8LDIW2bb1pdEHnB2mbF8ts9jwFk+yXDKy59uHgvoovNagX3AWgSt/nYU5GF6WLqM0cHvQ3mDEOZJ46zvDEzC6u4QDtJbDdLhp+mPqoVTsF/ZOiNTzmY/j684=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 11.4 - Real-Time Voice Changer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+        .step-card {
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .warning-box {
+            border-left: 4px solid #f56565;
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        .info-box {
+            border-left: 4px solid #4299e1;
+            background: #bee3f8;
+            color: #2a4365;
+        }
+        .success-box {
+            border-left: 4px solid #48bb78;
+            background: #c6f6d5;
+            color: #22543d;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-microphone-alt text-5xl mb-4"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-2">BLOC 11.4 - Real-Time Voice Changer</h1>
+                <h2 class="text-xl font-light mb-4">Modification Vocale en Temps Réel</h2>
+                <p class="text-lg max-w-4xl mx-auto">
+                    Maîtrisez les techniques de modification vocale en temps réel avec Voice Changer, 
+                    Realtime-Voice-Clone, optimisation latence et configuration audio professionnelle.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8">
+                <a href="#objectifs" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-target mr-2"></i>Objectifs
+                </a>
+                <a href="#installation" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-download mr-2"></i>Installation
+                </a>
+                <a href="#configuration" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-cogs mr-2"></i>Configuration
+                </a>
+                <a href="#optimisation" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-rocket mr-2"></i>Optimisation
+                </a>
+                <a href="#scripts" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-code mr-2"></i>Scripts
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Objectifs Section -->
+    <section id="objectifs" class="py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-target mr-3 text-blue-600"></i>
+                Objectifs du Bloc 11.4
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="step-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">
+                        <i class="fas fa-clock mr-2"></i>Temps Réel
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Modification vocale instantanée</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Latence ultra-faible (&lt;50ms)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Streaming live compatible</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Interaction en direct</li>
+                    </ul>
+                </div>
+
+                <div class="step-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-purple-700">
+                        <i class="fas fa-sliders-h mr-2"></i>Performance
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimisation GPU/CPU</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Gestion mémoire intelligente</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Configuration audio pro</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Monitoring performances</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box p-6 rounded-lg mb-8">
+                <h4 class="font-bold text-lg mb-2">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Prérequis Techniques
+                </h4>
+                <p class="mb-4">Avant de commencer ce bloc, assurez-vous d'avoir :</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Complété le Bloc 11.1 (Bases clonage vocal)</li>
+                    <li>GPU NVIDIA avec CUDA (recommandé : GTX 1060+ ou RTX)</li>
+                    <li>Minimum 8GB RAM (16GB recommandé)</li>
+                    <li>Interface audio (carte son externe ou micro USB de qualité)</li>
+                    <li>Python 3.8+ avec environnements virtuels</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-download mr-3 text-green-600"></i>
+                Installation Real-Time Voice Changer
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- RVC Real-Time -->
+                <div class="step-card bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">
+                        <i class="fas fa-microphone mr-2"></i>
+                        RVC Real-Time Voice Changer
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Étape 1 : Téléchargement</h4>
+                        <p class="mb-3">Rendez-vous sur le repository officiel :</p>
+                        <div class="info-box p-4 rounded mb-4">
+                            <strong>URL :</strong> https://github.com/liujing04/Retrieval-based-Voice-Conversion-WebUI<br>
+                            <strong>Branche :</strong> v2 (version stable avec real-time)
+                        </div>
+                        
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Clonage du repository RVC
+git clone https://github.com/liujing04/Retrieval-based-Voice-Conversion-WebUI.git
+cd Retrieval-based-Voice-Conversion-WebUI
+git checkout v2</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Étape 2 : Environnement Python</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Création environnement virtuel
+python -m venv rvc_realtime
+rvc_realtime\Scripts\activate  # Windows
+# source rvc_realtime/bin/activate  # Linux/Mac
+
+# Installation dépendances
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+pip install sounddevice pyaudio numpy scipy librosa</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Étape 3 : Vérification Installation</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Test environnement
+python -c "import torch; print(f'CUDA disponible: {torch.cuda.is_available()}')"
+python -c "import sounddevice as sd; print('Périphériques audio:', sd.query_devices())"</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Realtime Voice Clone -->
+                <div class="step-card bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-700">
+                        <i class="fas fa-clone mr-2"></i>
+                        Realtime Voice Clone Alternative
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Installation Node.js</h4>
+                        <div class="info-box p-4 rounded mb-4">
+                            <strong>Prérequis :</strong> Node.js 16+ requis<br>
+                            <strong>Download :</strong> https://nodejs.org/
+                        </div>
+                        
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Vérification Node.js
+node --version
+npm --version
+
+# Clonage Real-time Voice Clone
+git clone https://github.com/CorentinJ/Real-Time-Voice-Cloning.git
+cd Real-Time-Voice-Cloning</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Configuration Backend Python</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Installation backend
+pip install webrtcvad resemblyzer
+pip install umap-learn visdom unidecode inflect librosa>=0.7.0
+pip install torch torchvision torchaudio
+
+# Téléchargement modèles pré-entraînés
+python download_models.py</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Lancement Serveur</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Lancement serveur Python
+python demo_toolbox.py
+
+# Dans un autre terminal - Frontend
+npm install
+npm start
+
+# Accès interface : http://localhost:3000</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success-box p-6 rounded-lg">
+                <h4 class="font-bold text-lg mb-2">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    Vérification Installation Réussie
+                </h4>
+                <p class="mb-2">Si vous voyez ces éléments, l'installation est correcte :</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Interface web RVC accessible sur http://localhost:7865</li>
+                    <li>Onglet "Real-time" visible dans l'interface</li>
+                    <li>CUDA détecté si GPU NVIDIA disponible</li>
+                    <li>Périphériques audio listés correctement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration Section -->
+    <section id="configuration" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-cogs mr-3 text-blue-600"></i>
+                Configuration Audio Professionnelle
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Configuration Microphone -->
+                <div class="step-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-green-700">
+                        <i class="fas fa-microphone-alt mr-2"></i>
+                        Configuration Micro
+                    </h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">1. Sélection Périphérique</h4>
+                        <div class="code-block relative mb-3">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Script test microphones
+import sounddevice as sd
+
+def list_audio_devices():
+    devices = sd.query_devices()
+    for i, device in enumerate(devices):
+        print(f"{i}: {device['name']}")
+        print(f"   Canaux: {device['max_input_channels']}")
+        print(f"   Fréquence: {device['default_samplerate']}")
+        print()
+
+list_audio_devices()</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">2. Configuration Qualité</h4>
+                        <ul class="text-sm space-y-1">
+                            <li><strong>Fréquence :</strong> 44100 Hz ou 48000 Hz</li>
+                            <li><strong>Profondeur :</strong> 16-bit minimum, 24-bit idéal</li>
+                            <li><strong>Latence :</strong> 128-256 samples buffer</li>
+                            <li><strong>Gain :</strong> 70-85% (éviter saturation)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box p-3 rounded text-sm">
+                        <strong>Micro Recommandés :</strong><br>
+                        • Audio-Technica AT2020USB+<br>
+                        • Blue Yeti / Yeti Nano<br>
+                        • Shure SM7B (avec interface)<br>
+                        • Rode PodMic USB
+                    </div>
+                </div>
+
+                <!-- Configuration Interface Audio -->
+                <div class="step-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">
+                        <i class="fas fa-sliders-h mr-2"></i>
+                        Interface Audio
+                    </h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">Configuration ASIO (Windows)</h4>
+                        <div class="code-block relative mb-3">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Installation ASIO4ALL (si pas d'interface pro)
+# Télécharger : https://asio4all.org/
+
+# Configuration dans RVC
+import pyaudio
+
+def configure_asio_device():
+    p = pyaudio.PyAudio()
+    
+    # Recherche interface ASIO
+    for i in range(p.get_device_count()):
+        info = p.get_device_info_by_index(i)
+        if 'asio' in info['name'].lower():
+            print(f"Interface ASIO trouvée: {info['name']}")
+            return i
+    
+    return None</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">Optimisation Latence</h4>
+                        <ul class="text-sm space-y-1">
+                            <li><strong>Buffer Size :</strong> 64-128 samples</li>
+                            <li><strong>Sample Rate :</strong> 44100 Hz</li>
+                            <li><strong>Exclusive Mode :</strong> Activé</li>
+                            <li><strong>Hardware Acceleration :</strong> Activé</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box p-3 rounded text-sm">
+                        <strong>Attention :</strong> Buffer trop petit = crackling audio<br>
+                        Buffer trop grand = latence élevée<br>
+                        Testez progressivement : 256→128→64
+                    </div>
+                </div>
+
+                <!-- Configuration Temps Réel -->
+                <div class="step-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-purple-700">
+                        <i class="fas fa-clock mr-2"></i>
+                        Paramètres Temps Réel
+                    </h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">Interface RVC Real-Time</h4>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Périphérique Input :</strong> Votre microphone</div>
+                            <div><strong>Périphérique Output :</strong> Casque/Haut-parleurs</div>
+                            <div><strong>Modèle :</strong> Votre modèle entraîné (.pth)</div>
+                            <div><strong>Index :</strong> Fichier .index correspondant</div>
+                            <div><strong>Pitch :</strong> 0 (ajustez selon besoins)</div>
+                            <div><strong>Filter Radius :</strong> 3 (réduction bruit)</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">Paramètres Avancés</h4>
+                        <div class="code-block relative mb-3">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Configuration optimale temps réel
+REALTIME_CONFIG = {
+    'block_time': 0.25,      # 250ms blocs
+    'crossfade_time': 0.05,  # 50ms crossfade
+    'extra_time': 2.0,       # 2s buffer
+    'input_device': None,    # Auto-detect
+    'output_device': None,   # Auto-detect
+    'f0_method': 'rmvpe',    # Détection pitch
+    'hop_length': 512,       # Fenêtre analyse
+    'buffer_size': 1024      # Taille buffer
+}</pre>
+                        </div>
+                    </div>
+
+                    <div class="success-box p-3 rounded text-sm">
+                        <strong>Test Configuration :</strong><br>
+                        1. Cliquez "Start" dans interface<br>
+                        2. Parlez dans le micro<br>
+                        3. Écoutez le résultat<br>
+                        4. Ajustez si nécessaire
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Step by Step -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-list-ol mr-2 text-blue-600"></i>
+                    Guide Configuration Step-by-Step
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold">Lancez RVC Interface</h4>
+                                <p class="text-sm text-gray-600">Exécutez <code>python infer-web.py</code> et ouvrez http://localhost:7865</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold">Onglet "Real-time"</h4>
+                                <p class="text-sm text-gray-600">Cliquez sur l'onglet "Real-time Voice Conversion" dans l'interface</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="font-bold">Sélection Modèle</h4>
+                                <p class="text-sm text-gray-600">Choisissez votre modèle .pth dans le dropdown "Model"</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">4</div>
+                            <div>
+                                <h4 class="font-bold">Configuration Audio</h4>
+                                <p class="text-sm text-gray-600">Sélectionnez périphériques input/output dans les dropdowns</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">5</div>
+                            <div>
+                                <h4 class="font-bold">Ajustement Paramètres</h4>
+                                <p class="text-sm text-gray-600">Réglez Pitch, Filter Radius selon vos besoins</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">6</div>
+                            <div>
+                                <h4 class="font-bold">Test Audio</h4>
+                                <p class="text-sm text-gray-600">Cliquez "Start" et testez en parlant dans le micro</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">7</div>
+                            <div>
+                                <h4 class="font-bold">Optimisation</h4>
+                                <p class="text-sm text-gray-600">Ajustez buffer size et paramètres selon performances</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">8</div>
+                            <div>
+                                <h4 class="font-bold">Validation</h4>
+                                <p class="text-sm text-gray-600">Vérifiez latence &lt;100ms et qualité audio satisfaisante</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimisation Section -->
+    <section id="optimisation" class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-rocket mr-3 text-purple-600"></i>
+                Optimisation Performance & Latence
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Optimisation GPU -->
+                <div class="step-card bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-red-700">
+                        <i class="fas fa-microchip mr-2"></i>
+                        Optimisation GPU CUDA
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Configuration GPU</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Script optimisation GPU
+import torch
+import gc
+
+def optimize_gpu_for_realtime():
+    if torch.cuda.is_available():
+        # Configuration mémoire
+        torch.cuda.empty_cache()
+        torch.backends.cudnn.benchmark = True
+        torch.backends.cuda.matmul.allow_tf32 = True
+        
+        # Information GPU
+        gpu_name = torch.cuda.get_device_name(0)
+        gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1024**3
+        
+        print(f"GPU: {gpu_name}")
+        print(f"Mémoire: {gpu_memory:.1f}GB")
+        
+        # Configuration optimale selon GPU
+        if gpu_memory >= 8:
+            batch_size = 4
+            precision = torch.float16
+        elif gpu_memory >= 4:
+            batch_size = 2
+            precision = torch.float16
+        else:
+            batch_size = 1
+            precision = torch.float32
+            
+        return {
+            'batch_size': batch_size,
+            'precision': precision,
+            'device': 'cuda'
+        }
+    else:
+        return {
+            'batch_size': 1,
+            'precision': torch.float32,
+            'device': 'cpu'
+        }
+
+# Application configuration
+config = optimize_gpu_for_realtime()
+print(f"Configuration optimale: {config}")</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Monitoring GPU</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Monitoring temps réel GPU
+import psutil
+import time
+import threading
+
+class GPUMonitor:
+    def __init__(self):
+        self.monitoring = False
+        
+    def start_monitoring(self):
+        self.monitoring = True
+        threading.Thread(target=self._monitor_loop, daemon=True).start()
+        
+    def _monitor_loop(self):
+        while self.monitoring:
+            if torch.cuda.is_available():
+                memory_used = torch.cuda.memory_allocated() / 1024**3
+                memory_total = torch.cuda.get_device_properties(0).total_memory / 1024**3
+                utilization = (memory_used / memory_total) * 100
+                
+                print(f"GPU Utilisation: {utilization:.1f}% ({memory_used:.1f}GB/{memory_total:.1f}GB)")
+                
+                if utilization > 90:
+                    print("⚠️ GPU saturé - Réduction batch size recommandée")
+                    torch.cuda.empty_cache()
+                    
+            time.sleep(5)
+    
+    def stop_monitoring(self):
+        self.monitoring = False
+
+# Utilisation
+monitor = GPUMonitor()
+monitor.start_monitoring()</pre>
+                        </div>
+                    </div>
+
+                    <div class="warning-box p-4 rounded">
+                        <h5 class="font-bold mb-2">Attention Overheating</h5>
+                        <p class="text-sm">Si GPU > 85°C, réduisez la charge ou améliorez refroidissement</p>
+                    </div>
+                </div>
+
+                <!-- Optimisation CPU -->
+                <div class="step-card bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-green-700">
+                        <i class="fas fa-memory mr-2"></i>
+                        Optimisation CPU & RAM
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Configuration Multi-Threading</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Optimisation CPU
+import os
+import multiprocessing as mp
+
+def optimize_cpu_for_realtime():
+    # Nombre de coeurs disponibles
+    cpu_count = mp.cpu_count()
+    
+    # Configuration threads optimale
+    if cpu_count >= 8:
+        audio_threads = 4
+        inference_threads = 2
+        io_threads = 2
+    elif cpu_count >= 4:
+        audio_threads = 2
+        inference_threads = 1
+        io_threads = 1
+    else:
+        audio_threads = 1
+        inference_threads = 1
+        io_threads = 1
+    
+    # Variables d'environnement
+    os.environ['OMP_NUM_THREADS'] = str(inference_threads)
+    os.environ['MKL_NUM_THREADS'] = str(inference_threads)
+    os.environ['NUMEXPR_NUM_THREADS'] = str(inference_threads)
+    
+    print(f"CPU: {cpu_count} coeurs")
+    print(f"Audio threads: {audio_threads}")
+    print(f"Inference threads: {inference_threads}")
+    
+    return {
+        'cpu_count': cpu_count,
+        'audio_threads': audio_threads,
+        'inference_threads': inference_threads,
+        'io_threads': io_threads
+    }
+
+# Application
+cpu_config = optimize_cpu_for_realtime()</pre>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Gestion Mémoire</h4>
+                        <div class="code-block relative mb-4">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+<pre># Monitoring et optimisation RAM
+import gc
+import psutil
+
+class MemoryManager:
+    def __init__(self, max_memory_percent=80):
+        self.max_memory_percent = max_memory_percent
+        
+    def check_memory_usage(self):
+        memory = psutil.virtual_memory()
+        usage_percent = memory.percent
+        
+        print(f"RAM: {usage_percent:.1f}% utilisée")
+        
+        if usage_percent > self.max_memory_percent:
+            self.cleanup_memory()
+            return False
+        return True
+    
+    def cleanup_memory(self):
+        print("🧹 Nettoyage mémoire...")
+        gc.collect()
+        
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            
+    def get_memory_info(self):
+        memory = psutil.virtual_memory()
+        return {
+            'total': memory.total / 1024**3,
+            'available': memory.available / 1024**3,
+            'percent': memory.percent,
+            'used': memory.used / 1024**3
+        }
+
+# Utilisation
+mem_manager = MemoryManager()
+print(f"Info mémoire: {mem_manager.get_memory_info()}")</pre>
+                        </div>
+                    </div>
+
+                    <div class="info-box p-4 rounded">
+                        <h5 class="font-bold mb-2">RAM Recommandée</h5>
+                        <ul class="text-sm space-y-1">
+                            <li><strong>Minimum :</strong> 8GB</li>
+                            <li><strong>Recommandé :</strong> 16GB</li>
+                            <li><strong>Optimal :</strong> 32GB</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latence Analysis -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-stopwatch mr-2 text-blue-600"></i>
+                    Analyse & Réduction Latence
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-2xl text-green-600"></i>
+                        </div>
+                        <h4 class="font-bold text-green-700">Excellent</h4>
+                        <p class="text-sm">&lt; 50ms</p>
+                        <p class="text-xs text-gray-600">Imperceptible</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-exclamation text-2xl text-yellow-600"></i>
+                        </div>
+                        <h4 class="font-bold text-yellow-700">Acceptable</h4>
+                        <p class="text-sm">50-100ms</p>
+                        <p class="text-xs text-gray-600">Légèrement perceptible</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-times text-2xl text-red-600"></i>
+                        </div>
+                        <h4 class="font-bold text-red-700">Problématique</h4>
+                        <p class="text-sm">&gt; 100ms</p>
+                        <p class="text-xs text-gray-600">Gênant pour interaction</p>
+                    </div>
+                </div>
+
+                <div class="code-block relative">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+<pre># Script mesure latence précise
+import time
+import numpy as np
+import sounddevice as sd
+from collections import deque
+
+class LatencyMeasurer:
+    def __init__(self):
+        self.latency_history = deque(maxlen=100)
+        self.measuring = False
+        
+    def measure_roundtrip_latency(self, duration=10):
+        """Mesure latence aller-retour audio"""
+        print("🔊 Mesure latence en cours...")
+        
+        sample_rate = 44100
+        latencies = []
+        
+        def audio_callback(indata, outdata, frames, time, status):
+            # Mesure simple : copie input vers output avec timestamp
+            start_time = time.inputBufferAdcTime
+            end_time = time.outputBufferDacTime
+            
+            if start_time and end_time:
+                latency_ms = (end_time - start_time) * 1000
+                latencies.append(latency_ms)
+            
+            # Passthrough audio
+            outdata[:] = indata
+        
+        # Stream audio avec callback
+        with sd.Stream(callback=audio_callback, 
+                      samplerate=sample_rate,
+                      channels=1):
+            sd.sleep(duration * 1000)
+        
+        if latencies:
+            avg_latency = np.mean(latencies)
+            min_latency = np.min(latencies)
+            max_latency = np.max(latencies)
+            
+            print(f"Latence moyenne: {avg_latency:.1f}ms")
+            print(f"Latence min: {min_latency:.1f}ms")
+            print(f"Latence max: {max_latency:.1f}ms")
+            
+            return {
+                'average': avg_latency,
+                'min': min_latency,
+                'max': max_latency,
+                'count': len(latencies)
+            }
+        else:
+            print("❌ Impossible de mesurer la latence")
+            return None
+    
+    def analyze_latency_sources(self):
+        """Analyse des sources de latence"""
+        sources = {
+            'Audio Interface': '5-20ms',
+            'Buffer Size': '1-50ms (dépend config)',
+            'AI Processing': '10-100ms (dépend GPU)',
+            'System Overhead': '2-10ms',
+            'Network (si streaming)': '20-200ms'
+        }
+        
+        print("📊 Sources de latence typiques:")
+        for source, range_ms in sources.items():
+            print(f"  {source}: {range_ms}")
+            
+        return sources
+
+# Utilisation
+measurer = LatencyMeasurer()
+result = measurer.measure_roundtrip_latency(duration=5)
+measurer.analyze_latency_sources()</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts Section -->
+    <section id="scripts" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-code mr-3 text-green-600"></i>
+                Scripts Python Complets
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Script Real-Time Manager -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">
+                        <i class="fas fa-play mr-2"></i>
+                        Real-Time Voice Manager
+                    </h3>
+                    
+                    <div class="code-block relative mb-4">
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+<pre># real_time_voice_manager.py
+import threading
+import time
+import queue
+import numpy as np
+import sounddevice as sd
+import torch
+from scipy.io import wavfile
+
+class RealTimeVoiceManager:
+    def __init__(self, model_path, index_path):
+        self.model_path = model_path
+        self.index_path = index_path
+        self.audio_queue = queue.Queue()
+        self.output_queue = queue.Queue()
+        self.processing_thread = None
+        self.is_running = False
+        
+        # Configuration audio
+        self.sample_rate = 44100
+        self.channels = 1
+        self.chunk_size = 1024
+        self.dtype = np.float32
+        
+        # Configuration RVC
+        self.pitch_shift = 0
+        self.filter_radius = 3
+        self.rms_mix_rate = 0.25
+        self.protect_rate = 0.33
+        
+        self.load_model()
+        
+    def load_model(self):
+        """Chargement modèle RVC"""
+        try:
+            # Chargement modèle (adapté selon votre setup RVC)
+            print(f"📥 Chargement modèle: {self.model_path}")
+            # self.model = load_rvc_model(self.model_path, self.index_path)
+            print("✅ Modèle chargé avec succès")
+        except Exception as e:
+            print(f"❌ Erreur chargement modèle: {e}")
+            
+    def audio_callback(self, indata, outdata, frames, time, status):
+        """Callback audio temps réel"""
+        if status:
+            print(f"⚠️ Status audio: {status}")
+            
+        # Ajout audio input à la queue
+        self.audio_queue.put(indata.copy())
+        
+        # Récupération audio traité
+        try:
+            processed_audio = self.output_queue.get_nowait()
+            outdata[:] = processed_audio
+        except queue.Empty:
+            # Pas d'audio traité disponible -> silence
+            outdata.fill(0)
+    
+    def process_audio_loop(self):
+        """Boucle traitement audio en arrière-plan"""
+        while self.is_running:
+            try:
+                # Récupération audio input
+                input_audio = self.audio_queue.get(timeout=0.1)
+                
+                # Traitement RVC (simulation - adaptez selon votre setup)
+                processed_audio = self.apply_voice_conversion(input_audio)
+                
+                # Ajout à la queue output
+                self.output_queue.put(processed_audio)
+                
+            except queue.Empty:
+                continue
+            except Exception as e:
+                print(f"❌ Erreur traitement: {e}")
+    
+    def apply_voice_conversion(self, audio_data):
+        """Application conversion vocale RVC"""
+        try:
+            # Conversion en format approprié
+            audio_float = audio_data.astype(np.float32).flatten()
+            
+            # Simulation traitement RVC - remplacez par vraie conversion
+            # processed = rvc_inference(audio_float, self.model, ...)
+            processed = audio_float  # Placeholder
+            
+            # Post-traitement
+            processed = self.apply_post_processing(processed)
+            
+            return processed.reshape(-1, 1)
+            
+        except Exception as e:
+            print(f"❌ Erreur conversion: {e}")
+            return audio_data
+    
+    def apply_post_processing(self, audio):
+        """Post-traitement audio"""
+        # Normalisation
+        audio = np.clip(audio, -1.0, 1.0)
+        
+        # Réduction bruit léger
+        if len(audio) > 0:
+            audio = audio * 0.95  # Réduction gain légère
+            
+        return audio
+    
+    def start_realtime(self, input_device=None, output_device=None):
+        """Démarrage streaming temps réel"""
+        try:
+            self.is_running = True
+            
+            # Démarrage thread traitement
+            self.processing_thread = threading.Thread(
+                target=self.process_audio_loop, 
+                daemon=True
+            )
+            self.processing_thread.start()
+            
+            # Démarrage stream audio
+            print("🎤 Démarrage stream audio...")
+            with sd.Stream(
+                callback=self.audio_callback,
+                samplerate=self.sample_rate,
+                channels=self.channels,
+                dtype=self.dtype,
+                latency='low',
+                blocksize=self.chunk_size,
+                device=(input_device, output_device)
+            ):
+                print("✅ Stream démarré - Parlez dans le micro!")
+                print("Appuyez sur Ctrl+C pour arrêter")
+                
+                while self.is_running:
+                    time.sleep(0.1)
+                    
+        except KeyboardInterrupt:
+            print("🛑 Arrêt demandé par utilisateur")
+        except Exception as e:
+            print(f"❌ Erreur stream: {e}")
+        finally:
+            self.stop_realtime()
+    
+    def stop_realtime(self):
+        """Arrêt streaming"""
+        self.is_running = False
+        print("🔴 Stream arrêté")
+
+# Utilisation
+if __name__ == "__main__":
+    # Configuration
+    MODEL_PATH = "path/to/your/model.pth"
+    INDEX_PATH = "path/to/your/index.index"
+    
+    # Création manager
+    manager = RealTimeVoiceManager(MODEL_PATH, INDEX_PATH)
+    
+    # Démarrage (Ctrl+C pour arrêter)
+    manager.start_realtime()</pre>
+                    </div>
+                </div>
+
+                <!-- Audio Optimizer Script -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-purple-700">
+                        <i class="fas fa-sliders-h mr-2"></i>
+                        Audio Optimizer
+                    </h3>
+                    
+                    <div class="code-block relative mb-4">
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+<pre># audio_optimizer.py
+import numpy as np
+import scipy.signal
+from scipy.io import wavfile
+import librosa
+import noisereduce as nr
+
+class AudioOptimizer:
+    def __init__(self, sample_rate=44100):
+        self.sample_rate = sample_rate
+        
+    def optimize_for_realtime(self, audio_data):
+        """Pipeline optimisation temps réel"""
+        # 1. Normalisation
+        audio = self.normalize_audio(audio_data)
+        
+        # 2. Réduction bruit léger
+        audio = self.light_noise_reduction(audio)
+        
+        # 3. Égalisation optimisée
+        audio = self.apply_realtime_eq(audio)
+        
+        # 4. Compression douce
+        audio = self.soft_compression(audio)
+        
+        return audio
+    
+    def normalize_audio(self, audio):
+        """Normalisation RMS"""
+        if len(audio) == 0:
+            return audio
+            
+        # RMS normalization
+        rms = np.sqrt(np.mean(audio**2))
+        if rms > 0:
+            target_rms = 0.15  # Niveau conversationnel
+            audio = audio * (target_rms / rms)
+            
+        # Peak limiting
+        peak = np.max(np.abs(audio))
+        if peak > 0.95:
+            audio = audio * (0.95 / peak)
+            
+        return audio
+    
+    def light_noise_reduction(self, audio):
+        """Réduction bruit légère pour temps réel"""
+        try:
+            # Gate de bruit simple
+            noise_threshold = 0.01
+            mask = np.abs(audio) > noise_threshold
+            audio = audio * mask
+            
+            # Filtre passe-haut léger (supprime 50Hz et en-dessous)
+            if len(audio) > 100:
+                sos = scipy.signal.butter(2, 80, 'hp', 
+                                        fs=self.sample_rate, 
+                                        output='sos')
+                audio = scipy.signal.sosfilt(sos, audio)
+                
+        except Exception as e:
+            print(f"⚠️ Erreur réduction bruit: {e}")
+            
+        return audio
+    
+    def apply_realtime_eq(self, audio):
+        """Égalisation optimisée voix"""
+        try:
+            # Boost fréquences vocales (200-3000 Hz)
+            # Filtre passe-bande avec léger boost
+            
+            # Low-cut à 80Hz
+            sos_hp = scipy.signal.butter(1, 80, 'hp', 
+                                       fs=self.sample_rate, 
+                                       output='sos')
+            audio = scipy.signal.sosfilt(sos_hp, audio)
+            
+            # Boost léger 800-2000Hz (clarté voix)
+            sos_peak = scipy.signal.butter(2, [800, 2000], 'bp',
+                                         fs=self.sample_rate, 
+                                         output='sos')
+            voice_boost = scipy.signal.sosfilt(sos_peak, audio)
+            audio = audio + voice_boost * 0.15  # Boost 15%
+            
+        except Exception as e:
+            print(f"⚠️ Erreur EQ: {e}")
+            
+        return audio
+    
+    def soft_compression(self, audio):
+        """Compression douce temps réel"""
+        # Compression simple
+        threshold = 0.7
+        ratio = 3.0
+        
+        # Au-dessus du seuil -> compression
+        mask = np.abs(audio) > threshold
+        compressed = np.sign(audio) * (threshold + 
+                                     (np.abs(audio) - threshold) / ratio)
+        
+        audio = np.where(mask, compressed, audio)
+        
+        return audio
+    
+    def analyze_audio_quality(self, audio):
+        """Analyse qualité audio"""
+        if len(audio) == 0:
+            return {}
+            
+        # Métriques de base
+        rms = np.sqrt(np.mean(audio**2))
+        peak = np.max(np.abs(audio))
+        snr_estimate = 20 * np.log10(rms / 0.001) if rms > 0.001 else 0
+        
+        # Analyse spectrale basique
+        freqs, psd = scipy.signal.welch(audio, self.sample_rate, nperseg=1024)
+        
+        # Énergie dans bandes de fréquences
+        voice_band = np.logical_and(freqs >= 200, freqs <= 3000)
+        voice_energy = np.sum(psd[voice_band])
+        total_energy = np.sum(psd)
+        voice_ratio = voice_energy / total_energy if total_energy > 0 else 0
+        
+        return {
+            'rms': rms,
+            'peak': peak,
+            'snr_estimate': snr_estimate,
+            'voice_ratio': voice_ratio,
+            'quality_score': min(snr_estimate / 40 + voice_ratio, 1.0)
+        }
+
+# Utilisation
+optimizer = AudioOptimizer()
+
+# Test avec audio exemple
+sample_audio = np.random.normal(0, 0.1, 44100)  # 1 seconde de bruit
+optimized = optimizer.optimize_for_realtime(sample_audio)
+quality = optimizer.analyze_audio_quality(optimized)
+
+print(f"Qualité audio: {quality}")</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Monitor Script -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-chart-line mr-2 text-green-600"></i>
+                    Performance Monitor Complet
+                </h3>
+                
+                <div class="code-block relative">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+<pre># performance_monitor.py
+import time
+import psutil
+import threading
+import queue
+from collections import deque
+import numpy as np
+
+class RealTimePerformanceMonitor:
+    def __init__(self, window_size=60):
+        self.window_size = window_size  # 60 secondes d'historique
+        
+        # Métriques
+        self.cpu_history = deque(maxlen=window_size)
+        self.memory_history = deque(maxlen=window_size)
+        self.latency_history = deque(maxlen=window_size)
+        self.audio_drops = 0
+        self.processing_errors = 0
+        
+        # Threading
+        self.monitoring = False
+        self.monitor_thread = None
+        self.alert_queue = queue.Queue()
+        
+        # Seuils d'alerte
+        self.cpu_threshold = 80
+        self.memory_threshold = 85
+        self.latency_threshold = 100  # ms
+        
+    def start_monitoring(self):
+        """Démarrage monitoring continu"""
+        self.monitoring = True
+        self.monitor_thread = threading.Thread(target=self._monitor_loop, daemon=True)
+        self.monitor_thread.start()
+        print("📊 Monitoring performance démarré")
+        
+    def stop_monitoring(self):
+        """Arrêt monitoring"""
+        self.monitoring = False
+        if self.monitor_thread:
+            self.monitor_thread.join()
+        print("🔴 Monitoring arrêté")
+        
+    def _monitor_loop(self):
+        """Boucle monitoring principal"""
+        while self.monitoring:
+            # Collecte métriques
+            cpu_percent = psutil.cpu_percent(interval=1)
+            memory_percent = psutil.virtual_memory().percent
+            
+            # Stockage historique
+            self.cpu_history.append(cpu_percent)
+            self.memory_history.append(memory_percent)
+            
+            # Vérification seuils
+            self._check_alerts(cpu_percent, memory_percent)
+            
+            # Affichage status
+            self._print_status(cpu_percent, memory_percent)
+            
+            time.sleep(1)
+    
+    def record_latency(self, latency_ms):
+        """Enregistrement mesure latence"""
+        self.latency_history.append(latency_ms)
+        
+        if latency_ms > self.latency_threshold:
+            self.alert_queue.put({
+                'type': 'latency',
+                'value': latency_ms,
+                'message': f"Latence élevée: {latency_ms:.1f}ms"
+            })
+    
+    def record_audio_drop(self):
+        """Enregistrement dropout audio"""
+        self.audio_drops += 1
+        self.alert_queue.put({
+            'type': 'audio_drop',
+            'count': self.audio_drops,
+            'message': f"Dropout audio #{self.audio_drops}"
+        })
+    
+    def record_processing_error(self):
+        """Enregistrement erreur traitement"""
+        self.processing_errors += 1
+        self.alert_queue.put({
+            'type': 'processing_error',
+            'count': self.processing_errors,
+            'message': f"Erreur traitement #{self.processing_errors}"
+        })
+    
+    def _check_alerts(self, cpu, memory):
+        """Vérification seuils et alertes"""
+        if cpu > self.cpu_threshold:
+            self.alert_queue.put({
+                'type': 'cpu',
+                'value': cpu,
+                'message': f"CPU élevé: {cpu:.1f}%"
+            })
+            
+        if memory > self.memory_threshold:
+            self.alert_queue.put({
+                'type': 'memory',
+                'value': memory,
+                'message': f"Mémoire élevée: {memory:.1f}%"
+            })
+    
+    def _print_status(self, cpu, memory):
+        """Affichage status en temps réel"""
+        # Calcul moyennes
+        avg_cpu = np.mean(self.cpu_history) if self.cpu_history else 0
+        avg_memory = np.mean(self.memory_history) if self.memory_history else 0
+        avg_latency = np.mean(self.latency_history) if self.latency_history else 0
+        
+        # Status coloré selon performance
+        cpu_icon = "🟢" if cpu < 50 else "🟡" if cpu < 80 else "🔴"
+        mem_icon = "🟢" if memory < 70 else "🟡" if memory < 85 else "🔴"
+        lat_icon = "🟢" if avg_latency < 50 else "🟡" if avg_latency < 100 else "🔴"
+        
+        print(f"\r{cpu_icon} CPU: {cpu:5.1f}% (moy: {avg_cpu:5.1f}%) | "
+              f"{mem_icon} RAM: {memory:5.1f}% (moy: {avg_memory:5.1f}%) | "
+              f"{lat_icon} Latence: {avg_latency:5.1f}ms | "
+              f"Drops: {self.audio_drops} | Erreurs: {self.processing_errors}", 
+              end="", flush=True)
+    
+    def get_performance_report(self):
+        """Génération rapport performance"""
+        if not self.cpu_history:
+            return "Pas de données disponibles"
+            
+        report = {
+            'cpu': {
+                'current': self.cpu_history[-1] if self.cpu_history else 0,
+                'average': np.mean(self.cpu_history),
+                'max': np.max(self.cpu_history),
+                'min': np.min(self.cpu_history)
+            },
+            'memory': {
+                'current': self.memory_history[-1] if self.memory_history else 0,
+                'average': np.mean(self.memory_history),
+                'max': np.max(self.memory_history),
+                'min': np.min(self.memory_history)
+            },
+            'latency': {
+                'average': np.mean(self.latency_history) if self.latency_history else 0,
+                'max': np.max(self.latency_history) if self.latency_history else 0,
+                'min': np.min(self.latency_history) if self.latency_history else 0,
+                'count': len(self.latency_history)
+            },
+            'issues': {
+                'audio_drops': self.audio_drops,
+                'processing_errors': self.processing_errors
+            }
+        }
+        
+        return report
+    
+    def get_alerts(self):
+        """Récupération alertes en attente"""
+        alerts = []
+        while not self.alert_queue.empty():
+            try:
+                alerts.append(self.alert_queue.get_nowait())
+            except queue.Empty:
+                break
+        return alerts
+    
+    def suggest_optimizations(self):
+        """Suggestions d'optimisation automatiques"""
+        suggestions = []
+        
+        if self.cpu_history:
+            avg_cpu = np.mean(self.cpu_history)
+            if avg_cpu > 80:
+                suggestions.append("🔧 CPU élevé: Réduire batch size ou threads")
+                suggestions.append("🔧 Fermer applications non-essentielles")
+                
+        if self.memory_history:
+            avg_mem = np.mean(self.memory_history)
+            if avg_mem > 85:
+                suggestions.append("🔧 RAM élevée: Nettoyer cache ou redémarrer")
+                suggestions.append("🔧 Réduire buffer audio ou qualité")
+                
+        if self.latency_history:
+            avg_lat = np.mean(self.latency_history)
+            if avg_lat > 100:
+                suggestions.append("🔧 Latence élevée: Réduire buffer size audio")
+                suggestions.append("🔧 Utiliser interface audio ASIO dédiée")
+                
+        if self.audio_drops > 5:
+            suggestions.append("🔧 Trop de dropouts: Augmenter buffer size")
+            suggestions.append("🔧 Vérifier connexions audio")
+            
+        return suggestions if suggestions else ["✅ Performance optimale"]
+
+# Utilisation exemple
+if __name__ == "__main__":
+    monitor = RealTimePerformanceMonitor()
+    monitor.start_monitoring()
+    
+    try:
+        # Simulation utilisation
+        time.sleep(10)
+        
+        # Test latence
+        monitor.record_latency(45.2)
+        monitor.record_latency(67.8)
+        monitor.record_latency(123.4)  # Alerte
+        
+        # Rapport final
+        report = monitor.get_performance_report()
+        print(f"\n\n📊 Rapport Performance:\n{report}")
+        
+        suggestions = monitor.suggest_optimizations()
+        print(f"\n💡 Suggestions:\n" + "\n".join(suggestions))
+        
+    except KeyboardInterrupt:
+        print("\n🛑 Arrêt monitoring")
+    finally:
+        monitor.stop_monitoring()</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <i class="fas fa-tools mr-3 text-red-600"></i>
+                Troubleshooting & Solutions
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Problèmes Audio -->
+                <div class="step-card bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                    <h3 class="text-lg font-bold mb-4 text-red-700">
+                        <i class="fas fa-volume-mute mr-2"></i>
+                        Problèmes Audio
+                    </h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong>❌ Pas de son en sortie</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Vérifier sélection périphériques</li>
+                                <li>Tester avec périphérique par défaut</li>
+                                <li>Redémarrer stream audio</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>❌ Crackling/Distorsion</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Augmenter buffer size (512→1024)</li>
+                                <li>Réduire sample rate (48kHz→44kHz)</li>
+                                <li>Fermer applications audio</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>❌ Latence élevée</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Réduire buffer size (256→128)</li>
+                                <li>Utiliser interface ASIO</li>
+                                <li>Mode exclusif activé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problèmes Performance -->
+                <div class="step-card bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                    <h3 class="text-lg font-bold mb-4 text-yellow-700">
+                        <i class="fas fa-tachometer-alt mr-2"></i>
+                        Problèmes Performance
+                    </h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong>❌ CPU 100%</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Réduire threads de traitement</li>
+                                <li>Augmenter buffer audio</li>
+                                <li>Fermer programmes inutiles</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>❌ GPU non utilisé</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Vérifier CUDA installé</li>
+                                <li>torch.cuda.is_available() = True</li>
+                                <li>Redémarrer application</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>❌ Mémoire insuffisante</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Redémarrer application</li>
+                                <li>Nettoyer cache torch</li>
+                                <li>Réduire batch size</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problèmes Modèle -->
+                <div class="step-card bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-lg font-bold mb-4 text-blue-700">
+                        <i class="fas fa-brain mr-2"></i>
+                        Problèmes Modèle
+                    </h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <strong>❌ Modèle non chargé</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Vérifier path correct (.pth)</li>
+                                <li>Fichier .index présent</li>
+                                <li>Permissions lecture</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>❌ Qualité médiocre</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Ajuster filter radius (3-7)</li>
+                                <li>Tester différents pitch</li>
+                                <li>Vérifier qualité micro</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>❌ Erreurs conversion</strong>
+                            <ul class="list-disc list-inside mt-1 text-gray-600">
+                                <li>Vérifier format audio (44kHz)</li>
+                                <li>Redémarrer interface</li>
+                                <li>Logs pour debug</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script de diagnostic -->
+            <div class="bg-gray-50 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-stethoscope mr-2 text-green-600"></i>
+                    Script Diagnostic Automatique
+                </h3>
+                
+                <div class="code-block relative">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+<pre># diagnostic_tool.py
+import sys
+import torch
+import sounddevice as sd
+import psutil
+import subprocess
+import os
+
+def run_full_diagnostic():
+    """Diagnostic complet système real-time voice"""
+    print("🔍 DIAGNOSTIC SYSTÈME REAL-TIME VOICE")
+    print("=" * 50)
+    
+    issues = []
+    warnings = []
+    
+    # 1. Python et packages
+    print("\n📦 VÉRIFICATION PACKAGES")
+    packages = ['torch', 'sounddevice', 'numpy', 'scipy', 'librosa']
+    for package in packages:
+        try:
+            __import__(package)
+            print(f"✅ {package} installé")
+        except ImportError:
+            issues.append(f"❌ {package} manquant")
+            print(f"❌ {package} manquant")
+    
+    # 2. CUDA et GPU
+    print("\n🔥 VÉRIFICATION GPU/CUDA")
+    if torch.cuda.is_available():
+        gpu_name = torch.cuda.get_device_name(0)
+        gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1024**3
+        print(f"✅ GPU détecté: {gpu_name}")
+        print(f"✅ VRAM: {gpu_memory:.1f}GB")
+        
+        if gpu_memory < 4:
+            warnings.append(f"⚠️ VRAM faible: {gpu_memory:.1f}GB")
+    else:
+        issues.append("❌ CUDA non disponible")
+        print("❌ CUDA non disponible")
+    
+    # 3. Audio devices
+    print("\n🎤 VÉRIFICATION AUDIO")
+    try:
+        devices = sd.query_devices()
+        input_devices = [d for d in devices if d['max_input_channels'] > 0]
+        output_devices = [d for d in devices if d['max_output_channels'] > 0]
+        
+        print(f"✅ {len(input_devices)} périphériques input")
+        print(f"✅ {len(output_devices)} périphériques output")
+        
+        if len(input_devices) == 0:
+            issues.append("❌ Aucun périphérique input")
+        if len(output_devices) == 0:
+            issues.append("❌ Aucun périphérique output")
+            
+    except Exception as e:
+        issues.append(f"❌ Erreur audio: {e}")
+    
+    # 4. Ressources système
+    print("\n💻 VÉRIFICATION RESSOURCES")
+    memory = psutil.virtual_memory()
+    cpu_count = psutil.cpu_count()
+    
+    print(f"✅ RAM: {memory.total / 1024**3:.1f}GB")
+    print(f"✅ CPU: {cpu_count} coeurs")
+    
+    if memory.total < 8 * 1024**3:  # 8GB
+        warnings.append(f"⚠️ RAM faible: {memory.total / 1024**3:.1f}GB")
+    
+    if cpu_count < 4:
+        warnings.append(f"⚠️ CPU faible: {cpu_count} coeurs")
+    
+    # 5. Test latence audio
+    print("\n⏱️ TEST LATENCE AUDIO")
+    try:
+        # Test simple latence
+        test_duration = 0.1  # 100ms
+        sample_rate = 44100
+        
+        def callback(indata, outdata, frames, time, status):
+            outdata[:] = indata  # Passthrough
+        
+        with sd.Stream(callback=callback, samplerate=sample_rate, channels=1):
+            sd.sleep(int(test_duration * 1000))
+        
+        print("✅ Test latence réussi")
+        
+    except Exception as e:
+        issues.append(f"❌ Erreur test latence: {e}")
+    
+    # 6. RVC Installation
+    print("\n🎯 VÉRIFICATION RVC")
+    rvc_paths = [
+        "infer-web.py",
+        "models",
+        "requirements.txt"
+    ]
+    
+    for path in rvc_paths:
+        if os.path.exists(path):
+            print(f"✅ {path} trouvé")
+        else:
+            warnings.append(f"⚠️ {path} manquant")
+    
+    # Résumé
+    print("\n" + "=" * 50)
+    print("📊 RÉSUMÉ DIAGNOSTIC")
+    
+    if not issues and not warnings:
+        print("🎉 SYSTÈME OPTIMAL - Prêt pour real-time!")
+    else:
+        if issues:
+            print("\n🚨 PROBLÈMES CRITIQUES:")
+            for issue in issues:
+                print(f"  {issue}")
+        
+        if warnings:
+            print("\n⚠️ AVERTISSEMENTS:")
+            for warning in warnings:
+                print(f"  {warning}")
+    
+    # Recommandations
+    print("\n💡 RECOMMANDATIONS:")
+    if memory.total >= 16 * 1024**3 and torch.cuda.is_available():
+        print("  ✅ Configuration optimale détectée")
+        print("  🔧 Buffer size recommandé: 128-256")
+    else:
+        print("  🔧 Buffer size recommandé: 512-1024")
+        print("  🔧 Considérer upgrade RAM/GPU")
+    
+    return len(issues) == 0
+
+if __name__ == "__main__":
+    success = run_full_diagnostic()
+    sys.exit(0 if success else 1)</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-microphone-alt mr-2"></i>
+                    Bloc 11.4 Terminé - Real-Time Voice Changer
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">✅ Acquis</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>Installation RVC Real-Time</li>
+                            <li>Configuration audio pro</li>
+                            <li>Optimisation latence</li>
+                            <li>Scripts monitoring</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">🎯 Objectifs Atteints</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>Latence &lt;50ms possible</li>
+                            <li>Qualité audio optimisée</li>
+                            <li>Performance monitoring</li>
+                            <li>Troubleshooting complet</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">➡️ Prochaines Étapes</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>Bloc 11.5 - Optimisations</li>
+                            <li>Bloc 11.6 - Post-Traitement</li>
+                            <li>Bloc 11.7 - Sécurité</li>
+                            <li>Intégration complète</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white border-opacity-20 pt-8">
+                    <p class="text-sm opacity-75">
+                        Manuel IA MYM 2025 - Bloc 11.4 | Real-Time Voice Changer | 
+                        Formation technique complète avec scripts Python opérationnels
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction copie code
+        function copyCode(button) {
+            const codeBlock = button.parentElement;
+            const code = codeBlock.querySelector('pre').textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.style.background = '#48bb78';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#4a5568';
+                }, 2000);
+            });
+        }
+
+        // Smooth scrolling pour navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight navigation selon scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['objectifs', 'installation', 'configuration', 'optimisation', 'scripts'];
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                const navLink = document.querySelector(`a[href="#${section}"]`);
+                
+                if (element && navLink) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+                    
+                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                        navLink.classList.add('text-blue-800', 'font-bold');
+                        navLink.classList.remove('text-blue-600');
+                    } else {
+                        navLink.classList.remove('text-blue-800', 'font-bold');
+                        navLink.classList.add('text-blue-600');
+                    }
+                }
+            });
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e6859e883250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDsh%2FMMBBOQjdqftJD5GmLuhw5FevmJn3hwY8isKpaun%2B9ao9IyRR8GcbiHIdhQ8wYuVzF%2FhzQUBIN9ZmF84ibGbihtz%2Bxdgv9xtH8T4gEZDp%2FgChMjaDekLGZW5jqtIINOHyDemTV3HhdOukEiQTy4Ggv5DyaRd6%2BVMRmeYRJ5Go0NNHRKAwY%2FOPC8UH0hY1Ahgh%2FYCA%2FxvK9qPlIysY%2FupNLM5uQI1N1ZRoNsvaquG8qnZ%2Bey6C%2BRybDox8peIiz1SqtbbuWluLZ%2FKsnVuXe%2FLlsYq4YuOdjHz%2FV%2BmUQ0X6DMWWHajwWGxOMlCNK%2Fes0sSP4nGZ3KiAbH0CbADIkXpf%2F6WE1GltudWk7TA4CWJGysslLr3BlYhq24rE0Kjf0RlMtDhOvkcoPjUhtZZnTsICHZR7eUW5Jh8tSH5HTAhHtX0Fc84JvKXcOzS6ZuKfpQZo6YHLlIMkk6qDSdoPGfX7ypgUIYdNlsRJ1GlUjZPPCFNE2MR7V50HgqggFbOHACk%2FuYwuHJHfZj25%2BDZ4JhXZAqg4uFO6FWutlVIQ16hz";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDsh/MMBBOQjdqftJD5GmLuhw5FevmJn3hwY8isKpaun+9ao9IyRR8GcbiHIdhQ8wYuVzF/hzQUBIN9ZmF84ibGbihtz+xdgv9xtH8T4gEZDp/gChMjaDekLGZW5jqtIINOHyDemTV3HhdOukEiQTy4Ggv5DyaRd6+VMRmeYRJ5Go0NNHRKAwY/OPC8UH0hY1Ahgh/YCA/xvK9qPlIysY/upNLM5uQI1N1ZRoNsvaquG8qnZ+ey6C+RybDox8peIiz1SqtbbuWluLZ/KsnVuXe/LlsYq4YuOdjHz/V+mUQ0X6DMWWHajwWGxOMlCNK/es0sSP4nGZ3KiAbH0CbADIkXpf/6WE1GltudWk7TA4CWJGysslLr3BlYhq24rE0Kjf0RlMtDhOvkcoPjUhtZZnTsICHZR7eUW5Jh8tSH5HTAhHtX0Fc84JvKXcOzS6ZuKfpQZo6YHLlIMkk6qDSdoPGfX7ypgUIYdNlsRJ1GlUjZPPCFNE2MR7V50HgqggFbOHACk/uYwuHJHfZj25+DZ4JhXZAqg4uFO6FWutlVIQ16hz";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

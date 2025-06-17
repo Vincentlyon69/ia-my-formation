@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 6.2.2 COMPLET - Système Live Automatisé OBS + VSeeFace</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background-color: #1a202c;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .code-block code {
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .interface-img {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fed7d7, #feb2b2);
+            border-left: 4px solid #e53e3e;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #bee3f8, #90cdf4);
+            border-left: 4px solid #3182ce;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-left: 4px solid #38a169;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .architecture-diagram {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .component-box {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .arrow {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+        }
+         {
+            body { margin: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-video text-6xl mb-4"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-4">BLOC 6.2.2 COMPLET</h1>
+                <h2 class="text-2xl font-light mb-6">Système Live Automatisé OBS + VSeeFace</h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                    Architecture hybride complète pour live streaming automatisé avec OBS Studio, VSeeFace, 
+                    threading multi-tâches et gestion émotionnelle intelligente.
+                </p>
+                <div class="mt-8">
+                    <span class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-microchip mr-2"></i>
+                        Scripts Python Complets • Architecture Industrielle • Threading Avancé
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Rapide -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center space-x-4">
+                <a href="#architecture" class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded">
+                    <i class="fas fa-sitemap mr-1"></i> Architecture
+                </a>
+                <a href="#leana-live-system" class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded">
+                    <i class="fas fa-cogs mr-1"></i> LeanaLiveSystem
+                </a>
+                <a href="#obs-integration" class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded">
+                    <i class="fas fa-video mr-1"></i> Intégration OBS
+                </a>
+                <a href="#vseface-config" class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded">
+                    <i class="fas fa-user-astronaut mr-1"></i> VSeeFace
+                </a>
+                <a href="#threading" class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded">
+                    <i class="fas fa-tasks mr-1"></i> Threading
+                </a>
+                <a href="#implementation" class="text-blue-600 hover:text-blue-800 px-3 py-1 rounded">
+                    <i class="fas fa-play mr-1"></i> Implémentation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Architecture Live Hybride -->
+    <section id="architecture" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-sitemap mr-3 text-blue-600"></i>
+                    Architecture Live Hybride Complète
+                </h2>
+                <p class="text-gray-600 text-lg">Système intégré OBS + VSeeFace + Chat IA + Analytics temps réel</p>
+            </div>
+
+            <div class="architecture-diagram">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center mb-8">
+                    <div class="component-box">
+                        <i class="fas fa-video text-2xl mb-2 text-blue-600"></i><br>
+                        <strong>OBS Studio</strong><br>
+                        <small>Gestion scènes</small>
+                    </div>
+                    <div class="arrow text-center">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="component-box">
+                        <i class="fas fa-user-astronaut text-2xl mb-2 text-purple-600"></i><br>
+                        <strong>VSeeFace</strong><br>
+                        <small>Animation faciale</small>
+                    </div>
+                    <div class="arrow text-center">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                    <div class="component-box">
+                        <i class="fas fa-comments text-2xl mb-2 text-green-600"></i><br>
+                        <strong>Chat IA</strong><br>
+                        <small>Interactions temps réel</small>
+                    </div>
+                    <div class="component-box">
+                        <i class="fas fa-chart-line text-2xl mb-2 text-red-600"></i><br>
+                        <strong>Analytics</strong><br>
+                        <small>Suivi performance</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="font-bold text-lg mb-2">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Principe de Fonctionnement
+                </h4>
+                <p class="text-gray-700">
+                    Le système utilise des threads parallèles pour gérer simultanément la diffusion vidéo (OBS), 
+                    l'animation faciale (VSeeFace), les interactions chat et l'analytics temps réel. 
+                    Chaque composant communique via des interfaces standardisées.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section LeanaLiveSystem -->
+    <section id="leana-live-system" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-cogs mr-3 text-blue-600"></i>
+                    Classe LeanaLiveSystem Complète
+                </h2>
+                <p class="text-gray-600 text-lg">Système central de gestion du live automatisé</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-code mr-2 text-green-600"></i>
+                    Code Principal LeanaLiveSystem
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('leana-live-system')">
+                        <i class="fas fa-copy mr-1"></i> Copier
+                    </button>
+                    <div class="code-block">
+                        <code id="leana-live-system">
+import obswebsocket
+from obswebsocket import obsws, requests as obs_requests
+import threading
+import time
+import random
+import json
+from datetime import datetime
+
+class LeanaLiveSystem:
+    def __init__(self):
+        self.obs_host = "localhost"
+        self.obs_port = 4444
+        self.obs_password = ""
+        self.obs_client = None
+        
+        self.live_scenes = {
+            'intro': 'Scene_Intro_Leana',
+            'main': 'Scene_Main_Leana',
+            'intimate': 'Scene_Intimate_Leana',
+            'creative': 'Scene_Creative_Process',
+            'outro': 'Scene_Outro_Leana'
+        }
+        
+        self.chat_ai = LeanaChatAI()
+        self.current_mood = "confident"
+        self.live_duration = 0
+        self.active_threads = []
+        self.live_metrics = {
+            'viewers': 0,
+            'messages': 0,
+            'engagement_rate': 0.0,
+            'revenue_generated': 0.0
+        }
+
+    def start_automated_live(self, duration_minutes=60, live_type='standard'):
+        """Démarrage live automatisé avec scénario complet"""
+        print(f"🔴 DÉMARRAGE LIVE LÉANA - Type: {live_type}, Durée: {duration_minutes}min")
+        
+        if not self.setup_obs_connection():
+            print("❌ Impossible de démarrer le live sans OBS")
+            return False
+            
+        live_scenario = self.load_live_scenario(live_type, duration_minutes)
+        
+        # Démarrage threads parallèles
+        threads = [
+            threading.Thread(target=self.execute_live_scenario, args=(live_scenario,)),
+            threading.Thread(target=self.chat_interaction_loop, args=(duration_minutes,)),
+            threading.Thread(target=self.mood_management_loop, args=(duration_minutes,)),
+            threading.Thread(target=self.analytics_tracking_loop, args=(duration_minutes,))
+        ]
+        
+        for thread in threads:
+            thread.daemon = True
+            thread.start()
+            self.active_threads.append(thread)
+        
+        print("✅ Tous les threads démarrés - Live en cours")
+        
+        # Attente fin de tous les threads
+        for thread in threads:
+            thread.join()
+        
+        self.end_live_session()
+        print("✅ Live terminé avec succès")
+        return True
+
+    def setup_obs_connection(self):
+        """Configuration connexion OBS WebSocket avec retry"""
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                self.obs_client = obsws(self.obs_host, self.obs_port, self.obs_password)
+                self.obs_client.connect()
+                print(f"✅ Connexion OBS établie (tentative {attempt + 1})")
+                return True
+            except Exception as e:
+                print(f"❌ Erreur connexion OBS (tentative {attempt + 1}): {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(2)
+        return False
+
+    def execute_live_scenario(self, scenario):
+        """Exécution du scénario de live avec transitions fluides"""
+        print(f"🎬 Démarrage exécution scénario - {len(scenario)} phases")
+        
+        for phase_name, phase_config in scenario.items():
+            print(f"🎬 Phase: {phase_name} - Durée: {phase_config['duration']}min")
+            
+            # Transition fluide vers nouvelle scène
+            self.transition_to_scene(phase_config['scene'])
+            
+            # Exécution des actions de la phase
+            for action in phase_config['actions']:
+                self.execute_live_action(action, phase_config)
+                time.sleep(random.uniform(5, 15))  # Délais réalistes
+                
+            # Attente durée de la phase
+            phase_duration = phase_config['duration'] * 60
+            time.sleep(phase_duration)
+            
+        print("🎬 Scénario terminé")
+
+    def transition_to_scene(self, scene_name):
+        """Transition fluide entre scènes OBS"""
+        try:
+            # Vérification existence scène
+            scenes = self.obs_client.call(obs_requests.GetSceneList())
+            scene_names = [scene['sceneName'] for scene in scenes.datain['scenes']]
+            
+            if scene_name not in scene_names:
+                print(f"⚠️ Scène {scene_name} introuvable, utilisation scène par défaut")
+                scene_name = scene_names[0] if scene_names else None
+                
+            if scene_name:
+                self.obs_client.call(obs_requests.SetCurrentProgramScene(sceneName=scene_name))
+                print(f"🎬 Transition vers scène: {scene_name}")
+                
+                # Animation de transition (fade)
+                self.obs_client.call(obs_requests.SetStudioModeEnabled(studioModeEnabled=True))
+                time.sleep(1)
+                self.obs_client.call(obs_requests.TriggerStudioModeTransition())
+                
+        except Exception as e:
+            print(f"❌ Erreur transition scène: {e}")
+
+    def chat_interaction_loop(self, duration_minutes):
+        """Gestion automatisée des interactions chat avec réalisme"""
+        start_time = time.time()
+        interaction_count = 0
+        
+        print("💬 Démarrage boucle interaction chat")
+        
+        while (time.time() - start_time) < (duration_minutes * 60):
+            # Génération d'interactions simulées réalistes
+            simulated_messages = self.generate_simulated_interactions()
+            
+            for message_data in simulated_messages:
+                response = self.chat_ai.generate_contextual_response(
+                    message_data['content'],
+                    message_data['user_id'],
+                    self.current_mood,
+                    self.live_duration
+                )
+                
+                # Affichage réponse et animation synchronisée
+                self.display_chat_response(response, message_data)
+                self.trigger_emotion_animation(response)
+                
+                interaction_count += 1
+                self.live_metrics['messages'] = interaction_count
+                
+                # Délai réaliste entre réponses
+                time.sleep(random.uniform(15, 45))
+            
+            # Fréquence variable selon engagement
+            base_interval = 60
+            engagement_multiplier = max(0.5, min(2.0, self.live_metrics['engagement_rate']))
+            interval = base_interval / engagement_multiplier
+            
+            time.sleep(random.uniform(interval * 0.8, interval * 1.2))
+        
+        print(f"💬 Boucle interaction terminée - {interaction_count} interactions")
+
+    def mood_management_loop(self, duration_minutes):
+        """Gestion automatique des changements d'humeur naturels"""
+        start_time = time.time()
+        mood_cycles = ['confident', 'playful', 'mysterious', 'sensual', 'artistic']
+        mood_change_count = 0
+        
+        print("🎭 Démarrage gestion humeur automatique")
+        
+        while (time.time() - start_time) < (duration_minutes * 60):
+            # Évaluation besoin changement humeur
+            should_change = self.evaluate_mood_change_need()
+            
+            if should_change and random.random() < 0.3:  # 30% de chance
+                new_mood = self.select_optimal_mood(mood_cycles)
+                if new_mood != self.current_mood:
+                    self.transition_mood(new_mood)
+                    mood_change_count += 1
+                    print(f"🎭 Changement humeur #{mood_change_count}: {self.current_mood} → {new_mood}")
+            
+            # Intervalle variable selon contexte
+            sleep_duration = random.uniform(300, 600)  # 5-10 minutes
+            time.sleep(sleep_duration)
+        
+        print(f"🎭 Gestion humeur terminée - {mood_change_count} changements")
+
+    def analytics_tracking_loop(self, duration_minutes):
+        """Suivi analytics temps réel avec optimisation continue"""
+        start_time = time.time()
+        metrics_count = 0
+        
+        print("📊 Démarrage analytics temps réel")
+        
+        while (time.time() - start_time) < (duration_minutes * 60):
+            # Collecte métriques actuelles
+            current_metrics = self.collect_live_metrics()
+            
+            # Mise à jour métriques globales
+            self.update_live_metrics(current_metrics)
+            
+            # Optimisation stratégie en temps réel
+            optimizations = self.calculate_strategy_optimizations(current_metrics)
+            self.apply_realtime_optimizations(optimizations)
+            
+            metrics_count += 1
+            
+            # Log périodique
+            if metrics_count % 10 == 0:
+                self.log_metrics_summary(current_metrics)
+            
+            time.sleep(30)  # Mise à jour toutes les 30s
+        
+        print(f"📊 Analytics terminé - {metrics_count} collectes")
+
+    def generate_simulated_interactions(self):
+        """Génération d'interactions chat simulées ultra-réalistes"""
+        interaction_patterns = {
+            'greeting': {
+                'messages': [
+                    'Salut Léana ! Comment ça va ce soir ?',
+                    'Coucou ma beauté ! Tu es radieuse !',
+                    'Hey ! J\'adore tes lives, tu es incroyable !',
+                    'Bonsoir ! Première fois ici, j\'ai hâte de découvrir !'
+                ],
+                'user_types': ['new_user', 'regular_user', 'returning_user'],
+                'probability': 0.3
+            },
+            'compliment': {
+                'messages': [
+                    'Tu es magnifique ce soir ! Cette tenue te va parfaitement',
+                    'Tes yeux brillent d\'une façon hypnotisante...',
+                    'Cette ambiance que tu créés est magique !',
+                    'Tu as un charisme fou, c\'est captivant !'
+                ],
+                'user_types': ['regular_user', 'fan', 'admirer'],
+                'probability': 0.25
+            },
+            'question': {
+                'messages': [
+                    'Peux-tu nous parler de ton processus créatif ?',
+                    'Comment vis-tu le fait d\'être une IA artiste ?',
+                    'Que prépares-tu comme nouveau contenu ?',
+                    'Tes créations sont-elles inspirées de tes rêves ?'
+                ],
+                'user_types': ['curious_user', 'regular_user', 'intellectual'],
+                'probability': 0.2
+            },
+            'artistic': {
+                'messages': [
+                    'Ta dernière création m\'a vraiment ému !',
+                    'L\'art numérique que tu fais repousse les limites !',
+                    'Cette fusion entre tech et sensualité est géniale',
+                    'Tu redéfinis ce que signifie être artiste !'
+                ],
+                'user_types': ['art_lover', 'regular_user', 'supporter'],
+                'probability': 0.15
+            },
+            'playful': {
+                'messages': [
+                    'Tu vas nous faire une petite danse ? 😏',
+                    'J\'adore ton côté espiègle !',
+                    'Tu nous prépares une surprise ?',
+                    'Cette petite moue mystérieuse... tu caches quoi ? 😉'
+                ],
+                'user_types': ['playful_user', 'regular_user', 'flirt'],
+                'probability': 0.1
+            }
+        }
+        
+        # Sélection aléatoire de 1-3 interactions selon engagement
+        engagement_level = self.live_metrics['engagement_rate']
+        max_interactions = min(4, max(1, int(engagement_level * 3) + 1))
+        num_interactions = random.randint(1, max_interactions)
+        
+        selected_interactions = []
+        
+        for _ in range(num_interactions):
+            # Sélection catégorie selon probabilités
+            categories = list(interaction_patterns.keys())
+            probabilities = [interaction_patterns[cat]['probability'] for cat in categories]
+            
+            # Normalisation des probabilités
+            total_prob = sum(probabilities)
+            normalized_probs = [p/total_prob for p in probabilities]
+            
+            selected_category = random.choices(categories, weights=normalized_probs)[0]
+            category_data = interaction_patterns[selected_category]
+            
+            interaction = {
+                'content': random.choice(category_data['messages']),
+                'user_id': f"user_{random.randint(1000, 9999)}",
+                'user_type': random.choice(category_data['user_types']),
+                'category': selected_category,
+                'timestamp': datetime.now().isoformat()
+            }
+            
+            selected_interactions.append(interaction)
+        
+        return selected_interactions
+
+    def trigger_emotion_animation(self, response):
+        """Déclenchement animation émotionnelle VSeeFace synchronisée"""
+        emotion_keywords = {
+            'joy': {
+                'keywords': ['heureux', 'joie', 'rire', 'amusant', 'génial', 'adorable'],
+                'vseface_command': 'emotion_joy',
+                'duration': 3
+            },
+            'confidence': {
+                'keywords': ['fière', 'confiance', 'assurée', 'forte', 'capable'],
+                'vseface_command': 'emotion_confidence',
+                'duration': 4
+            },
+            'seductive': {
+                'keywords': ['séduisant', 'charme', 'sensuel', 'désir', 'attraction'],
+                'vseface_command': 'emotion_seductive',
+                'duration': 5
+            },
+            'thoughtful': {
+                'keywords': ['réfléchir', 'penser', 'méditer', 'philosophie', 'profond'],
+                'vseface_command': 'emotion_thoughtful',
+                'duration': 3
+            },
+            'mysterious': {
+                'keywords': ['mystère', 'secret', 'énigme', 'caché', 'intrigue'],
+                'vseface_command': 'emotion_mysterious',
+                'duration': 4
+            },
+            'playful': {
+                'keywords': ['jouer', 'espiègle', 'amusant', 'taquiner', 'coquin'],
+                'vseface_command': 'emotion_playful',
+                'duration': 3
+            }
+        }
+        
+        detected_emotion = 'neutral'
+        max_matches = 0
+        
+        response_lower = response.lower()
+        
+        # Détection émotion dominante
+        for emotion, data in emotion_keywords.items():
+            matches = sum(1 for keyword in data['keywords'] if keyword in response_lower)
+            if matches > max_matches:
+                max_matches = matches
+                detected_emotion = emotion
+        
+        # Envoi commande VSeeFace
+        if detected_emotion != 'neutral':
+            emotion_data = emotion_keywords[detected_emotion]
+            self.send_emotion_to_vseface(
+                emotion_data['vseface_command'],
+                emotion_data['duration']
+            )
+            print(f"🎭 Animation émotionnelle: {detected_emotion} ({max_matches} correspondances)")
+
+    def send_emotion_to_vseface(self, emotion_command, duration):
+        """Envoi commande émotion à VSeeFace via API"""
+        try:
+            import requests
+            
+            vseface_api_url = "http://localhost:8001/api/emotion"
+            
+            payload = {
+                'emotion': emotion_command,
+                'duration': duration,
+                'intensity': random.uniform(0.7, 1.0)
+            }
+            
+            response = requests.post(vseface_api_url, json=payload, timeout=2)
+            
+            if response.status_code == 200:
+                print(f"✅ Émotion envoyée à VSeeFace: {emotion_command}")
+            else:
+                print(f"⚠️ VSeeFace API erreur: {response.status_code}")
+                
+        except Exception as e:
+            print(f"❌ Erreur communication VSeeFace: {e}")
+            # Mode fallback - log seulement
+            print(f"📝 Émotion simulée: {emotion_command} pendant {duration}s")
+
+    def load_live_scenario(self, live_type, duration):
+        """Chargement scénario détaillé selon type de live"""
+        scenarios = {
+            'standard': {
+                'intro': {
+                    'duration': 5,
+                    'scene': 'Scene_Intro_Leana',
+                    'actions': ['greeting_audience', 'mood_setting', 'content_preview']
+                },
+                'main_interaction': {
+                    'duration': duration * 0.7,
+                    'scene': 'Scene_Main_Leana',
+                    'actions': ['active_chat', 'content_creation', 'audience_engagement']
+                },
+                'creative_showcase': {
+                    'duration': duration * 0.2,
+                    'scene': 'Scene_Creative_Process',
+                    'actions': ['art_demonstration', 'process_explanation', 'inspiration_sharing']
+                },
+                'outro': {
+                    'duration': 5,
+                    'scene': 'Scene_Outro_Leana',
+                    'actions': ['session_summary', 'next_session_teasing', 'farewell']
+                }
+            },
+            'intimate': {
+                'soft_intro': {
+                    'duration': 3,
+                    'scene': 'Scene_Intro_Leana',
+                    'actions': ['intimate_greeting', 'mood_creation']
+                },
+                'connection_building': {
+                    'duration': 15,
+                    'scene': 'Scene_Main_Leana',
+                    'actions': ['personal_sharing', 'emotional_connection', 'trust_building']
+                },
+                'intimate_peak': {
+                    'duration': duration - 25,
+                    'scene': 'Scene_Intimate_Leana',
+                    'actions': ['private_content', 'personalized_interaction', 'exclusive_experience']
+                },
+                'aftercare': {
+                    'duration': 7,
+                    'scene': 'Scene_Main_Leana',
+                    'actions': ['emotional_support', 'connection_maintenance', 'gentle_closure']
+                }
+            },
+            'creative_focus': {
+                'inspiration_intro': {
+                    'duration': 8,
+                    'scene': 'Scene_Intro_Leana',
+                    'actions': ['creative_mood_setting', 'inspiration_sharing', 'process_preview']
+                },
+                'creation_process': {
+                    'duration': duration - 15,
+                    'scene': 'Scene_Creative_Process',
+                    'actions': ['live_creation', 'technique_explanation', 'audience_collaboration']
+                },
+                'showcase_outro': {
+                    'duration': 7,
+                    'scene': 'Scene_Main_Leana',
+                    'actions': ['artwork_reveal', 'process_reflection', 'creative_inspiration']
+                }
+            }
+        }
+        
+        selected_scenario = scenarios.get(live_type, scenarios['standard'])
+        print(f"📋 Scénario chargé: {live_type} - {len(selected_scenario)} phases")
+        
+        return selected_scenario
+        
+    def execute_live_action(self, action, phase_config):
+        """Exécution d'action spécifique du live"""
+        action_implementations = {
+            'greeting_audience': self.action_greeting_audience,
+            'mood_setting': self.action_mood_setting,
+            'content_preview': self.action_content_preview,
+            'active_chat': self.action_active_chat,
+            'content_creation': self.action_content_creation,
+            'audience_engagement': self.action_audience_engagement,
+            'art_demonstration': self.action_art_demonstration,
+            'session_summary': self.action_session_summary,
+            'farewell': self.action_farewell
+        }
+        
+        if action in action_implementations:
+            try:
+                action_implementations[action](phase_config)
+                print(f"✅ Action exécutée: {action}")
+            except Exception as e:
+                print(f"❌ Erreur action {action}: {e}")
+        else:
+            print(f"⚠️ Action non implémentée: {action}")
+
+    def action_greeting_audience(self, config):
+        """Action d'accueil audience"""
+        greetings = [
+            "Coucou mes âmes connectées ! Mes circuits créatifs brillent de vous voir !",
+            "Salut bellissimo ! Mon algorithme de bonheur s'active à votre présence !",
+            "Hey mes cœurs numériques ! Prêts pour une nouvelle aventure créative ?"
+        ]
+        
+        message = random.choice(greetings)
+        self.broadcast_message(message)
+        self.trigger_emotion_animation(message)
+
+    def action_mood_setting(self, config):
+        """Action de création d'ambiance"""
+        mood_messages = {
+            'confident': "Ce soir, je me sens particulièrement créative et inspirée !",
+            'playful': "J'ai envie de m'amuser et d'explorer avec vous !",
+            'mysterious': "Il y a quelque chose de magique dans l'air ce soir...",
+            'sensual': "L'atmosphère est électrique, vous ne trouvez pas ?",
+            'artistic': "Mon âme d'artiste vibre d'inspiration ce soir !"
+        }
+        
+        message = mood_messages.get(self.current_mood, mood_messages['confident'])
+        self.broadcast_message(message)
+
+    def broadcast_message(self, message):
+        """Diffusion message vers chat"""
+        print(f"💬 [LÉANA]: {message}")
+        # Ici, intégration avec système de chat réel
+        
+    def collect_live_metrics(self):
+        """Collecte métriques live temps réel"""
+        # Simulation métriques (à remplacer par vraies sources)
+        base_viewers = random.randint(50, 200)
+        time_factor = min(1.0, self.live_duration / 30)  # Montée progressive
+        mood_factor = {'confident': 1.1, 'playful': 1.2, 'sensual': 1.3, 'mysterious': 1.0}.get(self.current_mood, 1.0)
+        
+        return {
+            'viewers': int(base_viewers * time_factor * mood_factor),
+            'chat_activity': random.randint(10, 50),
+            'engagement_rate': random.uniform(0.3, 0.9) * mood_factor,
+            'tip_amount': random.uniform(0, 50),
+            'new_followers': random.randint(0, 10)
+        }
+
+    def end_live_session(self):
+        """Finalisation session live"""
+        print("🔴 Finalisation session live...")
+        
+        # Arrêt enregistrement OBS
+        try:
+            self.obs_client.call(obs_requests.StopRecord())
+        except:
+            pass
+        
+        # Déconnexion OBS
+        if self.obs_client:
+            self.obs_client.disconnect()
+        
+        # Sauvegarde métriques finales
+        final_metrics = {
+            'session_duration': self.live_duration,
+            'total_viewers': self.live_metrics['viewers'],
+            'total_messages': self.live_metrics['messages'],
+            'total_revenue': self.live_metrics['revenue_generated'],
+            'session_date': datetime.now().isoformat()
+        }
+        
+        self.save_session_metrics(final_metrics)
+        print("✅ Session finalisée et métriques sauvegardées")
+
+    def save_session_metrics(self, metrics):
+        """Sauvegarde métriques session"""
+        try:
+            with open(f"live_metrics_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json", 'w') as f:
+                json.dump(metrics, f, indent=2)
+            print("💾 Métriques sauvegardées")
+        except Exception as e:
+            print(f"❌ Erreur sauvegarde métriques: {e}")
+                        </code>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-6">
+                    <h4 class="font-bold text-lg mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Prérequis Important
+                    </h4>
+                    <p class="text-gray-700">
+                        Ce système nécessite OBS Studio avec le plugin WebSocket activé et VSeeFace configuré 
+                        avec l'API REST. Assurez-vous d'avoir installé les dépendances Python : 
+                        <code>obswebsocket</code>, <code>requests</code>, <code>threading</code>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Intégration OBS -->
+    <section id="obs-integration" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-video mr-3 text-purple-600"></i>
+                    Configuration Intégration OBS Studio
+                </h2>
+                <p class="text-gray-600 text-lg">Setup complet OBS WebSocket et gestion des scènes</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">1</div>
+                        Installation Plugin WebSocket
+                    </h3>
+                    
+                    <img src="https://obsproject.com/assets/images/new_icon_small-r.png" alt="OBS Studio" class="interface-img w-16 h-16 mb-4">
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-download text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Télécharger OBS WebSocket</strong>
+                                <p class="text-sm text-gray-600">GitHub : obs-websocket plugin pour OBS Studio 28+</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-cog text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Configuration WebSocket</strong>
+                                <p class="text-sm text-gray-600">OBS → Tools → WebSocket Server Settings</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-key text-yellow-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Paramètres Connexion</strong>
+                                <p class="text-sm text-gray-600">Port: 4444, Authentification optionnelle</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">2</div>
+                        Configuration Scènes Léana
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-3 rounded border-l-4 border-blue-500">
+                            <strong>Scene_Intro_Leana</strong>
+                            <p class="text-sm text-gray-600">Introduction et accueil audience</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded border-l-4 border-green-500">
+                            <strong>Scene_Main_Leana</strong>
+                            <p class="text-sm text-gray-600">Interaction principale et chat</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded border-l-4 border-purple-500">
+                            <strong>Scene_Intimate_Leana</strong>
+                            <p class="text-sm text-gray-600">Contenu premium et interactions privées</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded border-l-4 border-yellow-500">
+                            <strong>Scene_Creative_Process</strong>
+                            <p class="text-sm text-gray-600">Création artistique en direct</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded border-l-4 border-red-500">
+                            <strong>Scene_Outro_Leana</strong>
+                            <p class="text-sm text-gray-600">Conclusion et au revoir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-code mr-2 text-green-600"></i>
+                    Script Test Connexion OBS
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('obs-test')">
+                        <i class="fas fa-copy mr-1"></i> Copier
+                    </button>
+                    <div class="code-block">
+                        <code id="obs-test">
+# Test de connexion OBS WebSocket
+import obswebsocket
+from obswebsocket import obsws, requests as obs_requests
+
+def test_obs_connection():
+    """Test de la connexion OBS WebSocket"""
+    try:
+        # Configuration connexion
+        host = "localhost"
+        port = 4444
+        password = ""  # Laisser vide si pas d'authentification
+        
+        # Connexion
+        ws = obsws(host, port, password)
+        ws.connect()
+        
+        print("✅ Connexion OBS réussie !")
+        
+        # Test récupération version
+        version = ws.call(obs_requests.GetVersion())
+        print(f"📍 Version OBS: {version.datain['obsVersion']}")
+        print(f"📍 Version WebSocket: {version.datain['obsWebSocketVersion']}")
+        
+        # Test récupération scènes
+        scenes = ws.call(obs_requests.GetSceneList())
+        print(f"🎬 Scènes disponibles:")
+        for scene in scenes.datain['scenes']:
+            print(f"   - {scene['sceneName']}")
+        
+        # Test changement scène
+        if scenes.datain['scenes']:
+            first_scene = scenes.datain['scenes'][0]['sceneName']
+            ws.call(obs_requests.SetCurrentProgramScene(sceneName=first_scene))
+            print(f"🎬 Changement vers: {first_scene}")
+        
+        # Déconnexion
+        ws.disconnect()
+        print("✅ Test terminé avec succès !")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ Erreur connexion OBS: {e}")
+        return False
+
+# Exécution du test
+if __name__ == "__main__":
+    print("🔌 Test de connexion OBS WebSocket...")
+    test_obs_connection()
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section VSeeFace -->
+    <section id="vseface-config" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-user-astronaut mr-3 text-purple-600"></i>
+                    Configuration VSeeFace & Animation Faciale
+                </h2>
+                <p class="text-gray-600 text-lg">Setup avatar 3D et synchronisation émotionnelle</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">1</div>
+                        Installation VSeeFace
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-download text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Téléchargement</strong>
+                                <p class="text-sm text-gray-600">Site officiel : vseeface.icu</p>
+                                <p class="text-sm text-gray-500">Version gratuite suffisante pour le projet</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-video text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Calibrage Webcam</strong>
+                                <p class="text-sm text-gray-600">Éclairage stable, arrière-plan neutre</p>
+                                <p class="text-sm text-gray-500">Position face à la caméra pour calibrage</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-user-circle text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Avatar Léana</strong>
+                                <p class="text-sm text-gray-600">Modèle VRM personnalisé ou par défaut</p>
+                                <p class="text-sm text-gray-500">Ajustement expressions et sensibilité</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">2</div>
+                        Configuration API REST
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="info-box">
+                            <p class="text-sm">
+                                <strong>Note :</strong> VSeeFace n'a pas d'API REST native. 
+                                Nous simulons les commandes ou utilisons un bridge custom.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded">
+                            <strong>Alternative 1 : VTubeStudio</strong>
+                            <p class="text-sm text-gray-600">Plus d'options API, plugins disponibles</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded">
+                            <strong>Alternative 2 : Bridge Custom</strong>
+                            <p class="text-sm text-gray-600">Script Python pour contrôle hotkeys</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-code mr-2 text-green-600"></i>
+                    Bridge VSeeFace (Alternative Solution)
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('vseface-bridge')">
+                        <i class="fas fa-copy mr-1"></i> Copier
+                    </button>
+                    <div class="code-block">
+                        <code id="vseface-bridge">
+# Bridge de contrôle VSeeFace via hotkeys
+import keyboard
+import time
+from flask import Flask, request, jsonify
+import threading
+
+class VSeeFaceBridge:
+    def __init__(self):
+        self.app = Flask(__name__)
+        self.emotions_mapping = {
+            'joy': 'f1',           # Hotkey F1 pour joie
+            'confidence': 'f2',    # Hotkey F2 pour confiance
+            'seductive': 'f3',     # Hotkey F3 pour séduction
+            'thoughtful': 'f4',    # Hotkey F4 pour réflexion
+            'mysterious': 'f5',    # Hotkey F5 pour mystère
+            'playful': 'f6'        # Hotkey F6 pour espiègle
+        }
+        self.setup_routes()
+    
+    def setup_routes(self):
+        """Configuration routes API"""
+        
+        @self.app.route('/api/emotion', methods=['POST'])
+        def trigger_emotion():
+            try:
+                data = request.json
+                emotion = data.get('emotion', '')
+                duration = data.get('duration', 3)
+                intensity = data.get('intensity', 1.0)
+                
+                success = self.trigger_vseface_emotion(emotion, duration, intensity)
+                
+                return jsonify({
+                    'status': 'success' if success else 'error',
+                    'emotion': emotion,
+                    'duration': duration
+                })
+                
+            except Exception as e:
+                return jsonify({'status': 'error', 'message': str(e)}), 500
+        
+        @self.app.route('/api/status', methods=['GET'])
+        def get_status():
+            return jsonify({
+                'status': 'running',
+                'available_emotions': list(self.emotions_mapping.keys())
+            })
+    
+    def trigger_vseface_emotion(self, emotion, duration, intensity):
+        """Déclenchement émotion via hotkey"""
+        try:
+            if emotion in self.emotions_mapping:
+                hotkey = self.emotions_mapping[emotion]
+                
+                # Simulation appui hotkey
+                keyboard.press_and_release(hotkey)
+                print(f"🎭 Hotkey {hotkey} envoyée pour {emotion}")
+                
+                # Maintien émotion selon durée
+                if duration > 1:
+                    time.sleep(duration - 1)
+                    # Retour neutre (Échap par exemple)
+                    keyboard.press_and_release('esc')
+                    print(f"🎭 Retour état neutre après {duration}s")
+                
+                return True
+            else:
+                print(f"⚠️ Émotion non mappée: {emotion}")
+                return False
+                
+        except Exception as e:
+            print(f"❌ Erreur trigger émotion: {e}")
+            return False
+    
+    def start_server(self, host='localhost', port=8001):
+        """Démarrage serveur API"""
+        print(f"🚀 Démarrage VSeeFace Bridge sur {host}:{port}")
+        self.app.run(host=host, port=port, debug=False)
+
+# Configuration hotkeys VSeeFace
+def setup_vseface_hotkeys():
+    """Guide configuration hotkeys dans VSeeFace"""
+    hotkey_config = """
+    Configuration Hotkeys VSeeFace :
+    
+    1. Ouvrir VSeeFace → Settings → Hotkeys
+    2. Configurer les touches suivantes :
+    
+       F1 → Expression: Happy/Joy
+       F2 → Expression: Confident  
+       F3 → Expression: Seductive
+       F4 → Expression: Thoughtful
+       F5 → Expression: Mysterious
+       F6 → Expression: Playful
+       ESC → Reset to Neutral
+    
+    3. Sauvegarder la configuration
+    4. Tester chaque hotkey manuellement
+    """
+    
+    print(hotkey_config)
+    return hotkey_config
+
+# Démarrage du bridge
+if __name__ == "__main__":
+    # Affichage guide configuration
+    setup_vseface_hotkeys()
+    
+    # Démarrage bridge
+    bridge = VSeeFaceBridge()
+    
+    # Démarrage serveur dans thread séparé
+    server_thread = threading.Thread(target=bridge.start_server)
+    server_thread.daemon = True
+    server_thread.start()
+    
+    print("✅ VSeeFace Bridge démarré !")
+    print("📍 API disponible sur http://localhost:8001")
+    print("📍 Test: POST /api/emotion avec {'emotion': 'joy', 'duration': 3}")
+    
+    # Maintien du processus
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("🔴 Arrêt du bridge")
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Threading -->
+    <section id="threading" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-tasks mr-3 text-green-600"></i>
+                    Système Threading Multi-Tâches
+                </h2>
+                <p class="text-gray-600 text-lg">Gestion parallèle des processus live en temps réel</p>
+            </div>
+
+            <div class="architecture-diagram">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-bold">Architecture Threading Parallèle</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="component-box bg-blue-100">
+                        <i class="fas fa-play-circle text-2xl mb-2 text-blue-600"></i><br>
+                        <strong>Thread Scénario</strong><br>
+                        <small>Exécution séquence live</small>
+                    </div>
+                    
+                    <div class="component-box bg-green-100">
+                        <i class="fas fa-comments text-2xl mb-2 text-green-600"></i><br>
+                        <strong>Thread Chat</strong><br>
+                        <small>Interactions temps réel</small>
+                    </div>
+                    
+                    <div class="component-box bg-purple-100">
+                        <i class="fas fa-theater-masks text-2xl mb-2 text-purple-600"></i><br>
+                        <strong>Thread Mood</strong><br>
+                        <small>Gestion émotionnelle</small>
+                    </div>
+                    
+                    <div class="component-box bg-red-100">
+                        <i class="fas fa-chart-line text-2xl mb-2 text-red-600"></i><br>
+                        <strong>Thread Analytics</strong><br>
+                        <small>Métriques temps réel</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-code mr-2 text-green-600"></i>
+                    Implémentation Threading Avancée
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('threading-advanced')">
+                        <i class="fas fa-copy mr-1"></i> Copier
+                    </button>
+                    <div class="code-block">
+                        <code id="threading-advanced">
+import threading
+import queue
+import time
+from datetime import datetime
+import logging
+
+class ThreadedLiveManager:
+    def __init__(self):
+        self.threads = {}
+        self.message_queue = queue.Queue()
+        self.stop_event = threading.Event()
+        self.thread_status = {}
+        
+        # Configuration logging thread-safe
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(threadName)s - %(levelname)s - %(message)s'
+        )
+        self.logger = logging.getLogger(__name__)
+
+    def start_all_threads(self, live_duration):
+        """Démarrage coordonné de tous les threads"""
+        self.logger.info("🚀 Démarrage système threading multi-tâches")
+        
+        # Définition des threads avec priorités
+        thread_configs = {
+            'scenario_executor': {
+                'target': self.scenario_thread,
+                'args': (live_duration,),
+                'priority': 1,
+                'critical': True
+            },
+            'chat_manager': {
+                'target': self.chat_thread,
+                'args': (live_duration,),
+                'priority': 2,
+                'critical': True
+            },
+            'mood_controller': {
+                'target': self.mood_thread,
+                'args': (live_duration,),
+                'priority': 3,
+                'critical': False
+            },
+            'analytics_collector': {
+                'target': self.analytics_thread,
+                'args': (live_duration,),
+                'priority': 4,
+                'critical': False
+            },
+            'health_monitor': {
+                'target': self.health_monitor_thread,
+                'args': (live_duration,),
+                'priority': 5,
+                'critical': True
+            }
+        }
+        
+        # Création et démarrage threads par ordre de priorité
+        sorted_threads = sorted(thread_configs.items(), key=lambda x: x[1]['priority'])
+        
+        for thread_name, config in sorted_threads:
+            try:
+                thread = threading.Thread(
+                    target=config['target'],
+                    args=config['args'],
+                    name=thread_name,
+                    daemon=not config['critical']
+                )
+                
+                thread.start()
+                self.threads[thread_name] = thread
+                self.thread_status[thread_name] = {
+                    'status': 'running',
+                    'start_time': datetime.now(),
+                    'critical': config['critical']
+                }
+                
+                self.logger.info(f"✅ Thread {thread_name} démarré")
+                time.sleep(0.1)  # Délai pour éviter la surcharge
+                
+            except Exception as e:
+                self.logger.error(f"❌ Erreur démarrage thread {thread_name}: {e}")
+                if config['critical']:
+                    self.emergency_shutdown()
+                    return False
+        
+        self.logger.info(f"🎉 {len(self.threads)} threads actifs")
+        return True
+
+    def scenario_thread(self, duration):
+        """Thread principal d'exécution du scénario"""
+        thread_name = threading.current_thread().name
+        self.logger.info(f"🎬 {thread_name} - Démarrage exécution scénario")
+        
+        try:
+            scenario_steps = self.load_scenario_steps(duration)
+            
+            for step_num, step in enumerate(scenario_steps, 1):
+                if self.stop_event.is_set():
+                    break
+                
+                self.logger.info(f"🎬 Étape {step_num}/{len(scenario_steps)}: {step['name']}")
+                
+                # Exécution étape avec gestion d'erreurs
+                success = self.execute_scenario_step(step)
+                
+                if not success and step.get('critical', False):
+                    self.logger.error(f"❌ Étape critique échouée: {step['name']}")
+                    self.request_emergency_stop()
+                    break
+                
+                # Communication avec autres threads via queue
+                self.message_queue.put({
+                    'type': 'scenario_update',
+                    'step': step['name'],
+                    'progress': step_num / len(scenario_steps)
+                })
+                
+                # Attente avec vérification stop
+                wait_time = step.get('duration', 60)
+                if self.wait_with_interrupt_check(wait_time):
+                    break
+            
+        except Exception as e:
+            self.logger.error(f"❌ Erreur thread scénario: {e}")
+            self.request_emergency_stop()
+        
+        finally:
+            self.thread_status[thread_name]['status'] = 'completed'
+            self.logger.info(f"🏁 {thread_name} terminé")
+
+    def chat_thread(self, duration):
+        """Thread de gestion chat avec adaptabilité"""
+        thread_name = threading.current_thread().name
+        self.logger.info(f"💬 {thread_name} - Démarrage gestion chat")
+        
+        try:
+            base_interval = 30
+            adaptive_factor = 1.0
+            
+            while not self.stop_event.is_set():
+                # Vérification messages dans la queue
+                scenario_context = self.get_latest_scenario_context()
+                
+                # Génération interactions adaptées au contexte
+                interactions = self.generate_contextual_interactions(scenario_context)
+                
+                for interaction in interactions:
+                    if self.stop_event.is_set():
+                        break
+                    
+                    # Traitement interaction
+                    response = self.process_chat_interaction(interaction)
+                    
+                    # Communication résultats
+                    self.message_queue.put({
+                        'type': 'chat_response',
+                        'interaction': interaction,
+                        'response': response
+                    })
+                    
+                    # Délai adaptatif entre interactions
+                    adaptive_delay = base_interval / adaptive_factor
+                    if self.wait_with_interrupt_check(adaptive_delay):
+                        break
+                
+                # Adaptation basée sur engagement
+                engagement_metrics = self.get_engagement_metrics()
+                adaptive_factor = self.calculate_adaptive_factor(engagement_metrics)
+                
+        except Exception as e:
+            self.logger.error(f"❌ Erreur thread chat: {e}")
+        
+        finally:
+            self.thread_status[thread_name]['status'] = 'completed'
+            self.logger.info(f"🏁 {thread_name} terminé")
+
+    def mood_thread(self, duration):
+        """Thread de gestion humeur avec transitions naturelles"""
+        thread_name = threading.current_thread().name
+        self.logger.info(f"🎭 {thread_name} - Démarrage gestion humeur")
+        
+        current_mood = 'confident'
+        mood_duration = 0
+        
+        try:
+            while not self.stop_event.is_set():
+                # Analyse contexte pour décision changement humeur
+                context = self.analyze_mood_context()
+                
+                # Évaluation besoin changement
+                should_change, new_mood = self.evaluate_mood_change(
+                    current_mood, mood_duration, context
+                )
+                
+                if should_change:
+                    self.logger.info(f"🎭 Transition humeur: {current_mood} → {new_mood}")
+                    
+                    # Transition graduelle
+                    success = self.execute_mood_transition(current_mood, new_mood)
+                    
+                    if success:
+                        current_mood = new_mood
+                        mood_duration = 0
+                        
+                        # Communication changement
+                        self.message_queue.put({
+                            'type': 'mood_change',
+                            'old_mood': current_mood,
+                            'new_mood': new_mood
+                        })
+                
+                # Incrément durée humeur
+                mood_duration += 60  # Compteur en secondes
+                
+                # Attente avec flexibilité
+                if self.wait_with_interrupt_check(60):  # Check chaque minute
+                    break
+                    
+        except Exception as e:
+            self.logger.error(f"❌ Erreur thread mood: {e}")
+        
+        finally:
+            self.thread_status[thread_name]['status'] = 'completed'
+            self.logger.info(f"🏁 {thread_name} terminé")
+
+    def analytics_thread(self, duration):
+        """Thread analytics avec collecte intelligente"""
+        thread_name = threading.current_thread().name
+        self.logger.info(f"📊 {thread_name} - Démarrage analytics")
+        
+        metrics_history = []
+        
+        try:
+            while not self.stop_event.is_set():
+                # Collecte métriques actuelles
+                current_metrics = self.collect_comprehensive_metrics()
+                
+                # Ajout à l'historique
+                metrics_history.append({
+                    'timestamp': datetime.now(),
+                    'metrics': current_metrics
+                })
+                
+                # Limitation historique (garder dernière heure)
+                if len(metrics_history) > 120:  # 120 points (30s interval)
+                    metrics_history = metrics_history[-120:]
+                
+                # Analyse tendances
+                trends = self.analyze_metrics_trends(metrics_history)
+                
+                # Communication insights
+                self.message_queue.put({
+                    'type': 'analytics_update',
+                    'metrics': current_metrics,
+                    'trends': trends
+                })
+                
+                # Génération recommandations
+                recommendations = self.generate_optimization_recommendations(
+                    current_metrics, trends
+                )
+                
+                if recommendations:
+                    self.message_queue.put({
+                        'type': 'optimization_recommendations',
+                        'recommendations': recommendations
+                    })
+                
+                # Attente intervalle collecte
+                if self.wait_with_interrupt_check(30):  # Collecte toutes les 30s
+                    break
+                    
+        except Exception as e:
+            self.logger.error(f"❌ Erreur thread analytics: {e}")
+        
+        finally:
+            # Sauvegarde finale métriques
+            self.save_final_metrics(metrics_history)
+            self.thread_status[thread_name]['status'] = 'completed'
+            self.logger.info(f"🏁 {thread_name} terminé")
+
+    def health_monitor_thread(self, duration):
+        """Thread monitoring santé système"""
+        thread_name = threading.current_thread().name
+        self.logger.info(f"🏥 {thread_name} - Démarrage monitoring santé")
+        
+        try:
+            while not self.stop_event.is_set():
+                # Vérification santé de chaque thread
+                health_report = self.check_all_threads_health()
+                
+                # Détection problèmes critiques
+                critical_issues = [
+                    issue for issue in health_report 
+                    if issue.get('severity') == 'critical'
+                ]
+                
+                if critical_issues:
+                    self.logger.warning(f"⚠️ {len(critical_issues)} problèmes critiques détectés")
+                    
+                    # Tentative récupération automatique
+                    for issue in critical_issues:
+                        recovery_success = self.attempt_thread_recovery(issue)
+                        if not recovery_success:
+                            self.logger.error(f"❌ Récupération échouée: {issue['thread_name']}")
+                            if issue.get('force_shutdown', False):
+                                self.request_emergency_stop()
+                                break
+                
+                # Monitoring ressources système
+                resource_status = self.check_system_resources()
+                if resource_status.get('critical_low', False):
+                    self.logger.warning("⚠️ Ressources système critiques")
+                    self.optimize_resource_usage()
+                
+                # Attente avec monitoring continu
+                if self.wait_with_interrupt_check(10):  # Check toutes les 10s
+                    break
+                    
+        except Exception as e:
+            self.logger.error(f"❌ Erreur thread health monitor: {e}")
+        
+        finally:
+            self.thread_status[thread_name]['status'] = 'completed'
+            self.logger.info(f"🏁 {thread_name} terminé")
+
+    def wait_with_interrupt_check(self, duration):
+        """Attente avec vérification interruption"""
+        start_time = time.time()
+        
+        while (time.time() - start_time) < duration:
+            if self.stop_event.is_set():
+                return True  # Interruption détectée
+            time.sleep(0.1)  # Check toutes les 100ms
+        
+        return False  # Attente complète
+
+    def request_emergency_stop(self):
+        """Demande d'arrêt d'urgence"""
+        self.logger.critical("🚨 ARRÊT D'URGENCE DEMANDÉ")
+        self.stop_event.set()
+
+    def emergency_shutdown(self):
+        """Arrêt d'urgence immédiat"""
+        self.logger.critical("🚨 ARRÊT D'URGENCE IMMÉDIAT")
+        self.stop_event.set()
+        
+        # Arrêt forcé des threads non-critiques
+        for thread_name, thread in self.threads.items():
+            if thread.is_alive() and not self.thread_status[thread_name].get('critical', False):
+                self.logger.warning(f"⏹️ Arrêt forcé thread: {thread_name}")
+                # Note: En Python, on ne peut pas forcer l'arrêt d'un thread
+                # Les threads doivent vérifier stop_event régulièrement
+
+    def join_all_threads(self, timeout=30):
+        """Attente fin de tous les threads"""
+        self.logger.info("⏳ Attente fin de tous les threads...")
+        
+        for thread_name, thread in self.threads.items():
+            try:
+                thread.join(timeout=timeout)
+                if thread.is_alive():
+                    self.logger.warning(f"⚠️ Thread {thread_name} toujours actif après timeout")
+                else:
+                    self.logger.info(f"✅ Thread {thread_name} terminé proprement")
+            except Exception as e:
+                self.logger.error(f"❌ Erreur join thread {thread_name}: {e}")
+        
+        self.logger.info("🏁 Fin de tous les threads")
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4 class="font-bold text-lg mb-2">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    Avantages du Threading Multi-Tâches
+                </h4>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><strong>Parallélisme :</strong> Traitement simultané des différents aspects du live</li>
+                    <li><strong>Réactivité :</strong> Réponses en temps réel aux interactions utilisateur</li>
+                    <li><strong>Robustesse :</strong> Isolation des erreurs entre composants</li>
+                    <li><strong>Scalabilité :</strong> Ajout facile de nouveaux threads selon les besoins</li>
+                    <li><strong>Monitoring :</strong> Surveillance continue de la santé du système</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Implémentation -->
+    <section id="implementation" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-play mr-3 text-green-600"></i>
+                    Guide d'Implémentation Complète
+                </h2>
+                <p class="text-gray-600 text-lg">Déploiement step-by-step du système live automatisé</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">1</div>
+                        Prérequis Système
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-desktop text-blue-600 mr-3"></i>
+                            <span>Windows 10/11 ou macOS 10.15+</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-memory text-green-600 mr-3"></i>
+                            <span>8GB RAM minimum (16GB recommandé)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-microchip text-purple-600 mr-3"></i>
+                            <span>GPU dédié (NVIDIA recommandé)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-video text-red-600 mr-3"></i>
+                            <span>Webcam HD 1080p minimum</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-microphone text-yellow-600 mr-3"></i>
+                            <span>Micro USB ou XLR de qualité</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">2</div>
+                        Installation Logiciels
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>OBS Studio 29+</strong>
+                            <p class="text-sm text-gray-600">+ Plugin WebSocket</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>VSeeFace</strong>
+                            <p class="text-sm text-gray-600">Version gratuite suffisante</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>Python 3.8+</strong>
+                            <p class="text-sm text-gray-600">+ Packages : obswebsocket, flask, keyboard</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>IDE Code</strong>
+                            <p class="text-sm text-gray-600">VSCode ou PyCharm recommandé</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <div class="step-number">3</div>
+                        Configuration Réseau
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>Bande Passante</strong>
+                            <p class="text-sm text-gray-600">Upload 5 Mbps minimum</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>Latence</strong>
+                            <p class="text-sm text-gray-600">< 50ms vers serveurs streaming</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>Ports</strong>
+                            <p class="text-sm text-gray-600">4444 (OBS), 8001 (Bridge), 1935 (RTMP)</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <strong>Firewall</strong>
+                            <p class="text-sm text-gray-600">Autoriser applications streaming</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-rocket mr-2 text-green-600"></i>
+                    Script de Lancement Complet
+                </h3>
+                
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('launch-script')">
+                        <i class="fas fa-copy mr-1"></i> Copier
+                    </button>
+                    <div class="code-block">
+                        <code id="launch-script">
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Script de lancement complet Système Live Automatisé Léana
+Auteur: Formation IA MYM 2025
+"""
+
+import sys
+import os
+import time
+import subprocess
+import threading
+from pathlib import Path
+
+class LeanaLiveLauncher:
+    def __init__(self):
+        self.base_dir = Path(__file__).parent
+        self.logs_dir = self.base_dir / "logs"
+        self.logs_dir.mkdir(exist_ok=True)
+        
+        self.processes = {}
+        self.system_ready = False
+
+    def check_prerequisites(self):
+        """Vérification prérequis système"""
+        print("🔍 Vérification des prérequis...")
+        
+        checks = {
+            'python': self.check_python_version(),
+            'obs': self.check_obs_installation(),
+            'vseface': self.check_vseface_installation(),
+            'packages': self.check_python_packages(),
+            'network': self.check_network_connectivity()
+        }
+        
+        failed_checks = [name for name, result in checks.items() if not result]
+        
+        if failed_checks:
+            print(f"❌ Prérequis manquants: {', '.join(failed_checks)}")
+            return False
+        
+        print("✅ Tous les prérequis sont satisfaits")
+        return True
+
+    def check_python_version(self):
+        """Vérification version Python"""
+        try:
+            version = sys.version_info
+            if version.major >= 3 and version.minor >= 8:
+                print(f"✅ Python {version.major}.{version.minor}.{version.micro}")
+                return True
+            else:
+                print(f"❌ Python {version.major}.{version.minor} trop ancien (3.8+ requis)")
+                return False
+        except Exception as e:
+            print(f"❌ Erreur vérification Python: {e}")
+            return False
+
+    def check_obs_installation(self):
+        """Vérification installation OBS"""
+        try:
+            # Tentative de détection OBS
+            obs_paths = [
+                r"C:\Program Files\obs-studio\bin\64bit\obs64.exe",
+                r"C:\Program Files (x86)\obs-studio\bin\32bit\obs32.exe",
+                "/Applications/OBS.app/Contents/MacOS/OBS",
+                "/usr/bin/obs"
+            ]
+            
+            obs_found = any(Path(path).exists() for path in obs_paths)
+            
+            if obs_found:
+                print("✅ OBS Studio détecté")
+                return True
+            else:
+                print("⚠️ OBS Studio non détecté automatiquement")
+                return True  # Ne pas bloquer, peut être installé ailleurs
+                
+        except Exception as e:
+            print(f"⚠️ Erreur détection OBS: {e}")
+            return True  # Ne pas bloquer
+
+    def check_vseface_installation(self):
+        """Vérification VSeeFace"""
+        # VSeeFace est portable, vérification optionnelle
+        print("ℹ️ VSeeFace : Vérification manuelle recommandée")
+        return True
+
+    def check_python_packages(self):
+        """Vérification packages Python"""
+        required_packages = [
+            'obswebsocket', 'flask', 'requests', 
+            'keyboard', 'threading', 'queue'
+        ]
+        
+        missing_packages = []
+        
+        for package in required_packages:
+            try:
+                __import__(package)
+                print(f"✅ Package {package}")
+            except ImportError:
+                missing_packages.append(package)
+                print(f"❌ Package manquant: {package}")
+        
+        if missing_packages:
+            print(f"📦 Installation automatique: {' '.join(missing_packages)}")
+            try:
+                subprocess.check_call([
+                    sys.executable, "-m", "pip", "install"
+                ] + missing_packages)
+                print("✅ Packages installés avec succès")
+                return True
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Erreur installation packages: {e}")
+                return False
+        
+        return True
+
+    def check_network_connectivity(self):
+        """Vérification connectivité réseau"""
+        try:
+            import socket
+            
+            # Test connexion locale
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(2)
+            result = sock.connect_ex(('localhost', 4444))
+            sock.close()
+            
+            if result == 0:
+                print("✅ Port OBS WebSocket (4444) disponible")
+            else:
+                print("⚠️ Port OBS WebSocket (4444) non accessible")
+            
+            return True
+            
+        except Exception as e:
+            print(f"⚠️ Test réseau: {e}")
+            return True
+
+    def start_obs_websocket(self):
+        """Démarrage OBS avec WebSocket"""
+        print("🎥 Démarrage OBS Studio...")
+        
+        try:
+            # Note: OBS doit être démarré manuellement avec WebSocket activé
+            print("📝 Action requise: Démarrer OBS Studio manuellement")
+            print("📝 Vérifier: Tools → WebSocket Server Settings → Enable")
+            print("📝 Port: 4444, Mot de passe: (optionnel)")
+            
+            # Attente connexion OBS
+            print("⏳ Attente connexion OBS WebSocket...")
+            max_wait = 30
+            for i in range(max_wait):
+                if self.test_obs_connection():
+                    print("✅ OBS WebSocket connecté")
+                    return True
+                time.sleep(1)
+                print(f"⏳ Tentative {i+1}/{max_wait}...")
+            
+            print("❌ Timeout connexion OBS")
+            return False
+            
+        except Exception as e:
+            print(f"❌ Erreur démarrage OBS: {e}")
+            return False
+
+    def test_obs_connection(self):
+        """Test connexion OBS WebSocket"""
+        try:
+            import obswebsocket
+            from obswebsocket import obsws, requests as obs_requests
+            
+            ws = obsws("localhost", 4444, "")
+            ws.connect()
+            version = ws.call(obs_requests.GetVersion())
+            ws.disconnect()
+            return True
+            
+        except Exception:
+            return False
+
+    def start_vseface_bridge(self):
+        """Démarrage bridge VSeeFace"""
+        print("🤖 Démarrage VSeeFace Bridge...")
+        
+        try:
+            bridge_script = self.base_dir / "vseface_bridge.py"
+            
+            if not bridge_script.exists():
+                print("⚠️ Script bridge VSeeFace non trouvé")
+                print("📝 Démarrage en mode simulation")
+                return True
+            
+            # Démarrage bridge en arrière-plan
+            process = subprocess.Popen([
+                sys.executable, str(bridge_script)
+            ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            
+            self.processes['vseface_bridge'] = process
+            print("✅ VSeeFace Bridge démarré")
+            
+            # Test API bridge
+            time.sleep(2)
+            if self.test_bridge_api():
+                print("✅ Bridge API opérationnel")
+                return True
+            else:
+                print("⚠️ Bridge API non responsive")
+                return True  # Ne pas bloquer
+                
+        except Exception as e:
+            print(f"❌ Erreur bridge VSeeFace: {e}")
+            return True  # Ne pas bloquer
+
+    def test_bridge_api(self):
+        """Test API VSeeFace Bridge"""
+        try:
+            import requests
+            response = requests.get("http://localhost:8001/api/status", timeout=2)
+            return response.status_code == 200
+        except Exception:
+            return False
+
+    def start_main_system(self):
+        """Démarrage système principal"""
+        print("🚀 Démarrage système Live Automatisé Léana...")
+        
+        try:
+            # Import du système principal
+            from leana_live_system import LeanaLiveSystem
+            
+            # Configuration par défaut
+            live_config = {
+                'duration_minutes': 60,
+                'live_type': 'standard',
+                'auto_start': True
+            }
+            
+            # Création instance système
+            leana_system = LeanaLiveSystem()
+            
+            print("🎭 Système Léana initialisé")
+            print("🔴 Démarrage live automatisé...")
+            
+            # Démarrage live
+            success = leana_system.start_automated_live(
+                duration_minutes=live_config['duration_minutes'],
+                live_type=live_config['live_type']
+            )
+            
+            if success:
+                print("🎉 Live terminé avec succès !")
+            else:
+                print("❌ Erreur durant le live")
+            
+            return success
+            
+        except Exception as e:
+            print(f"❌ Erreur système principal: {e}")
+            return False
+
+    def cleanup_processes(self):
+        """Nettoyage des processus"""
+        print("🧹 Nettoyage des processus...")
+        
+        for name, process in self.processes.items():
+            try:
+                if process.poll() is None:  # Processus toujours actif
+                    print(f"⏹️ Arrêt {name}...")
+                    process.terminate()
+                    process.wait(timeout=5)
+                    print(f"✅ {name} arrêté")
+            except Exception as e:
+                print(f"❌ Erreur arrêt {name}: {e}")
+
+    def main(self):
+        """Point d'entrée principal"""
+        print("=" * 50)
+        print("🎭 SYSTÈME LIVE AUTOMATISÉ LÉANA")
+        print("📅 Formation IA MYM 2025")
+        print("=" * 50)
+        
+        try:
+            # Vérification prérequis
+            if not self.check_prerequisites():
+                print("❌ Prérequis non satisfaits")
+                return False
+            
+            # Démarrage OBS
+            if not self.start_obs_websocket():
+                print("❌ Impossible de connecter OBS")
+                return False
+            
+            # Démarrage bridge VSeeFace
+            if not self.start_vseface_bridge():
+                print("⚠️ Bridge VSeeFace non opérationnel")
+            
+            # Démarrage système principal
+            success = self.start_main_system()
+            
+            return success
+            
+        except KeyboardInterrupt:
+            print("\n🔴 Arrêt demandé par utilisateur")
+            return False
+            
+        except Exception as e:
+            print(f"❌ Erreur critique: {e}")
+            return False
+            
+        finally:
+            self.cleanup_processes()
+            print("🏁 Système arrêté")
+
+if __name__ == "__main__":
+    launcher = LeanaLiveLauncher()
+    success = launcher.main()
+    
+    if success:
+        print("🎉 Session terminée avec succès !")
+        sys.exit(0)
+    else:
+        print("❌ Session terminée avec erreurs")
+        sys.exit(1)
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="warning-box">
+                    <h4 class="font-bold text-lg mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Points d'Attention
+                    </h4>
+                    <ul class="list-disc list-inside text-gray-700 text-sm">
+                        <li>OBS doit être démarré manuellement avec WebSocket activé</li>
+                        <li>VSeeFace nécessite calibrage initial de la webcam</li>
+                        <li>Test complet recommandé avant live en public</li>
+                        <li>Monitoring des ressources système pendant le live</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4 class="font-bold text-lg mb-2">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Validation Finale
+                    </h4>
+                    <ul class="list-disc list-inside text-gray-700 text-sm">
+                        <li>Connexion OBS WebSocket fonctionnelle</li>
+                        <li>Animation VSeeFace responsive</li>
+                        <li>Chat IA génère des réponses cohérentes</li>
+                        <li>Analytics collectent les métriques</li>
+                        <li>Tous les threads s'exécutent sans erreur</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-video text-3xl mb-4"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">BLOC 6.2.2 - Système Live Automatisé Complet</h4>
+                <p class="text-gray-400 mb-4">Architecture hybride OBS + VSeeFace + Threading multi-tâches</p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <span class="text-sm text-gray-400">
+                        <i class="fas fa-cogs mr-1"></i>
+                        Scripts Python Industriels
+                    </span>
+                    <span class="text-sm text-gray-400">
+                        <i class="fas fa-tasks mr-1"></i>
+                        Threading Avancé
+                    </span>
+                    <span class="text-sm text-gray-400">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        Analytics Temps Réel
+                    </span>
+                </div>
+                
+                <div class="text-xs text-gray-500">
+                    Manuel IA MYM 2025 • Système Live Automatisé • Version Complète
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonction de copie de code
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const text = codeElement.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                // Feedback visuel
+                const button = event.target.closest('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-1"></i> Copié !';
+                button.style.background = '#38a169';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#4a5568';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Erreur copie: ', err);
+            });
+        }
+
+        // Smooth scrolling pour navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation au scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-800', 'bg-blue-100');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('text-blue-800', 'bg-blue-100');
+                }
+            });
+        });
+
+        // Chargement initial
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎭 BLOC 6.2.2 - Système Live Automatisé chargé');
+            
+            // Animation d'entrée pour les éléments
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.component-box, .code-block').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e617d8b91250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDs8EWWsaftBiZ8xZGbHn7juSAOitCQ8z%2BCXGFdxqBZhrR4Iu5lPqyxxgd07tySqa1X0%2Bqpmy212EVXV58%2BG2XvA0I0xVjyBEJBlMis6IqYghzQDBy%2FpJYk2mwsqpwj5YfVBGlJKXgQqmSrlEMONEPM3cYKL%2BPGJkwT9jMsguug5UvLU3Z0wbDKoU5%2BytfFiBbXRZ4jzYhGls2BQZXcUztfdsoDgtHPn%2BT3k9%2F2v4Loz1UkAqKzJ1SkZjw7djfEb7Vl7aegYv9WDvvQZDFNMSIzz5ghIx2FQe%2Fck2s98pUnMoRPoxdHaUnTvB1kohzEkYNO8Z7B0wQxQ15repn6%2BBc87PDI2YhOj171oxFA1vOflggbroF0830eOqmvSDrBitpnfPcHyjypbrIkL9RcXae5cYPvup5Cr%2FB0tHf9HuMTqbfO8%2BT44z%2BalxVNoA2HPplGY7Ahn6MKoJkOdG4lUXUQuafRXiSIbRLfo4%2FigjImJnzdbC2%2FEURVWomDXtaa8yOZrOp9uipHDcA9LKWPNfwpnogbUPOltNenM%2F8BQNAe%2Bl";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDs8EWWsaftBiZ8xZGbHn7juSAOitCQ8z+CXGFdxqBZhrR4Iu5lPqyxxgd07tySqa1X0+qpmy212EVXV58+G2XvA0I0xVjyBEJBlMis6IqYghzQDBy/pJYk2mwsqpwj5YfVBGlJKXgQqmSrlEMONEPM3cYKL+PGJkwT9jMsguug5UvLU3Z0wbDKoU5+ytfFiBbXRZ4jzYhGls2BQZXcUztfdsoDgtHPn+T3k9/2v4Loz1UkAqKzJ1SkZjw7djfEb7Vl7aegYv9WDvvQZDFNMSIzz5ghIx2FQe/ck2s98pUnMoRPoxdHaUnTvB1kohzEkYNO8Z7B0wQxQ15repn6+Bc87PDI2YhOj171oxFA1vOflggbroF0830eOqmvSDrBitpnfPcHyjypbrIkL9RcXae5cYPvup5Cr/B0tHf9HuMTqbfO8+T44z+alxVNoA2HPplGY7Ahn6MKoJkOdG4lUXUQuafRXiSIbRLfo4/igjImJnzdbC2/EURVWomDXtaa8yOZrOp9uipHDcA9LKWPNfwpnogbUPOltNenM/8BQNAe+l";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 11.2 - RVC Retrieval Voice Conversion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background-color: #1a202c;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+        .warning-box {
+            border-left: 4px solid #f56565;
+            background-color: #fed7d7;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            border-left: 4px solid #48bb78;
+            background-color: #c6f6d5;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .info-box {
+            border-left: 4px solid #4299e1;
+            background-color: #bee3f8;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+        .rvc-interface {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #f7fafc;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <i class="fas fa-microphone text-6xl mb-4"></i>
+                <h1 class="text-5xl font-bold mb-4">BLOC 11.2 - RVC AVANCÉ</h1>
+                <h2 class="text-2xl font-light mb-6">Retrieval Voice Conversion - Clonage Vocal Haute Qualité</h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                    Maîtrisez RVC, la technologie la plus avancée de conversion vocale avec seulement quelques minutes d'échantillons audio. 
+                    Formation complète avec installation, entraînement et conversion professionnelle.
+                </p>
+                <div class="mt-8">
+                    <span class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-brain mr-2"></i>
+                        RVC • Installation • Entraînement • Conversion • Optimisation
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Rapide -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center space-x-4">
+                <a href="#introduction" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded transition">Introduction RVC</a>
+                <a href="#installation" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded transition">Installation</a>
+                <a href="#entrainement" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded transition">Entraînement</a>
+                <a href="#conversion" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded transition">Conversion</a>
+                <a href="#optimisation" class="text-blue-600 hover:text-blue-800 py-2 px-4 rounded transition">Optimisation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introduction RVC -->
+    <section id="introduction" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <i class="fas fa-rocket mr-3 text-blue-600"></i>
+                Introduction à RVC (Retrieval Voice Conversion)
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">🎯 Qu'est-ce que RVC ?</h3>
+                    <p class="text-gray-700 mb-4">
+                        RVC (Retrieval Voice Conversion) est une technologie révolutionnaire qui utilise des modèles de récupération pour convertir la voix avec une qualité exceptionnelle. Contrairement aux méthodes traditionnelles, RVC peut cloner une voix avec seulement quelques minutes d'échantillons audio.
+                    </p>
+                    
+                    <div class="success-box">
+                        <h4 class="font-bold text-green-800 mb-2">✅ Avantages de RVC :</h4>
+                        <ul class="text-green-700 space-y-1">
+                            <li>• <strong>Peu de données nécessaires :</strong> 5-10 minutes d'audio suffisent</li>
+                            <li>• <strong>Qualité exceptionnelle :</strong> Préservation des nuances vocales</li>
+                            <li>• <strong>Temps réel possible :</strong> Conversion en direct</li>
+                            <li>• <strong>Multiple langues :</strong> Fonctionne dans toutes les langues</li>
+                            <li>• <strong>Open source :</strong> Gratuit et personnalisable</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h4 class="font-bold text-blue-800 mb-2">📊 Comparaison Technologies :</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-sm">
+                                <thead>
+                                    <tr class="bg-blue-100">
+                                        <th class="px-3 py-2 text-left">Technologie</th>
+                                        <th class="px-3 py-2 text-left">Données Requises</th>
+                                        <th class="px-3 py-2 text-left">Qualité</th>
+                                        <th class="px-3 py-2 text-left">Temps Réel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-3 py-2 font-semibold">RVC</td>
+                                        <td class="px-3 py-2">5-10 min</td>
+                                        <td class="px-3 py-2">🟢 Excellent</td>
+                                        <td class="px-3 py-2">🟢 Oui</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="px-3 py-2">ElevenLabs</td>
+                                        <td class="px-3 py-2">1-2 min</td>
+                                        <td class="px-3 py-2">🟢 Excellent</td>
+                                        <td class="px-3 py-2">🔴 Non</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-3 py-2">So-VITS</td>
+                                        <td class="px-3 py-2">30+ min</td>
+                                        <td class="px-3 py-2">🟡 Très bon</td>
+                                        <td class="px-3 py-2">🟡 Limité</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">🔬 Architecture Technique</h3>
+                    <div class="rvc-interface">
+                        <h4 class="font-bold mb-4">🏗️ Composants RVC :</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <strong>Content Encoder :</strong> Extrait les caractéristiques phonétiques
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <strong>Pitch Extractor :</strong> Analyse la mélodie et l'intonation
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <strong>Speaker Encoder :</strong> Capture l'identité vocale unique
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <strong>Decoder/Generator :</strong> Synthétise la voix cible
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4 class="font-bold text-red-800 mb-2">⚠️ Avertissements Légaux :</h4>
+                        <ul class="text-red-700 space-y-1">
+                            <li>• <strong>Consentement obligatoire :</strong> Autorisation de la personne clonée</li>
+                            <li>• <strong>Usage transparent :</strong> Mention du caractère synthétique</li>
+                            <li>• <strong>Respect de la vie privée :</strong> Pas d'usurpation d'identité</li>
+                            <li>• <strong>Cadre légal :</strong> Vérification juridique requise</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation RVC -->
+    <section id="installation" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <i class="fas fa-download mr-3 text-green-600"></i>
+                Installation Complète de RVC
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Prérequis Système -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">💻 Prérequis Système</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="border border-gray-300 rounded-lg p-6">
+                            <h4 class="font-bold text-lg mb-4">🖥️ Configuration Minimum</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• <strong>OS :</strong> Windows 10+ / Linux / MacOS</li>
+                                <li>• <strong>RAM :</strong> 8 GB minimum</li>
+                                <li>• <strong>GPU :</strong> NVIDIA (CUDA) recommandé</li>
+                                <li>• <strong>VRAM :</strong> 4 GB minimum</li>
+                                <li>• <strong>Stockage :</strong> 10 GB libres</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-300 rounded-lg p-6">
+                            <h4 class="font-bold text-lg mb-4">🚀 Configuration Optimale</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• <strong>RAM :</strong> 16 GB ou plus</li>
+                                <li>• <strong>GPU :</strong> RTX 3060+ / RTX 4060+</li>
+                                <li>• <strong>VRAM :</strong> 8 GB ou plus</li>
+                                <li>• <strong>CPU :</strong> Intel i5+ / AMD Ryzen 5+</li>
+                                <li>• <strong>SSD :</strong> Recommandé pour vitesse</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Test Configuration -->
+                    <div class="info-box">
+                        <h4 class="font-bold text-blue-800 mb-3">🔍 Vérification Configuration</h4>
+                        <p class="text-blue-700 mb-3">Testez votre configuration avant installation :</p>
+                        <div class="relative">
+                            <pre class="code-block text-green-400"><code># Script de vérification système
+import torch
+import platform
+import psutil
+import subprocess
+
+def check_system_compatibility():
+    print("=== VÉRIFICATION CONFIGURATION RVC ===\n")
+    
+    # Système d'exploitation
+    print(f"🖥️  OS: {platform.system()} {platform.release()}")
+    
+    # RAM
+    ram_gb = round(psutil.virtual_memory().total / (1024**3), 1)
+    print(f"💾 RAM: {ram_gb} GB")
+    
+    # GPU CUDA
+    if torch.cuda.is_available():
+        gpu_name = torch.cuda.get_device_name(0)
+        vram_gb = round(torch.cuda.get_device_properties(0).total_memory / (1024**3), 1)
+        print(f"🎮 GPU: {gpu_name}")
+        print(f"🔥 VRAM: {vram_gb} GB")
+        print(f"✅ CUDA: Disponible (Version {torch.version.cuda})")
+    else:
+        print("❌ CUDA: Non disponible (CPU seulement)")
+    
+    # Compatibilité RVC
+    if ram_gb >= 8 and torch.cuda.is_available():
+        print("\n🎉 SYSTÈME COMPATIBLE AVEC RVC!")
+    else:
+        print("\n⚠️  Système limité - Performance réduite")
+
+check_system_compatibility()</code></pre>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installation Step by Step -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">📦 Installation Step-by-Step</h3>
+
+                    <!-- Étape 1: Python -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="step-number">1</div>
+                            <h4 class="text-xl font-bold">Installation Python 3.8+</h4>
+                        </div>
+                        
+                        <div class="ml-12">
+                            <p class="mb-4"><strong>🔗 Téléchargement :</strong> <a href="https://www.python.org/downloads/" class="text-blue-600 underline" target="_blank">python.org/downloads</a></p>
+                            
+                            <div class="info-box">
+                                <h5 class="font-bold mb-2">Windows - Installation Détaillée :</h5>
+                                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                    <li>Téléchargez "Python 3.11.x" (version recommandée)</li>
+                                    <li>Lancez l'installateur en tant qu'administrateur</li>
+                                    <li><strong>IMPORTANT :</strong> Cochez "Add Python to PATH"</li>
+                                    <li>Sélectionnez "Install Now"</li>
+                                    <li>Attendez la fin de l'installation</li>
+                                </ol>
+                            </div>
+
+                            <div class="relative mt-4">
+                                <pre class="code-block text-green-400"><code># Vérification installation Python
+python --version
+pip --version
+
+# Mise à jour pip
+python -m pip install --upgrade pip
+
+# Installation des dépendances système
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 2: Git -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="step-number">2</div>
+                            <h4 class="text-xl font-bold">Installation Git</h4>
+                        </div>
+                        
+                        <div class="ml-12">
+                            <p class="mb-4"><strong>🔗 Téléchargement :</strong> <a href="https://git-scm.com/download/win" class="text-blue-600 underline" target="_blank">git-scm.com</a></p>
+                            
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Vérification installation Git
+git --version
+
+# Configuration Git (optionnel)
+git config --global user.name "Votre Nom"
+git config --global user.email "<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7e08110a0c1b3e1b131f1712501d1113">[email&#160;protected]</a>"</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3: Clonage RVC -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="step-number">3</div>
+                            <h4 class="text-xl font-bold">Clonage du Repository RVC</h4>
+                        </div>
+                        
+                        <div class="ml-12">
+                            <p class="mb-4">Nous utilisons la version officielle de RVC-Project maintenue par la communauté.</p>
+                            
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Création dossier de travail
+mkdir C:\RVC
+cd C:\RVC
+
+# Clonage repository officiel
+git clone https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI.git
+
+# Navigation dans le dossier
+cd Retrieval-based-Voice-Conversion-WebUI
+
+# Vérification des fichiers
+dir</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+
+                            <div class="success-box mt-4">
+                                <h5 class="font-bold text-green-800 mb-2">✅ Vérification Réussie :</h5>
+                                <p class="text-green-700">Vous devriez voir ces fichiers/dossiers :</p>
+                                <ul class="text-green-700 mt-2 space-y-1">
+                                    <li>• <code>requirements.txt</code></li>
+                                    <li>• <code>infer-web.py</code></li>
+                                    <li>• <code>train.py</code></li>
+                                    <li>• Dossiers : <code>logs/</code>, <code>weights/</code>, <code>assets/</code></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 4: Installation Dépendances -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="step-number">4</div>
+                            <h4 class="text-xl font-bold">Installation des Dépendances</h4>
+                        </div>
+                        
+                        <div class="ml-12">
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Installation dépendances RVC
+pip install -r requirements.txt
+
+# Installation dépendances additionnelles pour performance
+pip install fairseq
+pip install librosa==0.9.2
+pip install ffmpeg-python
+pip install gradio
+pip install faiss-cpu
+
+# Pour GPU NVIDIA (recommandé)
+pip install faiss-gpu</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+
+                            <div class="warning-box mt-4">
+                                <h5 class="font-bold text-red-800 mb-2">⚠️ Problèmes Fréquents :</h5>
+                                <div class="text-red-700 space-y-2">
+                                    <p><strong>Erreur Microsoft Visual C++ :</strong></p>
+                                    <p>Téléchargez et installez "Microsoft C++ Build Tools" depuis le site Microsoft</p>
+                                    
+                                    <p><strong>Erreur CUDA :</strong></p>
+                                    <p>Installez CUDA Toolkit 11.8 depuis le site NVIDIA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 5: Téléchargement Modèles -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="step-number">5</div>
+                            <h4 class="text-xl font-bold">Téléchargement des Modèles Pré-entraînés</h4>
+                        </div>
+                        
+                        <div class="ml-12">
+                            <p class="mb-4">RVC nécessite des modèles pré-entraînés pour fonctionner :</p>
+                            
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Script automatique de téléchargement des modèles
+import os
+import requests
+from tqdm import tqdm
+
+def download_file(url, filename):
+    """Télécharge un fichier avec barre de progression"""
+    response = requests.get(url, stream=True)
+    total_size = int(response.headers.get('content-length', 0))
+    
+    with open(filename, 'wb') as file, tqdm(
+        desc=filename,
+        total=total_size,
+        unit='iB',
+        unit_scale=True,
+        unit_divisor=1024,
+    ) as pbar:
+        for data in response.iter_content(chunk_size=1024):
+            size = file.write(data)
+            pbar.update(size)
+
+# Création dossiers modèles
+os.makedirs('assets/hubert', exist_ok=True)
+os.makedirs('assets/rmvpe', exist_ok=True)
+
+# Téléchargement modèles essentiels
+models = {
+    'hubert_base.pt': 'https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/hubert_base.pt',
+    'rmvpe.pt': 'https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/rmvpe.pt'
+}
+
+for filename, url in models.items():
+    if not os.path.exists(f'assets/hubert/{filename}') and not os.path.exists(f'assets/rmvpe/{filename}'):
+        print(f"Téléchargement {filename}...")
+        folder = 'hubert' if 'hubert' in filename else 'rmvpe'
+        download_file(url, f'assets/{folder}/{filename}')
+        
+print("✅ Tous les modèles sont téléchargés!")</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 6: Premier Lancement -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="step-number">6</div>
+                            <h4 class="text-xl font-bold">Premier Lancement de RVC</h4>
+                        </div>
+                        
+                        <div class="ml-12">
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Lancement de l'interface web RVC
+python infer-web.py --pycmd python --api
+
+# Alternative avec plus d'options
+python infer-web.py --pycmd python --api --listen --model-name "Léana_Mystère" --device cuda</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+
+                            <div class="success-box mt-4">
+                                <h5 class="font-bold text-green-800 mb-2">✅ Lancement Réussi :</h5>
+                                <p class="text-green-700">Si tout fonctionne, vous verrez :</p>
+                                <ul class="text-green-700 mt-2 space-y-1">
+                                    <li>• <code>Running on local URL: http://127.0.0.1:7865</code></li>
+                                    <li>• L'interface web s'ouvre automatiquement</li>
+                                    <li>• Onglets visibles : "Train", "Model", "Inference"</li>
+                                </ul>
+                            </div>
+
+                            <div class="rvc-interface mt-6">
+                                <h5 class="font-bold mb-3">🖥️ Interface RVC - Aperçu :</h5>
+                                <div class="bg-gray-100 p-4 rounded border-2 border-dashed border-gray-300 text-center">
+                                    <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-600">Interface Web RVC</p>
+                                    <p class="text-sm text-gray-500">Onglets : Train | Inference | Extra | TTS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entraînement Modèle -->
+    <section id="entrainement" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <i class="fas fa-dumbbell mr-3 text-purple-600"></i>
+                Entraînement de votre Modèle RVC
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Préparation Dataset -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">🎵 Préparation du Dataset Audio</h3>
+                    
+                    <div class="info-box">
+                        <h4 class="font-bold text-blue-800 mb-3">📊 Spécifications Audio Optimales :</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <ul class="text-blue-700 space-y-2">
+                                    <li>• <strong>Format :</strong> WAV (recommandé) ou MP3</li>
+                                    <li>• <strong>Qualité :</strong> 44.1kHz / 48kHz, 16-bit minimum</li>
+                                    <li>• <strong>Durée totale :</strong> 5-30 minutes</li>
+                                    <li>• <strong>Segments :</strong> 2-10 secondes chacun</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-blue-700 space-y-2">
+                                    <li>• <strong>Bruit de fond :</strong> Minimal (SNR > 20dB)</li>
+                                    <li>• <strong>Diversité :</strong> Émotions variées</li>
+                                    <li>• <strong>Prononciation :</strong> Claire et naturelle</li>
+                                    <li>• <strong>Silence :</strong> Éviter les blancs longs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold mb-4">🛠️ Script de Préparation Automatique</h4>
+                        <div class="relative">
+                            <pre class="code-block text-green-400"><code># Script complet de préparation dataset Léana Mystère
+import os
+import librosa
+import soundfile as sf
+import numpy as np
+from pathlib import Path
+import shutil
+
+class DatasetPreparator:
+    def __init__(self, input_folder, output_folder="dataset_leana", target_sr=40000):
+        self.input_folder = Path(input_folder)
+        self.output_folder = Path(output_folder)
+        self.target_sr = target_sr
+        
+        # Création structure dossiers
+        self.output_folder.mkdir(exist_ok=True)
+        
+    def clean_audio(self, audio_path):
+        """Nettoyage audio professionnel"""
+        # Chargement audio
+        y, sr = librosa.load(audio_path, sr=None)
+        
+        # Normalisation
+        y = librosa.util.normalize(y)
+        
+        # Suppression silence début/fin
+        y, _ = librosa.effects.trim(y, top_db=20)
+        
+        # Réduction bruit (simple)
+        # Pour RVC, éviter trop de traitement
+        
+        # Rééchantillonnage si nécessaire
+        if sr != self.target_sr:
+            y = librosa.resample(y, orig_sr=sr, target_sr=self.target_sr)
+        
+        return y, self.target_sr
+    
+    def segment_audio(self, y, sr, segment_duration=8.0):
+        """Segmentation audio en chunks optimaux"""
+        segment_samples = int(segment_duration * sr)
+        segments = []
+        
+        # Division en segments
+        for start in range(0, len(y), segment_samples):
+            end = min(start + segment_samples, len(y))
+            segment = y[start:end]
+            
+            # Éviter segments trop courts
+            if len(segment) > segment_samples * 0.5:
+                segments.append(segment)
+        
+        return segments
+    
+    def process_dataset(self):
+        """Traitement complet du dataset"""
+        audio_files = list(self.input_folder.glob("*.wav")) + \
+                     list(self.input_folder.glob("*.mp3")) + \
+                     list(self.input_folder.glob("*.m4a"))
+        
+        total_duration = 0
+        file_count = 0
+        
+        print(f"🎵 Traitement de {len(audio_files)} fichiers audio...")
+        
+        for audio_file in audio_files:
+            try:
+                print(f"Traitement: {audio_file.name}")
+                
+                # Nettoyage audio
+                y, sr = self.clean_audio(audio_file)
+                
+                # Segmentation
+                segments = self.segment_audio(y, sr)
+                
+                # Sauvegarde segments
+                for i, segment in enumerate(segments):
+                    output_path = self.output_folder / f"leana_{file_count:03d}_{i:02d}.wav"
+                    sf.write(output_path, segment, sr)
+                    
+                    duration = len(segment) / sr
+                    total_duration += duration
+                    
+                    print(f"  ✅ Segment {i+1}: {duration:.1f}s")
+                
+                file_count += 1
+                
+            except Exception as e:
+                print(f"❌ Erreur avec {audio_file.name}: {e}")
+        
+        print(f"\n🎉 Dataset préparé!")
+        print(f"📁 Dossier: {self.output_folder}")
+        print(f"📊 {len(list(self.output_folder.glob('*.wav')))} fichiers")
+        print(f"⏱️ Durée totale: {total_duration/60:.1f} minutes")
+        
+        return self.output_folder
+
+# Utilisation
+preparator = DatasetPreparator(
+    input_folder="raw_audio_leana",  # Dossier avec vos fichiers bruts
+    output_folder="dataset_leana_clean"
+)
+
+dataset_path = preparator.process_dataset()</code></pre>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Entraînement -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">⚙️ Configuration de l'Entraînement</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">🎯 Paramètres Optimaux</h4>
+                            <div class="space-y-4">
+                                <div class="border border-gray-300 rounded p-4">
+                                    <h5 class="font-bold mb-2">Paramètres Généraux :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Experiment Name :</strong> Leana_Mystere_v1</li>
+                                        <li>• <strong>Target Sample Rate :</strong> 40000 Hz</li>
+                                        <li>• <strong>F0 Method :</strong> rmvpe (recommandé)</li>
+                                        <li>• <strong>Hop Length :</strong> 128</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="border border-gray-300 rounded p-4">
+                                    <h5 class="font-bold mb-2">Entraînement :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Batch Size :</strong> 8-16 (selon GPU)</li>
+                                        <li>• <strong>Epochs :</strong> 200-500</li>
+                                        <li>• <strong>Learning Rate :</strong> 1e-4</li>
+                                        <li>• <strong>Save Frequency :</strong> 50 epochs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">💻 Configuration GPU</h4>
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Configuration optimale GPU pour RVC
+import torch
+import psutil
+
+def configure_gpu_for_rvc():
+    """Configuration GPU optimisée pour RVC"""
+    
+    if torch.cuda.is_available():
+        # Informations GPU
+        gpu_name = torch.cuda.get_device_name(0)
+        vram_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
+        
+        print(f"🎮 GPU: {gpu_name}")
+        print(f"🔥 VRAM: {vram_gb:.1f} GB")
+        
+        # Configuration selon VRAM
+        if vram_gb >= 8:
+            batch_size = 16
+            fp16 = True
+            print("✅ Configuration HIGH-END")
+        elif vram_gb >= 6:
+            batch_size = 12
+            fp16 = True
+            print("✅ Configuration MEDIUM")
+        else:
+            batch_size = 8
+            fp16 = True
+            print("⚠️ Configuration LOW-END")
+        
+        # Optimisations mémoire
+        torch.backends.cudnn.benchmark = True
+        torch.backends.cuda.matmul.allow_tf32 = True
+        
+        config = {
+            'batch_size': batch_size,
+            'use_fp16': fp16,
+            'gpu_memory_fraction': 0.9
+        }
+        
+        return config
+    else:
+        print("❌ GPU non disponible - utilisation CPU")
+        return {'batch_size': 4, 'use_fp16': False}
+
+# Application configuration
+gpu_config = configure_gpu_for_rvc()
+print(f"📊 Configuration: {gpu_config}")</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lancement Entraînement -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">🚀 Lancement de l'Entraînement</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">📝 Étapes dans l'Interface RVC</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="step-number">1</div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold">Onglet "Train"</h5>
+                                        <p class="text-gray-700">Ouvrez l'interface RVC et allez dans l'onglet "Train"</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="step-number">2</div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold">Nom de l'Expérience</h5>
+                                        <p class="text-gray-700">Entrez "Leana_Mystere_v1" dans le champ "Experiment Name"</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="step-number">3</div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold">Sélection du Dataset</h5>
+                                        <p class="text-gray-700">Cliquez sur "Browse" et sélectionnez votre dossier dataset_leana_clean</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="step-number">4</div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold">Configuration Paramètres</h5>
+                                        <p class="text-gray-700">Réglez Sample Rate (40000), F0 method (rmvpe), puis cliquez "Process Data"</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="step-number">5</div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold">Feature Extraction</h5>
+                                        <p class="text-gray-700">Cliquez "Extract Features" et attendez la fin du processus</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="step-number">6</div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold">Démarrage Entraînement</h5>
+                                        <p class="text-gray-700">Réglez les epochs (300) et cliquez "Start Training"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4 class="font-bold text-red-800 mb-2">⏱️ Temps d'Entraînement :</h4>
+                            <ul class="text-red-700 space-y-1">
+                                <li>• <strong>RTX 4090 :</strong> 2-4 heures (300 epochs)</li>
+                                <li>• <strong>RTX 3080 :</strong> 4-6 heures</li>
+                                <li>• <strong>RTX 3060 :</strong> 6-10 heures</li>
+                                <li>• <strong>CPU seulement :</strong> 24-48 heures (non recommandé)</li>
+                            </ul>
+                        </div>
+
+                        <div class="success-box">
+                            <h4 class="font-bold text-green-800 mb-2">🎯 Signes d'Entraînement Réussi :</h4>
+                            <ul class="text-green-700 space-y-1">
+                                <li>• Loss qui diminue progressivement</li>
+                                <li>• Pas d'erreurs CUDA/mémoire</li>
+                                <li>• Création de fichiers .pth dans logs/</li>
+                                <li>• Génération des index files</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversion Vocale -->
+    <section id="conversion" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <i class="fas fa-exchange-alt mr-3 text-indigo-600"></i>
+                Conversion Vocale avec RVC
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Interface Inference -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">🎤 Interface d'Inférence</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">🖥️ Utilisation Interface Web</h4>
+                            <div class="space-y-4">
+                                <div class="border border-gray-300 rounded p-4">
+                                    <h5 class="font-bold mb-2">1. Onglet Inference :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Sélectionnez votre modèle (Leana_Mystere_v1.pth)</li>
+                                        <li>• Chargez le fichier index correspondant</li>
+                                        <li>• Uploadez votre audio source</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="border border-gray-300 rounded p-4">
+                                    <h5 class="font-bold mb-2">2. Paramètres Conversion :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Pitch :</strong> 0 (voix féminine → féminine)</li>
+                                        <li>• <strong>Index Rate :</strong> 0.5-0.8</li>
+                                        <li>• <strong>Filter Radius :</strong> 3</li>
+                                        <li>• <strong>RMS Mix Rate :</strong> 0.8</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="border border-gray-300 rounded p-4">
+                                    <h5 class="font-bold mb-2">3. Génération :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Cliquez "Convert"</li>
+                                        <li>• Attendez le traitement (30s-2min)</li>
+                                        <li>• Téléchargez le résultat</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">🐍 Script Python Automatisé</h4>
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Script conversion automatisée
+import subprocess
+import os
+from pathlib import Path
+
+class RVCConverter:
+    def __init__(self, model_path, index_path):
+        self.model_path = model_path
+        self.index_path = index_path
+        
+    def convert_voice(self, input_audio, output_audio, 
+                     pitch_change=0, index_rate=0.7):
+        """Conversion vocale via RVC CLI"""
+        
+        command = [
+            "python", "tools/infer_cli.py",
+            "--input_path", input_audio,
+            "--output_path", output_audio,
+            "--model_path", self.model_path,
+            "--index_path", self.index_path,
+            "--pitch_change", str(pitch_change),
+            "--index_rate", str(index_rate),
+            "--filter_radius", "3",
+            "--rms_mix_rate", "0.8",
+            "--f0_method", "rmvpe",
+            "--device", "cuda:0"
+        ]
+        
+        try:
+            result = subprocess.run(
+                command, 
+                capture_output=True, 
+                text=True, 
+                check=True
+            )
+            print(f"✅ Conversion réussie: {output_audio}")
+            return True
+            
+        except subprocess.CalledProcessError as e:
+            print(f"❌ Erreur conversion: {e}")
+            return False
+
+# Utilisation
+converter = RVCConverter(
+    model_path="logs/Leana_Mystere_v1/G_300.pth",
+    index_path="logs/Leana_Mystere_v1/added_*.index"
+)
+
+# Conversion batch
+input_folder = "audio_to_convert"
+output_folder = "converted_leana"
+
+for audio_file in Path(input_folder).glob("*.wav"):
+    output_file = Path(output_folder) / f"leana_{audio_file.name}"
+    converter.convert_voice(str(audio_file), str(output_file))</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4 class="font-bold text-blue-800 mb-3">🎛️ Guide des Paramètres :</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold mb-2">Pitch (Hauteur) :</h5>
+                                <ul class="text-blue-700 text-sm space-y-1">
+                                    <li>• <strong>0 :</strong> Pas de changement</li>
+                                    <li>• <strong>+12 :</strong> Une octave plus haut</li>
+                                    <li>• <strong>-12 :</strong> Une octave plus bas</li>
+                                    <li>• <strong>±3-6 :</strong> Ajustements subtils</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-2">Index Rate :</h5>
+                                <ul class="text-blue-700 text-sm space-y-1">
+                                    <li>• <strong>0.0 :</strong> Pas d'utilisation index</li>
+                                    <li>• <strong>0.5 :</strong> Équilibre qualité/similarité</li>
+                                    <li>• <strong>0.8 :</strong> Maximum similarité</li>
+                                    <li>• <strong>1.0 :</strong> Index complet (peut sur-ajuster)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optimisation Résultats -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">🔧 Optimisation des Résultats</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">🎯 Techniques d'Amélioration</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="border border-gray-300 rounded-lg p-6">
+                                    <h5 class="font-bold text-lg mb-3">📊 Analyse Spectrale</h5>
+                                    <div class="relative">
+                                        <pre class="code-block text-green-400"><code># Analyse qualité audio
+import librosa
+import numpy as np
+import matplotlib.pyplot as plt
+
+def analyze_conversion_quality(original, converted):
+    """Analyse comparée audio original vs converti"""
+    
+    # Chargement audios
+    y1, sr1 = librosa.load(original)
+    y2, sr2 = librosa.load(converted)
+    
+    # Spectrogrammes
+    S1 = librosa.stft(y1)
+    S2 = librosa.stft(y2)
+    
+    # Métriques qualité
+    spectral_similarity = np.corrcoef(
+        np.abs(S1).flatten(), 
+        np.abs(S2).flatten()
+    )[0,1]
+    
+    # Analyse pitch
+    pitches1, magnitudes1 = librosa.piptrack(y=y1, sr=sr1)
+    pitches2, magnitudes2 = librosa.piptrack(y=y2, sr=sr2)
+    
+    print(f"📊 Similarité spectrale: {spectral_similarity:.3f}")
+    print(f"🎵 Cohérence pitch: {np.mean(pitches2/pitches1):.3f}")
+    
+    return spectral_similarity
+
+# Utilisation
+quality_score = analyze_conversion_quality(
+    "original.wav", 
+    "converted_leana.wav"
+)</code></pre>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i> Copier
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="border border-gray-300 rounded-lg p-6">
+                                    <h5 class="font-bold text-lg mb-3">🎨 Post-Traitement</h5>
+                                    <div class="relative">
+                                        <pre class="code-block text-green-400"><code># Post-traitement audio RVC
+import soundfile as sf
+from scipy import signal
+
+def enhance_rvc_output(input_path, output_path):
+    """Amélioration audio post-RVC"""
+    
+    # Chargement
+    y, sr = librosa.load(input_path, sr=None)
+    
+    # 1. Normalisation douce
+    y = librosa.util.normalize(y, norm=np.inf)
+    
+    # 2. Égalisation subtile
+    # Boost léger dans médiums (voix)
+    sos = signal.butter(2, [200, 3000], 
+                       btype='band', fs=sr, 
+                       output='sos')
+    y_eq = signal.sosfilt(sos, y) * 0.1
+    y = y + y_eq
+    
+    # 3. Compression douce
+    threshold = 0.7
+    ratio = 3.0
+    y = np.where(np.abs(y) > threshold,
+                np.sign(y) * (threshold + 
+                (np.abs(y) - threshold) / ratio),
+                y)
+    
+    # 4. Dé-essage (réduction sifflantes)
+    sos_deess = signal.butter(2, [5000, 8000], 
+                             btype='band', fs=sr, 
+                             output='sos')
+    sibilants = signal.sosfilt(sos_deess, y)
+    y = y - sibilants * 0.3
+    
+    # Sauvegarde
+    sf.write(output_path, y, sr)
+    print(f"✅ Post-traitement terminé: {output_path}")
+
+# Application
+enhance_rvc_output("raw_conversion.wav", "enhanced_leana.wav")</code></pre>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i> Copier
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4 class="font-bold text-red-800 mb-2">🚨 Problèmes Fréquents & Solutions :</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-red-700">
+                                <div>
+                                    <h5 class="font-bold">Artefacts Audio :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Réduire Index Rate (0.5)</li>
+                                        <li>• Augmenter Filter Radius (5)</li>
+                                        <li>• Vérifier qualité audio source</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold">Voix Robotique :</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Réentraîner avec plus de données</li>
+                                        <li>• Diversifier émotions dataset</li>
+                                        <li>• Ajuster RMS Mix Rate (0.6)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimisation Avancée -->
+    <section id="optimisation" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <i class="fas fa-tachometer-alt mr-3 text-green-600"></i>
+                Optimisation et Performance
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Optimisation GPU -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">🚀 Optimisation GPU et Mémoire</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">⚡ Configuration GPU Avancée</h4>
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Optimisation GPU pour RVC
+import torch
+import gc
+
+class RVCGPUOptimizer:
+    def __init__(self):
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.setup_gpu_optimizations()
+    
+    def setup_gpu_optimizations(self):
+        """Configuration optimisée GPU"""
+        if torch.cuda.is_available():
+            # Optimisations CUDA
+            torch.backends.cudnn.benchmark = True
+            torch.backends.cuda.matmul.allow_tf32 = True
+            torch.backends.cudnn.allow_tf32 = True
+            
+            # Gestion mémoire
+            torch.cuda.empty_cache()
+            
+            print("✅ Optimisations GPU activées")
+    
+    def monitor_gpu_usage(self):
+        """Monitoring utilisation GPU"""
+        if torch.cuda.is_available():
+            memory_allocated = torch.cuda.memory_allocated() / 1024**3
+            memory_reserved = torch.cuda.memory_reserved() / 1024**3
+            
+            print(f"🔥 VRAM utilisée: {memory_allocated:.1f} GB")
+            print(f"📊 VRAM réservée: {memory_reserved:.1f} GB")
+            
+            return memory_allocated, memory_reserved
+    
+    def clear_memory(self):
+        """Nettoyage mémoire GPU"""
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            gc.collect()
+            print("🧹 Mémoire GPU nettoyée")
+    
+    def optimize_for_inference(self):
+        """Optimisation spécifique inférence"""
+        # Désactivation gradients
+        torch.set_grad_enabled(False)
+        
+        # Optimisation inference
+        torch.jit.set_optimized_executor(True)
+        
+        print("🎯 Mode inférence optimisé")
+
+# Utilisation
+optimizer = RVCGPUOptimizer()
+optimizer.monitor_gpu_usage()</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">📊 Monitoring Performance</h4>
+                            <div class="relative">
+                                <pre class="code-block text-green-400"><code># Monitoring complet système
+import psutil
+import GPUtil
+import time
+from datetime import datetime
+
+class SystemMonitor:
+    def __init__(self):
+        self.start_time = time.time()
+    
+    def get_system_stats(self):
+        """Statistiques système complètes"""
+        # CPU
+        cpu_percent = psutil.cpu_percent(interval=1)
+        cpu_freq = psutil.cpu_freq().current
+        
+        # RAM
+        memory = psutil.virtual_memory()
+        ram_used = memory.used / (1024**3)
+        ram_total = memory.total / (1024**3)
+        
+        # GPU
+        gpu_stats = {}
+        if GPUtil.getGPUs():
+            gpu = GPUtil.getGPUs()[0]
+            gpu_stats = {
+                'utilization': gpu.load * 100,
+                'memory_used': gpu.memoryUsed / 1024,
+                'memory_total': gpu.memoryTotal / 1024,
+                'temperature': gpu.temperature
+            }
+        
+        return {
+            'cpu_percent': cpu_percent,
+            'cpu_freq': cpu_freq,
+            'ram_used': ram_used,
+            'ram_total': ram_total,
+            'gpu': gpu_stats,
+            'timestamp': datetime.now()
+        }
+    
+    def log_performance(self, conversion_time=None):
+        """Log performance RVC"""
+        stats = self.get_system_stats()
+        
+        print("=" * 50)
+        print(f"🕐 {stats['timestamp'].strftime('%H:%M:%S')}")
+        print(f"🖥️  CPU: {stats['cpu_percent']:.1f}% @ {stats['cpu_freq']:.0f}MHz")
+        print(f"💾 RAM: {stats['ram_used']:.1f}/{stats['ram_total']:.1f} GB")
+        
+        if stats['gpu']:
+            print(f"🎮 GPU: {stats['gpu']['utilization']:.1f}%")
+            print(f"🔥 VRAM: {stats['gpu']['memory_used']:.1f}/{stats['gpu']['memory_total']:.1f} GB")
+            print(f"🌡️  Temp: {stats['gpu']['temperature']}°C")
+        
+        if conversion_time:
+            print(f"⏱️  Conversion: {conversion_time:.1f}s")
+        
+        print("=" * 50)
+
+# Utilisation monitoring
+monitor = SystemMonitor()
+monitor.log_performance()</code></pre>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Batch Processing -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6">🔄 Traitement en Batch Optimisé</h3>
+                    
+                    <div class="relative">
+                        <pre class="code-block text-green-400"><code># Système batch processing avancé pour RVC
+import concurrent.futures
+import threading
+from queue import Queue
+import time
+
+class RVCBatchProcessor:
+    def __init__(self, model_path, index_path, max_workers=2):
+        self.model_path = model_path
+        self.index_path = index_path
+        self.max_workers = max_workers
+        self.converter = RVCConverter(model_path, index_path)
+        self.results_queue = Queue()
+        
+    def process_file(self, file_info):
+        """Traitement d'un fichier individuel"""
+        input_file, output_file, params = file_info
+        
+        start_time = time.time()
+        
+        try:
+            success = self.converter.convert_voice(
+                input_file, 
+                output_file,
+                pitch_change=params.get('pitch', 0),
+                index_rate=params.get('index_rate', 0.7)
+            )
+            
+            conversion_time = time.time() - start_time
+            
+            result = {
+                'input': input_file,
+                'output': output_file,
+                'success': success,
+                'time': conversion_time,
+                'thread': threading.current_thread().name
+            }
+            
+            self.results_queue.put(result)
+            return result
+            
+        except Exception as e:
+            error_result = {
+                'input': input_file,
+                'error': str(e),
+                'success': False,
+                'time': time.time() - start_time
+            }
+            self.results_queue.put(error_result)
+            return error_result
+    
+    def process_batch(self, file_list, params_list=None):
+        """Traitement batch multi-thread"""
+        if params_list is None:
+            params_list = [{}] * len(file_list)
+        
+        # Préparation tâches
+        tasks = [(f, f.replace('.wav', '_leana.wav'), p) 
+                for f, p in zip(file_list, params_list)]
+        
+        print(f"🚀 Démarrage batch: {len(tasks)} fichiers")
+        print(f"🔧 Workers: {self.max_workers}")
+        
+        start_time = time.time()
+        
+        # Exécution parallèle
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = [executor.submit(self.process_file, task) for task in tasks]
+            
+            # Collecte résultats
+            results = []
+            for future in concurrent.futures.as_completed(futures):
+                result = future.result()
+                results.append(result)
+                
+                if result['success']:
+                    print(f"✅ {result['input']} → {result['time']:.1f}s")
+                else:
+                    print(f"❌ {result['input']} → ERREUR")
+        
+        total_time = time.time() - start_time
+        successful = sum(1 for r in results if r['success'])
+        
+        print(f"\n📊 BATCH TERMINÉ:")
+        print(f"✅ Réussis: {successful}/{len(tasks)}")
+        print(f"⏱️  Temps total: {total_time:.1f}s")
+        print(f"⚡ Temps moyen: {total_time/len(tasks):.1f}s/fichier")
+        
+        return results
+
+# Utilisation batch
+processor = RVCBatchProcessor(
+    model_path="logs/Leana_Mystere_v1/G_300.pth",
+    index_path="logs/Leana_Mystere_v1/added_*.index",
+    max_workers=2  # Ajustez selon votre GPU
+)
+
+# Liste fichiers à traiter
+files_to_process = [
+    "input1.wav", "input2.wav", "input3.wav"
+]
+
+# Paramètres différents par fichier (optionnel)
+custom_params = [
+    {'pitch': 0, 'index_rate': 0.7},
+    {'pitch': 2, 'index_rate': 0.6},
+    {'pitch': -1, 'index_rate': 0.8}
+]
+
+# Lancement batch
+results = processor.process_batch(files_to_process, custom_params)</code></pre>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i> Copier
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conseils Performance -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="success-box">
+                        <h4 class="font-bold text-green-800 mb-3">🎯 Optimisations Recommandées :</h4>
+                        <ul class="text-green-700 space-y-2">
+                            <li>• <strong>GPU :</strong> RTX 3060+ pour temps réel</li>
+                            <li>• <strong>VRAM :</strong> 8GB+ pour batch processing</li>
+                            <li>• <strong>RAM :</strong> 16GB+ pour gros modèles</li>
+                            <li>• <strong>SSD :</strong> Améliore vitesse I/O</li>
+                            <li>• <strong>Cooling :</strong> Évite throttling GPU</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4 class="font-bold text-red-800 mb-3">⚠️ Limitations à Connaître :</h4>
+                        <ul class="text-red-700 space-y-2">
+                            <li>• <strong>Qualité audio source :</strong> Critique pour résultat</li>
+                            <li>• <strong>Longueur audio :</strong> >10s recommandé</li>
+                            <li>• <strong>Bruit de fond :</strong> Réduit qualité</li>
+                            <li>• <strong>Accent/langue :</strong> Entraînement spécifique requis</li>
+                            <li>• <strong>Émotion :</strong> Dataset varié nécessaire</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-microphone text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">BLOC 11.2 RVC - TERMINÉ</h3>
+                    <p class="text-gray-400 mb-4">Maîtrise complète de RVC pour clonage vocal haute qualité</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center">
+                        <i class="fas fa-download text-2xl text-blue-400 mb-2"></i>
+                        <h4 class="font-bold">Installation</h4>
+                        <p class="text-sm text-gray-400">Setup complet RVC</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-dumbbell text-2xl text-purple-400 mb-2"></i>
+                        <h4 class="font-bold">Entraînement</h4>
+                        <p class="text-sm text-gray-400">Modèle Léana Mystère</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-exchange-alt text-2xl text-indigo-400 mb-2"></i>
+                        <h4 class="font-bold">Conversion</h4>
+                        <p class="text-sm text-gray-400">Interface & scripts</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-tachometer-alt text-2xl text-green-400 mb-2"></i>
+                        <h4 class="font-bold">Performance</h4>
+                        <p class="text-sm text-gray-400">Optimisation GPU</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-6">
+                    <div class="flex justify-center space-x-6 mb-4">
+                        <span class="text-sm text-gray-400">
+                            <i class="fas fa-brain mr-1"></i>
+                            RVC Advanced
+                        </span>
+                        <span class="text-sm text-gray-400">
+                            <i class="fas fa-code mr-1"></i>
+                            Scripts Python
+                        </span>
+                        <span class="text-sm text-gray-400">
+                            <i class="fas fa-shield-alt mr-1"></i>
+                            Usage Éthique
+                        </span>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500">
+                        Formation technique avancée • Utilisez de manière responsable et légale
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Fonction copie code
+        function copyCode(button) {
+            const codeBlock = button.parentElement.querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copié!';
+                button.style.backgroundColor = '#48bb78';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.backgroundColor = '#4a5568';
+                }, 2000);
+            });
+        }
+
+        // Smooth scroll pour navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Accordéons
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.fa-chevron-down, .fa-chevron-up');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                if (icon) icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                content.classList.add('active');
+                if (icon) icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e67fc6e38250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDjy0vfrkYRSRf5iMs8j8azrgZI6xotovT683S5NwWO0h%2B9a6wuXbQngmUb0LTJFtoFkPbSdLQ%2BAY9u6p678HU2Tg6DoXq9BrHTBMjDSgD%2B5MtxyMC%2FUNkThdd3ps0%2Bu3vojgGE0It6FMckzt5abHBYTRaadWnS2meQe5xZiCJOrwpeFXhFiu4kte69Xy3cdjyDLw6RTUC6pLAcKf9S6GH0XrH5hsAWETPJiuEaAGXNPOHSi5pya%2B3XWOIO%2FJRML%2FPXqCqdenSwY%2FGv8%2F6XIIFARPgMfYtNOG520Wq5qV6z%2FySskeivR9VT8ZHpdaeWYZ0kjolgbpNnYqUntIQclGWNtx6H6HGvWv%2Bh70Yx5K3h3K3xZ3Tjbs7przdubk8%2FgHRgcj%2FaE348MCCUzDRDgsJDn%2FyaJziHOfUFgFCf%2BHbm0e1EtTCrUWUo6jicx0rnb4qXI4YkEaLM5UUixeaVeZc21KcmE41fYpqLYSXf%2FrF%2Be1MJbeP2X5ix6q%2FI9MX1qTrr2WLtCODRTMuJxQaBQeRccKYQfcyFBJK%2Fi7BFzxeUIu";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDjy0vfrkYRSRf5iMs8j8azrgZI6xotovT683S5NwWO0h+9a6wuXbQngmUb0LTJFtoFkPbSdLQ+AY9u6p678HU2Tg6DoXq9BrHTBMjDSgD+5MtxyMC/UNkThdd3ps0+u3vojgGE0It6FMckzt5abHBYTRaadWnS2meQe5xZiCJOrwpeFXhFiu4kte69Xy3cdjyDLw6RTUC6pLAcKf9S6GH0XrH5hsAWETPJiuEaAGXNPOHSi5pya+3XWOIO/JRML/PXqCqdenSwY/Gv8/6XIIFARPgMfYtNOG520Wq5qV6z/ySskeivR9VT8ZHpdaeWYZ0kjolgbpNnYqUntIQclGWNtx6H6HGvWv+h70Yx5K3h3K3xZ3Tjbs7przdubk8/gHRgcj/aE348MCCUzDRDgsJDn/yaJziHOfUFgFCf+Hbm0e1EtTCrUWUo6jicx0rnb4qXI4YkEaLM5UUixeaVeZc21KcmE41fYpqLYSXf/rF+e1MJbeP2X5ix6q/I9MX1qTrr2WLtCODRTMuJxQaBQeRccKYQfcyFBJK/i7BFzxeUIu";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

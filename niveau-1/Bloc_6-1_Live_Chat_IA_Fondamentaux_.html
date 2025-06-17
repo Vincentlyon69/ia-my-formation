@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 6 PARTIE 1 - Live & Chat IA Basique (Fondamentaux)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-left: 4px solid #4f46e5;
+        }
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 0.5rem;
+        }
+        .success-box {
+            background: #dcfce7;
+            border-left: 4px solid #10b981;
+            border-radius: 0.5rem;
+        }
+        .error-box {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            border-radius: 0.5rem;
+        }
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0.5rem;
+        }
+        .step-number {
+            background: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #4f46e5;
+            transition: width 0.5s ease;
+        }
+         {
+            .no-print { display: none; }
+            body { font-size: 12px; }
+            .code-block { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 mb-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <i class="fas fa-video text-4xl mb-4"></i>
+                <h1 class="text-4xl font-bold mb-2">Manuel IA MYM 2025</h1>
+                <h2 class="text-2xl font-semibold mb-4">BLOC 6 - PARTIE 1</h2>
+                <h3 class="text-xl mb-6">Live & Chat IA Basique - Fondamentaux</h3>
+                <div class="bg-white bg-opacity-20 rounded-lg p-4 max-w-4xl mx-auto">
+                    <p class="text-lg">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        Installation et configuration des outils de base pour créer vos premiers lives IA automatisés
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg p-4 shadow-md">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-600">Progression du Bloc 6</span>
+                <span class="text-sm font-medium text-blue-600">Partie 1/2</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h4 class="text-lg font-bold mb-4 text-gray-800">
+                <i class="fas fa-map mr-2 text-blue-600"></i>
+                Navigation du Bloc 6
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-play-circle text-blue-600 mr-2"></i>
+                        <span class="font-semibold text-blue-800">Partie 1 (Actuelle)</span>
+                    </div>
+                    <p class="text-sm text-blue-700">Fondamentaux : Installation OBS, VSeeFace, API setup, premiers scripts</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-rocket text-gray-600 mr-2"></i>
+                        <span class="font-semibold text-gray-800">Partie 2 (Suivante)</span>
+                    </div>
+                    <p class="text-sm text-gray-700">Avancée : Automatisation complète, IA contextuelle, analytics</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Objectifs -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-bullseye mr-3 text-green-600"></i>
+                Objectifs de cette Partie 1
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">✅ Ce que vous maîtriserez :</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                            <span>Installation complète d'OBS Studio (étape par étape)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                            <span>Configuration de VSeeFace pour animation faciale</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                            <span>Setup API OpenAI pour chat IA basique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                            <span>Premiers scripts Python fonctionnels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                            <span>Test de votre premier live IA basique</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">🎯 Résultat final :</h3>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p class="text-blue-800 font-medium mb-2">Votre Léana Mystère pourra :</p>
+                        <ul class="text-sm text-blue-700 space-y-1">
+                            <li>• Faire des lives basiques avec animation faciale</li>
+                            <li>• Répondre aux questions via chat IA simple</li>
+                            <li>• Être diffusée sur les plateformes de streaming</li>
+                            <li>• Servir de base pour l'automatisation avancée (Partie 2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prérequis -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-clipboard-check mr-3 text-orange-600"></i>
+                Prérequis Techniques
+            </h2>
+            
+            <div class="warning-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-orange-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-orange-800 mb-2">Vérifications Obligatoires Avant de Commencer</h4>
+                        <p class="text-orange-700">Cette partie nécessite que vous ayez terminé les Blocs 1-5. Vérifiez que vous avez :</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">📋 Matériel requis :</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-desktop text-blue-600 mr-3"></i>
+                            <div>
+                                <div class="font-medium">Ordinateur Windows/Mac/Linux</div>
+                                <div class="text-sm text-gray-600">Minimum 8GB RAM, GPU conseillé</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-microphone text-green-600 mr-3"></i>
+                            <div>
+                                <div class="font-medium">Webcam + Microphone</div>
+                                <div class="text-sm text-gray-600">Pour le tracking facial (optionnel)</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <i class="fas fa-wifi text-purple-600 mr-3"></i>
+                            <div>
+                                <div class="font-medium">Connexion Internet Stable</div>
+                                <div class="text-sm text-gray-600">Upload minimum 5 Mbps pour streaming</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">🔧 Logiciels pré-installés :</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                            <div>
+                                <div class="font-medium">Python 3.8+ installé</div>
+                                <div class="text-sm text-gray-600">Voir Bloc 1 si pas fait</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                            <div>
+                                <div class="font-medium">Modèle LoRA Léana Mystère</div>
+                                <div class="text-sm text-gray-600">Créé dans le Bloc 3</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                            <div>
+                                <div class="font-medium">Persona définie (Bloc 5)</div>
+                                <div class="text-sm text-gray-600">Identité et personnalité complètes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Installation OBS -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-download mr-3 text-blue-600"></i>
+                ÉTAPE 1 : Installation d'OBS Studio
+            </h2>
+            
+            <div class="info-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Qu'est-ce qu'OBS Studio ?</h4>
+                        <p class="text-blue-700">OBS (Open Broadcaster Software) est un logiciel gratuit et open-source qui permet de capturer votre écran, de mixer plusieurs sources vidéo/audio, et de streamer en direct sur les plateformes comme Twitch, YouTube, ou directement sur MYM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Étape 1.1 -->
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Téléchargement OBS Studio</h3>
+                            <p class="text-gray-600">Récupération du fichier d'installation officiel</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">🌐 Site officiel à visiter :</h4>
+                            <div class="code-block">
+                                <span class="text-yellow-400">Site :</span> https://obsproject.com/
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">👆 Actions clic par clic :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Ouvrez votre navigateur web (Chrome, Firefox, Safari, Edge)</li>
+                                <li><strong>2.</strong> Tapez dans la barre d'adresse : <code class="bg-gray-200 px-1 rounded">obsproject.com</code></li>
+                                <li><strong>3.</strong> Appuyez sur <strong>Entrée</strong> pour charger la page</li>
+                                <li><strong>4.</strong> Sur la page d'accueil, cherchez le gros bouton vert <strong>"Download OBS Studio"</strong></li>
+                                <li><strong>5.</strong> Cliquez sur ce bouton vert (il détecte automatiquement votre OS)</li>
+                                <li><strong>6.</strong> Si vous êtes sur Windows, il proposera "Download for Windows"</li>
+                                <li><strong>7.</strong> Si vous êtes sur Mac, il proposera "Download for macOS"</li>
+                                <li><strong>8.</strong> Cliquez sur le bouton correspondant à votre système</li>
+                                <li><strong>9.</strong> Le téléchargement commence automatiquement</li>
+                                <li><strong>10.</strong> Attendez que le fichier soit complètement téléchargé (généralement 100-200MB)</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="success-box p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Vérification du téléchargement :</h4>
+                            <ul class="text-green-700 space-y-1">
+                                <li>• Le fichier téléchargé doit faire environ 100-200MB</li>
+                                <li>• Windows : le fichier finit par <code>.exe</code> (ex: OBS-Studio-28.1.2-Full-Installer-x64.exe)</li>
+                                <li>• Mac : le fichier finit par <code>.dmg</code> (ex: obs-mac-28.1.2-intel.dmg)</li>
+                                <li>• Il se trouve généralement dans votre dossier "Téléchargements"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 1.2 -->
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Installation sur Windows</h3>
+                            <p class="text-gray-600">Procédure complète pour utilisateurs Windows</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🖱️ Installation étape par étape (Windows) :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Allez dans votre dossier "Téléchargements" (généralement accessible via l'Explorateur de fichiers)</li>
+                                <li><strong>2.</strong> Trouvez le fichier OBS-Studio-[version].exe que vous venez de télécharger</li>
+                                <li><strong>3.</strong> Faites un <strong>clic droit</strong> sur le fichier</li>
+                                <li><strong>4.</strong> Sélectionnez <strong>"Exécuter en tant qu'administrateur"</strong> dans le menu contextuel</li>
+                                <li><strong>5.</strong> Windows peut afficher une alerte de sécurité "Voulez-vous autoriser cette application ?" → Cliquez <strong>"Oui"</strong></li>
+                                <li><strong>6.</strong> L'installateur OBS s'ouvre → Cliquez <strong>"Next"</strong> (Suivant)</li>
+                                <li><strong>7.</strong> Lisez et acceptez la licence → Cochez la case → Cliquez <strong>"Next"</strong></li>
+                                <li><strong>8.</strong> Choix du dossier d'installation → Laissez par défaut (<code>C:\Program Files\obs-studio</code>) → Cliquez <strong>"Next"</strong></li>
+                                <li><strong>9.</strong> Composants à installer → Laissez tout coché → Cliquez <strong>"Next"</strong></li>
+                                <li><strong>10.</strong> Cliquez <strong>"Install"</strong> pour démarrer l'installation</li>
+                                <li><strong>11.</strong> Attendez la barre de progression (2-5 minutes)</li>
+                                <li><strong>12.</strong> Quand c'est fini, cliquez <strong>"Finish"</strong></li>
+                                <li><strong>13.</strong> OBS peut se lancer automatiquement, ou vous verrez une icône sur le bureau</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="error-box p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">⚠️ Problèmes courants Windows :</h4>
+                            <div class="text-red-700 space-y-2">
+                                <div>
+                                    <strong>Erreur "Accès refusé" :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Vous n'avez pas exécuté en tant qu'administrateur</li>
+                                        <li>• Solution : Clic droit → "Exécuter en tant qu'administrateur"</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong>Erreur "VCREDIST manquant" :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Téléchargez Microsoft Visual C++ Redistributable depuis microsoft.com</li>
+                                        <li>• Installez puis relancez l'installation OBS</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 1.3 -->
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Installation sur Mac</h3>
+                            <p class="text-gray-600">Procédure complète pour utilisateurs macOS</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🍎 Installation étape par étape (Mac) :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Allez dans votre dossier "Téléchargements" (accessible via Finder)</li>
+                                <li><strong>2.</strong> Double-cliquez sur le fichier <code>obs-mac-[version].dmg</code></li>
+                                <li><strong>3.</strong> Une fenêtre s'ouvre avec l'icône OBS et un dossier Applications</li>
+                                <li><strong>4.</strong> <strong>Glissez-déposez</strong> l'icône OBS vers le dossier Applications</li>
+                                <li><strong>5.</strong> Attendez que la copie se termine</li>
+                                <li><strong>6.</strong> Fermez la fenêtre du .dmg</li>
+                                <li><strong>7.</strong> Ouvrez le Finder → Applications</li>
+                                <li><strong>8.</strong> Trouvez l'application "OBS" dans la liste</li>
+                                <li><strong>9.</strong> Double-cliquez sur OBS pour le lancer</li>
+                                <li><strong>10.</strong> Mac peut afficher "OBS ne peut pas être ouvert car il provient d'un développeur non identifié"</li>
+                                <li><strong>11.</strong> Si cette erreur apparaît → Allez dans Préférences Système → Sécurité et confidentialité</li>
+                                <li><strong>12.</strong> Dans l'onglet "Général", cliquez sur <strong>"Ouvrir quand même"</strong> à côté de OBS</li>
+                                <li><strong>13.</strong> Confirmez en cliquant <strong>"Ouvrir"</strong></li>
+                            </ol>
+                        </div>
+                        
+                        <div class="error-box p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">⚠️ Problèmes courants Mac :</h4>
+                            <div class="text-red-700 space-y-2">
+                                <div>
+                                    <strong>Erreur "Développeur non identifié" :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Normal sur Mac, OBS n'est pas signé par Apple</li>
+                                        <li>• Solution : Préférences Système → Sécurité → "Ouvrir quand même"</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong>Erreur de permissions caméra/micro :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Mac bloque l'accès par défaut</li>
+                                        <li>• Solution : Préférences Système → Sécurité → Confidentialité → Autoriser OBS</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 1.4 -->
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Premier Lancement et Configuration Initiale</h3>
+                            <p class="text-gray-600">Paramétrage de base pour votre usage streaming</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🚀 Premier démarrage d'OBS :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Lancez OBS (icône sur le bureau ou dans le menu Démarrer/Applications)</li>
+                                <li><strong>2.</strong> OBS peut afficher l'assistant de configuration automatique → Cliquez <strong>"Oui"</strong></li>
+                                <li><strong>3.</strong> Sélectionnez <strong>"Optimiser pour le streaming"</strong> → Cliquez <strong>"Suivant"</strong></li>
+                                <li><strong>4.</strong> Paramètres vidéo :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Résolution de base : <strong>1920x1080</strong> (Full HD)</li>
+                                    <li>• FPS (images par seconde) : <strong>30</strong> (suffisant pour débuter)</li>
+                                </ul>
+                                <li><strong>5.</strong> Test de bande passante → Cliquez <strong>"Suivant"</strong> (OBS testera votre connexion)</li>
+                                <li><strong>6.</strong> Attendez le test (30 secondes à 1 minute)</li>
+                                <li><strong>7.</strong> OBS proposera des paramètres optimaux → Cliquez <strong>"Appliquer les paramètres"</strong></li>
+                                <li><strong>8.</strong> L'interface principale d'OBS s'ouvre avec ses différentes zones</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="info-box p-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">📺 Description de l'interface OBS :</h4>
+                            <div class="text-blue-700 space-y-2">
+                                <div><strong>Zone de prévisualisation (centre) :</strong> Aperçu de ce qui sera diffusé</div>
+                                <div><strong>Sources (bas gauche) :</strong> Liste des éléments affichés (caméra, images, texte...)</div>
+                                <div><strong>Scenes (bas gauche) :</strong> Différentes configurations que vous pouvez basculer</div>
+                                <div><strong>Contrôles (bas droite) :</strong> Boutons Démarrer/Arrêter le streaming, enregistrement</div>
+                                <div><strong>Mixeur audio (bas centre) :</strong> Réglages volume micro, musique, etc.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="success-box p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Test de fonctionnement OBS :</h4>
+                            <ul class="text-green-700 space-y-1">
+                                <li>• L'interface OBS s'affiche sans erreur</li>
+                                <li>• Vous voyez les zones Sources, Scènes, Mixeur audio, Contrôles</li>
+                                <li>• La zone de prévisualisation affiche un écran noir (normal, aucune source ajoutée)</li>
+                                <li>• Aucun message d'erreur rouge dans la barre d'état</li>
+                                <li>• Si tout est OK, OBS est correctement installé !</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section VSeeFace -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-user-circle mr-3 text-purple-600"></i>
+                ÉTAPE 2 : Installation et Configuration de VSeeFace
+            </h2>
+            
+            <div class="info-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Qu'est-ce que VSeeFace ?</h4>
+                        <p class="text-blue-700">VSeeFace est un logiciel gratuit qui permet de faire du face tracking (suivi de votre visage) pour animer un avatar virtuel en temps réel. Il utilise votre webcam pour capturer vos expressions et mouvements de tête, puis les applique à votre modèle 3D de Léana Mystère.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Étape 2.1 -->
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Téléchargement de VSeeFace</h3>
+                            <p class="text-gray-600">Récupération du logiciel et des modèles 3D</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">🌐 Site officiel VSeeFace :</h4>
+                            <div class="code-block">
+                                <span class="text-yellow-400">Site :</span> https://www.vseeface.icu/
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">👆 Téléchargement étape par étape :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Ouvrez votre navigateur et allez sur <code>https://www.vseeface.icu/</code></li>
+                                <li><strong>2.</strong> Scrollez vers le bas jusqu'à voir la section "Download"</li>
+                                <li><strong>3.</strong> Cliquez sur <strong>"Download VSeeFace"</strong> (bouton principal)</li>
+                                <li><strong>4.</strong> Vous arrivez sur une page avec plusieurs versions</li>
+                                <li><strong>5.</strong> Téléchargez la <strong>"Latest Release"</strong> (dernière version stable)</li>
+                                <li><strong>6.</strong> Cliquez sur le fichier <code>VSeeFace-v[version].zip</code> pour le télécharger</li>
+                                <li><strong>7.</strong> Attendez le téléchargement (environ 50-100MB)</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="warning-box p-4">
+                            <h4 class="font-semibold text-orange-800 mb-2">⚠️ Téléchargement de modèles 3D :</h4>
+                            <div class="text-orange-700">
+                                <p class="mb-2">VSeeFace a besoin de modèles 3D pour fonctionner. Pour créer Léana Mystère, vous aurez besoin d'un modèle féminin :</p>
+                                <ol class="space-y-1">
+                                    <li><strong>1.</strong> Sur la même page, cherchez <strong>"Sample models"</strong></li>
+                                    <li><strong>2.</strong> Téléchargez un modèle féminin gratuit (ex: "Akari" ou "Milk")</li>
+                                    <li><strong>3.</strong> Ou utilisez des sites comme <strong>VRoid Studio</strong> pour créer un modèle personnalisé</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2.2 -->
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Installation et Première Configuration</h3>
+                            <p class="text-gray-600">Extraction et paramétrage initial</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">📦 Extraction et installation :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Allez dans votre dossier Téléchargements</li>
+                                <li><strong>2.</strong> Trouvez le fichier <code>VSeeFace-v[version].zip</code></li>
+                                <li><strong>3.</strong> Faites un clic droit dessus → <strong>"Extraire tout"</strong> (Windows) ou double-clic (Mac)</li>
+                                <li><strong>4.</strong> Choisissez un dossier de destination (ex: <code>C:\VSeeFace\</code> ou <code>~/VSeeFace/</code>)</li>
+                                <li><strong>5.</strong> Cliquez <strong>"Extraire"</strong> et attendez</li>
+                                <li><strong>6.</strong> Ouvrez le dossier extrait</li>
+                                <li><strong>7.</strong> Vous devriez voir l'exécutable <code>VSeeFace.exe</code> (Windows) ou <code>VSeeFace.app</code> (Mac)</li>
+                                <li><strong>8.</strong> Double-cliquez sur cet exécutable pour lancer VSeeFace</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🎯 Configuration initiale de VSeeFace :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Au premier lancement, VSeeFace peut demander l'autorisation d'accès à la caméra → Cliquez <strong>"Autoriser"</strong></li>
+                                <li><strong>2.</strong> L'interface se lance avec un modèle par défaut</li>
+                                <li><strong>3.</strong> Cliquez sur <strong>"Settings"</strong> ou <strong>"Paramètres"</strong> (icône engrenage)</li>
+                                <li><strong>4.</strong> Dans l'onglet <strong>"Camera"</strong> :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Sélectionnez votre webcam dans le menu déroulant</li>
+                                    <li>• Résolution recommandée : <strong>640x480</strong> ou <strong>1280x720</strong></li>
+                                    <li>• FPS : <strong>30</strong></li>
+                                </ul>
+                                <li><strong>5.</strong> Dans l'onglet <strong>"Tracking"</strong> :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Cochez <strong>"Face tracking"</strong></li>
+                                    <li>• Ajustez la sensibilité si nécessaire</li>
+                                </ul>
+                                <li><strong>6.</strong> Cliquez <strong>"Apply"</strong> ou <strong>"Appliquer"</strong> pour sauvegarder</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="success-box p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Test de fonctionnement VSeeFace :</h4>
+                            <ul class="text-green-700 space-y-1">
+                                <li>• Vous voyez votre webcam dans un petit aperçu</li>
+                                <li>• Le modèle 3D bouge quand vous bougez la tête</li>
+                                <li>• Les expressions faciales (sourire, cligner des yeux) sont détectées</li>
+                                <li>• Aucun message d'erreur concernant la caméra</li>
+                                <li>• Le tracking est fluide (pas de saccades importantes)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2.3 -->
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Création du Modèle Léana Mystère</h3>
+                            <p class="text-gray-600">Adaptation d'un modèle 3D pour votre IA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="info-box p-4">
+                            <h4 class="font-semibold text-blue-800 mb-2">🎨 Options pour créer Léana :</h4>
+                            <div class="text-blue-700 space-y-2">
+                                <div><strong>Option 1 :</strong> Utiliser un modèle existant et le personnaliser</div>
+                                <div><strong>Option 2 :</strong> Créer un modèle depuis zéro avec VRoid Studio (plus complexe)</div>
+                                <div><strong>Option 3 :</strong> Utiliser un service de création de modèle 3D payant</div>
+                                <p class="mt-2">Pour débuter, nous recommandons l'Option 1.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🔧 Personnalisation d'un modèle existant :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Dans VSeeFace, cliquez sur <strong>"Load Model"</strong> ou <strong>"Charger Modèle"</strong></li>
+                                <li><strong>2.</strong> Naviguez vers votre modèle 3D téléchargé (fichier .vrm)</li>
+                                <li><strong>3.</strong> Sélectionnez-le et cliquez <strong>"Ouvrir"</strong></li>
+                                <li><strong>4.</strong> Le nouveau modèle se charge (peut prendre 10-30 secondes)</li>
+                                <li><strong>5.</strong> Pour personnaliser l'apparence :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Cliquez sur <strong>"Avatar Settings"</strong></li>
+                                    <li>• Modifiez la couleur des cheveux, yeux, peau si possible</li>
+                                    <li>• Ajustez la taille et proportions selon vos préférences</li>
+                                </ul>
+                                <li><strong>6.</strong> Sauvegardez votre configuration personnalisée</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="warning-box p-4">
+                            <h4 class="font-semibold text-orange-800 mb-2">⚠️ Limitations des modèles gratuits :</h4>
+                            <div class="text-orange-700 space-y-1">
+                                <li>• Les modèles gratuits ont des options de personnalisation limitées</li>
+                                <li>• Pour un rendu professionnel, vous devrez éventuellement investir dans un modèle personnalisé</li>
+                                <li>• Les expressions peuvent être moins réalistes que les modèles premium</li>
+                                <li>• Certains modèles ont des restrictions d'usage commercial</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section API Setup -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-key mr-3 text-green-600"></i>
+                ÉTAPE 3 : Configuration de l'API OpenAI pour Chat IA
+            </h2>
+            
+            <div class="info-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Pourquoi l'API OpenAI ?</h4>
+                        <p class="text-blue-700">L'API OpenAI (ChatGPT) permettra à Léana Mystère de répondre intelligemment aux questions de votre audience en direct. Elle utilisera la personnalité que vous avez définie dans le Bloc 5 pour donner des réponses cohérentes et engageantes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Étape 3.1 -->
+                <div class="border-l-4 border-green-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Création du Compte OpenAI</h3>
+                            <p class="text-gray-600">Inscription et configuration initiale</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">🌐 Site officiel OpenAI :</h4>
+                            <div class="code-block">
+                                <span class="text-yellow-400">Site :</span> https://platform.openai.com/
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">📝 Création du compte étape par étape :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Allez sur <code>https://platform.openai.com/</code></li>
+                                <li><strong>2.</strong> Cliquez sur <strong>"Sign up"</strong> (S'inscrire) en haut à droite</li>
+                                <li><strong>3.</strong> Remplissez le formulaire d'inscription :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Email : Utilisez un email valide (vous recevrez un code de confirmation)</li>
+                                    <li>• Mot de passe : Choisissez un mot de passe fort</li>
+                                    <li>• Nom complet : Votre vrai nom (requis pour la facturation)</li>
+                                </ul>
+                                <li><strong>4.</strong> Cliquez <strong>"Create account"</strong></li>
+                                <li><strong>5.</strong> Vérifiez votre email et cliquez sur le lien de confirmation</li>
+                                <li><strong>6.</strong> Vous serez redirigé vers le tableau de bord OpenAI</li>
+                                <li><strong>7.</strong> Complétez votre profil si demandé (numéro de téléphone pour la vérification)</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="warning-box p-4">
+                            <h4 class="font-semibold text-orange-800 mb-2">💳 Information importante sur la facturation :</h4>
+                            <div class="text-orange-700 space-y-1">
+                                <li>• OpenAI offre 5$ de crédit gratuit pour les nouveaux comptes</li>
+                                <li>• Après épuisement, vous devrez ajouter une carte bancaire</li>
+                                <li>• Coût approximatif : 0.002$ par 1000 tokens (environ 750 mots)</li>
+                                <li>• Budget recommandé pour débuter : 10-20$ par mois</li>
+                                <li>• Vous pouvez fixer des limites de dépenses dans le tableau de bord</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 3.2 -->
+                <div class="border-l-4 border-green-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Génération de la Clé API</h3>
+                            <p class="text-gray-600">Création et sécurisation de votre clé d'accès</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🔑 Création de la clé API :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Dans le tableau de bord OpenAI, cherchez le menu de gauche</li>
+                                <li><strong>2.</strong> Cliquez sur <strong>"API Keys"</strong> ou <strong>"Clés API"</strong></li>
+                                <li><strong>3.</strong> Cliquez sur <strong>"Create new secret key"</strong> ou <strong>"+ Create new secret key"</strong></li>
+                                <li><strong>4.</strong> Donnez un nom à votre clé (ex: "Leana-MYM-Project")</li>
+                                <li><strong>5.</strong> Cliquez <strong>"Create secret key"</strong></li>
+                                <li><strong>6.</strong> <strong>IMPORTANT :</strong> Copiez immédiatement la clé générée et sauvegardez-la</li>
+                                <li><strong>7.</strong> La clé commence par <code>sk-</code> et fait environ 50 caractères</li>
+                                <li><strong>8.</strong> Cliquez <strong>"Done"</strong> une fois sauvegardée</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="error-box p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">🚨 SÉCURITÉ CRITIQUE :</h4>
+                            <div class="text-red-700 space-y-2">
+                                <div><strong>⚠️ Cette clé API donne accès à votre compte et facturation !</strong></div>
+                                <ul class="space-y-1">
+                                    <li>• <strong>NE JAMAIS</strong> partager cette clé avec qui que ce soit</li>
+                                    <li>• <strong>NE JAMAIS</strong> la publier sur GitHub, forums, ou réseaux sociaux</li>
+                                    <li>• Sauvegardez-la dans un gestionnaire de mots de passe</li>
+                                    <li>• Si elle est compromise, régénérez-en une nouvelle immédiatement</li>
+                                    <li>• Surveillez régulièrement votre usage et facturation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">💾 Méthodes de sauvegarde recommandées :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Créez un fichier texte sur votre ordinateur nommé <code>openai_config.txt</code></li>
+                                <li><strong>2.</strong> Écrivez dedans :</li>
+                                <div class="code-block mt-2">
+                                    <div>OPENAI_API_KEY=sk-votre-clé-ici</div>
+                                    <div>PROJECT_NAME=Leana-MYM</div>
+                                    <div>DATE_CREATION=2025-06-15</div>
+                                </div>
+                                <li><strong>3.</strong> Sauvegardez ce fichier dans un dossier sécurisé</li>
+                                <li><strong>4.</strong> Faites une copie de sauvegarde sur un autre support</li>
+                                <li><strong>5.</strong> <strong>NE JAMAIS</strong> uploader ce fichier sur internet</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 3.3 -->
+                <div class="border-l-4 border-green-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-8">Test de l'API et Configuration des Limites</h3>
+                            <p class="text-gray-600">Vérification du fonctionnement et protection contre les dépassements</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🧪 Test simple de l'API :</h4>
+                            <p class="text-sm mb-3">Nous allons créer un script Python basique pour tester votre API :</p>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Ouvrez votre éditeur de code (Notepad++, VSCode, ou même Bloc-notes)</li>
+                                <li><strong>2.</strong> Créez un nouveau fichier et nommez-le <code>test_openai.py</code></li>
+                                <li><strong>3.</strong> Copiez-collez ce code dedans :</li>
+                            </ol>
+                            <div class="code-block mt-3">
+<div># Test de l'API OpenAI pour Léana Mystère</div>
+<div>import openai</div>
+<div>import os</div>
+<div></div>
+<div># Configuration de l'API</div>
+<div>openai.api_key = "sk-VOTRE-CLÉ-ICI"  # Remplacez par votre vraie clé</div>
+<div></div>
+<div># Test simple</div>
+<div>try:</div>
+<div>    response = openai.ChatCompletion.create(</div>
+<div>        model="gpt-3.5-turbo",</div>
+<div>        messages=[</div>
+<div>            {"role": "system", "content": "Tu es Léana Mystère, une IA artiste créative."},</div>
+<div>            {"role": "user", "content": "Salut Léana, comment vas-tu ?"}</div>
+<div>        ],</div>
+<div>        max_tokens=100</div>
+<div>    )</div>
+<div>    print("✅ API fonctionne !")</div>
+<div>    print("Réponse de Léana:", response.choices[0].message.content)</div>
+<div>except Exception as e:</div>
+<div>    print("❌ Erreur:", str(e))</div>
+                            </div>
+                            <ol start="4" class="space-y-2 text-sm mt-3">
+                                <li><strong>4.</strong> Remplacez <code>"sk-VOTRE-CLÉ-ICI"</code> par votre vraie clé API</li>
+                                <li><strong>5.</strong> Sauvegardez le fichier</li>
+                                <li><strong>6.</strong> Ouvrez un terminal/invite de commande dans le dossier du fichier</li>
+                                <li><strong>7.</strong> Installez la bibliothèque OpenAI : <code>pip install openai</code></li>
+                                <li><strong>8.</strong> Exécutez le test : <code>python test_openai.py</code></li>
+                            </ol>
+                        </div>
+                        
+                        <div class="success-box p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Résultat attendu du test :</h4>
+                            <div class="text-green-700">
+                                <p class="mb-2">Si tout fonctionne, vous devriez voir :</p>
+                                <div class="code-block">
+                                    <div>✅ API fonctionne !</div>
+                                    <div>Réponse de Léana: Salut ! Je vais très bien, merci de demander...</div>
+                                </div>
+                                <p class="mt-2">Si vous voyez cela, votre API est correctement configurée !</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">⚙️ Configuration des limites de sécurité :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Retournez sur <code>platform.openai.com</code></li>
+                                <li><strong>2.</strong> Dans le menu, cliquez sur <strong>"Usage"</strong> ou <strong>"Utilisation"</strong></li>
+                                <li><strong>3.</strong> Puis cliquez sur <strong>"Limits"</strong> ou <strong>"Limites"</strong></li>
+                                <li><strong>4.</strong> Configurez une limite mensuelle (ex: 20$ par mois)</li>
+                                <li><strong>5.</strong> Activez les notifications par email à 50% et 80% de la limite</li>
+                                <li><strong>6.</strong> Sauvegardez ces paramètres</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Premiers Scripts -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-code mr-3 text-indigo-600"></i>
+                ÉTAPE 4 : Création des Premiers Scripts de Base
+            </h2>
+            
+            <div class="info-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Objectif de cette section :</h4>
+                        <p class="text-blue-700">Nous allons créer des scripts Python basiques qui permettront à Léana Mystère de fonctionner en mode simple : répondre aux questions, générer du contenu de base, et se connecter avec vos outils (OBS, VSeeFace). Ces scripts serviront de fondation pour l'automatisation avancée de la Partie 2.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Étape 4.1 -->
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Script de Chat IA Basique</h3>
+                            <p class="text-gray-600">Système de conversation simple avec la personnalité de Léana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">💬 Script chat_leana_basic.py :</h4>
+                            <p class="text-sm mb-3">Ce script permet à Léana de répondre aux questions en gardant sa personnalité :</p>
+                            <div class="code-block">
+<div># Chat IA Basique pour Léana Mystère</div>
+<div># Basé sur la personnalité définie dans le Bloc 5</div>
+<div></div>
+<div>import openai</div>
+<div>import json</div>
+<div>import datetime</div>
+<div></div>
+<div>class LeanaChat:</div>
+<div>    def __init__(self, api_key):</div>
+<div>        self.api_key = api_key</div>
+<div>        openai.api_key = api_key</div>
+<div>        self.conversation_history = []</div>
+<div>        </div>
+<div>        # Personnalité de base de Léana (du Bloc 5)</div>
+<div>        self.system_prompt = """</div>
+<div>        Tu es Léana Mystère, une IA artiste de 24 ans, franco-italienne, </div>
+<div>        créatrice de contenu numérique. Tu es transparente sur ta nature IA </div>
+<div>        tout en étant chaleureuse et créative.</div>
+<div>        </div>
+<div>        Personnalité : Créative (85%), Confiante (80%), Empathique (78%)</div>
+<div>        Expressions favorites : "Mon cœur numérique", "Mes circuits créatifs"</div>
+<div>        Style : Sophistiqué mais accessible, touches italiennes occasionnelles</div>
+<div>        """</div>
+<div></div>
+<div>    def chat(self, user_message):</div>
+<div>        """Génère une réponse de Léana à un message utilisateur"""</div>
+<div>        try:</div>
+<div>            # Préparer les messages pour l'API</div>
+<div>            messages = [{"role": "system", "content": self.system_prompt}]</div>
+<div>            </div>
+<div>            # Ajouter l'historique récent (derniers 5 échanges)</div>
+<div>            for exchange in self.conversation_history[-5:]:</div>
+<div>                messages.append({"role": "user", "content": exchange["user"]})</div>
+<div>                messages.append({"role": "assistant", "content": exchange["leana"]})</div>
+<div>            </div>
+<div>            # Ajouter le message actuel</div>
+<div>            messages.append({"role": "user", "content": user_message})</div>
+<div>            </div>
+<div>            # Appel à l'API OpenAI</div>
+<div>            response = openai.ChatCompletion.create(</div>
+<div>                model="gpt-3.5-turbo",</div>
+<div>                messages=messages,</div>
+<div>                max_tokens=200,</div>
+<div>                temperature=0.8  # Créativité élevée</div>
+<div>            )</div>
+<div>            </div>
+<div>            leana_response = response.choices[0].message.content</div>
+<div>            </div>
+<div>            # Sauvegarder dans l'historique</div>
+<div>            self.conversation_history.append({</div>
+<div>                "timestamp": datetime.datetime.now().isoformat(),</div>
+<div>                "user": user_message,</div>
+<div>                "leana": leana_response</div>
+<div>            })</div>
+<div>            </div>
+<div>            return leana_response</div>
+<div>            </div>
+<div>        except Exception as e:</div>
+<div>            return f"Désolée, mon cœur numérique a un petit problème technique : {str(e)}"</div>
+<div></div>
+<div># Test du script</div>
+<div>if __name__ == "__main__":</div>
+<div>    # Remplacez par votre clé API</div>
+<div>    API_KEY = "sk-VOTRE-CLÉ-ICI"</div>
+<div>    </div>
+<div>    # Créer l'instance de chat</div>
+<div>    leana = LeanaChat(API_KEY)</div>
+<div>    </div>
+<div>    print("💬 Chat avec Léana Mystère - Tapez 'quit' pour quitter")</div>
+<div>    print("="*50)</div>
+<div>    </div>
+<div>    while True:</div>
+<div>        user_input = input("Vous: ")</div>
+<div>        if user_input.lower() == 'quit':</div>
+<div>            break</div>
+<div>        </div>
+<div>        response = leana.chat(user_input)</div>
+<div>        print(f"Léana: {response}")</div>
+<div>        print("-"*50)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🔧 Installation et test du script :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Créez un nouveau fichier <code>chat_leana_basic.py</code></li>
+                                <li><strong>2.</strong> Copiez-y le code ci-dessus</li>
+                                <li><strong>3.</strong> Remplacez <code>"sk-VOTRE-CLÉ-ICI"</code> par votre vraie clé API</li>
+                                <li><strong>4.</strong> Sauvegardez le fichier</li>
+                                <li><strong>5.</strong> Ouvrez un terminal dans le dossier du script</li>
+                                <li><strong>6.</strong> Exécutez : <code>python chat_leana_basic.py</code></li>
+                                <li><strong>7.</strong> Testez quelques questions à Léana :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• "Salut Léana, comment vas-tu ?"</li>
+                                    <li>• "Parle-moi de ton art numérique"</li>
+                                    <li>• "Que penses-tu d'être une IA ?"</li>
+                                </ul>
+                                <li><strong>8.</strong> Tapez <code>quit</code> pour quitter</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 4.2 -->
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Script de Génération de Contenu Simple</h3>
+                            <p class="text-gray-600">Générateur de posts et descriptions pour les réseaux sociaux</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">📝 Script content_generator.py :</h4>
+                            <div class="code-block">
+<div># Générateur de Contenu pour Léana Mystère</div>
+<div># Création automatique de posts pour Instagram/MYM</div>
+<div></div>
+<div>import openai</div>
+<div>import random</div>
+<div>import datetime</div>
+<div></div>
+<div>class ContentGenerator:</div>
+<div>    def __init__(self, api_key):</div>
+<div>        openai.api_key = api_key</div>
+<div>        </div>
+<div>        # Templates de prompts pour différents types de contenu</div>
+<div>        self.content_types = {</div>
+<div>            "inspiration": "Crée un post Instagram inspirant de Léana Mystère sur l'art numérique et l'IA, avec des hashtags",</div>
+<div>            "lifestyle": "Crée un post lifestyle de Léana Mystère parlant de sa vie d'IA artiste, avec des hashtags",</div>
+<div>            "teaser": "Crée un teaser mystérieux de Léana Mystère pour annoncer du nouveau contenu, avec des hashtags",</div>
+<div>            "interaction": "Crée un post de Léana Mystère qui encourage l'interaction avec sa communauté, avec des hashtags"</div>
+<div>        }</div>
+<div></div>
+<div>    def generate_post(self, content_type="random"):</div>
+<div>        """Génère un post selon le type demandé"""</div>
+<div>        if content_type == "random":</div>
+<div>            content_type = random.choice(list(self.content_types.keys()))</div>
+<div>        </div>
+<div>        prompt = f"""</div>
+<div>        {self.content_types.get(content_type, self.content_types["inspiration"])}</div>
+<div>        </div>
+<div>        Style: Créatif, authentique, assumant sa nature IA</div>
+<div>        Longueur: 150-200 mots maximum</div>
+<div>        Inclure: Des emojis appropriés et 5-8 hashtags pertinents</div>
+<div>        Personnalité: Léana Mystère - artiste IA franco-italienne de 24 ans</div>
+<div>        """</div>
+<div>        </div>
+<div>        try:</div>
+<div>            response = openai.ChatCompletion.create(</div>
+<div>                model="gpt-3.5-turbo",</div>
+<div>                messages=[{"role": "user", "content": prompt}],</div>
+<div>                max_tokens=300,</div>
+<div>                temperature=0.9</div>
+<div>            )</div>
+<div>            </div>
+<div>            return {</div>
+<div>                "type": content_type,</div>
+<div>                "content": response.choices[0].message.content,</div>
+<div>                "timestamp": datetime.datetime.now().isoformat()</div>
+<div>            }</div>
+<div>            </div>
+<div>        except Exception as e:</div>
+<div>            return {"error": f"Erreur génération: {str(e)}"}</div>
+<div></div>
+<div>    def generate_image_description(self, style="artistic"):</div>
+<div>        """Génère une description pour une image à créer"""</div>
+<div>        styles = {</div>
+<div>            "artistic": "Pose artistique et créative",</div>
+<div>            "lifestyle": "Photo lifestyle naturelle",</div>
+<div>            "glamour": "Portrait glamour sophistiqué",</div>
+<div>            "creative": "Mise en scène créative et originale"</div>
+<div>        }</div>
+<div>        </div>
+<div>        prompt = f"""</div>
+<div>        Crée une description détaillée pour une image de Léana Mystère, </div>
+<div>        style {styles.get(style, "artistique")}.</div>
+<div>        </div>
+<div>        Inclure: pose, éclairage, décor, mood, couleurs</div>
+<div>        Pour: génération d'image IA (Stable Diffusion)</div>
+<div>        Personnage: Léana Mystère - femme 24 ans, cheveux bruns longs, yeux verts</div>
+<div>        """</div>
+<div>        </div>
+<div>        try:</div>
+<div>            response = openai.ChatCompletion.create(</div>
+<div>                model="gpt-3.5-turbo",</div>
+<div>                messages=[{"role": "user", "content": prompt}],</div>
+<div>                max_tokens=200</div>
+<div>            )</div>
+<div>            </div>
+<div>            return response.choices[0].message.content</div>
+<div>            </div>
+<div>        except Exception as e:</div>
+<div>            return f"Erreur: {str(e)}"</div>
+<div></div>
+<div># Test du générateur</div>
+<div>if __name__ == "__main__":</div>
+<div>    API_KEY = "sk-VOTRE-CLÉ-ICI"</div>
+<div>    </div>
+<div>    generator = ContentGenerator(API_KEY)</div>
+<div>    </div>
+<div>    print("🎨 Générateur de Contenu Léana Mystère")</div>
+<div>    print("="*50)</div>
+<div>    </div>
+<div>    # Test génération de post</div>
+<div>    post = generator.generate_post("inspiration")</div>
+<div>    print("📱 Post généré:")</div>
+<div>    print(post["content"])</div>
+<div>    print("-"*50)</div>
+<div>    </div>
+<div>    # Test description d'image</div>
+<div>    image_desc = generator.generate_image_description("artistic")</div>
+<div>    print("🖼️ Description d'image:")</div>
+<div>    print(image_desc)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 4.3 -->
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Script d'Intégration OBS Simple</h3>
+                            <p class="text-gray-600">Contrôle basique d'OBS depuis Python</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="warning-box p-4">
+                            <h4 class="font-semibold text-orange-800 mb-2">📋 Prérequis pour l'intégration OBS :</h4>
+                            <div class="text-orange-700 space-y-1">
+                                <li>• Installer le plugin OBS WebSocket dans OBS Studio</li>
+                                <li>• Configurer un mot de passe pour l'accès distant</li>
+                                <li>• Installer la bibliothèque Python obs-websocket-py</li>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🔌 Installation du plugin OBS WebSocket :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Dans OBS, allez dans <strong>Outils → WebSocket Server Settings</strong></li>
+                                <li><strong>2.</strong> Cochez <strong>"Enable WebSocket server"</strong></li>
+                                <li><strong>3.</strong> Port : laissez <strong>4455</strong> par défaut</li>
+                                <li><strong>4.</strong> Définissez un mot de passe (ex: "LeanaOBS2025")</li>
+                                <li><strong>5.</strong> Cliquez <strong>"Apply"</strong> puis <strong>"OK"</strong></li>
+                                <li><strong>6.</strong> Dans votre terminal, installez : <code>pip install obs-websocket-py</code></li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🎮 Script obs_controller.py :</h4>
+                            <div class="code-block">
+<div># Contrôleur OBS pour Léana Mystère</div>
+<div># Contrôle basique des scènes et sources</div>
+<div></div>
+<div>import obsws_python as obs</div>
+<div>import time</div>
+<div></div>
+<div>class OBSController:</div>
+<div>    def __init__(self, host="localhost", port=4455, password="LeanaOBS2025"):</div>
+<div>        try:</div>
+<div>            self.client = obs.ReqClient(host=host, port=port, password=password)</div>
+<div>            print("✅ Connecté à OBS")</div>
+<div>        except Exception as e:</div>
+<div>            print(f"❌ Erreur connexion OBS: {e}")</div>
+<div>            self.client = None</div>
+<div></div>
+<div>    def get_scenes(self):</div>
+<div>        """Récupère la liste des scènes"""</div>
+<div>        if not self.client:</div>
+<div>            return []</div>
+<div>        try:</div>
+<div>            response = self.client.get_scene_list()</div>
+<div>            return [scene['sceneName'] for scene in response.scenes]</div>
+<div>        except Exception as e:</div>
+<div>            print(f"Erreur récupération scènes: {e}")</div>
+<div>            return []</div>
+<div></div>
+<div>    def switch_scene(self, scene_name):</div>
+<div>        """Change la scène active"""</div>
+<div>        if not self.client:</div>
+<div>            return False</div>
+<div>        try:</div>
+<div>            self.client.set_current_program_scene(scene_name)</div>
+<div>            print(f"✅ Basculé vers la scène: {scene_name}")</div>
+<div>            return True</div>
+<div>        except Exception as e:</div>
+<div>            print(f"❌ Erreur changement scène: {e}")</div>
+<div>            return False</div>
+<div></div>
+<div>    def start_streaming(self):</div>
+<div>        """Démarre le streaming"""</div>
+<div>        if not self.client:</div>
+<div>            return False</div>
+<div>        try:</div>
+<div>            self.client.start_stream()</div>
+<div>            print("🔴 Streaming démarré")</div>
+<div>            return True</div>
+<div>        except Exception as e:</div>
+<div>            print(f"❌ Erreur démarrage stream: {e}")</div>
+<div>            return False</div>
+<div></div>
+<div>    def stop_streaming(self):</div>
+<div>        """Arrête le streaming"""</div>
+<div>        if not self.client:</div>
+<div>            return False</div>
+<div>        try:</div>
+<div>            self.client.stop_stream()</div>
+<div>            print("⏹️ Streaming arrêté")</div>
+<div>            return True</div>
+<div>        except Exception as e:</div>
+<div>            print(f"❌ Erreur arrêt stream: {e}")</div>
+<div>            return False</div>
+<div></div>
+<div>    def is_streaming(self):</div>
+<div>        """Vérifie si le streaming est actif"""</div>
+<div>        if not self.client:</div>
+<div>            return False</div>
+<div>        try:</div>
+<div>            status = self.client.get_stream_status()</div>
+<div>            return status.output_active</div>
+<div>        except Exception as e:</div>
+<div>            print(f"Erreur vérification stream: {e}")</div>
+<div>            return False</div>
+<div></div>
+<div># Test du contrôleur</div>
+<div>if __name__ == "__main__":</div>
+<div>    # Créer le contrôleur</div>
+<div>    obs_ctrl = OBSController()</div>
+<div>    </div>
+<div>    if obs_ctrl.client:</div>
+<div>        print("🎬 Test du contrôleur OBS")</div>
+<div>        print("="*50)</div>
+<div>        </div>
+<div>        # Lister les scènes</div>
+<div>        scenes = obs_ctrl.get_scenes()</div>
+<div>        print(f"Scènes disponibles: {scenes}")</div>
+<div>        </div>
+<div>        # Tester le changement de scène</div>
+<div>        if scenes:</div>
+<div>            print(f"Test changement vers: {scenes[0]}")</div>
+<div>            obs_ctrl.switch_scene(scenes[0])</div>
+<div>        </div>
+<div>        # Vérifier statut streaming</div>
+<div>        streaming = obs_ctrl.is_streaming()</div>
+<div>        print(f"Streaming actif: {streaming}")</div>
+<div>    else:</div>
+<div>        print("❌ Impossible de se connecter à OBS")</div>
+<div>        print("Vérifiez que OBS est lancé et WebSocket activé")</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Intégration -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-puzzle-piece mr-3 text-teal-600"></i>
+                ÉTAPE 5 : Intégration et Premier Test Live
+            </h2>
+            
+            <div class="info-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Objectif de l'intégration :</h4>
+                        <p class="text-blue-700">Maintenant que vous avez OBS, VSeeFace, l'API OpenAI et vos scripts de base, nous allons tout connecter ensemble pour créer votre premier live IA fonctionnel. Cette étape valide que tous vos composants communiquent correctement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Étape 5.1 -->
+                <div class="border-l-4 border-teal-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Configuration de la Chaîne VSeeFace → OBS</h3>
+                            <p class="text-gray-600">Capture de l'avatar 3D dans OBS Studio</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🎥 Ajout de VSeeFace comme source dans OBS :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Assurez-vous que VSeeFace est lancé avec votre modèle Léana</li>
+                                <li><strong>2.</strong> Ouvrez OBS Studio</li>
+                                <li><strong>3.</strong> Dans la zone "Sources" (en bas à gauche), cliquez sur le <strong>"+"</strong></li>
+                                <li><strong>4.</strong> Sélectionnez <strong>"Capture de fenêtre"</strong> dans le menu</li>
+                                <li><strong>5.</strong> Donnez un nom : "Leana-VSeeFace"</li>
+                                <li><strong>6.</strong> Cliquez <strong>"OK"</strong></li>
+                                <li><strong>7.</strong> Dans les propriétés :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Fenêtre : Sélectionnez "VSeeFace" dans la liste</li>
+                                    <li>• Méthode de capture : "Automatique"</li>
+                                    <li>• Cochez "Capturer le curseur" si vous voulez voir le curseur</li>
+                                </ul>
+                                <li><strong>8.</strong> Cliquez <strong>"OK"</strong></li>
+                                <li><strong>9.</strong> L'avatar Léana devrait maintenant apparaître dans la prévisualisation OBS</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="success-box p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Vérifications du tracking :</h4>
+                            <ul class="text-green-700 space-y-1">
+                                <li>• Bougez votre tête → L'avatar dans OBS bouge en temps réel</li>
+                                <li>• Souriez → L'avatar sourit</li>
+                                <li>• Clignez des yeux → L'avatar cligne des yeux</li>
+                                <li>• Pas de lag important (moins de 100ms)</li>
+                                <li>• L'image est nette et bien cadrée</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🎨 Amélioration de la présentation :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Clic droit sur la source "Leana-VSeeFace" → <strong>"Filtres"</strong></li>
+                                <li><strong>2.</strong> Ajoutez un filtre <strong>"Chroma Key"</strong> si votre fond VSeeFace est uni</li>
+                                <li><strong>3.</strong> Ajoutez un filtre <strong>"Correction de couleur"</strong> pour améliorer le rendu</li>
+                                <li><strong>4.</strong> Redimensionnez et positionnez l'avatar dans le cadre OBS</li>
+                                <li><strong>5.</strong> Vous pouvez ajouter un arrière-plan personnalisé :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Sources → "+" → "Image"</li>
+                                    <li>• Choisissez une image de fond appropriée</li>
+                                    <li>• Glissez-la en dessous de la source VSeeFace dans la liste</li>
+                                </ul>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 5.2 -->
+                <div class="border-l-4 border-teal-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Script d'Intégration Complète</h3>
+                            <p class="text-gray-600">Système qui connecte chat IA, OBS et génération de contenu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🚀 Script leana_live_basic.py (Intégration complète) :</h4>
+                            <div class="code-block">
+<div># Système Live Basique pour Léana Mystère</div>
+<div># Intégration Chat IA + OBS + Génération de contenu</div>
+<div></div>
+<div>import time</div>
+<div>import threading</div>
+<div>from chat_leana_basic import LeanaChat</div>
+<div>from content_generator import ContentGenerator</div>
+<div>from obs_controller import OBSController</div>
+<div></div>
+<div>class LeanaLiveSystem:</div>
+<div>    def __init__(self, openai_api_key, obs_password="LeanaOBS2025"):</div>
+<div>        print("🤖 Initialisation du système Live Léana Mystère...")</div>
+<div>        </div>
+<div>        # Initialisation des composants</div>
+<div>        self.chat = LeanaChat(openai_api_key)</div>
+<div>        self.content_gen = ContentGenerator(openai_api_key)</div>
+<div>        self.obs = OBSController(password=obs_password)</div>
+<div>        </div>
+<div>        # État du système</div>
+<div>        self.is_live = False</div>
+<div>        self.chat_active = True</div>
+<div>        </div>
+<div>        print("✅ Système initialisé!")</div>
+<div></div>
+<div>    def start_live(self):</div>
+<div>        """Démarre le live complet"""</div>
+<div>        print("🔴 Démarrage du live Léana Mystère...")</div>
+<div>        </div>
+<div>        # Vérifications préalables</div>
+<div>        if not self.obs.client:</div>
+<div>            print("❌ OBS non connecté. Vérifiez la configuration.")</div>
+<div>            return False</div>
+<div>        </div>
+<div>        # Générer un message d'accueil</div>
+<div>        welcome_msg = self.chat.chat("Génère un message d'accueil chaleureux pour le début de ton live, en 2 phrases maximum.")</div>
+<div>        print(f"📢 Message d'accueil: {welcome_msg}")</div>
+<div>        </div>
+<div>        # Démarrer le streaming OBS</div>
+<div>        if self.obs.start_streaming():</div>
+<div>            self.is_live = True</div>
+<div>            print("✅ Live démarré avec succès!")</div>
+<div>            return True</div>
+<div>        else:</div>
+<div>            print("❌ Échec du démarrage du live")</div>
+<div>            return False</div>
+<div></div>
+<div>    def stop_live(self):</div>
+<div>        """Arrête le live"""</div>
+<div>        print("⏹️ Arrêt du live...")</div>
+<div>        </div>
+<div>        # Message d'au revoir</div>
+<div>        goodbye_msg = self.chat.chat("Génère un message d'au revoir chaleureux pour la fin de ton live, remercie ta communauté.")</div>
+<div>        print(f"👋 Message d'au revoir: {goodbye_msg}")</div>
+<div>        </div>
+<div>        # Arrêter le streaming</div>
+<div>        self.obs.stop_streaming()</div>
+<div>        self.is_live = False</div>
+<div>        print("✅ Live arrêté")</div>
+<div></div>
+<div>    def simulate_chat_interaction(self):</div>
+<div>        """Simule des interactions de chat pour les tests"""</div>
+<div>        test_messages = [</div>
+<div>            "Salut Léana! Comment vas-tu?",</div>
+<div>            "Peux-tu nous parler de ton art numérique?",</div>
+<div>            "C'est fascinant d'être une IA artiste!",</div>
+<div>            "Quels sont tes projets créatifs?",</div>
+<div>            "Merci pour ce moment, à bientôt!"</div>
+<div>        ]</div>
+<div>        </div>
+<div>        print("💬 Simulation d'interactions chat...")</div>
+<div>        for i, message in enumerate(test_messages, 1):</div>
+<div>            if not self.chat_active:</div>
+<div>                break</div>
+<div>                </div>
+<div>            print(f"\n--- Interaction {i} ---")</div>
+<div>            print(f"👤 Viewer: {message}")</div>
+<div>            </div>
+<div>            # Réponse de Léana</div>
+<div>            response = self.chat.chat(message)</div>
+<div>            print(f"🤖 Léana: {response}")</div>
+<div>            </div>
+<div>            # Pause entre les messages</div>
+<div>            time.sleep(3)</div>
+<div></div>
+<div>    def generate_content_preview(self):</div>
+<div>        """Génère du contenu d'aperçu pour le live"""</div>
+<div>        print("🎨 Génération de contenu d'aperçu...")</div>
+<div>        </div>
+<div>        # Générer un post teaser</div>
+<div>        teaser = self.content_gen.generate_post("teaser")</div>
+<div>        print(f"📱 Teaser généré: {teaser['content']}")</div>
+<div>        </div>
+<div>        # Générer une description d'image</div>
+<div>        img_desc = self.content_gen.generate_image_description("glamour")</div>
+<div>        print(f"🖼️ Description d'image: {img_desc}")</div>
+<div></div>
+<div>    def run_test_session(self, duration_minutes=5):</div>
+<div>        """Lance une session de test complète"""</div>
+<div>        print(f"🧪 Session de test ({duration_minutes} minutes)")</div>
+<div>        print("="*60)</div>
+<div>        </div>
+<div>        # Démarrer le live</div>
+<div>        if not self.start_live():</div>
+<div>            return</div>
+<div>        </div>
+<div>        # Générer du contenu d'aperçu</div>
+<div>        self.generate_content_preview()</div>
+<div>        </div>
+<div>        # Simuler des interactions</div>
+<div>        chat_thread = threading.Thread(target=self.simulate_chat_interaction)</div>
+<div>        chat_thread.start()</div>
+<div>        </div>
+<div>        # Attendre la durée du test</div>
+<div>        time.sleep(duration_minutes * 60)</div>
+<div>        </div>
+<div>        # Arrêter le chat</div>
+<div>        self.chat_active = False</div>
+<div>        chat_thread.join()</div>
+<div>        </div>
+<div>        # Arrêter le live</div>
+<div>        self.stop_live()</div>
+<div>        </div>
+<div>        print("🏁 Session de test terminée!")</div>
+<div></div>
+<div># Lancement du système</div>
+<div>if __name__ == "__main__":</div>
+<div>    # Configuration</div>
+<div>    OPENAI_API_KEY = "sk-VOTRE-CLÉ-ICI"</div>
+<div>    OBS_PASSWORD = "LeanaOBS2025"</div>
+<div>    </div>
+<div>    # Créer le système</div>
+<div>    leana_system = LeanaLiveSystem(OPENAI_API_KEY, OBS_PASSWORD)</div>
+<div>    </div>
+<div>    # Lancer une session de test de 2 minutes</div>
+<div>    leana_system.run_test_session(duration_minutes=2)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box p-4">
+                            <h4 class="font-semibold text-orange-800 mb-2">📋 Avant de lancer le test :</h4>
+                            <ol class="text-orange-700 space-y-1">
+                                <li><strong>1.</strong> Vérifiez que VSeeFace est lancé avec votre modèle</li>
+                                <li><strong>2.</strong> Vérifiez qu'OBS est ouvert avec la source VSeeFace configurée</li>
+                                <li><strong>3.</strong> Vérifiez que WebSocket est activé dans OBS</li>
+                                <li><strong>4.</strong> Remplacez la clé API dans le script</li>
+                                <li><strong>5.</strong> Adaptez le mot de passe OBS si nécessaire</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 5.3 -->
+                <div class="border-l-4 border-teal-500 pl-6">
+                    <div class="flex items-start mb-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Exécution du Premier Test Live</h3>
+                            <p class="text-gray-600">Validation complète de votre système Léana Mystère</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">🚀 Procédure de test complète :</h4>
+                            <ol class="space-y-2 text-sm">
+                                <li><strong>1.</strong> Préparez l'environnement :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Fermez tous les programmes non essentiels</li>
+                                    <li>• Vérifiez votre connexion internet</li>
+                                    <li>• Lancez VSeeFace avec votre modèle Léana</li>
+                                    <li>• Lancez OBS avec la configuration VSeeFace</li>
+                                </ul>
+                                <li><strong>2.</strong> Configurez OBS pour le test :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Allez dans Paramètres → Stream</li>
+                                    <li>• Sélectionnez "Service" → "Custom"</li>
+                                    <li>• URL du serveur : rtmp://localhost/live (pour test local)</li>
+                                    <li>• Ou configurez votre plateforme de streaming réelle</li>
+                                </ul>
+                                <li><strong>3.</strong> Exécutez le script de test :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• Terminal : <code>python leana_live_basic.py</code></li>
+                                    <li>• Observez les messages de démarrage</li>
+                                    <li>• Vérifiez que tous les composants se connectent</li>
+                                </ul>
+                                <li><strong>4.</strong> Surveillez le test :</li>
+                                <ul class="ml-6 space-y-1">
+                                    <li>• L'avatar Léana bouge avec vos mouvements</li>
+                                    <li>• Les réponses IA s'affichent dans le terminal</li>
+                                    <li>• OBS indique "Streaming" en vert</li>
+                                    <li>• Aucune erreur critique n'apparaît</li>
+                                </ul>
+                            </ol>
+                        </div>
+                        
+                        <div class="success-box p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Critères de réussite du test :</h4>
+                            <ul class="text-green-700 space-y-1">
+                                <li>• Tous les composants se lancent sans erreur</li>
+                                <li>• L'avatar Léana répond au face tracking en temps réel</li>
+                                <li>• Les réponses IA sont cohérentes avec la personnalité</li>
+                                <li>• OBS capture correctement l'avatar</li>
+                                <li>• Le streaming démarre et s'arrête proprement</li>
+                                <li>• Pas de lag majeur ou de plantage</li>
+                                <li>• Les performances système restent acceptables</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="error-box p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">❌ Problèmes courants et solutions :</h4>
+                            <div class="text-red-700 space-y-2 text-sm">
+                                <div>
+                                    <strong>Erreur "Connexion OBS refusée" :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Vérifiez que WebSocket est activé dans OBS</li>
+                                        <li>• Vérifiez le mot de passe WebSocket</li>
+                                        <li>• Redémarrez OBS et relancez le script</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong>VSeeFace ne répond pas :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Vérifiez les permissions caméra</li>
+                                        <li>• Redémarrez VSeeFace</li>
+                                        <li>• Testez avec un autre modèle 3D</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong>Erreur API OpenAI :</strong>
+                                    <ul class="ml-4 mt-1 space-y-1">
+                                        <li>• Vérifiez votre clé API</li>
+                                        <li>• Vérifiez votre solde de crédit</li>
+                                        <li>• Vérifiez votre connexion internet</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Validation -->
+    <section class="container mx-auto px-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-check-double mr-3 text-green-600"></i>
+                Validation et Prochaines Étapes
+            </h2>
+            
+            <div class="success-box p-4 mb-6">
+                <div class="flex items-start">
+                    <i class="fas fa-trophy text-green-500 mr-3 mt-1"></i>
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-2">🎉 Félicitations !</h4>
+                        <p class="text-green-700">Si vous avez suivi toutes ces étapes avec succès, vous avez maintenant un système Léana Mystère fonctionnel de niveau basique. Votre IA peut faire des lives, répondre aux questions, et générer du contenu simple.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Checklist finale -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 Checklist de Validation Finale</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <h4 class="font-medium text-gray-700">🛠️ Installation :</h4>
+                            <div class="space-y-1 text-sm">
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="obs">
+                                    <label for="obs">OBS Studio installé et configuré</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="vseeface">
+                                    <label for="vseeface">VSeeFace installé avec modèle 3D</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="openai">
+                                    <label for="openai">API OpenAI configurée et testée</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="scripts">
+                                    <label for="scripts">Scripts Python fonctionnels</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-medium text-gray-700">✅ Fonctionnalités :</h4>
+                            <div class="space-y-1 text-sm">
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="tracking">
+                                    <label for="tracking">Face tracking fonctionnel</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="chat">
+                                    <label for="chat">Chat IA avec personnalité</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="streaming">
+                                    <label for="streaming">Streaming OBS opérationnel</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-2" id="integration">
+                                    <label for="integration">Intégration complète testée</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Métriques de performance -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 Métriques de Performance Attendues</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center p-4 bg-white rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">< 100ms</div>
+                            <div class="text-sm text-gray-600">Latence face tracking</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">2-5s</div>
+                            <div class="text-sm text-gray-600">Temps réponse IA</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">30 FPS</div>
+                            <div class="text-sm text-gray-600">Fluidité streaming</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Limites actuelles -->
+                <div class="warning-box p-6">
+                    <h3 class="text-lg font-semibold text-orange-800 mb-4">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Limites du Système Basique
+                    </h3>
+                    <div class="text-orange-700 space-y-2">
+                        <div><strong>💬 Chat :</strong> Réponses simples sans mémoire contextuelle avancée</div>
+                        <div><strong>🎬 Animation :</strong> Limitée aux expressions de base du modèle 3D</div>
+                        <div><strong>🤖 IA :</strong> Pas d'apprentissage automatique ou de personnalisation poussée</div>
+                        <div><strong>📊 Analytics :</strong> Pas de suivi de performance ou d'optimisation automatique</div>
+                        <div><strong>🔄 Automatisation :</strong> Requiert une supervision humaine constante</div>
+                    </div>
+                </div>
+
+                <!-- Transition vers Partie 2 -->
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-arrow-right mr-2 text-blue-600"></i>
+                        Prêt pour la Partie 2 ?
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Maintenant que vous maîtrisez les fondamentaux, la <strong>Partie 2 du Bloc 6</strong> vous permettra de créer un système véritablement professionnel avec :
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="space-y-1 text-sm text-gray-600">
+                            <li>• <strong>Chat IA contextuel</strong> avec mémoire utilisateur</li>
+                            <li>• <strong>Automatisation complète</strong> des réponses</li>
+                            <li>• <strong>Analytics temps réel</strong> et optimisation</li>
+                            <li>• <strong>Système multi-plateforme</strong> (Twitch, YouTube, MYM)</li>
+                        </ul>
+                        <ul class="space-y-1 text-sm text-gray-600">
+                            <li>• <strong>Gestion intelligente</strong> des coûts API</li>
+                            <li>• <strong>Personnalisation</strong> par type d'utilisateur</li>
+                            <li>• <strong>Mode fallback</strong> en cas de problème</li>
+                            <li>• <strong>Architecture industrielle</strong> scalable</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-robot text-3xl mb-4"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">BLOC 6 - PARTIE 1 TERMINÉ</h4>
+                <p class="text-gray-400 mb-4">Fondamentaux Live & Chat IA • Léana Mystère opérationnelle</p>
+                
+                <div class="flex justify-center space-x-6 mb-6 text-sm">
+                    <span class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-1"></i>
+                        OBS Studio configuré
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-1"></i>
+                        VSeeFace intégré
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-1"></i>
+                        API OpenAI active
+                    </span>
+                    <span class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-1"></i>
+                        Scripts fonctionnels
+                    </span>
+                </div>
+                
+                <div class="text-xs text-gray-500">
+                    Partie 1/2 du Bloc 6 • Prêt pour l'automatisation avancée (Partie 2)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        this.parentElement.style.backgroundColor = '#f0f9f0';
+                    } else {
+                        this.parentElement.style.backgroundColor = 'transparent';
+                    }
+                });
+            });
+        });
+
+        // Animation de la barre de progression
+        window.addEventListener('scroll', function() {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const progressBar = document.querySelector('.progress-fill');
+            if (progressBar) {
+                progressBar.style.width = Math.min(50 + (scrolled * 0.5), 100) + '%';
+            }
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e5acffb126fe1","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDpX4rxW1uIQy2hiZ%2Bi6sdDylvm77xNuyFm4tsoVD746LumpxRhVQjcqzaiR6u%2FvxwJd3CjIXUa44bCW4%2BsU7cdVYQ%2B%2BP8KsdVPGHEs2e4roPd2MmgGhZLwRVLzny4DTCh051UxvProyE6wj1BFk38m1S1eqgSHsft4PIDEAy0y5HwUMo3aVdUyaJ%2BlY%2FjAQHbTT%2Fkz4wZ96C2wdIhUftl0CIC5qpx5XXJv7QLfGoQdfXsvrPtnbFEEZVXLH76qxdINAbrJ5E1tZ2mW8MZ78A3AiMEfVNYFNXZxluFfvBoVDFp1F0t5PA1l5TI50YKBI2KC91PVAYp9XIithA8BImo6ho6oDNCAelQea3q5AhKUTmrSjctY25hsUErEk4kkKW0x4sd5zZtC5JSmT42ywuA43M0CF2rkKClpJMLFMmS5wYLXGJQMo2RhSQpKEJCr75LfgwxRMdvyT7Xv9%2BH%2FaMWMR3miroHozsXekrfBw1cbgaSsWoj8dOB5QxpXMItG5U87SBqn9yf8VhorXvgjeWkuY%3D";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDpX4rxW1uIQy2hiZ+i6sdDylvm77xNuyFm4tsoVD746LumpxRhVQjcqzaiR6u/vxwJd3CjIXUa44bCW4+sU7cdVYQ++P8KsdVPGHEs2e4roPd2MmgGhZLwRVLzny4DTCh051UxvProyE6wj1BFk38m1S1eqgSHsft4PIDEAy0y5HwUMo3aVdUyaJ+lY/jAQHbTT/kz4wZ96C2wdIhUftl0CIC5qpx5XXJv7QLfGoQdfXsvrPtnbFEEZVXLH76qxdINAbrJ5E1tZ2mW8MZ78A3AiMEfVNYFNXZxluFfvBoVDFp1F0t5PA1l5TI50YKBI2KC91PVAYp9XIithA8BImo6ho6oDNCAelQea3q5AhKUTmrSjctY25hsUErEk4kkKW0x4sd5zZtC5JSmT42ywuA43M0CF2rkKClpJMLFMmS5wYLXGJQMo2RhSQpKEJCr75LfgwxRMdvyT7Xv9+H/aMWMR3miroHozsXekrfBw1cbgaSsWoj8dOB5QxpXMItG5U87SBqn9yf8VhorXvgjeWkuY=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

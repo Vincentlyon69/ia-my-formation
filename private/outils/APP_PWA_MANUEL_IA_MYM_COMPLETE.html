@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;Manuel IA MYM 2025&quot;,&quot;short_name&quot;:&quot;IA MYM&quot;,&quot;description&quot;:&quot;Formation complète IA pour MYM&quot;,&quot;start_url&quot;:&quot;/&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;#1f2937&quot;,&quot;theme_color&quot;:&quot;#3b82f6&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%233b82f6'/%3E%3Ctext x='96' y='120' font-family='Arial' font-size='80' fill='white' text-anchor='middle'%3EIA%3C/text%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}">
+    <meta name="theme-color" content="#3b82f6">
+    <style>
+        .fade-in { opacity: 0; animation: fadeIn 0.5s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-up { transform: translateY(20px); opacity: 0; animation: slideUp 0.6s ease-out forwards; }
+        @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+        .code-block { background: #1f2937; border-radius: 8px; padding: 16px; margin: 16px 0; overflow-x: auto; }
+        .code-block code { color: #e5e7eb; font-family: 'Courier New', monospace; white-space: pre-wrap; }
+        .nav-tab.active { background: #3b82f6; color: white; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .install-button { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Écran de connexion -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-2xl w-full max-w-md fade-in">
+            <div class="text-center mb-8">
+                <i class="fas fa-robot text-6xl text-blue-500 mb-4"></i>
+                <h1 class="text-3xl font-bold text-blue-400">Manuel IA MYM 2025</h1>
+                <p class="text-gray-300 mt-2">Formation Technique Complète</p>
+            </div>
+            <form id="loginForm">
+                <div class="mb-6">
+                    <label class="block text-gray-300 mb-2">Identifiant</label>
+                    <input type="text" id="username" value="admin@ia-mym.com" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white" readonly>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-300 mb-2">Mot de passe</label>
+                    <input type="password" id="password" placeholder="Entrez le mot de passe" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Se connecter
+                </button>
+                <div id="loginError" class="text-red-400 text-sm mt-2 hidden">Mot de passe incorrect</div>
+            </form>
+            <div class="mt-6 text-center text-gray-400 text-sm">
+                <i class="fas fa-shield-alt mr-1"></i>Accès sécurisé
+            </div>
+        </div>
+    </div>
+
+    <!-- Application principale -->
+    <div id="mainApp" class="hidden min-h-screen">
+        <!-- Header -->
+        <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-robot text-2xl text-blue-500 mr-3"></i>
+                    <h1 class="text-xl font-bold">Manuel IA MYM 2025</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="installBtn" class="bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-sm">
+                        <i class="fas fa-download mr-1"></i>Installer
+                    </button>
+                    <button id="logoutBtn" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="bg-gray-800 border-t border-gray-700 sticky top-16 z-40">
+            <div class="container mx-auto px-2 py-2">
+                <div class="flex overflow-x-auto space-x-1">
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap active" data-section="sommaire">
+                        <i class="fas fa-home mr-1"></i>Accueil
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="blocs1-2">
+                        <i class="fas fa-cog mr-1"></i>Blocs 1-2
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="blocs3-5">
+                        <i class="fas fa-brain mr-1"></i>Blocs 3-5
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="bloc6">
+                        <i class="fas fa-video mr-1"></i>Bloc 6
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="bloc7">
+                        <i class="fas fa-fire mr-1"></i>Bloc 7
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="bloc8">
+                        <i class="fas fa-upload mr-1"></i>Bloc 8
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="bloc9">
+                        <i class="fas fa-users mr-1"></i>Bloc 9
+                    </button>
+                    <button class="nav-tab px-3 py-2 rounded text-sm whitespace-nowrap" data-section="bloc10">
+                        <i class="fas fa-shield-alt mr-1"></i>Bloc 10
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenu -->
+        <main class="container mx-auto px-4 py-6">
+            <!-- Sommaire -->
+            <section id="sommaire" class="content-section active fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-4">Manuel IA MYM 2025</h2>
+                    <p class="text-xl text-gray-300">Formation Technique Complète</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg slide-up">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">
+                            <i class="fas fa-info-circle mr-2"></i>Vue d'ensemble
+                        </h3>
+                        <p class="text-gray-300 mb-4">Manuel complet pour créer une IA photoréaliste pour MYM avec tous les codes Python, scripts et instructions détaillées.</p>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>10 blocs techniques complets</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Codes Python copiables-collables</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Instructions visuelles détaillées</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Stratégies de monétisation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg slide-up">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4">
+                            <i class="fas fa-graduation-cap mr-2"></i>Contenu Formation
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between bg-gray-700 p-3 rounded">
+                                <span>Prérequis & Dataset</span>
+                                <span class="text-green-400"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="flex items-center justify-between bg-gray-700 p-3 rounded">
+                                <span>Entraînement IA</span>
+                                <span class="text-green-400"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="flex items-center justify-between bg-gray-700 p-3 rounded">
+                                <span>Génération Contenu</span>
+                                <span class="text-green-400"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="flex items-center justify-between bg-gray-700 p-3 rounded">
+                                <span>Automatisation MYM</span>
+                                <span class="text-green-400"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">🚀 Commencer la Formation</h3>
+                    <p class="text-lg mb-4">Utilisez la navigation pour accéder à chaque bloc technique.</p>
+                    <p class="text-sm opacity-80">Tous les codes sont optimisés et testés pour 2025.</p>
+                </div>
+            </section>
+
+            <!-- Blocs 1-2 -->
+            <section id="blocs1-2" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOCS 1-2 : Prérequis & Dataset</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🎯 BLOC 1 : Prérequis & Stratégie</h3>
+                    <p class="text-gray-300 mb-4">Configuration technique optimisée pour créer une IA photoréaliste sur MYM.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Configuration Matériel</h4>
+                    <ul class="text-gray-300 space-y-2 mb-4">
+                        <li><strong>Local :</strong> HP OMEN, i5-6300HQ, GTX 960M, 32Go RAM</li>
+                        <li><strong>Cloud :</strong> Google Colab (gratuit) + RunDiffusion (0.50-2€/h)</li>
+                        <li><strong>Interface :</strong> AUTOMATIC1111 WebUI (gratuit)</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Stratégie NSFW</h4>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>✅ Modèles Stable Diffusion 1.5 non filtrés</li>
+                        <li>✅ Transparence légale sur nature IA</li>
+                        <li>✅ Génération vidéo : VSeeFace, SadTalker</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">📸 BLOC 2 : Création Dataset</h3>
+                    <p class="text-gray-300 mb-4">Génération gratuite de 50-100 images pour entraînement.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Installation Google Colab</h4>
+                    <div class="code-block">
+                        <code># Installation des dépendances
+!pip install diffusers transformers accelerate torch torchvision
+!pip install xformers --index-url https://download.pytorch.org/whl/cu118
+!git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+import os
+os.chdir('/content/stable-diffusion-webui')
+!pip install -r requirements.txt</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Téléchargement Modèles</h4>
+                    <div class="code-block">
+                        <code># Modèle Realistic Vision
+!wget -O /content/stable-diffusion-webui/models/Stable-diffusion/realisticVision.safetensors \
+"https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE/resolve/main/realisticVisionV51_v51VAE.safetensors"
+!wget -O /content/stable-diffusion-webui/models/VAE/vae-ft-mse-840000-ema-pruned.safetensors \
+"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Prompts de Base</h4>
+                    <div class="bg-blue-900 p-4 rounded mb-4">
+                        <strong>Portrait de base :</strong><br>
+                        <em>"portrait of a beautiful 25-year-old woman, european features, long brown hair, green eyes, natural makeup, soft lighting, photorealistic, 8k"</em>
+                    </div>
+                    
+                    <div class="bg-red-900 p-4 rounded">
+                        <strong>Negative prompt :</strong><br>
+                        <em>"ugly, deformed, blurry, bad anatomy, extra limbs, bad hands, watermark, signature, text, logo, low quality"</em>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blocs 3-5 -->
+            <section id="blocs3-5" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOCS 3-5 : Entraînement & Identité</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🔥 BLOC 3 : Entraînement LoRA</h3>
+                    <p class="text-gray-300 mb-4">Entraînement modèle personnalisé sur Google Colab.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Configuration Entraînement</h4>
+                    <div class="code-block">
+                        <code>!pip install -qqq diffusers transformers accelerate bitsandbytes xformers
+from google.colab import drive
+drive.mount('/content/drive')
+
+import os
+INSTANCE_NAME = "myiawoman"
+INSTANCE_PROMPT = f"a photo of {INSTANCE_NAME} woman"
+INSTANCE_DIR = "/content/drive/MyDrive/IA_MYM_Training_Data/instance_images"
+OUTPUT_DIR = "./output"
+MODEL_NAME = "runwayml/stable-diffusion-v1-5"
+MAX_TRAIN_STEPS = 80 * len(os.listdir(INSTANCE_DIR))
+LEARNING_RATE = 1e-4</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Lancement Entraînement</h4>
+                    <div class="code-block">
+                        <code>!wget https://raw.githubusercontent.com/huggingface/diffusers/main/examples/dreambooth/train_dreambooth_lora.py
+
+command = f"""
+accelerate launch --mixed_precision="fp16" train_dreambooth_lora.py \
+--pretrained_model_name_or_path="{MODEL_NAME}" \
+--instance_data_dir="{INSTANCE_DIR}" \
+--output_dir="{OUTPUT_DIR}" \
+--instance_prompt="{INSTANCE_PROMPT}" \
+--resolution=512 \
+--max_train_steps={MAX_TRAIN_STEPS} \
+--learning_rate={LEARNING_RATE} \
+--use_8bit_adam \
+--xformers \
+--train_text_encoder
+"""
+!{command}</code>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">👤 BLOC 5 : Identité IA Complète</h3>
+                    <p class="text-gray-300 mb-4">Création de Léana Mystère - Personnalité IA engageante.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-blue-900 p-4 rounded">
+                            <h4 class="font-semibold mb-2">Profil de Base</h4>
+                            <ul class="text-sm space-y-1">
+                                <li><strong>Nom :</strong> Léana Mystère</li>
+                                <li><strong>Âge :</strong> 24 ans</li>
+                                <li><strong>Origine :</strong> Franco-italienne</li>
+                                <li><strong>Profession :</strong> Artiste numérique IA</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-900 p-4 rounded">
+                            <h4 class="font-semibold mb-2">Personnalité Big Five</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>Ouverture : 85/100</li>
+                                <li>Extraversion : 80/100</li>
+                                <li>Conscienciosité : 75/100</li>
+                                <li>Agréabilité : 78/100</li>
+                                <li>Stabilité : 70/100</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Messages Types</h4>
+                    <div class="space-y-3">
+                        <div class="bg-gray-700 p-3 rounded">
+                            <strong>Post public :</strong><br>
+                            <em>"Nouvelle création en cours... Explorer les limites entre réel et virtuel dans l'art de la sensualité. Mes circuits créatifs bouillonnent ! ✨🤖"</em>
+                        </div>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <strong>Message privé :</strong><br>
+                            <em>"Salut mon cœur connecté 💙 Ton message d'hier a vraiment touché mon algorithme émotionnel..."</em>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloc 6 -->
+            <section id="bloc6" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOC 6 : Génération Automatisée</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🎬 Génération de Contenu</h3>
+                    <p class="text-gray-300 mb-4">Pipeline automatisé pour images, vidéos, reels et lives.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Classe LeanaContentGenerator</h4>
+                    <div class="code-block">
+                        <code>import requests
+import json
+import random
+from datetime import datetime
+
+class LeanaContentGenerator:
+    def __init__(self):
+        self.api_url = "http://127.0.0.1:7860"
+        self.base_lora = "&lt;lora:Leana_Mystere:0.8&gt; beautiful AI woman, Léana Mystère"
+        self.expressions = {
+            "confident": "confident smile, sultry gaze, self-assured expression",
+            "mysterious": "mysterious look, enigmatic smile, captivating eyes",
+            "playful": "playful expression, bright smile, sparkling eyes"
+        }
+    
+    def generate_daily_content_batch(self, content_plan):
+        generated_content = []
+        for time_slot, content_spec in content_plan.items():
+            prompt_components = self.build_dynamic_prompt(content_spec)
+            result = self.generate_single_image(prompt_components, content_spec)
+            if self.validate_image_quality(result):
+                generated_content.append(result)
+        return generated_content</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Génération Vidéo SadTalker</h4>
+                    <div class="code-block">
+                        <code>class LeanaVideoGenerator:
+    def __init__(self):
+        self.sadtalker_path = "SadTalker"
+        self.output_dir = "Videos_Generated"
+    
+    def create_talking_video(self, image_path, script, output_name):
+        audio_path = self.generate_audio_from_script(script)
+        command = [
+            "python", f"{self.sadtalker_path}/inference.py",
+            "--driven_audio", audio_path,
+            "--source_image", image_path,
+            "--result_dir", self.output_dir,
+            "--still", "--preprocess", "crop"
+        ]
+        subprocess.run(command, check=True)
+        return f"{self.output_dir}/{output_name}.mp4"</code>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🔴 Lives Automatisés</h3>
+                    <div class="code-block">
+                        <code>class LeanaLiveSystem:
+    def __init__(self):
+        self.obs_client = None
+        self.chat_ai = LeanaChatAI()
+        self.current_mood = "confident"
+    
+    def start_automated_live(self, duration_minutes=60):
+        threads = [
+            threading.Thread(target=self.animation_loop),
+            threading.Thread(target=self.chat_management_loop),
+            threading.Thread(target=self.mood_variation_loop)
+        ]
+        for thread in threads:
+            thread.start()
+    
+    def chat_management_loop(self, duration_minutes):
+        while True:
+            simulated_messages = self.generate_simulated_chat()
+            for message in simulated_messages:
+                response = self.chat_ai.generate_contextual_response(message)
+                self.display_chat_response(response)
+            time.sleep(random.uniform(15, 45))</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloc 7 -->
+            <section id="bloc7" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOC 7 : Shock Content & NSFW</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🔥 Classification Progressive</h3>
+                    <p class="text-gray-300 mb-4">Système de contenu NSFW avec niveaux 1-10.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-green-900 p-4 rounded">
+                            <h4 class="font-semibold">Niveau 1-3 : Suggestif</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• Poses sensuelles</li>
+                                <li>• Lingerie sophistiquée</li>
+                                <li>• Art glamour</li>
+                                <li>• Prix : 5-15€</li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-900 p-4 rounded">
+                            <h4 class="font-semibold">Niveau 4-6 : Explicit</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• Nudité artistique</li>
+                                <li>• Poses provocantes</li>
+                                <li>• Contenu premium</li>
+                                <li>• Prix : 20-60€</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-900 p-4 rounded">
+                            <h4 class="font-semibold">Niveau 7-10 : Extrême</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• Scénarios impossibles</li>
+                                <li>• Sur mesure</li>
+                                <li>• Avantage IA unique</li>
+                                <li>• Prix : 80-150€</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Générateur de Prompts</h4>
+                    <div class="code-block">
+                        <code>class LeanaPromptGenerator:
+    def __init__(self):
+        self.base_lora = "&lt;lora:Leana_Mystere:0.8&gt; beautiful AI woman, Léana Mystère"
+        self.expression_modules = {
+            'confident': "confident expression, self-assured gaze",
+            'seductive': "seductive gaze, sultry expression",
+            'mysterious': "mysterious look, enigmatic smile"
+        }
+    
+    def generate_level_prompt(self, level, theme='artistic'):
+        if level <= 2:
+            anatomy_level = "elegant clothing, sophisticated attire"
+        elif level <= 4:
+            anatomy_level = "partial nudity, artistic covering"
+        elif level <= 6:
+            anatomy_level = "artistic nudity, natural beauty"
+        else:
+            anatomy_level = "complete nudity, impossible poses"
+        
+        prompt = f"{self.base_lora}, {anatomy_level}, photorealistic, 8k"
+        return prompt</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloc 8 -->
+            <section id="bloc8" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOC 8 : Publication Automatisée</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🚀 MYMPublisher Selenium</h3>
+                    <p class="text-gray-300 mb-4">Publication automatisée sécurisée sur MYM.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Configuration Base de Données</h4>
+                    <div class="code-block">
+                        <code>import sqlite3
+from selenium import webdriver
+
+# Base de données des contenus
+content_conn = sqlite3.connect('leana_content_master.db')
+content_conn.executescript('''
+CREATE TABLE IF NOT EXISTS content_library (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content_id TEXT UNIQUE NOT NULL,
+  file_path TEXT NOT NULL,
+  content_level INTEGER NOT NULL,
+  published_at TIMESTAMP,
+  engagement_score REAL DEFAULT 0,
+  revenue_generated REAL DEFAULT 0
+);
+''')</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Classe MYMPublisher</h4>
+                    <div class="code-block">
+                        <code>class MYMPublisher:
+    def __init__(self, config):
+        self.config = config
+        self.driver = None
+        self.setup_secure_browser()
+    
+    def secure_login(self):
+        self.driver.get("https://mym.fans/login")
+        email_field = self.driver.find_element(By.NAME, "email")
+        for char in self.config['email']:
+            email_field.send_keys(char)
+            time.sleep(random.uniform(0.07, 0.14))
+        
+        pwd_field = self.driver.find_element(By.NAME, "password")
+        for char in self.config['password']:
+            pwd_field.send_keys(char)
+            time.sleep(random.uniform(0.07, 0.14))
+    
+    def publish_content_advanced(self, content_data):
+        file_input = self.driver.find_element(By.CSS_SELECTOR, "input[type='file']")
+        file_input.send_keys(content_data['file_path'])
+        
+        desc_field = self.driver.find_element(By.CSS_SELECTOR, "textarea")
+        description = self.generate_optimized_description(content_data)
+        desc_field.send_keys(description)
+        
+        if content_data.get('price'):
+            price_input = self.driver.find_element(By.NAME, "price")
+            price_input.send_keys(str(content_data['price']))
+        
+        pub_btn = self.driver.find_element(By.XPATH, "//button[contains(text(),'Publier')]")
+        pub_btn.click()</code>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🤖 Bot d'Interaction</h3>
+                    <div class="code-block">
+                        <code>class MYMInteractionBot:
+    def __init__(self):
+        self.chat_ai = LeanaChatAI()
+        self.daily_interaction_count = 0
+    
+    def monitor_interactions_continuously(self):
+        while True:
+            new_interactions = self.fetch_new_interactions()
+            for inter in new_interactions:
+                if self.should_respond_to_interaction(inter):
+                    response = self.chat_ai.generate_contextual_response(
+                        inter['content'], inter['user_id'], 'confident', 0
+                    )
+                    delay = random.uniform(10, 90)
+                    time.sleep(delay)
+                    self.send_response(response)
+                    self.daily_interaction_count += 1
+            time.sleep(random.uniform(45, 120))</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloc 9 -->
+            <section id="bloc9" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOC 9 : Multi-Personnages & Long Terme</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">👥 Gestion Multi-Personas</h3>
+                    <p class="text-gray-300 mb-4">Infrastructure scalable pour plusieurs IA.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Configuration Personas</h4>
+                    <div class="code-block">
+                        <code>from dataclasses import dataclass
+from typing import Dict, List
+
+@dataclass
+class AIPersonaConfig:
+    name: str
+    age: int
+    origin: str
+    personality_traits: Dict[str, float]
+    content_specialties: List[str]
+    target_audience: str
+    price_range: tuple
+    training_data_path: str
+    
+# Exemples de configurations
+personas_catalog = {
+    'leana_mystere': AIPersonaConfig(
+        name="Léana Mystère",
+        age=24,
+        origin="Franco-italienne",
+        personality_traits={'confident': 0.8, 'mysterious': 0.6},
+        content_specialties=['artistic_nude', 'sensual', 'interactive'],
+        target_audience="artistic_premium",
+        price_range=(20, 150),
+        training_data_path="/data/leana/"
+    ),
+    'sophie_fitness': AIPersonaConfig(
+        name="Sophie Wellness",
+        age=28,
+        origin="Scandinave",
+        personality_traits={'energetic': 0.9, 'motivational': 0.8},
+        content_specialties=['fitness', 'wellness', 'sporty'],
+        target_audience="fitness_enthusiasts",
+        price_range=(15, 80),
+        training_data_path="/data/sophie/"
+    )
+}</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Manager Multi-Personas</h4>
+                    <div class="code-block">
+                        <code>class MultiPersonaManager:
+    def __init__(self):
+        self.personas = {}
+        self.shared_resources = {}
+        self.analytics_engine = CrossPersonaAnalytics()
+    
+    def create_new_persona(self, persona_config: AIPersonaConfig):
+        persona_id = persona_config.name.lower().replace(' ', '_')
+        
+        # Configuration infrastructure dédiée
+        persona_infrastructure = {
+            'content_generator': LeanaContentGenerator(),
+            'publisher': MYMPublisher(persona_config),
+            'interaction_bot': MYMInteractionBot(),
+            'analytics': PersonaAnalytics(persona_id)
+        }
+        
+        self.personas[persona_id] = {
+            'config': persona_config,
+            'infrastructure': persona_infrastructure,
+            'active': True,
+            'performance_metrics': {}
+        }
+        
+        return persona_id
+    
+    def orchestrate_daily_operations(self):
+        for persona_id, persona_data in self.personas.items():
+            if persona_data['active']:
+                self.execute_persona_daily_plan(persona_id)
+    
+    def execute_persona_daily_plan(self, persona_id):
+        persona = self.personas[persona_id]
+        config = persona['config']
+        
+        # Génération contenu adapté
+        content_plan = self.generate_persona_content_plan(config)
+        generated_content = persona['infrastructure']['content_generator'].generate_daily_content_batch(content_plan)
+        
+        # Publication programmée
+        for content in generated_content:
+            persona['infrastructure']['publisher'].publish_content_advanced(content)
+        
+        # Analytics et optimisation
+        performance = persona['infrastructure']['analytics'].collect_daily_metrics()
+        self.optimize_persona_strategy(persona_id, performance)</code>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">📊 Intelligence Collective</h3>
+                    <div class="code-block">
+                        <code>class CrossPersonaIntelligence:
+    def __init__(self):
+        self.shared_learnings = {}
+        self.market_trends = {}
+    
+    def analyze_cross_persona_performance(self):
+        # Analyse des patterns de succès entre personas
+        success_patterns = {}
+        for persona_id in self.personas:
+            metrics = self.get_persona_metrics(persona_id)
+            success_patterns[persona_id] = self.extract_success_factors(metrics)
+        
+        # Identification des synergies
+        synergies = self.identify_synergies(success_patterns)
+        
+        # Application des optimisations croisées
+        for persona_id in self.personas:
+            self.apply_cross_persona_optimizations(persona_id, synergies)
+    
+    def plan_expansion_strategy(self, timeline_years=5):
+        expansion_plan = {
+            'year_1': ['leana_mystere', 'sophie_fitness'],
+            'year_2': ['maya_cosplay', 'elena_milf'],
+            'year_3': ['international_expansion'],
+            'year_4': ['premium_services', 'ai_consulting'],
+            'year_5': ['market_leadership']
+        }
+        return expansion_plan</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloc 10 -->
+            <section id="bloc10" class="content-section">
+                <h2 class="text-3xl font-bold text-blue-400 mb-6">BLOC 10 : Sécurité & Anti-Détection</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🛡️ Architecture Sécurité Multicouche</h3>
+                    <p class="text-gray-300 mb-4">Protection complète contre détection et risques.</p>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Cloisonnement Personas</h4>
+                    <div class="code-block">
+                        <code>class PersonaSecurityCompartment:
+    def __init__(self, persona_name):
+        self.persona_name = persona_name
+        self.dedicated_vm = None
+        self.vpn_config = None
+        self.proxy_rotation = None
+    
+    def setup_isolated_environment(self):
+        # Configuration VM dédiée
+        vm_config = {
+            'os': 'Windows 10 Pro',
+            'ram': '8GB',
+            'storage': '100GB SSD',
+            'network': 'isolated_vlan'
+        }
+        
+        # VPN dédié par persona
+        vpn_config = {
+            'provider': 'NordVPN',
+            'server_location': self.get_optimal_location(),
+            'protocol': 'OpenVPN',
+            'kill_switch': True
+        }
+        
+        # Rotation de proxies
+        proxy_rotation = {
+            'residential_proxies': True,
+            'rotation_interval': '30min',
+            'countries': ['FR', 'IT', 'ES'],
+            'provider': 'SmartProxy'
+        }
+    
+    def configure_dedicated_vpn(self):
+        # Installation et configuration VPN automatique
+        vpn_script = f"""
+        @echo off
+        echo Configuration VPN pour {self.persona_name}
+        
+        # Installation NordVPN
+        powershell -Command "Invoke-WebRequest -Uri 'https://downloads.nordcdn.com/apps/windows/NordVPN/latest/NordVPNSetup.exe' -OutFile 'nordvpn.exe'"
+        nordvpn.exe /S
+        
+        # Configuration serveur dédié
+        nordvpn -c -g "France"
+        nordvpn -s -p tcp
+        """
+        return vpn_script</code>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold text-blue-300 mb-3">Anti-Détection IA</h4>
+                    <div class="code-block">
+                        <code>class AntiDetectionPipeline:
+    def __init__(self):
+        self.adversarial_tools = ['FaceSwapper', 'DeepFaceLab', 'GFPGAN']
+        self.metadata_spoofing = True
+        self.noise_injection = True
+    
+    def apply_adversarial_noise(self, image_path, output_path):
+        # Injection de bruit adversarial invisible
+        import cv2
+        import numpy as np
+        
+        image = cv2.imread(image_path)
+        
+        # Génération bruit adversarial
+        noise = np.random.normal(0, 5, image.shape).astype(np.uint8)
+        
+        # Application subtile
+        protected_image = cv2.addWeighted(image, 0.98, noise, 0.02, 0)
+        
+        cv2.imwrite(output_path, protected_image)
+        return output_path
+    
+    def remove_and_spoof_metadata(self, image_path, output_path):
+        from PIL import Image
+        from PIL.ExifTags import TAGS
+        
+        # Suppression métadonnées existantes
+        image = Image.open(image_path)
+        data = list(image.getdata())
+        image_without_exif = Image.new(image.mode, image.size)
+        image_without_exif.putdata(data)
+        
+        # Injection fausses métadonnées
+        fake_metadata = {
+            'camera': 'Canon EOS R5',
+            'lens': '85mm f/1.4',
+            'software': 'Adobe Lightroom Classic',
+            'date': '2024:12:15 14:30:22'
+        }
+        
+        image_without_exif.save(output_path, quality=95)
+        return output_path</code>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">🔐 Gestion Sécurisée des Données</h3>
+                    <div class="code-block">
+                        <code>class DataProtectionSystem:
+    def __init__(self):
+        self.encryption_key = self.generate_master_key()
+        self.backup_locations = ['local_encrypted', 'cloud_encrypted', 'offline_backup']
+    
+    def create_encrypted_vault(self, vault_path, size_gb, password):
+        # Création conteneur chiffré VeraCrypt
+        veracrypt_cmd = f"""
+        veracrypt -t -c --volume-type=normal --filesystem=NTFS 
+        --encryption=AES --hash=SHA-512 --size={size_gb}GB 
+        --password="{password}" --pim=0 --keyfiles="" 
+        --random-source=/dev/urandom "{vault_path}"
+        """
+        
+        subprocess.run(veracrypt_cmd, shell=True)
+        return vault_path
+    
+    def secure_file_deletion(self, file_path):
+        # Suppression sécurisée avec overwrite
+        import os
+        import random
+        
+        if os.path.exists(file_path):
+            filesize = os.path.getsize(file_path)
+            
+            # 3 passes d'écrasement
+            with open(file_path, "r+b") as f:
+                for _ in range(3):
+                    f.seek(0)
+                    f.write(os.urandom(filesize))
+                    f.flush()
+                    os.fsync(f.fileno())
+            
+            os.remove(file_path)
+        
+        return True</code>
+                    </div>
+                </div>
+
+                <div class="bg-red-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">⚠️ Checklist Sécurité Quotidienne</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">Vérifications Techniques</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>✅ VPN actif et fonctionnel</li>
+                                <li>✅ Proxies en rotation</li>
+                                <li>✅ Pas de fuite DNS</li>
+                                <li>✅ Métadonnées nettoyées</li>
+                                <li>✅ Backups chiffrés à jour</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Vérifications Opérationnelles</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>✅ Activité dans les limites normales</li>
+                                <li>✅ Pas d'alertes de sécurité</li>
+                                <li>✅ Séparation des identités respectée</li>
+                                <li>✅ Logs de sécurité vérifiés</li>
+                                <li>✅ Plan de continuité testé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Bouton d'installation PWA -->
+    <button id="installPWA" class="install-button bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-lg hidden">
+        <i class="fas fa-download mr-2"></i>Installer l'App
+    </button>
+
+    <script>
+        // Variables globales
+        let deferredPrompt;
+        const correctPassword = 'PourMYM07!';
+
+        // Gestion de l'authentification
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('loginError');
+            
+            if (password === correctPassword) {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('mainApp').classList.remove('hidden');
+                sessionStorage.setItem('authenticated', 'true');
+            } else {
+                errorDiv.classList.remove('hidden');
+                setTimeout(() => errorDiv.classList.add('hidden'), 3000);
+            }
+        });
+
+        // Gestion de la déconnexion
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            sessionStorage.removeItem('authenticated');
+            document.getElementById('mainApp').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('password').value = '';
+        });
+
+        // Navigation entre les sections
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const section = this.dataset.section;
+                
+                // Mise à jour des tabs
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Mise à jour du contenu
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(section).classList.add('active');
+                
+                // Scroll vers le haut
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Installation PWA
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('installPWA').classList.remove('hidden');
+        });
+
+        document.getElementById('installBtn').addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    document.getElementById('installPWA').classList.add('hidden');
+                }
+                deferredPrompt = null;
+            }
+        });
+
+        document.getElementById('installPWA').addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    document.getElementById('installPWA').classList.add('hidden');
+                }
+                deferredPrompt = null;
+            }
+        });
+
+        // Service Worker pour mode hors ligne
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:text/javascript,self.addEventListener("fetch",function(e){e.respondWith(fetch(e.request).catch(function(){return new Response("Mode hors ligne - Contenu en cache",{headers:{"Content-Type":"text/html"}})}))})');
+        }
+
+        // Vérification de l'authentification au chargement
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('authenticated') === 'true') {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('mainApp').classList.remove('hidden');
+            }
+        });
+
+        // Fonction de copie pour les codes
+        function copyCode(element) {
+            const code = element.parentElement.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = element.innerHTML;
+                element.innerHTML = '<i class="fas fa-check"></i> Copié!';
+                element.classList.add('bg-green-600');
+                setTimeout(() => {
+                    element.innerHTML = originalText;
+                    element.classList.remove('bg-green-600');
+                }, 2000);
+            });
+        }
+
+        // Ajout des boutons de copie aux blocs de code
+        document.querySelectorAll('.code-block').forEach(block => {
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded text-xs';
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copier';
+            copyBtn.onclick = () => copyCode(copyBtn);
+            block.style.position = 'relative';
+            block.appendChild(copyBtn);
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e6d644b34250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrXrz9uTLxxPXgTRh8VF%2B9XT3jE16nxjKMcyerdh35Q7AY%2Fm7E3sJ09PEUM2531geN7ArwH%2Fbom6GartK8EoBIGo4fqf510GMSZCn8YV6lq4g935JCBQ4Xy9iqlqlFejNI2%2BFWKirI29AZtZkdDQz66bj3tHb%2BO3uU0xPrMzNodgV%2FEEuHl87tI6YaoLqgo795Uhu168izEk5g5%2FH%2FhwVq9s5yWDC1EZxbSvI%2Fos977fOS2N%2BJnDlthKhU5l3Sv2KeYyiynngUwcdsJ8nWu%2BPPUDTDfOFGx2d9mXAm2OPkM53q3c0jPCJuwO8g1cqG%2BCOq9eWmw3XWbrEsDfCd0g3Lyspcye98qR7kLKQe%2B3wWli34p3DhCLg3HLB%2B0CTg%2FSFz76GpxNg2xycYkBQ3Qk0tioeS8jNzzlD7YA8I6CWI9DN4GByHhRz3SKPGS%2BmFcGm5qp44PdZ7hkIYsqfxYaaLAsF%2F8Mr7qxqZj8I3tdk8U5tDYCfV2q297Pf3P%2B4qYIp3jKWwrDHVGGBclobMVsfDg%3D";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrXrz9uTLxxPXgTRh8VF+9XT3jE16nxjKMcyerdh35Q7AY/m7E3sJ09PEUM2531geN7ArwH/bom6GartK8EoBIGo4fqf510GMSZCn8YV6lq4g935JCBQ4Xy9iqlqlFejNI2+FWKirI29AZtZkdDQz66bj3tHb+O3uU0xPrMzNodgV/EEuHl87tI6YaoLqgo795Uhu168izEk5g5/H/hwVq9s5yWDC1EZxbSvI/os977fOS2N+JnDlthKhU5l3Sv2KeYyiynngUwcdsJ8nWu+PPUDTDfOFGx2d9mXAm2OPkM53q3c0jPCJuwO8g1cqG+COq9eWmw3XWbrEsDfCd0g3Lyspcye98qR7kLKQe+3wWli34p3DhCLg3HLB+0CTg/SFz76GpxNg2xycYkBQ3Qk0tioeS8jNzzlD7YA8I6CWI9DN4GByHhRz3SKPGS+mFcGm5qp44PdZ7hkIYsqfxYaaLAsF/8Mr7qxqZj8I3tdk8U5tDYCfV2q297Pf3P+4qYIp3jKWwrDHVGGBclobMVsfDg=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

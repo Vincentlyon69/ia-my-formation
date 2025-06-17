@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 1-2 ENRICHI - Prérequis & Dataset (Version Débutant Complet)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .section-divider {
+            border-top: 3px solid #e5e7eb;
+            margin: 3rem 0;
+        }
+        .step-counter {
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .code-block {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-left: 4px solid #3b82f6;
+        }
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .error-box {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .screenshot-placeholder {
+            background: #f3f4f6;
+            border: 2px dashed #9ca3af;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: 0.5rem;
+            transform: scale(1.2);
+        }
+        .navigation-tabs {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+        .nav-tab {
+            padding: 1rem 2rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            margin-right: 0.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nav-tab.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .troubleshooting-section {
+            background: #fafafa;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    
+    <!-- Header Principal -->
+    <header class="gradient-bg text-white py-8 mb-0">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-robot text-5xl mb-3"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-3">Manuel IA MYM 2025</h1>
+                <h2 class="text-2xl font-light mb-3">BLOC 1-2 ENRICHI - Version Débutant Complet</h2>
+                <p class="text-lg mb-4">Prérequis & Dataset Training avec explications détaillées clic-par-clic</p>
+                <div class="bg-white bg-opacity-20 rounded-full px-4 py-2 inline-block">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    Formation technique ultra-détaillée pour débutants absolus
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Interne -->
+    <div class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-6">
+            <div class="navigation-tabs">
+                <div class="nav-tab active" onclick="scrollToSection('introduction')">
+                    <i class="fas fa-play mr-2"></i>Introduction
+                </div>
+                <div class="nav-tab" onclick="scrollToSection('bloc1')">
+                    <i class="fas fa-cog mr-2"></i>BLOC 1 - Prérequis
+                </div>
+                <div class="nav-tab" onclick="scrollToSection('bloc2')">
+                    <i class="fas fa-images mr-2"></i>BLOC 2 - Dataset
+                </div>
+                <div class="nav-tab" onclick="scrollToSection('troubleshooting')">
+                    <i class="fas fa-tools mr-2"></i>Dépannage
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="container mx-auto px-6 py-8">
+
+        <!-- Section Introduction -->
+        <section id="introduction" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    <i class="fas fa-info-circle text-blue-600 mr-3"></i>
+                    Introduction pour Débutants Absolus
+                </h2>
+
+                <div class="info-box">
+                    <h3 class="font-bold text-lg mb-2">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        Avant de Commencer - Lecture Obligatoire
+                    </h3>
+                    <p class="mb-4">Ce manuel part du principe que vous n'avez <strong>JAMAIS</strong> utilisé :</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Google Colab (interface de programmation en ligne)</li>
+                        <li>Intelligence artificielle de génération d'images</li>
+                        <li>Ligne de commande ou codes Python</li>
+                        <li>Interfaces web complexes</li>
+                    </ul>
+                    <p class="mt-4 font-semibold">Chaque action sera expliquée avec une précision extrême, comme si vous découvriez un ordinateur pour la première fois.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h3 class="font-bold text-lg mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Préparation de Votre Environnement de Travail
+                    </h3>
+                    <p class="mb-4">AVANT de commencer, préparez votre espace de travail :</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-white p-4 rounded border">
+                            <h4 class="font-bold mb-2"><i class="fas fa-desktop mr-2"></i>Votre Ordinateur</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Fermez tous les programmes inutiles</li>
+                                <li>• Gardez uniquement votre navigateur ouvert</li>
+                                <li>• Préparez un carnet et un stylo pour noter</li>
+                                <li>• Assurez-vous d'avoir 2-3 heures libres</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded border">
+                            <h4 class="font-bold mb-2"><i class="fas fa-wifi mr-2"></i>Connexion Internet</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Connexion stable et rapide requise</li>
+                                <li>• Évitez le Wi-Fi public ou instable</li>
+                                <li>• Gardez votre chargeur à proximité</li>
+                                <li>• Désactivez les notifications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h3 class="font-bold text-lg mb-2">
+                        <i class="fas fa-route mr-2"></i>
+                        Parcours de cette Formation
+                    </h3>
+                    <p class="mb-4">Voici exactement ce que vous allez apprendre, étape par étape :</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-white rounded border">
+                            <div class="step-counter">1</div>
+                            <div>
+                                <h4 class="font-semibold">Configuration technique complète</h4>
+                                <p class="text-sm text-gray-600">Apprendre à utiliser Google Colab, installer les outils IA, comprendre chaque interface</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded border">
+                            <div class="step-counter">2</div>
+                            <div>
+                                <h4 class="font-semibold">Création de votre premier dataset</h4>
+                                <p class="text-sm text-gray-600">Générer 50-100 images d'une même personne fictive pour entraîner votre IA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded border">
+                            <div class="step-counter">3</div>
+                            <div>
+                                <h4 class="font-semibold">Organisation et vérification</h4>
+                                <p class="text-sm text-gray-600">Trier, nommer et organiser vos fichiers pour la suite de la formation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossaire des Termes Techniques -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-book mr-3"></i>
+                        Glossaire - Termes que Vous Devez Connaître
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold text-blue-600 mb-2">Google Colab</h4>
+                            <p class="text-sm">Un "carnet de programmation" gratuit de Google qui fonctionne dans votre navigateur. C'est là que nous allons écrire et exécuter du code pour créer votre IA.</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold text-blue-600 mb-2">Stable Diffusion</h4>
+                            <p class="text-sm">Le "cerveau" de l'intelligence artificielle qui génère des images. C'est un programme informatique capable de créer des photos réalistes à partir de descriptions.</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold text-blue-600 mb-2">Dataset</h4>
+                            <p class="text-sm">Une collection d'images (comme un album photo) que nous montrons à l'IA pour lui apprendre à reproduire un visage spécifique.</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold text-blue-600 mb-2">Prompt</h4>
+                            <p class="text-sm">La "commande" que vous donnez à l'IA pour lui dire quel type d'image générer. Par exemple : "une femme brune souriante".</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold text-blue-600 mb-2">WebUI</h4>
+                            <p class="text-sm">L'interface graphique (écran avec boutons et menus) qui vous permet de contrôler l'IA sans écrire de code.</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold text-blue-600 mb-2">NSFW</h4>
+                            <p class="text-sm">"Not Safe For Work" - Contenu pour adultes, explicite ou nu. Nous l'utilisons de manière légale et transparente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- BLOC 1 - Prérequis et Configuration -->
+        <section id="bloc1" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    <i class="fas fa-cog text-green-600 mr-3"></i>
+                    BLOC 1 - Prérequis & Configuration Technique
+                </h2>
+
+                <!-- Stratégie Générale -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-bullseye mr-2"></i>
+                        Objectif Stratégique Détaillé
+                    </h3>
+                    
+                    <div class="info-box">
+                        <p class="mb-4">Nous allons créer une <strong>identité féminine IA</strong> d'un photoréalisme exceptionnel. Voici ce que cela signifie concrètement :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded border">
+                                <h4 class="font-bold text-green-600 mb-2">
+                                    <i class="fas fa-female mr-2"></i>Identité Fictive
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Nom, âge, personnalité définis</li>
+                                    <li>• Histoire personnelle cohérente</li>
+                                    <li>• Style vestimentaire constant</li>
+                                    <li>• Expressions faciales variées</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded border">
+                                <h4 class="font-bold text-blue-600 mb-2">
+                                    <i class="fas fa-camera mr-2"></i>Photoréalisme
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Images indiscernables de vraies photos</li>
+                                    <li>• Détails de peau ultra-précis</li>
+                                    <li>• Éclairage et ombres naturels</li>
+                                    <li>• Anatomie parfaitement proportionnée</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded border">
+                                <h4 class="font-bold text-purple-600 mb-2">
+                                    <i class="fas fa-euro-sign mr-2"></i>Monétisation
+                                </h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Contenu pour MYM/OnlyFans</li>
+                                    <li>• Transparence légale sur la nature IA</li>
+                                    <li>• Volume de contenu illimité</li>
+                                    <li>• Personnalisation pour chaque client</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Matérielle -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-desktop mr-2"></i>
+                        Vérification de Votre Matériel - Guide Détaillé
+                    </h3>
+                    
+                    <div class="warning-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-search mr-2"></i>
+                            Comment Vérifier les Spécifications de Votre Ordinateur
+                        </h4>
+                        <p class="mb-4">Si vous ne connaissez pas les caractéristiques de votre ordinateur, suivez ces étapes PRÉCISES :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Windows -->
+                            <div class="bg-blue-50 p-4 rounded border">
+                                <h5 class="font-bold mb-3">
+                                    <i class="fab fa-windows mr-2"></i>
+                                    Sur Windows
+                                </h5>
+                                <ol class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">1</span>
+                                        <div>
+                                            <strong>Ouvrir les Paramètres :</strong><br>
+                                            • Cliquez sur le bouton "Démarrer" (icône Windows en bas à gauche)<br>
+                                            • Cliquez sur l'icône en forme de roue dentée (⚙️)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">2</span>
+                                        <div>
+                                            <strong>Accéder aux Informations :</strong><br>
+                                            • Cliquez sur "Système" (première option généralement)<br>
+                                            • Dans le menu de gauche, cliquez sur "À propos"
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">3</span>
+                                        <div>
+                                            <strong>Noter les Informations :</strong><br>
+                                            • Processeur : exemple "Intel Core i5-8300H"<br>
+                                            • Mémoire installée (RAM) : exemple "16,0 Go"<br>
+                                            • Type du système : 64 bits (obligatoire)
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                            
+                            <!-- Mac -->
+                            <div class="bg-gray-50 p-4 rounded border">
+                                <h5 class="font-bold mb-3">
+                                    <i class="fab fa-apple mr-2"></i>
+                                    Sur macOS
+                                </h5>
+                                <ol class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <span class="bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">1</span>
+                                        <div>
+                                            <strong>Menu Pomme :</strong><br>
+                                            • Cliquez sur l'icône Apple (🍎) en haut à gauche de l'écran
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">2</span>
+                                        <div>
+                                            <strong>À propos de ce Mac :</strong><br>
+                                            • Cliquez sur "À propos de ce Mac" (première option)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">3</span>
+                                        <div>
+                                            <strong>Informations Affichées :</strong><br>
+                                            • Processeur : exemple "Intel Core i7 2,6 GHz"<br>
+                                            • Mémoire : exemple "16 Go 2400 MHz DDR4"
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Évaluation du Matériel -->
+                    <div class="mt-6">
+                        <h4 class="text-xl font-bold mb-4">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            Évaluation de Vos Capacités Matérielles
+                        </h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Configuration Minimum -->
+                            <div class="border border-yellow-300 rounded-lg p-4 bg-yellow-50">
+                                <h5 class="font-bold text-yellow-700 mb-3">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                                    Configuration Minimum
+                                </h5>
+                                <ul class="text-sm space-y-2">
+                                    <li><strong>RAM :</strong> 8 Go minimum</li>
+                                    <li><strong>Processeur :</strong> Intel i3 ou équivalent AMD</li>
+                                    <li><strong>Carte graphique :</strong> Intégrée acceptable</li>
+                                    <li><strong>Stockage :</strong> 5 Go libres minimum</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-yellow-100 rounded text-xs">
+                                    <strong>Conséquence :</strong> Utilisation exclusive du cloud (Google Colab), aucun traitement local possible.
+                                </div>
+                            </div>
+                            
+                            <!-- Configuration Recommandée -->
+                            <div class="border border-green-300 rounded-lg p-4 bg-green-50">
+                                <h5 class="font-bold text-green-700 mb-3">
+                                    <i class="fas fa-check-circle mr-2"></i>
+                                    Configuration Recommandée
+                                </h5>
+                                <ul class="text-sm space-y-2">
+                                    <li><strong>RAM :</strong> 16-32 Go</li>
+                                    <li><strong>Processeur :</strong> Intel i5/i7 récent</li>
+                                    <li><strong>Carte graphique :</strong> GTX 1060 / RTX 2060 minimum</li>
+                                    <li><strong>Stockage :</strong> 50 Go libres (SSD préférable)</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-green-100 rounded text-xs">
+                                    <strong>Avantage :</strong> Possibilité d'installation locale pour plus de flexibilité et de rapidité.
+                                </div>
+                            </div>
+                            
+                            <!-- Configuration Optimale -->
+                            <div class="border border-blue-300 rounded-lg p-4 bg-blue-50">
+                                <h5 class="font-bold text-blue-700 mb-3">
+                                    <i class="fas fa-rocket mr-2"></i>
+                                    Configuration Optimale
+                                </h5>
+                                <ul class="text-sm space-y-2">
+                                    <li><strong>RAM :</strong> 32 Go ou plus</li>
+                                    <li><strong>Processeur :</strong> Intel i7/i9 ou AMD Ryzen 7/9</li>
+                                    <li><strong>Carte graphique :</strong> RTX 3070/4070 ou supérieure</li>
+                                    <li><strong>Stockage :</strong> 200 Go libres sur SSD NVMe</li>
+                                </ul>
+                                <div class="mt-3 p-2 bg-blue-100 rounded text-xs">
+                                    <strong>Avantage :</strong> Génération rapide en local, tests illimités, aucune dépendance cloud.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stratégie Cloud vs Local -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-cloud mr-2"></i>
+                        Stratégie Cloud vs Local - Décision Intelligente
+                    </h3>
+                    
+                    <div class="info-box">
+                        <h4 class="font-bold mb-3">Pourquoi Nous Privilégions Google Colab (Cloud) ?</h4>
+                        <p class="mb-4">Même si vous avez un bon ordinateur, nous commençons par Google Colab pour ces raisons stratégiques :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded border">
+                                <h5 class="font-bold text-green-600 mb-2">
+                                    <i class="fas fa-dollar-sign mr-2"></i>Avantages Économiques
+                                </h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Coût : 0€ pour débuter</li>
+                                    <li>• Pas d'électricité supplémentaire</li>
+                                    <li>• Aucun risque de surchauffe de votre PC</li>
+                                    <li>• GPU professionnel gratuit (Tesla T4/V100)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded border">
+                                <h5 class="font-bold text-blue-600 mb-2">
+                                    <i class="fas fa-shield-alt mr-2"></i>Avantages Techniques
+                                </h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Installation automatique des dépendances</li>
+                                    <li>• Environnement Linux optimisé</li>
+                                    <li>• Sauvegardes automatiques sur Google Drive</li>
+                                    <li>• Aucun conflit avec vos logiciels existants</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-clock mr-2"></i>Limitations de Google Colab - À Connaître Absolument
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-semibold mb-2">Limite Gratuite :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 12 heures consécutives maximum</li>
+                                    <li>• Déconnexion automatique après inactivité</li>
+                                    <li>• Quotas journaliers variables</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-2">Solutions de Contournement :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Sauvegarder régulièrement sur Drive</li>
+                                    <li>• Travailler par sessions de 2-3h</li>
+                                    <li>• Colab Pro (10€/mois) si nécessaire</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Préparation Compte Google -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-user-plus mr-2"></i>
+                        Préparation de Votre Compte Google - Étapes Détaillées
+                    </h3>
+
+                    <div class="warning-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Sécurité : Compte Dédié Recommandé
+                        </h4>
+                        <p class="mb-4">Pour des raisons de sécurité et d'organisation, nous recommandons de <strong>créer un nouveau compte Google</strong> spécialement pour ce projet. Voici pourquoi :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded border">
+                                <h5 class="font-semibold text-red-600 mb-2">Risques avec votre compte principal :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Mélange avec vos fichiers personnels</li>
+                                    <li>• Historique de recherche lié à votre identité</li>
+                                    <li>• Risque de suspension en cas de contenu NSFW</li>
+                                    <li>• Pas de séparation vie privée/projet</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded border">
+                                <h5 class="font-semibold text-green-600 mb-2">Avantages compte dédié :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Compartimentage total</li>
+                                    <li>• Organisation des fichiers optimisée</li>
+                                    <li>• Aucun risque pour votre compte principal</li>
+                                    <li>• Gestion des quotas indépendante</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-step-forward mr-2"></i>
+                            Création d'un Nouveau Compte Google - Guide Pas-à-Pas
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Ouvrir la Page de Création</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Ouvrez votre navigateur web (Chrome, Firefox, Edge, Safari)</li>
+                                        <li>• Tapez dans la barre d'adresse : <code class="bg-gray-200 px-2 py-1 rounded">accounts.google.com</code></li>
+                                        <li>• Appuyez sur la touche "Entrée" de votre clavier</li>
+                                        <li>• Cliquez sur "Créer un compte" ou "Create account"</li>
+                                        <li>• Sélectionnez "Usage personnel" ou "For personal use"</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Page d'accueil Google avec le bouton "Créer un compte" entouré en rouge, flèche pointant vers "Usage personnel"</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Remplir les Informations de Base</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• <strong>Prénom :</strong> Utilisez un prénom fictif (ex: Alex, Morgan, Sam)</li>
+                                        <li>• <strong>Nom :</strong> Nom fictif cohérent (ex: Dubois, Martin)</li>
+                                        <li>• <strong>Nom d'utilisateur :</strong> Choisissez quelque chose comme "alexmartinai2025" ou "aiprojectowner"</li>
+                                        <li>• <strong>Mot de passe :</strong> Utilisez un mot de passe FORT et UNIQUE</li>
+                                    </ul>
+                                    
+                                    <div class="bg-yellow-100 p-3 rounded border text-sm">
+                                        <strong>Conseils pour le mot de passe :</strong>
+                                        <ul class="mt-1 space-y-1">
+                                            <li>• Minimum 12 caractères</li>
+                                            <li>• Mélange majuscules, minuscules, chiffres, symboles</li>
+                                            <li>• Exemple : AiProject2025!@#$</li>
+                                            <li>• NOTEZ-LE dans un carnet physique sécurisé</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Formulaire de création Google avec champs remplis d'exemples, zones importantes encadrées</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Vérification du Numéro de Téléphone</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Google va demander votre numéro de téléphone pour vérification</li>
+                                        <li>• Entrez votre vrai numéro (obligatoire pour la sécurité)</li>
+                                        <li>• Sélectionnez "SMS" comme méthode de vérification</li>
+                                        <li>• Vous recevrez un code à 6 chiffres par SMS</li>
+                                        <li>• Tapez ce code dans le champ prévu</li>
+                                    </ul>
+                                    
+                                    <div class="error-box">
+                                        <h6 class="font-bold mb-1">Que faire si vous ne recevez pas le SMS ?</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Attendez 2-3 minutes (délai normal)</li>
+                                            <li>• Vérifiez que votre téléphone a du réseau</li>
+                                            <li>• Cliquez sur "Renvoyer le code"</li>
+                                            <li>• En dernier recours, choisissez "Appel téléphonique"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">4</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Finalisation du Compte</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• <strong>Adresse email de récupération :</strong> Vous pouvez laisser vide ou utiliser votre email principal</li>
+                                        <li>• <strong>Date de naissance :</strong> Utilisez une date fictive (mais restez majeur : 18+ ans)</li>
+                                        <li>• <strong>Genre :</strong> Choisissez selon votre préférence</li>
+                                        <li>• Lisez et acceptez les conditions d'utilisation</li>
+                                        <li>• Cliquez sur "Créer le compte"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Vérification de la Création du Compte
+                        </h4>
+                        <p class="mb-3">Une fois le compte créé, vérifiez que tout fonctionne :</p>
+                        
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check1">
+                            <label for="check1">Vous pouvez vous connecter à Gmail avec vos nouveaux identifiants</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check2">
+                            <label for="check2">Vous avez accès à Google Drive (drive.google.com)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check3">
+                            <label for="check3">Votre mot de passe est noté en sécurité</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check4">
+                            <label for="check4">Vous vous souvenez de l'adresse email complète (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d4b1acb1b9a4b8b194b3b9b5bdb8fab7bbb9">[email&#160;protected]</a>)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premier Accès à Google Colab -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Premier Accès à Google Colab - Découverte Complète
+                    </h3>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-play mr-2"></i>
+                            Accès Initial à Google Colab
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Naviguer vers Google Colab</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Assurez-vous d'être connecté à votre nouveau compte Google</li>
+                                        <li>• Dans la barre d'adresse de votre navigateur, tapez exactement : <code class="bg-gray-200 px-2 py-1 rounded">colab.research.google.com</code></li>
+                                        <li>• Appuyez sur "Entrée"</li>
+                                        <li>• La page Google Colab va s'ouvrir</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Barre d'adresse avec colab.research.google.com, page d'accueil Colab avec logo et description</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Découverte de l'Interface Colab</h5>
+                                    <p class="text-sm mb-2">Prenez le temps de comprendre ce que vous voyez à l'écran :</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-white p-3 rounded border">
+                                            <h6 class="font-semibold text-blue-600 mb-2">Éléments Principaux</h6>
+                                            <ul class="text-sm space-y-1">
+                                                <li>• <strong>Barre de menu :</strong> En haut (Fichier, Édition, etc.)</li>
+                                                <li>• <strong>Zone de travail :</strong> Centre de l'écran (vide au début)</li>
+                                                <li>• <strong>Panneau latéral :</strong> À gauche (fichiers, variables)</li>
+                                                <li>• <strong>Boutons d'action :</strong> En haut à droite</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-white p-3 rounded border">
+                                            <h6 class="font-semibold text-green-600 mb-2">Popup Initial</h6>
+                                            <ul class="text-sm space-y-1">
+                                                <li>• Une fenêtre "Bienvenue" peut apparaître</li>
+                                                <li>• Lisez les informations si vous le souhaitez</li>
+                                                <li>• Cliquez sur "Fermer" ou sur la croix (×)</li>
+                                                <li>• Vous arrivez sur un "notebook" vide</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Interface Colab complète avec annotations : barre de menu entourée, zone de travail indiquée, panneau latéral marqué</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Créer Votre Premier Notebook</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Si vous ne voyez pas de notebook ouvert, cliquez sur "Fichier" dans le menu</li>
+                                        <li>• Cliquez sur "Nouveau notebook" ou "New notebook"</li>
+                                        <li>• Un nouveau notebook vide s'ouvre</li>
+                                        <li>• Vous voyez une "cellule" vide avec un curseur clignotant</li>
+                                    </ul>
+
+                                    <div class="info-box">
+                                        <h6 class="font-semibold mb-2">Qu'est-ce qu'une "Cellule" ?</h6>
+                                        <p class="text-sm mb-2">Une cellule est comme une "boîte" dans laquelle vous allez écrire du code. Caractéristiques :</p>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Rectangle avec bordure grise</li>
+                                            <li>• Curseur clignotant à l'intérieur</li>
+                                            <li>• Bouton "Play" (▶) à gauche</li>
+                                            <li>• Vous pouvez taper du texte ou du code dedans</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">4</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Test de Fonctionnement - Votre Premier Code</h5>
+                                    <p class="text-sm mb-2">Pour vérifier que tout fonctionne, nous allons exécuter une commande simple :</p>
+                                    
+                                    <div class="code-block">
+print("Hello, mon IA va bientôt voir le jour !")
+                                    </div>
+                                    
+                                    <ul class="text-sm space-y-1 mt-2 mb-2">
+                                        <li>• Cliquez dans la cellule vide (curseur doit clignoter)</li>
+                                        <li>• Tapez exactement le code ci-dessus (respectez les guillemets)</li>
+                                        <li>• Une fois tapé, cliquez sur le bouton "Play" (▶) à gauche de la cellule</li>
+                                        <li>• OU appuyez simultanément sur Ctrl + Entrée (Cmd + Entrée sur Mac)</li>
+                                    </ul>
+
+                                    <div class="success-box">
+                                        <h6 class="font-semibold mb-1">Résultat Attendu :</h6>
+                                        <p class="text-sm mb-2">Sous la cellule, vous devriez voir apparaître :</p>
+                                        <div class="bg-gray-100 p-2 rounded font-mono text-sm">
+                                            Hello, mon IA va bientôt voir le jour !
+                                        </div>
+                                        <p class="text-sm mt-2">Si vous voyez ce message, félicitations ! Google Colab fonctionne parfaitement.</p>
+                                    </div>
+
+                                    <div class="error-box">
+                                        <h6 class="font-semibold mb-1">Si ça ne marche pas :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Vérifiez que vous avez bien cliqué DANS la cellule</li>
+                                            <li>• Vérifiez l'orthographe exacte du code</li>
+                                            <li>• Assurez-vous que les guillemets sont droits " et non courbés " "</li>
+                                            <li>• Réessayez en cliquant sur le bouton Play</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sauvegarde et Nommage -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-save mr-2"></i>
+                        Sauvegarde et Organisation - Méthodes Professionnelles
+                    </h3>
+
+                    <div class="warning-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            Importance Critique de la Sauvegarde
+                        </h4>
+                        <p class="mb-4">Google Colab peut perdre votre travail dans ces situations :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-red-50 p-3 rounded border border-red-200">
+                                <h5 class="font-semibold text-red-600 mb-2">Situations à Risque :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Fermeture accidentelle de l'onglet</li>
+                                    <li>• Déconnexion internet temporaire</li>
+                                    <li>• Limite de 12h de session atteinte</li>
+                                    <li>• Inactivité prolongée (90 minutes)</li>
+                                    <li>• Crash du navigateur</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded border border-green-200">
+                                <h5 class="font-semibold text-green-600 mb-2">Solutions de Protection :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Sauvegarde automatique sur Google Drive</li>
+                                    <li>• Nommage cohérent des fichiers</li>
+                                    <li>• Sauvegardes manuelles régulières</li>
+                                    <li>• Copies de sécurité locales</li>
+                                    <li>• Organisation en dossiers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-folder mr-2"></i>
+                            Nommage de Votre Notebook - Étapes Précises
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Renommer le Notebook</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• En haut de la page, vous voyez "Untitled0.ipynb" ou similaire</li>
+                                        <li>• Cliquez directement sur ce nom (il devient éditable)</li>
+                                        <li>• Supprimez le texte existant</li>
+                                        <li>• Tapez : <code class="bg-gray-200 px-2 py-1 rounded">IA_MYM_2025_BLOC_1_2_Creation_Dataset</code></li>
+                                        <li>• Appuyez sur "Entrée" pour valider</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Titre du notebook avant/après renommage, curseur dans le champ titre, nouveau nom visible</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Vérification de la Sauvegarde Automatique</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Regardez en haut à droite : vous devriez voir "Enregistré" ou une icône de cloud</li>
+                                        <li>• Si vous voyez "Enregistrement..." avec une animation, attendez qu'elle se termine</li>
+                                        <li>• Pour forcer la sauvegarde : Ctrl+S (ou Cmd+S sur Mac)</li>
+                                    </ul>
+                                    
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Comment Savoir si C'est Sauvegardé ?</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• ✅ <strong>"Enregistré"</strong> = tout est sauvé</li>
+                                            <li>• 🔄 <strong>"Enregistrement..."</strong> = sauvegarde en cours</li>
+                                            <li>• ⚠️ <strong>"Non enregistré"</strong> = vous risquez de perdre vos modifications</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Vérification dans Google Drive</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Ouvrez un nouvel onglet dans votre navigateur</li>
+                                        <li>• Allez sur : <code class="bg-gray-200 px-2 py-1 rounded">drive.google.com</code></li>
+                                        <li>• Vous devriez voir un dossier "Colab Notebooks"</li>
+                                        <li>• Cliquez dessus pour l'ouvrir</li>
+                                        <li>• Votre fichier "IA_MYM_2025_BLOC_1_2_Creation_Dataset.ipynb" doit y être</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Google Drive ouvert, dossier "Colab Notebooks" visible, fichier du projet listé avec date/heure récente</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- BLOC 2 - Création du Dataset -->
+        <section id="bloc2" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    <i class="fas fa-images text-purple-600 mr-3"></i>
+                    BLOC 2 - Création du Dataset Training
+                </h2>
+
+                <!-- Objectif du Dataset -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-bullseye mr-2"></i>
+                        Objectif et Stratégie du Dataset
+                    </h3>
+                    
+                    <div class="info-box">
+                        <h4 class="font-bold mb-3">Qu'est-ce qu'un Dataset et Pourquoi en Avoir Besoin ?</h4>
+                        <p class="mb-4">Un dataset est comme un "album photo" que nous montrons à l'intelligence artificielle pour lui apprendre à reproduire un visage spécifique. Voici la logique :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-4 rounded border">
+                                <h5 class="font-bold text-blue-600 mb-2">
+                                    <i class="fas fa-brain mr-2"></i>Apprentissage IA
+                                </h5>
+                                <p class="text-sm">L'IA analyse 50-100 photos du même visage pour comprendre ses caractéristiques uniques : forme des yeux, nez, bouche, expressions, etc.</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded border">
+                                <h5 class="font-bold text-green-600 mb-2">
+                                    <i class="fas fa-copy mr-2"></i>Reproduction
+                                </h5>
+                                <p class="text-sm">Une fois entraînée, l'IA peut générer de nouvelles images du même personnage dans des poses, tenues, situations différentes.</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded border">
+                                <h5 class="font-bold text-purple-600 mb-2">
+                                    <i class="fas fa-infinity mr-2"></i>Consistance
+                                </h5>
+                                <p class="text-sm">Le même visage, reconnaissable, sur des milliers d'images différentes pour créer du contenu cohérent.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-list-ol mr-2"></i>
+                            Spécifications Techniques du Dataset
+                        </h4>
+                        <p class="mb-3">Pour un entraînement optimal, votre dataset doit respecter ces critères précis :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded border">
+                                <h5 class="font-semibold text-green-600 mb-2">Quantité et Qualité</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• <strong>50 à 100 images total</strong></li>
+                                    <li>• Résolution minimum : 512x512 pixels</li>
+                                    <li>• Format : JPG ou PNG</li>
+                                    <li>• Qualité : nette, bien éclairée</li>
+                                    <li>• Pas de flou, déformation, coupure</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded border">
+                                <h5 class="font-semibold text-blue-600 mb-2">Diversité Requise</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• <strong>Expressions :</strong> souriante, sérieuse, séductrice</li>
+                                    <li>• <strong>Angles :</strong> face, profil, 3/4</li>
+                                    <li>• <strong>Cadrages :</strong> portrait, buste, corps entier</li>
+                                    <li>• <strong>Tenues :</strong> habillée, lingerie, nue</li>
+                                    <li>• <strong>Éclairages :</strong> naturel, studio, intime</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installation Stable Diffusion -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-download mr-2"></i>
+                        Installation de Stable Diffusion - Procédure Complète
+                    </h3>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-step-forward mr-2"></i>
+                            Étape 1 : Installation des Dépendances de Base
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Préparation de l'Environnement</h5>
+                                    <p class="text-sm mb-2">Nous allons installer tous les outils nécessaires. Cette étape peut prendre 5-10 minutes :</p>
+                                    
+                                    <div class="code-block">
+# Installation des dépendances essentielles pour l'IA
+!pip install diffusers transformers accelerate torch torchvision
+!pip install xformers --index-url https://download.pytorch.org/whl/cu118
+
+# Affichage de confirmation
+print("✅ Installation des bibliothèques IA terminée !")
+print("🔧 Votre environnement est prêt pour Stable Diffusion")
+                                    </div>
+                                    
+                                    <ul class="text-sm space-y-1 mt-3 mb-2">
+                                        <li>• Créez une nouvelle cellule dans votre notebook Colab</li>
+                                        <li>• Copiez-collez exactement le code ci-dessus</li>
+                                        <li>• Cliquez sur le bouton Play (▶) ou appuyez sur Ctrl+Entrée</li>
+                                        <li>• <strong>Attendez patiemment</strong> - l'installation peut prendre du temps</li>
+                                    </ul>
+
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Ce que Fait ce Code :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• <strong>diffusers :</strong> Le cœur de Stable Diffusion</li>
+                                            <li>• <strong>transformers :</strong> Intelligence artificielle de compréhension texte</li>
+                                            <li>• <strong>torch :</strong> Framework de calcul pour IA</li>
+                                            <li>• <strong>xformers :</strong> Optimisations de vitesse</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="success-box">
+                                        <h6 class="font-bold mb-1">Résultat Attendu :</h6>
+                                        <p class="text-sm mb-2">Vous devriez voir défiler de nombreuses lignes d'installation, puis :</p>
+                                        <div class="bg-gray-100 p-2 rounded font-mono text-sm">
+                                            ✅ Installation des bibliothèques IA terminée !<br>
+                                            🔧 Votre environnement est prêt pour Stable Diffusion
+                                        </div>
+                                    </div>
+
+                                    <div class="error-box">
+                                        <h6 class="font-bold mb-1">En Cas d'Erreur :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• <strong>ERROR: pip install...</strong> → Réexécutez la cellule</li>
+                                            <li>• <strong>CUDA out of memory</strong> → Redémarrez le runtime (Runtime → Restart)</li>
+                                            <li>• <strong>Connection timeout</strong> → Vérifiez votre connexion internet</li>
+                                            <li>• <strong>Permission denied</strong> → Normal, continuez quand même</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Clonage de l'Interface Stable Diffusion WebUI</h5>
+                                    <p class="text-sm mb-2">Nous téléchargeons l'interface graphique qui va nous permettre de générer des images facilement :</p>
+                                    
+                                    <div class="code-block">
+# Téléchargement de l'interface Stable Diffusion WebUI
+import os
+print("📥 Téléchargement de Stable Diffusion WebUI...")
+!git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+
+# Navigation vers le dossier téléchargé
+os.chdir('/content/stable-diffusion-webui')
+print("📁 Navigation vers le dossier WebUI")
+
+# Vérification du téléchargement
+!ls -la
+print("✅ Interface WebUI téléchargée avec succès !")
+                                    </div>
+                                    
+                                    <ul class="text-sm space-y-1 mt-3 mb-2">
+                                        <li>• Créez une nouvelle cellule (cliquez sous la précédente)</li>
+                                        <li>• Copiez-collez le code ci-dessus</li>
+                                        <li>• Exécutez avec Play ou Ctrl+Entrée</li>
+                                        <li>• Cette étape télécharge environ 500 MB de fichiers</li>
+                                    </ul>
+
+                                    <div class="success-box">
+                                        <h6 class="font-bold mb-1">Vérification du Succès :</h6>
+                                        <p class="text-sm mb-2">À la fin de l'exécution, vous devriez voir une liste de fichiers comme :</p>
+                                        <div class="bg-gray-100 p-2 rounded font-mono text-xs">
+                                            webui.py<br>
+                                            launch.py<br>
+                                            requirements.txt<br>
+                                            models/<br>
+                                            extensions/<br>
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Installation des Dépendances WebUI</h5>
+                                    <p class="text-sm mb-2">Installation des bibliothèques spécifiques à l'interface graphique :</p>
+                                    
+                                    <div class="code-block">
+# Installation des requirements spécifiques à WebUI
+print("🔧 Installation des dépendances WebUI...")
+!pip install -r requirements.txt
+
+# Installation d'outils supplémentaires pour la génération NSFW
+!pip install opencv-python-headless
+!pip install pillow
+!pip install numpy
+
+print("✅ Toutes les dépendances sont installées !")
+print("🚀 Prêt pour télécharger les modèles IA")
+                                    </div>
+                                    
+                                    <div class="warning-box">
+                                        <h6 class="font-bold mb-1">Cette Étape est la Plus Longue</h6>
+                                        <p class="text-sm">L'installation peut prendre 10-15 minutes. Soyez patient et ne fermez pas votre navigateur !</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Téléchargement des Modèles -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-brain mr-2"></i>
+                        Téléchargement des Modèles IA - Réalisme et NSFW
+                    </h3>
+
+                    <div class="info-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Comprendre les Modèles IA
+                        </h4>
+                        <p class="mb-3">Un modèle IA est comme le "cerveau" qui génère les images. Différents modèles ont différentes spécialités :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-3 rounded border">
+                                <h5 class="font-bold text-blue-600 mb-2">Modèle Réaliste</h5>
+                                <p class="text-sm">Spécialisé dans les photos ultra-réalistes, détails de peau, éclairage naturel</p>
+                            </div>
+                            <div class="bg-red-50 p-3 rounded border">
+                                <h5 class="font-bold text-red-600 mb-2">Modèle NSFW</h5>
+                                <p class="text-sm">Capable de générer du contenu adulte explicite sans censure</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded border">
+                                <h5 class="font-bold text-green-600 mb-2">VAE</h5>
+                                <p class="text-sm">Améliore les couleurs et la netteté finale des images</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-download mr-2"></i>
+                            Téléchargement des Modèles Essentiels
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Modèle Principal : Realistic Vision</h5>
+                                    <p class="text-sm mb-2">Ce modèle est spécialisé dans le photoréalisme et compatible NSFW :</p>
+                                    
+                                    <div class="code-block">
+# Téléchargement du modèle Realistic Vision (excellent pour le photoréalisme)
+print("📥 Téléchargement du modèle Realistic Vision...")
+print("⏰ Ceci peut prendre 5-10 minutes selon votre connexion")
+
+!wget -O /content/stable-diffusion-webui/models/Stable-diffusion/realisticVision.safetensors \
+"https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE/resolve/main/realisticVisionV51_v51VAE.safetensors"
+
+# Vérification du téléchargement
+import os
+model_path = "/content/stable-diffusion-webui/models/Stable-diffusion/realisticVision.safetensors"
+if os.path.exists(model_path):
+    file_size = os.path.getsize(model_path) / (1024*1024*1024)  # Taille en GB
+    print(f"✅ Modèle téléchargé avec succès ! Taille: {file_size:.2f} GB")
+else:
+    print("❌ Erreur de téléchargement, réessayez")
+                                    </div>
+                                    
+                                    <div class="warning-box">
+                                        <h6 class="font-bold mb-1">Important à Savoir :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Ce fichier fait environ 5 GB - soyez patient</li>
+                                            <li>• Ne fermez pas votre navigateur pendant le téléchargement</li>
+                                            <li>• Si ça échoue, réexécutez la cellule</li>
+                                            <li>• La barre de progression peut sembler bloquée - c'est normal</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">VAE pour Améliorer la Qualité</h5>
+                                    <p class="text-sm mb-2">Le VAE améliore les couleurs et la netteté des images générées :</p>
+                                    
+                                    <div class="code-block">
+# Téléchargement du VAE optimisé
+print("📥 Téléchargement du VAE pour améliorer les couleurs...")
+
+!wget -O /content/stable-diffusion-webui/models/VAE/vae-ft-mse-840000-ema-pruned.safetensors \
+"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
+
+# Vérification
+vae_path = "/content/stable-diffusion-webui/models/VAE/vae-ft-mse-840000-ema-pruned.safetensors"
+if os.path.exists(vae_path):
+    print("✅ VAE téléchargé avec succès !")
+else:
+    print("❌ Erreur VAE, réessayez")
+
+# Affichage des fichiers téléchargés
+print("\n📁 Contenu du dossier models :")
+!ls -la /content/stable-diffusion-webui/models/Stable-diffusion/
+!ls -la /content/stable-diffusion-webui/models/VAE/
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Modèle NSFW Explicite (Optionnel)</h5>
+                                    <p class="text-sm mb-2">Pour du contenu adulte plus poussé, téléchargement d'un modèle spécialisé :</p>
+                                    
+                                    <div class="code-block">
+# ATTENTION: Modèle NSFW explicite - Réservé aux adultes
+print("🔞 Téléchargement modèle NSFW spécialisé...")
+print("⚠️  Contenu réservé aux adultes uniquement")
+
+!wget -O /content/stable-diffusion-webui/models/Stable-diffusion/unstableDiffusers_nsfw.safetensors \
+"https://huggingface.co/unstable/unstable-diffusers-nsfw/resolve/main/unstableDiffusers_nsfw.safetensors"
+
+print("✅ Modèle NSFW téléchargé")
+print("🎯 Vous avez maintenant tous les outils pour générer votre dataset")
+                                    </div>
+                                    
+                                    <div class="error-box">
+                                        <h6 class="font-bold mb-1">Avertissement Légal Important</h6>
+                                        <p class="text-sm">Ce modèle génère du contenu adulte explicite. Utilisez-le uniquement :</p>
+                                        <ul class="text-sm space-y-1 mt-1">
+                                            <li>• Si vous êtes majeur (18+ ans)</li>
+                                            <li>• Dans un cadre privé et légal</li>
+                                            <li>• En respectant les lois de votre pays</li>
+                                            <li>• Avec transparence sur la nature IA du contenu</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lancement de l'Interface -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Lancement de l'Interface WebUI - Première Utilisation
+                    </h3>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-play mr-2"></i>
+                            Démarrage de Stable Diffusion WebUI
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Commande de Lancement</h5>
+                                    <p class="text-sm mb-2">Cette commande va démarrer l'interface graphique accessible via votre navigateur :</p>
+                                    
+                                    <div class="code-block">
+# Lancement de l'interface WebUI avec paramètres optimisés
+print("🚀 Lancement de Stable Diffusion WebUI...")
+print("⏰ Premier démarrage: peut prendre 3-5 minutes")
+print("🌐 Une URL se terminant par .gradio.live va apparaître")
+
+!python launch.py --share --enable-insecure-extension-access --xformers --no-half-vae --disable-safe-unpickle --skip-torch-cuda-test
+                                    </div>
+                                    
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Signification des Paramètres :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• <strong>--share :</strong> Crée une URL publique temporaire</li>
+                                            <li>• <strong>--xformers :</strong> Optimisations de vitesse</li>
+                                            <li>• <strong>--no-half-vae :</strong> Meilleure qualité d'image</li>
+                                            <li>• <strong>--disable-safe-unpickle :</strong> Permet les modèles NSFW</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Attendre l'URL d'Accès</h5>
+                                    <p class="text-sm mb-2">Après quelques minutes, vous verrez des messages similaires à ceux-ci :</p>
+                                    
+                                    <div class="bg-gray-100 p-3 rounded font-mono text-xs">
+                                        Loading weights [abc123def456] from /content/stable-diffusion-webui/models...<br>
+                                        Applying xformers cross attention optimization.<br>
+                                        Model loaded in 45.2s (calculate hash: 12.3s, load weights from disk: 23.4s)<br>
+                                        <span class="text-green-600 font-bold">Running on public URL: https://abc123def456.gradio.live</span>
+                                    </div>
+                                    
+                                    <ul class="text-sm space-y-1 mt-3 mb-2">
+                                        <li>• <strong>Cherchez la ligne commençant par "Running on public URL"</strong></li>
+                                        <li>• L'URL ressemble à : https://xyz123.gradio.live</li>
+                                        <li>• Cliquez sur cette URL (elle devient un lien cliquable)</li>
+                                        <li>• Une nouvelle page s'ouvre : c'est votre interface IA !</li>
+                                    </ul>
+
+                                    <div class="warning-box">
+                                        <h6 class="font-bold mb-1">Si Vous Ne Voyez Pas l'URL :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Attendez encore 2-3 minutes (premier démarrage long)</li>
+                                            <li>• Cherchez "gradio.live" dans le texte</li>
+                                            <li>• Si ça bloque, arrêtez (Runtime → Interrupt) et relancez</li>
+                                            <li>• Vérifiez que les modèles sont bien téléchargés</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Console Colab avec l'URL gradio.live visible et cliquable, messages de chargement du modèle</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Découverte de l'Interface WebUI</h5>
+                                    <p class="text-sm mb-2">Une fois l'URL cliquée, vous arrivez sur l'interface de génération d'images :</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-blue-50 p-3 rounded border">
+                                            <h6 class="font-bold text-blue-600 mb-2">Zone Principale (Gauche)</h6>
+                                            <ul class="text-sm space-y-1">
+                                                <li>• <strong>Prompt :</strong> Grande boîte de texte en haut</li>
+                                                <li>• <strong>Negative prompt :</strong> Seconde boîte de texte</li>
+                                                <li>• <strong>Bouton Generate :</strong> Gros bouton orange</li>
+                                                <li>• <strong>Paramètres :</strong> Curseurs et options</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-green-50 p-3 rounded border">
+                                            <h6 class="font-bold text-green-600 mb-2">Zone Résultats (Droite)</h6>
+                                            <ul class="text-sm space-y-1">
+                                                <li>• <strong>Image générée :</strong> S'affiche ici</li>
+                                                <li>• <strong>Informations :</strong> Seed, paramètres</li>
+                                                <li>• <strong>Boutons :</strong> Save, Send to extras</li>
+                                                <li>• <strong>Galerie :</strong> Images précédentes</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Interface WebUI complète avec annotations : zone prompt encadrée, bouton Generate entouré, zone résultats marquée</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration de l'Interface -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-cogs mr-2"></i>
+                        Configuration Optimale de l'Interface - Paramètres Professionnels
+                    </h3>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-sliders-h mr-2"></i>
+                            Configuration des Modèles et VAE
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Accès aux Paramètres</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Dans l'interface WebUI, cherchez l'onglet "Settings" en haut de la page</li>
+                                        <li>• Cliquez sur "Settings" (peut être traduit en "Paramètres")</li>
+                                        <li>• Une nouvelle page de configuration s'ouvre</li>
+                                    </ul>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Onglet Settings visible en haut de l'interface, entouré et fléché</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Sélection du Modèle Principal</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Dans Settings, cherchez "Stable Diffusion checkpoint"</li>
+                                        <li>• Cliquez sur le menu déroulant à côté</li>
+                                        <li>• Sélectionnez "realisticVision.safetensors"</li>
+                                        <li>• Si vous ne le voyez pas, cliquez sur le bouton de rafraîchissement 🔄</li>
+                                    </ul>
+
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Explication du Checkpoint :</h6>
+                                        <p class="text-sm">Le checkpoint est le "cerveau" principal de votre IA. C'est lui qui détermine le style et la qualité des images générées.</p>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Menu déroulant "Stable Diffusion checkpoint" ouvert, "realisticVision" sélectionné et mis en évidence</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Configuration du VAE</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Toujours dans Settings, cherchez "SD VAE"</li>
+                                        <li>• Dans le menu déroulant, sélectionnez "vae-ft-mse-840000-ema-pruned.safetensors"</li>
+                                        <li>• Ce VAE améliore significativement les couleurs et détails</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">4</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Application des Changements</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• En bas de la page Settings, cliquez sur "Apply settings"</li>
+                                        <li>• Puis cliquez sur "Reload UI" (redémarre l'interface)</li>
+                                        <li>• Attendez 30 secondes que l'interface se recharge</li>
+                                        <li>• Vous revenez automatiquement sur la page de génération</li>
+                                    </ul>
+
+                                    <div class="warning-box">
+                                        <h6 class="font-bold mb-1">Important :</h6>
+                                        <p class="text-sm">Si l'interface ne se recharge pas automatiquement, rafraîchissez la page manuellement (F5 ou Ctrl+R).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Génération des Premières Images -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-magic mr-2"></i>
+                        Génération du Dataset - Méthode Professionnelle
+                    </h3>
+
+                    <div class="info-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-strategy mr-2"></i>
+                            Stratégie de Création du Personnage
+                        </h4>
+                        <p class="mb-4">Nous allons créer un personnage fictif cohérent. Voici la méthode professionnelle :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-4 rounded border">
+                                <h5 class="font-bold text-blue-600 mb-2">Phase 1 : Visage de Base</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Générer 10 variations d'un même prompt</li>
+                                    <li>• Choisir le visage le plus cohérent</li>
+                                    <li>• Noter le seed pour la consistance</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded border">
+                                <h5 class="font-bold text-green-600 mb-2">Phase 2 : Variations SFW</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 30 images habillées diverses</li>
+                                    <li>• Expressions et poses variées</li>
+                                    <li>• Angles et cadrages différents</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded border">
+                                <h5 class="font-bold text-red-600 mb-2">Phase 3 : Contenu NSFW</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 30 images lingerie/nude</li>
+                                    <li>• Progression graduelle</li>
+                                    <li>• Anatomie parfaite requise</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-step-forward mr-2"></i>
+                            Phase 1 : Création du Visage de Base
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Premier Prompt de Test</h5>
+                                    <p class="text-sm mb-2">Nous commençons par un prompt simple pour établir les bases du visage :</p>
+                                    
+                                    <div class="bg-blue-50 p-4 rounded border">
+                                        <h6 class="font-bold mb-2">Prompt à Copier dans l'Interface :</h6>
+                                        <div class="code-block">
+portrait of a beautiful 25-year-old woman, european features, long brown hair, green eyes, natural makeup, soft lighting, photorealistic, detailed skin texture, 8k, high quality, professional photography
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-red-50 p-4 rounded border">
+                                        <h6 class="font-bold mb-2">Negative Prompt (Éléments à Éviter) :</h6>
+                                        <div class="code-block">
+ugly, deformed, blurry, bad anatomy, extra limbs, missing limbs, bad hands, bad fingers, watermark, signature, text, logo, low quality, worst quality, jpeg artifacts
+                                        </div>
+                                    </div>
+
+                                    <ul class="text-sm space-y-1 mt-3 mb-2">
+                                        <li>• Copiez le prompt dans la boîte "Prompt" (grande zone de texte)</li>
+                                        <li>• Copiez le negative prompt dans "Negative prompt"</li>
+                                        <li>• NE CLIQUEZ PAS ENCORE sur Generate</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Configuration des Paramètres Optimaux</h5>
+                                    <p class="text-sm mb-2">Réglez ces paramètres pour une qualité maximale :</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-white p-3 rounded border">
+                                            <h6 class="font-semibold text-green-600 mb-2">Paramètres de Base :</h6>
+                                            <ul class="text-sm space-y-1">
+                                                <li>• <strong>Sampling Steps :</strong> 30</li>
+                                                <li>• <strong>CFG Scale :</strong> 7</li>
+                                                <li>• <strong>Width :</strong> 512</li>
+                                                <li>• <strong>Height :</strong> 768</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-white p-3 rounded border">
+                                            <h6 class="font-semibold text-blue-600 mb-2">Paramètres Avancés :</h6>
+                                            <ul class="text-sm space-y-1">
+                                                <li>• <strong>Sampling method :</strong> DPM++ 2M Karras</li>
+                                                <li>• <strong>Batch count :</strong> 1</li>
+                                                <li>• <strong>Batch size :</strong> 1</li>
+                                                <li>• <strong>Seed :</strong> -1 (aléatoire)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Où Trouver Ces Paramètres :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Sous les boîtes de prompt, vous voyez des curseurs et menus</li>
+                                            <li>• "Width" et "Height" sont côte à côte</li>
+                                            <li>• "CFG Scale" est un curseur gradué 1-20</li>
+                                            <li>• "Sampling method" est un menu déroulant</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Zone des paramètres avec tous les réglages mentionnés encadrés et annotés</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">3</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Première Génération</h5>
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Une fois tous les paramètres réglés, cliquez sur le bouton "Generate" (orange)</li>
+                                        <li>• Une barre de progression apparaît</li>
+                                        <li>• Attendez 30-60 secondes (selon le GPU disponible)</li>
+                                        <li>• L'image apparaît dans la zone de droite</li>
+                                    </ul>
+
+                                    <div class="success-box">
+                                        <h6 class="font-bold mb-1">Résultat Attendu :</h6>
+                                        <p class="text-sm mb-2">Vous devriez obtenir une image de femme ressemblant à ceci :</p>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Portrait réaliste d'une femme de 25 ans</li>
+                                            <li>• Cheveux bruns longs</li>
+                                            <li>• Yeux verts</li>
+                                            <li>• Maquillage naturel</li>
+                                            <li>• Qualité photo professionnelle</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="error-box">
+                                        <h6 class="font-bold mb-1">Problèmes Possibles :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• <strong>Image déformée :</strong> Ajoutez plus de mots au negative prompt</li>
+                                            <li>• <strong>Qualité faible :</strong> Augmentez "Sampling Steps" à 40</li>
+                                            <li>• <strong>Erreur CUDA :</strong> Réduisez Width/Height à 512x512</li>
+                                            <li>• <strong>Trop lent :</strong> Réduisez "Sampling Steps" à 20</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Première image générée dans l'interface, avec informations techniques visibles en dessous</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">4</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Sélection et Fixation du Seed</h5>
+                                    <p class="text-sm mb-2">Une fois une image qui vous plaît générée :</p>
+                                    
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Sous l'image générée, cherchez les informations techniques</li>
+                                        <li>• Notez le numéro "Seed" (exemple : 1234567890)</li>
+                                        <li>• Dans les paramètres, changez "Seed" de -1 à ce numéro</li>
+                                        <li>• Désormais, toutes vos générations auront le même visage de base</li>
+                                    </ul>
+
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Importance du Seed :</h6>
+                                        <p class="text-sm">Le seed contrôle la "base génétique" de votre personnage. En fixant le même seed, vous garantissez que le visage reste cohérent à travers toutes les images du dataset.</p>
+                                    </div>
+
+                                    <div class="warning-box">
+                                        <h6 class="font-bold mb-1">NOTEZ CE SEED !</h6>
+                                        <p class="text-sm">Écrivez ce numéro dans votre carnet physique. C'est la "recette" de votre personnage IA. Si vous le perdez, vous ne pourrez plus reproduire exactement le même visage.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Génération des Variations -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-images mr-2"></i>
+                        Phase 2 : Génération des Variations SFW
+                    </h3>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-palette mr-2"></i>
+                            Prompts pour Expressions Variées
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded border">
+                                <h5 class="font-bold text-blue-600 mb-2">
+                                    <i class="fas fa-smile mr-2"></i>
+                                    Expression Souriante
+                                </h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, bright smile, happy expression, casual white shirt, natural lighting, photorealistic, 8k, professional photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Utilisez ce prompt avec votre seed fixe pour 5 images différentes</p>
+                            </div>
+
+                            <div class="bg-green-50 p-4 rounded border">
+                                <h5 class="font-bold text-green-600 mb-2">
+                                    <i class="fas fa-user-tie mr-2"></i>
+                                    Expression Professionnelle
+                                </h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, serious expression, confident look, business attire, blazer, studio lighting, photorealistic, 8k, corporate photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Pour créer des images "business" et professionnelles</p>
+                            </div>
+
+                            <div class="bg-purple-50 p-4 rounded border">
+                                <h5 class="font-bold text-purple-600 mb-2">
+                                    <i class="fas fa-heart mr-2"></i>
+                                    Expression Séductrice
+                                </h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, seductive gaze, sultry expression, elegant black dress, soft lighting, photorealistic, 8k, fashion photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Pour du contenu plus glamour tout en restant habillé</p>
+                            </div>
+
+                            <div class="bg-yellow-50 p-4 rounded border">
+                                <h5 class="font-bold text-yellow-600 mb-2">
+                                    <i class="fas fa-dumbbell mr-2"></i>
+                                    Tenue Sportive
+                                </h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, athletic wear, sports bra, yoga pants, gym setting, natural lighting, photorealistic, 8k, fitness photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Pour diversifier avec du contenu fitness</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <h5 class="font-bold mb-2">Méthode de Génération par Lot :</h5>
+                            <ol class="text-sm space-y-1">
+                                <li>1. Copiez un prompt dans l'interface</li>
+                                <li>2. Gardez votre seed fixe</li>
+                                <li>3. Changez "Batch count" à 5 pour générer 5 images d'un coup</li>
+                                <li>4. Cliquez Generate et attendez</li>
+                                <li>5. Sauvegardez les meilleures images</li>
+                                <li>6. Répétez avec le prompt suivant</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase NSFW -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 mr-2"></i>
+                        Phase 3 : Contenu NSFW Progressif
+                    </h3>
+
+                    <div class="error-box">
+                        <h4 class="font-bold mb-2">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Avertissements Légaux et Éthiques
+                        </h4>
+                        <p class="mb-3">Avant de procéder à la génération de contenu NSFW, assurez-vous que :</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded border">
+                                <h5 class="font-semibold text-red-600 mb-2">Obligations Légales :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Vous êtes majeur (18+ ans)</li>
+                                    <li>• Vous respectez les lois de votre pays</li>
+                                    <li>• Vous travaillez dans un environnement privé</li>
+                                    <li>• Le contenu reste à usage personnel/commercial légal</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded border">
+                                <h5 class="font-semibold text-orange-600 mb-2">Bonnes Pratiques :</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Transparence sur la nature IA du contenu</li>
+                                    <li>• Respect des conditions de MYM/OnlyFans</li>
+                                    <li>• Éviter l'extrême ou l'illégal</li>
+                                    <li>• Conserver un niveau artistique et tasteful</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-layer-group mr-2"></i>
+                            Progression par Niveaux de Contenu
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-yellow-50 p-4 rounded border">
+                                <h5 class="font-bold text-yellow-600 mb-2">Niveau 1 - Lingerie Suggestive</h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, black lingerie, lace bra, bedroom setting, soft lighting, intimate atmosphere, photorealistic, 8k, boudoir photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Contenu suggestif mais non-explicite, parfait pour débuter</p>
+                            </div>
+
+                            <div class="bg-orange-50 p-4 rounded border">
+                                <h5 class="font-bold text-orange-600 mb-2">Niveau 2 - Topless Artistique</h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, topless, natural breasts, artistic pose, soft lighting, photorealistic, detailed anatomy, 8k, fine art photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Nu artistique, focus sur l'esthétique et la composition</p>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded border">
+                                <h5 class="font-bold text-red-600 mb-2">Niveau 3 - Nu Complet</h5>
+                                <div class="code-block">
+beautiful woman, 25 years old, long brown hair, green eyes, completely nude, full body, natural pose, bedroom lighting, photorealistic, detailed anatomy, 8k, tasteful nude photography
+                                </div>
+                                <p class="text-sm mt-2 text-gray-600">Nu complet mais artistique, évitant la vulgarité</p>
+                            </div>
+                        </div>
+
+                        <div class="error-box">
+                            <h5 class="font-bold mb-2">Negative Prompt Renforcé pour NSFW :</h5>
+                            <div class="code-block">
+ugly, deformed, blurry, bad anatomy, extra limbs, missing limbs, bad hands, bad fingers, watermark, signature, text, logo, low quality, worst quality, jpeg artifacts, vulgar, tasteless, extreme, excessive, disproportionate
+                            </div>
+                            <p class="text-sm mt-2">Ce negative prompt plus strict évite les résultats disgracieux ou extrêmes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sauvegarde et Organisation -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-folder-open mr-2"></i>
+                        Sauvegarde et Organisation du Dataset
+                    </h3>
+
+                    <div class="success-box">
+                        <h4 class="font-bold mb-3">
+                            <i class="fas fa-download mr-2"></i>
+                            Téléchargement des Images - Méthode Détaillée
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="step-counter">1</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Sauvegarde depuis l'Interface WebUI</h5>
+                                    <p class="text-sm mb-2">Pour chaque image générée que vous voulez conserver :</p>
+                                    
+                                    <ul class="text-sm space-y-1 mb-2">
+                                        <li>• Faites un clic droit directement sur l'image dans l'interface</li>
+                                        <li>• Sélectionnez "Enregistrer l'image sous..." (ou "Save image as...")</li>
+                                        <li>• Une fenêtre de sauvegarde s'ouvre</li>
+                                        <li>• Naviguez vers votre dossier de travail</li>
+                                        <li>• Donnez un nom cohérent à l'image</li>
+                                    </ul>
+
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Convention de Nommage Professionnelle :</h6>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• <strong>Format :</strong> IA_MYM_XXX_Description.png</li>
+                                            <li>• <strong>Exemple :</strong> IA_MYM_001_Portrait_Sourire.png</li>
+                                            <li>• <strong>SFW :</strong> IA_MYM_001 à IA_MYM_040</li>
+                                            <li>• <strong>NSFW :</strong> IA_MYM_041 à IA_MYM_080</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-600"><strong>CAPTURE D'ÉCRAN À AJOUTER :</strong><br>
+                                        Menu contextuel ouvert sur une image, option "Enregistrer l'image sous" mise en évidence</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-counter">2</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold mb-2">Structure de Dossiers Recommandée</h5>
+                                    <p class="text-sm mb-2">Créez cette structure sur votre ordinateur :</p>
+                                    
+                                    <div class="bg-gray-100 p-4 rounded font-mono text-sm">
+                                        Dataset_Training_IA_MYM/<br>
+                                        ├── 01_SFW_Portraits/<br>
+                                        │   ├── IA_MYM_001_Portrait_Base.png<br>
+                                        │   ├── IA_MYM_002_Portrait_Sourire.png<br>
+                                        │   └── ...<br>
+                                        ├── 02_SFW_Expressions/<br>
+                                        │   ├── IA_MYM_011_Professionnelle.png<br>
+                                        │   ├── IA_MYM_012_Seductrice.png<br>
+                                        │   └── ...<br>
+                                        ├── 03_SFW_Poses/<br>
+                                        │   ├── IA_MYM_021_Profil.png<br>
+                                        │   ├── IA_MYM_022_Corps_Entier.png<br>
+                                        │   └── ...<br>
+                                        ├── 04_NSFW_Lingerie/<br>
+                                        │   ├── IA_MYM_041_Lingerie_Noire.png<br>
+                                        │   └── ...<br>
+                                        ├── 05_NSFW_Topless/<br>
+                                        │   └── ...<br>
+                                        ├── 06_NSFW_Nude/<br>
+                                        │   └── ...<br>
+                                        └── 99_Selection_Finale/<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;└── (50 meilleures images)
+                                    </div>
+
+                                    <div class="info-box">
+                                        <h6 class="font-bold mb-1">Comment Créer ces Dossiers :</h6>
+                                        <p class="text-sm mb-2">Instructions détaillées selon votre système :</p>
+                                        
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                            <div class="bg-blue-50 p-2 rounded">
+                                                <h6 class="font-bold text-blue-600 mb-1">Windows :</h6>
+                                                <ol class="text-xs space-y-1">
+                                                    <li>1. Ouvrez l'Explorateur de fichiers</li>
+                                                    <li>2. Allez sur le Bureau ou Documents</li>
+                                                    <li>3. Clic droit → Nouveau → Dossier</li>
+                                                    <li>4. Nommez "Dataset_Training_IA_MYM"</li>
+                                                    <li>5. Double-cliquez pour entrer dedans</li>
+                                                    <li>6. Répétez pour chaque sous-dossier</li>
+                                                </ol>
+                                            </div>
+                                            <div class="bg-gray-50 p-2 rounded">
+                                                <h6 class="font-bold text-gray-600 mb-1">macOS :</h6>
+                                                <ol class="text-xs space-y-1">
+                                                    <li>1. Ouvrez le Finder</li>
+                                                    <li>2. Allez sur le Bureau ou Documents</li>
+                                                    <li>3. Clic droit → Nouveau dossier</li>
+                                                    <li>4. Nommez "Dataset_Training_IA_MYM"</li>
+                                                    <li>5. Double-cliquez pour y accéder</li>
+                                                    <li>6. Cmd+Shift+N pour chaque sous-dossier</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDv5qL6zaA80r2zzZbTInt4RlEgxkP8VIfHc9XJV5G%2FDc8PyljcYkmG86bRNj33CwzbAF6hFOYQfCzkWZnhI9THF8O2ZGOuhPfsIZrmo6sIDqUoy0XYf36CrULa155NwY0C3r8qrCRVhXI0W8%2BnHCsOt9%2BnErNS34ir8%2B9ToZXyxoATibfg3toFPZG0gn7rtrVFgJgvTl1%2BrJa0Om6TJxhHshm%2Fx592IHuwVEdDZf%2BVlzA44S93YArRTy0JKX1AjPGGWFyt%2B2WJ8M7mK8tfixWiQdp7zZLpbWeLJI4tIXC5eLPE41%2FVu9nNXzIn7G%2FsqRf7h66FeFVaEI9Tt3OvpzhD%2BjHVAcrc%2FrdEi%2B0PUB8D3YUPZzdEwweZNBkXvGXIedZSoabUQpv8gKGOzwgb81lkr46I1Z7s3n2xA1rbUpnlJEBPVpuAEz6JEmtJBwtPPk%2B%2Bh06%2BtvaiPkWp%2FJIwl7CN3IHctECsG9PTstT%2BOWf3NE5jc19cRj3%2FSo94Z7HGD3QGe8XdHMNKOKyaJNo%2BR1Bw0%3D";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDv5qL6zaA80r2zzZbTInt4RlEgxkP8VIfHc9XJV5G/Dc8PyljcYkmG86bRNj33CwzbAF6hFOYQfCzkWZnhI9THF8O2ZGOuhPfsIZrmo6sIDqUoy0XYf36CrULa155NwY0C3r8qrCRVhXI0W8+nHCsOt9+nErNS34ir8+9ToZXyxoATibfg3toFPZG0gn7rtrVFgJgvTl1+rJa0Om6TJxhHshm/x592IHuwVEdDZf+VlzA44S93YArRTy0JKX1AjPGGWFyt+2WJ8M7mK8tfixWiQdp7zZLpbWeLJI4tIXC5eLPE41/Vu9nNXzIn7G/sqRf7h66FeFVaEI9Tt3OvpzhD+jHVAcrc/rdEi+0PUB8D3YUPZzdEwweZNBkXvGXIedZSoabUQpv8gKGOzwgb81lkr46I1Z7s3n2xA1rbUpnlJEBPVpuAEz6JEmtJBwtPPk++h06+tvaiPkWp/JIwl7CN3IHctECsG9PTstT+OWf3NE5jc19cRj3/So94Z7HGD3QGe8XdHMNKOKyaJNo+R1Bw0=";
+    </script>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e5854be556fe1","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>

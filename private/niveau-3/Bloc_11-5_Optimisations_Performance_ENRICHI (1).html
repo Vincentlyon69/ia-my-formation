@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 11.5 - Optimisations & Performance</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            color: #f8f8f2;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            margin: 0;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #45a049;
+        }
+        .performance-card {
+            transition: all 0.3s ease;
+        }
+        .performance-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .metric-display {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #00ff00;
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .warning-box {
+            background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            background: linear-gradient(45deg, #d4edda, #b7e4c7);
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .step-counter {
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i class="fas fa-tachometer-alt text-6xl mb-4"></i>
+                </div>
+                <h1 class="text-5xl font-bold mb-4">BLOC 11.5 - Optimisations & Performance</h1>
+                <h2 class="text-2xl font-light mb-6">Clonage Vocal Haute Performance</h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                    Optimisations avancées GPU/CPU, monitoring système, et configuration performance 
+                    pour un clonage vocal professionnel et temps réel.
+                </p>
+                <div class="mt-8">
+                    <span class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                        <i class="fas fa-microchip mr-2"></i>
+                        Performance • GPU/CPU • Monitoring • Scripts Python
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation rapide -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#gpu-optimization" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-microchip mr-2"></i>GPU
+                </a>
+                <a href="#cpu-optimization" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-processor mr-2"></i>CPU
+                </a>
+                <a href="#memory-management" class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-memory mr-2"></i>Mémoire
+                </a>
+                <a href="#monitoring" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-chart-line mr-2"></i>Monitoring
+                </a>
+                <a href="#automation" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-robot mr-2"></i>Automation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Métriques de performance en temps réel -->
+    <section class="py-8 bg-gray-800 text-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-center mb-8">
+                <i class="fas fa-desktop mr-3"></i>
+                Monitoring Système Temps Réel
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="performance-card bg-gray-700 p-6 rounded-lg text-center">
+                    <i class="fas fa-microchip text-3xl text-blue-400 mb-4"></i>
+                    <h4 class="text-lg font-semibold mb-2">GPU Usage</h4>
+                    <div class="metric-display text-2xl">87%</div>
+                    <div class="text-sm text-gray-300 mt-2">NVIDIA RTX 4090</div>
+                </div>
+                <div class="performance-card bg-gray-700 p-6 rounded-lg text-center">
+                    <i class="fas fa-memory text-3xl text-green-400 mb-4"></i>
+                    <h4 class="text-lg font-semibold mb-2">VRAM</h4>
+                    <div class="metric-display text-2xl">12.3 GB</div>
+                    <div class="text-sm text-gray-300 mt-2">/ 24 GB</div>
+                </div>
+                <div class="performance-card bg-gray-700 p-6 rounded-lg text-center">
+                    <i class="fas fa-processor text-3xl text-purple-400 mb-4"></i>
+                    <h4 class="text-lg font-semibold mb-2">CPU Usage</h4>
+                    <div class="metric-display text-2xl">45%</div>
+                    <div class="text-sm text-gray-300 mt-2">Intel i9-13900K</div>
+                </div>
+                <div class="performance-card bg-gray-700 p-6 rounded-lg text-center">
+                    <i class="fas fa-clock text-3xl text-yellow-400 mb-4"></i>
+                    <h4 class="text-lg font-semibold mb-2">Latence</h4>
+                    <div class="metric-display text-2xl">23ms</div>
+                    <div class="text-sm text-gray-300 mt-2">Temps réel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GPU Optimization -->
+    <section id="gpu-optimization" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-microchip mr-3 text-blue-600"></i>
+                    Optimisation GPU Avancée
+                </h3>
+                <p class="text-gray-600 text-lg">Configuration GPU pour performances maximales en clonage vocal</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-cog mr-2 text-blue-600"></i>
+                        Configuration GPU PyTorch
+                    </h4>
+                    <div class="warning-box">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <strong>Prérequis :</strong> CUDA 11.8+ et PyTorch compatible GPU
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                        <pre>import torch
+import torch.nn as nn
+import torch.cuda.amp as amp
+import os
+
+class GPUOptimizer:
+    def __init__(self):
+        self.device = self.setup_gpu()
+        self.scaler = amp.GradScaler()
+        
+    def setup_gpu(self):
+        """Configuration optimale GPU pour clonage vocal"""
+        if not torch.cuda.is_available():
+            print("❌ CUDA non disponible")
+            return torch.device('cpu')
+        
+        # Sélection GPU le plus puissant
+        gpu_count = torch.cuda.device_count()
+        best_gpu = 0
+        max_memory = 0
+        
+        for i in range(gpu_count):
+            memory = torch.cuda.get_device_properties(i).total_memory
+            if memory > max_memory:
+                max_memory = memory
+                best_gpu = i
+        
+        device = torch.device(f'cuda:{best_gpu}')
+        torch.cuda.set_device(device)
+        
+        # Optimisations CUDA
+        torch.backends.cudnn.benchmark = True
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
+        
+        print(f"✅ GPU sélectionné: {torch.cuda.get_device_name(device)}")
+        print(f"📊 VRAM disponible: {max_memory / 1024**3:.1f} GB")
+        
+        return device
+    
+    def optimize_memory(self):
+        """Optimisation mémoire GPU"""
+        # Nettoyage cache
+        torch.cuda.empty_cache()
+        
+        # Configuration mémoire
+        torch.cuda.set_per_process_memory_fraction(0.95)
+        
+        # Garbage collection
+        import gc
+        gc.collect()
+        
+        print("🧹 Mémoire GPU optimisée")
+    
+    def monitor_gpu_usage(self):
+        """Monitoring usage GPU"""
+        if torch.cuda.is_available():
+            allocated = torch.cuda.memory_allocated() / 1024**3
+            cached = torch.cuda.memory_reserved() / 1024**3
+            total = torch.cuda.get_device_properties(0).total_memory / 1024**3
+            
+            print(f"📊 GPU Memory:")
+            print(f"   Allocated: {allocated:.2f} GB")
+            print(f"   Cached: {cached:.2f} GB")
+            print(f"   Total: {total:.2f} GB")
+            print(f"   Usage: {(allocated/total)*100:.1f}%")
+            
+            return {
+                'allocated_gb': allocated,
+                'cached_gb': cached,
+                'total_gb': total,
+                'usage_percent': (allocated/total)*100
+            }
+
+# Utilisation
+gpu_opt = GPUOptimizer()
+gpu_opt.optimize_memory()
+stats = gpu_opt.monitor_gpu_usage()</pre>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-bolt mr-2 text-yellow-600"></i>
+                        Optimisation Modèle RVC/So-VITS
+                    </h4>
+                    <div class="success-box">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <strong>Gain :</strong> Jusqu'à 3x plus rapide avec mixed precision
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                        <pre>class VoiceModelOptimizer:
+    def __init__(self, model, device):
+        self.model = model.to(device)
+        self.device = device
+        
+    def optimize_for_inference(self):
+        """Optimisation modèle pour inférence"""
+        # Mode évaluation
+        self.model.eval()
+        
+        # Désactivation gradients
+        for param in self.model.parameters():
+            param.requires_grad = False
+        
+        # Compilation JIT si possible
+        try:
+            self.model = torch.jit.script(self.model)
+            print("✅ Modèle compilé avec TorchScript")
+        except:
+            print("⚠️ TorchScript non supporté")
+        
+        # Quantization pour réduire mémoire
+        if hasattr(torch.quantization, 'quantize_dynamic'):
+            self.model = torch.quantization.quantize_dynamic(
+                self.model, {nn.Linear}, dtype=torch.qint8
+            )
+            print("✅ Quantization appliquée")
+        
+        return self.model
+    
+    def setup_mixed_precision(self):
+        """Configuration mixed precision"""
+        self.scaler = amp.GradScaler()
+        print("✅ Mixed precision activée")
+        
+    def optimized_inference(self, input_audio):
+        """Inférence optimisée avec mixed precision"""
+        with torch.no_grad():
+            with amp.autocast():
+                output = self.model(input_audio)
+        return output
+    
+    def batch_processing(self, audio_list, batch_size=4):
+        """Traitement par batch pour efficacité"""
+        results = []
+        
+        for i in range(0, len(audio_list), batch_size):
+            batch = audio_list[i:i+batch_size]
+            
+            # Padding pour taille uniforme
+            max_length = max(len(audio) for audio in batch)
+            padded_batch = []
+            
+            for audio in batch:
+                if len(audio) < max_length:
+                    padding = torch.zeros(max_length - len(audio))
+                    audio = torch.cat([audio, padding])
+                padded_batch.append(audio)
+            
+            # Inférence batch
+            batch_tensor = torch.stack(padded_batch).to(self.device)
+            with torch.no_grad():
+                batch_output = self.optimized_inference(batch_tensor)
+            
+            results.extend(batch_output)
+        
+        return results</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graphique performance GPU -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-chart-area mr-2 text-green-600"></i>
+                    Performance GPU en Temps Réel
+                </h4>
+                <div style="height: 400px;">
+                    <canvas id="gpuChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CPU Optimization -->
+    <section id="cpu-optimization" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-processor mr-3 text-green-600"></i>
+                    Optimisation CPU Multi-Threading
+                </h3>
+                <p class="text-gray-600 text-lg">Parallélisation et optimisation CPU pour traitement audio</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-cogs mr-2 text-green-600"></i>
+                        Configuration Multi-Threading
+                    </h4>
+                    <div class="flex items-center mb-4">
+                        <div class="step-counter">1</div>
+                        <div>
+                            <p class="font-semibold">Détection cores CPU optimale</p>
+                            <p class="text-sm text-gray-600">Identification capacités système</p>
+                        </div>
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                        <pre>import multiprocessing as mp
+import concurrent.futures
+import psutil
+import os
+import numpy as np
+from threading import Lock
+
+class CPUOptimizer:
+    def __init__(self):
+        self.cpu_count = mp.cpu_count()
+        self.optimal_workers = self.calculate_optimal_workers()
+        self.setup_cpu_optimization()
+        
+    def calculate_optimal_workers(self):
+        """Calcul nombre optimal de workers"""
+        # Réserver 1-2 cores pour système
+        available_cores = max(1, self.cpu_count - 2)
+        
+        # Adapter selon type de tâche
+        if self.cpu_count >= 16:
+            workers = min(12, available_cores)  # Limite pour éviter overhead
+        elif self.cpu_count >= 8:
+            workers = min(6, available_cores)
+        else:
+            workers = min(4, available_cores)
+        
+        print(f"💻 CPU Cores: {self.cpu_count}")
+        print(f"⚙️ Workers optimaux: {workers}")
+        
+        return workers
+    
+    def setup_cpu_optimization(self):
+        """Configuration optimisations CPU"""
+        # Variables d'environnement NumPy/OpenMP
+        os.environ['OMP_NUM_THREADS'] = str(self.optimal_workers)
+        os.environ['MKL_NUM_THREADS'] = str(self.optimal_workers)
+        os.environ['NUMEXPR_NUM_THREADS'] = str(self.optimal_workers)
+        
+        # Affinité CPU si disponible
+        try:
+            import psutil
+            process = psutil.Process()
+            process.cpu_affinity(list(range(self.optimal_workers)))
+            print("✅ Affinité CPU configurée")
+        except:
+            print("⚠️ Affinité CPU non supportée")
+    
+    def parallel_audio_processing(self, audio_files, processing_func):
+        """Traitement audio parallèle"""
+        results = []
+        
+        with concurrent.futures.ThreadPoolExecutor(
+            max_workers=self.optimal_workers
+        ) as executor:
+            
+            # Soumission tâches
+            future_to_file = {
+                executor.submit(processing_func, file): file 
+                for file in audio_files
+            }
+            
+            # Récupération résultats
+            for future in concurrent.futures.as_completed(future_to_file):
+                file = future_to_file[future]
+                try:
+                    result = future.result()
+                    results.append(result)
+                    print(f"✅ Traité: {file}")
+                except Exception as e:
+                    print(f"❌ Erreur {file}: {e}")
+        
+        return results
+    
+    def monitor_cpu_usage(self):
+        """Monitoring usage CPU"""
+        cpu_percent = psutil.cpu_percent(interval=1, percpu=True)
+        avg_usage = sum(cpu_percent) / len(cpu_percent)
+        
+        memory = psutil.virtual_memory()
+        
+        stats = {
+            'cpu_cores': len(cpu_percent),
+            'cpu_usage_per_core': cpu_percent,
+            'avg_cpu_usage': avg_usage,
+            'memory_total': memory.total / 1024**3,
+            'memory_used': memory.used / 1024**3,
+            'memory_percent': memory.percent
+        }
+        
+        print(f"📊 CPU Usage: {avg_usage:.1f}%")
+        print(f"💾 RAM Usage: {memory.percent:.1f}%")
+        
+        return stats</pre>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-wave-square mr-2 text-blue-600"></i>
+                        Optimisation Traitement Audio
+                    </h4>
+                    <div class="flex items-center mb-4">
+                        <div class="step-counter">2</div>
+                        <div>
+                            <p class="font-semibold">Pipeline audio parallèle optimisé</p>
+                            <p class="text-sm text-gray-600">Traitement batch intelligent</p>
+                        </div>
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                        <pre>import librosa
+import soundfile as sf
+import numpy as np
+from concurrent.futures import ProcessPoolExecutor
+import time
+
+class AudioProcessingOptimizer:
+    def __init__(self, cpu_optimizer):
+        self.cpu_opt = cpu_optimizer
+        self.chunk_size = 1024 * 16  # Optimisé pour CPU
+        
+    def optimized_audio_loading(self, file_path, target_sr=22050):
+        """Chargement audio optimisé"""
+        try:
+            # Chargement avec paramètres optimisés
+            audio, sr = librosa.load(
+                file_path, 
+                sr=target_sr,
+                mono=True,
+                res_type='kaiser_fast'  # Plus rapide
+            )
+            
+            return audio, sr
+        except Exception as e:
+            print(f"❌ Erreur chargement {file_path}: {e}")
+            return None, None
+    
+    def batch_preprocessing(self, audio_files, target_sr=22050):
+        """Préprocessing batch parallèle"""
+        def preprocess_single(file_path):
+            audio, sr = self.optimized_audio_loading(file_path, target_sr)
+            if audio is None:
+                return None
+            
+            # Normalisation
+            audio = librosa.util.normalize(audio)
+            
+            # Réduction bruit léger
+            audio = librosa.effects.preemphasis(audio)
+            
+            # Trim silence
+            audio, _ = librosa.effects.trim(
+                audio, 
+                top_db=20,
+                frame_length=2048,
+                hop_length=512
+            )
+            
+            return {
+                'file_path': file_path,
+                'audio': audio,
+                'sample_rate': sr,
+                'duration': len(audio) / sr
+            }
+        
+        # Traitement parallèle
+        with ProcessPoolExecutor(
+            max_workers=self.cpu_opt.optimal_workers
+        ) as executor:
+            results = list(executor.map(preprocess_single, audio_files))
+        
+        # Filtrage résultats valides
+        valid_results = [r for r in results if r is not None]
+        
+        print(f"✅ Préprocessing terminé: {len(valid_results)}/{len(audio_files)}")
+        return valid_results
+    
+    def chunked_inference(self, model, audio, chunk_duration=10.0, sr=22050):
+        """Inférence par chunks pour gros fichiers"""
+        chunk_samples = int(chunk_duration * sr)
+        audio_length = len(audio)
+        
+        if audio_length <= chunk_samples:
+            # Fichier court, traitement direct
+            return model(audio)
+        
+        # Découpage en chunks avec overlap
+        overlap = chunk_samples // 4
+        chunks = []
+        outputs = []
+        
+        for start in range(0, audio_length, chunk_samples - overlap):
+            end = min(start + chunk_samples, audio_length)
+            chunk = audio[start:end]
+            
+            # Padding si nécessaire
+            if len(chunk) < chunk_samples:
+                padding = np.zeros(chunk_samples - len(chunk))
+                chunk = np.concatenate([chunk, padding])
+            
+            chunks.append(chunk)
+        
+        # Traitement parallèle des chunks
+        def process_chunk(chunk):
+            return model(chunk)
+        
+        with concurrent.futures.ThreadPoolExecutor(
+            max_workers=min(4, len(chunks))
+        ) as executor:
+            outputs = list(executor.map(process_chunk, chunks))
+        
+        # Reconstruction audio avec gestion overlap
+        final_audio = self.reconstruct_from_chunks(
+            outputs, overlap, audio_length
+        )
+        
+        return final_audio
+    
+    def reconstruct_from_chunks(self, chunks, overlap, target_length):
+        """Reconstruction audio depuis chunks"""
+        if not chunks:
+            return np.array([])
+        
+        chunk_size = len(chunks[0])
+        step = chunk_size - overlap
+        
+        # Allocation résultat
+        result = np.zeros(target_length)
+        
+        for i, chunk in enumerate(chunks):
+            start = i * step
+            end = min(start + len(chunk), target_length)
+            
+            if start < target_length:
+                # Fade in/out pour transitions smooth
+                fade_length = min(overlap // 2, len(chunk) // 4)
+                
+                if i > 0 and fade_length > 0:
+                    # Fade in début
+                    fade_in = np.linspace(0, 1, fade_length)
+                    chunk[:fade_length] *= fade_in
+                
+                if i < len(chunks) - 1 and fade_length > 0:
+                    # Fade out fin
+                    fade_out = np.linspace(1, 0, fade_length)
+                    chunk[-fade_length:] *= fade_out
+                
+                # Addition avec gestion overlap
+                chunk_length = min(len(chunk), end - start)
+                result[start:start + chunk_length] += chunk[:chunk_length]
+        
+        return result</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Management -->
+    <section id="memory-management" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-memory mr-3 text-purple-600"></i>
+                    Gestion Mémoire Avancée
+                </h3>
+                <p class="text-gray-600 text-lg">Optimisation RAM et VRAM pour traitement de gros volumes</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-database mr-2 text-purple-600"></i>
+                    Gestionnaire Mémoire Intelligent
+                </h4>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre>import gc
+import torch
+import psutil
+import numpy as np
+from contextlib import contextmanager
+import weakref
+
+class MemoryManager:
+    def __init__(self):
+        self.memory_threshold = 0.85  # 85% max usage
+        self.tracked_objects = weakref.WeakSet()
+        
+    def get_memory_stats(self):
+        """Statistiques mémoire complètes"""
+        # RAM système
+        memory = psutil.virtual_memory()
+        
+        # VRAM GPU
+        gpu_stats = {}
+        if torch.cuda.is_available():
+            gpu_stats = {
+                'allocated': torch.cuda.memory_allocated() / 1024**3,
+                'reserved': torch.cuda.memory_reserved() / 1024**3,
+                'max_allocated': torch.cuda.max_memory_allocated() / 1024**3
+            }
+        
+        stats = {
+            'ram_total_gb': memory.total / 1024**3,
+            'ram_used_gb': memory.used / 1024**3,
+            'ram_percent': memory.percent,
+            'ram_available_gb': memory.available / 1024**3,
+            'gpu_stats': gpu_stats
+        }
+        
+        return stats
+    
+    def cleanup_memory(self, force=False):
+        """Nettoyage mémoire intelligent"""
+        initial_stats = self.get_memory_stats()
+        
+        # 1. Garbage collection Python
+        collected = gc.collect()
+        
+        # 2. Nettoyage cache NumPy
+        if hasattr(np, 'ndarray'):
+            # Force cleanup numpy arrays
+            for obj in gc.get_objects():
+                if isinstance(obj, np.ndarray):
+                    del obj
+        
+        # 3. Nettoyage VRAM GPU
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+        
+        # 4. Nettoyage forcé si nécessaire
+        if force:
+            import ctypes
+            ctypes.CDLL("libc.so.6").malloc_trim(0)
+        
+        final_stats = self.get_memory_stats()
+        
+        ram_freed = initial_stats['ram_used_gb'] - final_stats['ram_used_gb']
+        gpu_freed = 0
+        
+        if initial_stats['gpu_stats'] and final_stats['gpu_stats']:
+            gpu_freed = (initial_stats['gpu_stats']['allocated'] - 
+                        final_stats['gpu_stats']['allocated'])
+        
+        print(f"🧹 Nettoyage mémoire:")
+        print(f"   Objects collectés: {collected}")
+        print(f"   RAM libérée: {ram_freed:.2f} GB")
+        print(f"   VRAM libérée: {gpu_freed:.2f} GB")
+        
+        return ram_freed, gpu_freed
+    
+    @contextmanager
+    def memory_context(self, max_ram_gb=None, max_vram_gb=None):
+        """Context manager pour gestion mémoire automatique"""
+        initial_stats = self.get_memory_stats()
+        
+        try:
+            yield self
+        finally:
+            current_stats = self.get_memory_stats()
+            
+            # Vérification dépassement seuils
+            cleanup_needed = False
+            
+            if max_ram_gb and current_stats['ram_used_gb'] > max_ram_gb:
+                cleanup_needed = True
+                print(f"⚠️ Seuil RAM dépassé: {current_stats['ram_used_gb']:.1f}GB > {max_ram_gb}GB")
+            
+            if (max_vram_gb and current_stats['gpu_stats'] and 
+                current_stats['gpu_stats']['allocated'] > max_vram_gb):
+                cleanup_needed = True
+                print(f"⚠️ Seuil VRAM dépassé: {current_stats['gpu_stats']['allocated']:.1f}GB > {max_vram_gb}GB")
+            
+            if cleanup_needed:
+                self.cleanup_memory()
+    
+    def auto_batch_size(self, base_batch_size, model_size_gb, target_memory_usage=0.8):
+        """Calcul automatique taille batch optimale"""
+        stats = self.get_memory_stats()
+        
+        if torch.cuda.is_available() and stats['gpu_stats']:
+            # Utilisation VRAM disponible
+            available_vram = (torch.cuda.get_device_properties(0).total_memory / 1024**3 - 
+                            stats['gpu_stats']['allocated'])
+            
+            # Estimation mémoire par batch
+            memory_per_batch = model_size_gb * 1.5  # Factor sécurité
+            
+            # Calcul batch size optimal
+            max_possible_batch = int(available_vram * target_memory_usage / memory_per_batch)
+            optimal_batch = min(base_batch_size, max(1, max_possible_batch))
+            
+        else:
+            # Fallback sur RAM
+            available_ram = stats['ram_available_gb']
+            memory_per_batch = model_size_gb * 0.8  # CPU plus efficace
+            
+            max_possible_batch = int(available_ram * target_memory_usage / memory_per_batch)
+            optimal_batch = min(base_batch_size, max(1, max_possible_batch))
+        
+        print(f"📊 Batch size optimal: {optimal_batch} (demandé: {base_batch_size})")
+        return optimal_batch
+    
+    def memory_efficient_processing(self, data_list, process_func, max_memory_gb=8):
+        """Traitement avec gestion mémoire automatique"""
+        results = []
+        current_batch = []
+        
+        for item in data_list:
+            current_batch.append(item)
+            
+            # Vérification mémoire périodique
+            if len(current_batch) % 10 == 0:
+                stats = self.get_memory_stats()
+                if stats['ram_used_gb'] > max_memory_gb:
+                    # Traitement batch partiel
+                    batch_results = [process_func(item) for item in current_batch]
+                    results.extend(batch_results)
+                    current_batch = []
+                    
+                    # Nettoyage mémoire
+                    self.cleanup_memory()
+        
+        # Traitement batch final
+        if current_batch:
+            batch_results = [process_func(item) for item in current_batch]
+            results.extend(batch_results)
+        
+        return results</pre>
+                </div>
+            </div>
+
+            <!-- Monitoring en temps réel -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-chart-pie mr-2 text-blue-600"></i>
+                        Usage Mémoire Temps Réel
+                    </h4>
+                    <div style="height: 300px;">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-exclamation-triangle mr-2 text-yellow-600"></i>
+                        Alertes et Recommandations
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-green-50 border-l-4 border-green-500">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-green-800">Mémoire Optimale</p>
+                                <p class="text-sm text-green-600">Usage RAM: 65% - Parfait pour clonage vocal</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-yellow-50 border-l-4 border-yellow-500">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-yellow-800">Attention VRAM</p>
+                                <p class="text-sm text-yellow-600">Usage GPU: 87% - Réduire batch size recommandé</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 border-l-4 border-blue-500">
+                            <i class="fas fa-info-circle text-blue-500 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-blue-800">Recommandation</p>
+                                <p class="text-sm text-blue-600">Activer mixed precision pour économiser 40% VRAM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Monitoring -->
+    <section id="monitoring" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-chart-line mr-3 text-red-600"></i>
+                    Monitoring Système Avancé
+                </h3>
+                <p class="text-gray-600 text-lg">Surveillance complète des performances en temps réel</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-desktop mr-2 text-red-600"></i>
+                    System Monitor Complet
+                </h4>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre>import psutil
+import GPUtil
+import time
+import json
+import threading
+from datetime import datetime
+import matplotlib.pyplot as plt
+from collections import deque
+
+class SystemMonitor:
+    def __init__(self, history_size=100):
+        self.history_size = history_size
+        self.metrics_history = {
+            'cpu_percent': deque(maxlen=history_size),
+            'memory_percent': deque(maxlen=history_size),
+            'gpu_utilization': deque(maxlen=history_size),
+            'gpu_memory': deque(maxlen=history_size),
+            'timestamps': deque(maxlen=history_size)
+        }
+        self.monitoring = False
+        self.monitor_thread = None
+        
+    def get_system_info(self):
+        """Informations système complètes"""
+        # CPU Info
+        cpu_info = {
+            'physical_cores': psutil.cpu_count(logical=False),
+            'total_cores': psutil.cpu_count(logical=True),
+            'cpu_freq': psutil.cpu_freq()._asdict() if psutil.cpu_freq() else None,
+            'cpu_percent': psutil.cpu_percent(interval=1)
+        }
+        
+        # Memory Info
+        memory = psutil.virtual_memory()
+        memory_info = {
+            'total': memory.total / 1024**3,
+            'used': memory.used / 1024**3,
+            'available': memory.available / 1024**3,
+            'percent': memory.percent
+        }
+        
+        # GPU Info
+        gpu_info = []
+        try:
+            gpus = GPUtil.getGPUs()
+            for gpu in gpus:
+                gpu_info.append({
+                    'id': gpu.id,
+                    'name': gpu.name,
+                    'memory_total': gpu.memoryTotal,
+                    'memory_used': gpu.memoryUsed,
+                    'memory_free': gpu.memoryFree,
+                    'utilization': gpu.load * 100,
+                    'temperature': gpu.temperature
+                })
+        except:
+            gpu_info = []
+        
+        # Disk Info
+        disk_info = []
+        for partition in psutil.disk_partitions():
+            try:
+                usage = psutil.disk_usage(partition.mountpoint)
+                disk_info.append({
+                    'device': partition.device,
+                    'mountpoint': partition.mountpoint,
+                    'total': usage.total / 1024**3,
+                    'used': usage.used / 1024**3,
+                    'free': usage.free / 1024**3,
+                    'percent': (usage.used / usage.total) * 100
+                })
+            except:
+                continue
+        
+        return {
+            'cpu': cpu_info,
+            'memory': memory_info,
+            'gpu': gpu_info,
+            'disk': disk_info,
+            'timestamp': datetime.now().isoformat()
+        }
+    
+    def monitor_performance(self, interval=2):
+        """Monitoring performance continu"""
+        while self.monitoring:
+            try:
+                # Collecte métriques
+                cpu_percent = psutil.cpu_percent()
+                memory_percent = psutil.virtual_memory().percent
+                
+                # GPU metrics
+                gpu_utilization = 0
+                gpu_memory = 0
+                try:
+                    gpus = GPUtil.getGPUs()
+                    if gpus:
+                        gpu = gpus[0]  # Premier GPU
+                        gpu_utilization = gpu.load * 100
+                        gpu_memory = (gpu.memoryUsed / gpu.memoryTotal) * 100
+                except:
+                    pass
+                
+                # Stockage historique
+                timestamp = time.time()
+                self.metrics_history['cpu_percent'].append(cpu_percent)
+                self.metrics_history['memory_percent'].append(memory_percent)
+                self.metrics_history['gpu_utilization'].append(gpu_utilization)
+                self.metrics_history['gpu_memory'].append(gpu_memory)
+                self.metrics_history['timestamps'].append(timestamp)
+                
+                # Affichage console
+                print(f"\r🖥️  CPU: {cpu_percent:5.1f}% | "
+                      f"💾 RAM: {memory_percent:5.1f}% | "
+                      f"🎮 GPU: {gpu_utilization:5.1f}% | "
+                      f"📊 VRAM: {gpu_memory:5.1f}%", end="")
+                
+                time.sleep(interval)
+                
+            except KeyboardInterrupt:
+                break
+            except Exception as e:
+                print(f"\n❌ Erreur monitoring: {e}")
+                time.sleep(interval)
+    
+    def start_monitoring(self):
+        """Démarrage monitoring background"""
+        if not self.monitoring:
+            self.monitoring = True
+            self.monitor_thread = threading.Thread(
+                target=self.monitor_performance, 
+                daemon=True
+            )
+            self.monitor_thread.start()
+            print("📊 Monitoring démarré")
+    
+    def stop_monitoring(self):
+        """Arrêt monitoring"""
+        self.monitoring = False
+        if self.monitor_thread:
+            self.monitor_thread.join()
+        print("\n📊 Monitoring arrêté")
+    
+    def get_performance_summary(self):
+        """Résumé performance"""
+        if not self.metrics_history['cpu_percent']:
+            return "Aucune donnée de monitoring disponible"
+        
+        # Calculs statistiques
+        cpu_avg = sum(self.metrics_history['cpu_percent']) / len(self.metrics_history['cpu_percent'])
+        cpu_max = max(self.metrics_history['cpu_percent'])
+        
+        memory_avg = sum(self.metrics_history['memory_percent']) / len(self.metrics_history['memory_percent'])
+        memory_max = max(self.metrics_history['memory_percent'])
+        
+        gpu_avg = sum(self.metrics_history['gpu_utilization']) / len(self.metrics_history['gpu_utilization'])
+        gpu_max = max(self.metrics_history['gpu_utilization'])
+        
+        summary = f"""
+📊 RÉSUMÉ PERFORMANCE
+═══════════════════════
+🖥️  CPU Usage:
+   Moyenne: {cpu_avg:.1f}%
+   Maximum: {cpu_max:.1f}%
+   
+💾 RAM Usage:
+   Moyenne: {memory_avg:.1f}%
+   Maximum: {memory_max:.1f}%
+   
+🎮 GPU Usage:
+   Moyenne: {gpu_avg:.1f}%
+   Maximum: {gpu_max:.1f}%
+
+⏱️  Durée monitoring: {len(self.metrics_history['cpu_percent'])} échantillons
+        """
+        
+        return summary
+    
+    def export_metrics(self, filename="performance_metrics.json"):
+        """Export métriques vers fichier"""
+        data = {
+            'metrics': dict(self.metrics_history),
+            'system_info': self.get_system_info(),
+            'export_time': datetime.now().isoformat()
+        }
+        
+        # Conversion deque en liste pour JSON
+        for key, value in data['metrics'].items():
+            if isinstance(value, deque):
+                data['metrics'][key] = list(value)
+        
+        with open(filename, 'w') as f:
+            json.dump(data, f, indent=2, default=str)
+        
+        print(f"📁 Métriques exportées: {filename}")
+    
+    def detect_performance_issues(self):
+        """Détection automatique problèmes performance"""
+        issues = []
+        
+        if not self.metrics_history['cpu_percent']:
+            return ["Aucune donnée de monitoring"]
+        
+        # Seuils d'alerte
+        cpu_threshold = 90
+        memory_threshold = 85
+        gpu_threshold = 95
+        
+        # Vérification CPU
+        recent_cpu = list(self.metrics_history['cpu_percent'])[-10:]
+        if any(cpu > cpu_threshold for cpu in recent_cpu):
+            issues.append(f"⚠️ CPU surchargé (>{cpu_threshold}%)")
+        
+        # Vérification mémoire
+        recent_memory = list(self.metrics_history['memory_percent'])[-10:]
+        if any(mem > memory_threshold for mem in recent_memory):
+            issues.append(f"⚠️ RAM saturée (>{memory_threshold}%)")
+        
+        # Vérification GPU
+        recent_gpu = list(self.metrics_history['gpu_utilization'])[-10:]
+        if any(gpu > gpu_threshold for gpu in recent_gpu):
+            issues.append(f"⚠️ GPU surchargé (>{gpu_threshold}%)")
+        
+        return issues if issues else ["✅ Aucun problème détecté"]
+
+# Utilisation exemple
+monitor = SystemMonitor()
+monitor.start_monitoring()
+
+# Simulation charge de travail
+time.sleep(10)
+
+# Arrêt et résumé
+monitor.stop_monitoring()
+print(monitor.get_performance_summary())
+print("\n".join(monitor.detect_performance_issues()))</pre>
+                </div>
+            </div>
+
+            <!-- Dashboard temps réel -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-tachometer-alt mr-2 text-green-600"></i>
+                    Dashboard Performance Temps Réel
+                </h4>
+                <div style="height: 400px;">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Scripts -->
+    <section id="automation" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-robot mr-3 text-yellow-600"></i>
+                    Automation & Scripts Optimisés
+                </h3>
+                <p class="text-gray-600 text-lg">Scripts d'automatisation pour optimisation continue</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-magic mr-2 text-yellow-600"></i>
+                        Auto-Optimizeur Performance
+                    </h4>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                        <pre>class AutoPerformanceOptimizer:
+    def __init__(self):
+        self.monitor = SystemMonitor()
+        self.memory_manager = MemoryManager()
+        self.gpu_optimizer = GPUOptimizer()
+        self.cpu_optimizer = CPUOptimizer()
+        
+    def auto_optimize_system(self):
+        """Optimisation automatique basée sur usage"""
+        print("🤖 Démarrage auto-optimisation...")
+        
+        # 1. Analyse système actuel
+        system_info = self.monitor.get_system_info()
+        issues = self.monitor.detect_performance_issues()
+        
+        optimizations = []
+        
+        # 2. Optimisations mémoire
+        memory_percent = system_info['memory']['percent']
+        if memory_percent > 80:
+            print("🧹 Nettoyage mémoire automatique...")
+            ram_freed, vram_freed = self.memory_manager.cleanup_memory(force=True)
+            optimizations.append(f"Mémoire libérée: {ram_freed:.1f}GB RAM, {vram_freed:.1f}GB VRAM")
+        
+        # 3. Optimisations GPU
+        if system_info['gpu']:
+            gpu = system_info['gpu'][0]
+            if gpu['utilization'] > 90:
+                print("⚡ Optimisation GPU...")
+                self.gpu_optimizer.optimize_memory()
+                optimizations.append("GPU optimisé: mixed precision activée")
+        
+        # 4. Optimisations CPU
+        if system_info['cpu']['cpu_percent'] > 85:
+            print("💻 Optimisation CPU...")
+            self.cpu_optimizer.setup_cpu_optimization()
+            optimizations.append(f"CPU optimisé: {self.cpu_optimizer.optimal_workers} workers")
+        
+        # 5. Rapport optimisations
+        if optimizations:
+            print("✅ Optimisations appliquées:")
+            for opt in optimizations:
+                print(f"   • {opt}")
+        else:
+            print("✅ Système déjà optimal")
+        
+        return optimizations
+    
+    def adaptive_batch_sizing(self, model_func, data, base_batch_size=8):
+        """Adaptation automatique taille batch"""
+        current_batch_size = base_batch_size
+        best_batch_size = base_batch_size
+        best_throughput = 0
+        
+        # Test différentes tailles
+        test_sizes = [1, 2, 4, 8, 16, 32]
+        test_sizes = [s for s in test_sizes if s <= len(data)]
+        
+        for batch_size in test_sizes:
+            print(f"🧪 Test batch size: {batch_size}")
+            
+            try:
+                # Mesure performance
+                start_time = time.time()
+                
+                # Test sur échantillon
+                test_data = data[:min(batch_size * 4, len(data))]
+                
+                for i in range(0, len(test_data), batch_size):
+                    batch = test_data[i:i+batch_size]
+                    _ = model_func(batch)
+                
+                elapsed = time.time() - start_time
+                throughput = len(test_data) / elapsed
+                
+                # Vérification mémoire
+                memory_stats = self.memory_manager.get_memory_stats()
+                memory_ok = memory_stats['ram_percent'] < 90
+                
+                if memory_stats['gpu_stats']:
+                    vram_ok = (memory_stats['gpu_stats']['allocated'] / 
+                             (memory_stats['gpu_stats']['reserved'] + 0.1)) < 0.9
+                else:
+                    vram_ok = True
+                
+                if memory_ok and vram_ok and throughput > best_throughput:
+                    best_throughput = throughput
+                    best_batch_size = batch_size
+                
+                print(f"   Throughput: {throughput:.1f} items/s, "
+                      f"RAM: {memory_stats['ram_percent']:.1f}%")
+                
+            except Exception as e:
+                print(f"   ❌ Batch size {batch_size} échoué: {e}")
+                break
+        
+        print(f"✅ Batch size optimal: {best_batch_size} "
+              f"(throughput: {best_throughput:.1f} items/s)")
+        
+        return best_batch_size
+    
+    def continuous_optimization(self, interval_minutes=10):
+        """Optimisation continue en arrière-plan"""
+        def optimization_loop():
+            while True:
+                try:
+                    self.auto_optimize_system()
+                    time.sleep(interval_minutes * 60)
+                except Exception as e:
+                    print(f"❌ Erreur optimisation continue: {e}")
+                    time.sleep(60)
+        
+        # Thread daemon pour optimisation continue
+        opt_thread = threading.Thread(target=optimization_loop, daemon=True)
+        opt_thread.start()
+        print(f"🔄 Optimisation continue activée (intervalle: {interval_minutes}min)")
+        
+        return opt_thread</pre>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-cog mr-2 text-blue-600"></i>
+                        Script Optimisation Globale
+                    </h4>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                        <pre>#!/usr/bin/env python3
+"""
+Script optimisation globale pour clonage vocal
+Usage: python optimize_voice_cloning.py --mode auto
+"""
+
+import argparse
+import sys
+import time
+from pathlib import Path
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Optimisation complète système clonage vocal"
+    )
+    parser.add_argument(
+        '--mode', 
+        choices=['auto', 'manual', 'benchmark'],
+        default='auto',
+        help='Mode optimisation'
+    )
+    parser.add_argument(
+        '--gpu-only', 
+        action='store_true',
+        help='Optimiser GPU uniquement'
+    )
+    parser.add_argument(
+        '--continuous', 
+        action='store_true',
+        help='Optimisation continue'
+    )
+    
+    args = parser.parse_args()
+    
+    print("🚀 OPTIMISEUR CLONAGE VOCAL")
+    print("=" * 50)
+    
+    # Initialisation composants
+    try:
+        optimizer = AutoPerformanceOptimizer()
+        print("✅ Optimiseur initialisé")
+    except Exception as e:
+        print(f"❌ Erreur initialisation: {e}")
+        sys.exit(1)
+    
+    if args.mode == 'auto':
+        print("\n🤖 Mode automatique")
+        optimizations = optimizer.auto_optimize_system()
+        
+        if args.continuous:
+            print("\n🔄 Activation optimisation continue...")
+            optimizer.continuous_optimization()
+            
+            try:
+                while True:
+                    time.sleep(60)
+                    print(".", end="", flush=True)
+            except KeyboardInterrupt:
+                print("\n👋 Arrêt optimisation continue")
+    
+    elif args.mode == 'manual':
+        print("\n🎛️ Mode manuel")
+        
+        # Menu interactif
+        while True:
+            print("\nOptions disponibles:")
+            print("1. Optimiser mémoire")
+            print("2. Optimiser GPU") 
+            print("3. Optimiser CPU")
+            print("4. Benchmark système")
+            print("5. Monitoring temps réel")
+            print("0. Quitter")
+            
+            choice = input("\nChoix: ").strip()
+            
+            if choice == '1':
+                optimizer.memory_manager.cleanup_memory(force=True)
+            elif choice == '2':
+                optimizer.gpu_optimizer.optimize_memory()
+            elif choice == '3':
+                optimizer.cpu_optimizer.setup_cpu_optimization()
+            elif choice == '4':
+                run_system_benchmark(optimizer)
+            elif choice == '5':
+                run_realtime_monitoring(optimizer)
+            elif choice == '0':
+                break
+            else:
+                print("❌ Choix invalide")
+    
+    elif args.mode == 'benchmark':
+        print("\n📊 Mode benchmark")
+        run_comprehensive_benchmark(optimizer)
+    
+    print("\n✅ Optimisation terminée")
+
+def run_system_benchmark(optimizer):
+    """Benchmark système complet"""
+    print("\n📊 BENCHMARK SYSTÈME")
+    print("-" * 30)
+    
+    # CPU Benchmark
+    print("🖥️ Test CPU...")
+    cpu_start = time.time()
+    
+    # Test calcul intensif
+    import numpy as np
+    data = np.random.random((1000, 1000))
+    result = np.dot(data, data.T)
+    
+    cpu_time = time.time() - cpu_start
+    print(f"   CPU Score: {1000/cpu_time:.0f} points")
+    
+    # GPU Benchmark si disponible
+    if torch.cuda.is_available():
+        print("🎮 Test GPU...")
+        gpu_start = time.time()
+        
+        data_gpu = torch.randn(1000, 1000).cuda()
+        result_gpu = torch.mm(data_gpu, data_gpu.t())
+        torch.cuda.synchronize()
+        
+        gpu_time = time.time() - gpu_start
+        print(f"   GPU Score: {1000/gpu_time:.0f} points")
+        print(f"   Accélération GPU: {cpu_time/gpu_time:.1f}x")
+    
+    # Mémoire
+    memory_stats = optimizer.memory_manager.get_memory_stats()
+    print(f"💾 RAM disponible: {memory_stats['ram_available_gb']:.1f} GB")
+    
+    if memory_stats['gpu_stats']:
+        vram_total = memory_stats['gpu_stats']['reserved'] + memory_stats['gpu_stats']['allocated']
+        print(f"🎮 VRAM disponible: {vram_total:.1f} GB")
+
+def run_realtime_monitoring(optimizer):
+    """Monitoring temps réel"""
+    print("\n📊 MONITORING TEMPS RÉEL")
+    print("Appuyez sur Ctrl+C pour arrêter")
+    print("-" * 40)
+    
+    optimizer.monitor.start_monitoring()
+    
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        optimizer.monitor.stop_monitoring()
+        print(optimizer.monitor.get_performance_summary())
+
+if __name__ == "__main__":
+    main()</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide utilisation -->
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-8 mt-8">
+                <h4 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-play mr-2"></i>
+                    Guide d'Utilisation Rapide
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-download text-2xl"></i>
+                        </div>
+                        <h5 class="font-bold mb-2">1. Installation</h5>
+                        <p class="text-sm">Copiez les scripts et installez les dépendances</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-play text-2xl"></i>
+                        </div>
+                        <h5 class="font-bold mb-2">2. Exécution</h5>
+                        <p class="text-sm">Lancez l'optimiseur en mode automatique</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <h5 class="font-bold mb-2">3. Monitoring</h5>
+                        <p class="text-sm">Surveillez les performances en temps réel</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-white bg-opacity-10 rounded-lg">
+                    <p class="font-semibold mb-2">Commande rapide :</p>
+                    <code class="bg-black bg-opacity-30 px-3 py-1 rounded">
+                        python optimize_voice_cloning.py --mode auto --continuous
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <i class="fas fa-tachometer-alt text-3xl mb-4"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">Bloc 11.5 - Optimisations & Performance</h4>
+            <p class="text-gray-400 mb-4">Clonage vocal haute performance avec monitoring avancé</p>
+            <div class="text-sm text-gray-500">
+                Manuel IA MYM 2025 • Optimisé pour performances maximales
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration graphiques
+        const ctx1 = document.getElementById('gpuChart').getContext('2d');
+        const ctx2 = document.getElementById('memoryChart').getContext('2d');
+        const ctx3 = document.getElementById('performanceChart').getContext('2d');
+        
+        // Données simulées pour démonstration
+        const timeLabels = Array.from({length: 20}, (_, i) => `${i}s`);
+        const gpuData = Array.from({length: 20}, () => Math.random() * 100);
+        const memData = Array.from({length: 20}, () => Math.random() * 100);
+        
+        // Graphique GPU
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: timeLabels,
+                datasets: [{
+                    label: 'Utilisation GPU (%)',
+                    data: gpuData,
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+        
+        // Graphique Mémoire (Pie)
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Utilisée', 'Cache', 'Libre'],
+                datasets: [{
+                    data: [65, 15, 20],
+                    backgroundColor: [
+                        'rgb(239, 68, 68)',
+                        'rgb(245, 158, 11)',
+                        'rgb(34, 197, 94)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+        
+        // Graphique Performance Global
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: timeLabels,
+                datasets: [
+                    {
+                        label: 'CPU (%)',
+                        data: Array.from({length: 20}, () => Math.random() * 100),
+                        borderColor: 'rgb(34, 197, 94)',
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)'
+                    },
+                    {
+                        label: 'RAM (%)',
+                        data: Array.from({length: 20}, () => Math.random() * 100),
+                        borderColor: 'rgb(168, 85, 247)',
+                        backgroundColor: 'rgba(168, 85, 247, 0.1)'
+                    },
+                    {
+                        label: 'GPU (%)',
+                        data: gpuData,
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+        
+        // Fonction copie code
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copié !';
+                button.style.backgroundColor = '#10B981';
+                
+                setTimeout(() => {
+                    button.textContent = 'Copier';
+                    button.style.backgroundColor = '#4CAF50';
+                }, 2000);
+            });
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animation métriques temps réel (simulation)
+        function updateMetrics() {
+            const metrics = document.querySelectorAll('.metric-display');
+            metrics.forEach(metric => {
+                const currentValue = parseInt(metric.textContent);
+                const variation = Math.floor(Math.random() * 10) - 5;
+                const newValue = Math.max(0, Math.min(100, currentValue + variation));
+                
+                if (metric.textContent.includes('%')) {
+                    metric.textContent = `${newValue}%`;
+                } else if (metric.textContent.includes('GB')) {
+                    const base = parseFloat(metric.textContent);
+                    const newBase = Math.max(0, base + (Math.random() - 0.5) * 0.5);
+                    metric.textContent = `${newBase.toFixed(1)} GB`;
+                } else if (metric.textContent.includes('ms')) {
+                    const base = parseInt(metric.textContent);
+                    const newBase = Math.max(10, base + Math.floor(Math.random() * 10) - 5);
+                    metric.textContent = `${newBase}ms`;
+                }
+            });
+        }
+        
+        // Mise à jour métriques toutes les 2 secondes
+        setInterval(updateMetrics, 2000);
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e686bfb3c250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDisz66Pf11f1p9TFeiWaWFlgA%2BdJN2xokMNO2507XWoTZMLpYY4J%2Fk%2FPu%2FJz9XkaGTK2iJpby7gJWY0azExMUovjHAbB8iGFOE1PAOEx%2BU%2BT%2ByX1fJQ0Y6qoQ%2B12m%2Fk1yDfrQs7%2Fbswbxg6SybsSX0uxv31L3V9N%2F4OaiyjHFg5JqR%2BFElL4pZZg9xWgevmXcaa%2FgVs%2BkYcNBCVzoGh0f%2BVj3c07%2FzKQ1jOz7kjNeC%2BF4MuPON3cI7pI%2Fp8g1sn0tYAlEcgiBLFmAJuZtbKDTWIqr%2FOfFFEUNpcT%2FvM7JdQqdbqxxef93ftegd143JuAfxI2RJVm6J%2FyoyiuUn%2Fi6dBnl8xYkbuSde4RtLZ6H3XSDoZqj0Uvk442sS7Jnh0jirVppLI%2FRtUStOQUfEIfNflhHvy1G%2BHhrjSzixlXympCdZAd%2BzHmCV6mr7qwtweSt%2FmmhZwyMZi3ErxN2ei%2FepLnXoH0jLFCgKwuE8D76n%2FLM2lThZJyqjcRpXB1IySgMzm9MIW9U6G3UPpOmnsl3BkUUMGeJPExZ%2F%2Bb2ZYlY3%2Bd";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDisz66Pf11f1p9TFeiWaWFlgA+dJN2xokMNO2507XWoTZMLpYY4J/k/Pu/Jz9XkaGTK2iJpby7gJWY0azExMUovjHAbB8iGFOE1PAOEx+U+T+yX1fJQ0Y6qoQ+12m/k1yDfrQs7/bswbxg6SybsSX0uxv31L3V9N/4OaiyjHFg5JqR+FElL4pZZg9xWgevmXcaa/gVs+kYcNBCVzoGh0f+Vj3c07/zKQ1jOz7kjNeC+F4MuPON3cI7pI/p8g1sn0tYAlEcgiBLFmAJuZtbKDTWIqr/OfFFEUNpcT/vM7JdQqdbqxxef93ftegd143JuAfxI2RJVm6J/yoyiuUn/i6dBnl8xYkbuSde4RtLZ6H3XSDoZqj0Uvk442sS7Jnh0jirVppLI/RtUStOQUfEIfNflhHvy1G+HhrjSzixlXympCdZAd+zHmCV6mr7qwtweSt/mmhZwyMZi3ErxN2ei/epLnXoH0jLFCgKwuE8D76n/LM2lThZJyqjcRpXB1IySgMzm9MIW9U6G3UPpOmnsl3BkUUMGeJPExZ/+b2ZYlY3+d";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

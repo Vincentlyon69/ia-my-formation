@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 9.1 COMPLET - Multi-Persona Manager & Catalogue</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .code-container { background: #1a1a1a; color: #f8f8f2; border-radius: 8px; padding: 20px; margin: 15px 0; overflow-x: auto; }
+        .step-number { background: linear-gradient(45deg, #667eea, #764ba2); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; }
+        .highlight { background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); padding: 2px 6px; border-radius: 4px; }
+        .warning-box { background: #fef3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d1edff; border-left: 4px solid #0066cc; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .interface-image { border: 2px solid #e2e8f0; border-radius: 8px; margin: 10px 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .metric-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 10px 0; }
+        .persona-card { background: linear-gradient(145deg, #f8fafc, #e2e8f0); border-radius: 15px; padding: 20px; margin: 15px 0; border: 1px solid #cbd5e0; }
+        .copy-button { background: #10b981; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; margin: 5px 0; }
+        .copy-button:hover { background: #059669; }
+        .performance-chart { height: 400px; margin: 20px 0; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Header -->
+<header class="gradient-bg text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <i class="fas fa-users-cog text-6xl mb-4"></i>
+            <h1 class="text-5xl font-bold mb-4">BLOC 9.1 COMPLET</h1>
+            <h2 class="text-3xl font-light mb-6">Multi-Persona Manager & Catalogue</h2>
+            <p class="text-xl max-w-4xl mx-auto leading-relaxed">
+                Gestionnaire complet pour 5-20 identités IA simultanées avec scripts Python détaillés, 
+                catalogue personas prédéfinis, et dashboard monitoring temps réel.
+            </p>
+            <div class="mt-8">
+                <span class="inline-block bg-white bg-opacity-20 rounded-full px-6 py-2 text-sm font-medium">
+                    <i class="fas fa-robot mr-2"></i>Infrastructure Scalable • Scripts Complets • Explications 70 ans
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation Rapide -->
+<nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-wrap justify-center space-x-6">
+            <a href="#objectifs" class="text-blue-600 hover:text-blue-800 font-medium">🎯 Objectifs</a>
+            <a href="#installation" class="text-blue-600 hover:text-blue-800 font-medium">💻 Installation</a>
+            <a href="#manager" class="text-blue-600 hover:text-blue-800 font-medium">👥 Multi-Persona Manager</a>
+            <a href="#catalogue" class="text-blue-600 hover:text-blue-800 font-medium">📚 Catalogue</a>
+            <a href="#dashboard" class="text-blue-600 hover:text-blue-800 font-medium">📊 Dashboard</a>
+            <a href="#scripts" class="text-blue-600 hover:text-blue-800 font-medium">🐍 Scripts Python</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Section Objectifs -->
+<section id="objectifs" class="py-16">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
+            <i class="fas fa-bullseye mr-3 text-blue-600"></i>Objectifs du Bloc 9.1
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="success-box">
+                <h3 class="text-2xl font-bold mb-4 text-green-700">🎯 Vision Stratégique</h3>
+                <p class="text-lg mb-4">Transformer votre projet initial Léana Mystère en un <span class="highlight">écosystème complet de personnalités IA</span>, chacune dominant sa niche spécifique.</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>5 à 20 identités IA</strong> gérées simultanément</li>
+                    <li><strong>Chaque persona</strong> a sa spécialisation unique</li>
+                    <li><strong>Infrastructure scalable</strong> pour 10-20 ans</li>
+                    <li><strong>Revenus diversifiés</strong> et optimisés</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <h3 class="text-2xl font-bold mb-4 text-orange-700">⚠️ Prérequis Techniques</h3>
+                <p class="text-lg mb-4">Avant de commencer ce bloc, <span class="highlight">vous devez absolument avoir terminé</span> :</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Blocs 1-2 :</strong> Maîtrise des bases et dataset</li>
+                    <li><strong>Blocs 3-5 :</strong> Entraînement et identité Léana</li>
+                    <li><strong>Python de base :</strong> Compréhension des variables et fonctions</li>
+                    <li><strong>Base de données :</strong> Notions SQLite recommandées</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Métriques Objectives -->
+        <div class="dashboard-grid">
+            <div class="metric-card text-center">
+                <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                <div class="text-3xl font-bold text-gray-800">5-20</div>
+                <div class="text-gray-600">Personnalités IA Simultanées</div>
+            </div>
+            <div class="metric-card text-center">
+                <i class="fas fa-calendar-alt text-4xl text-green-600 mb-4"></i>
+                <div class="text-3xl font-bold text-gray-800">10-20</div>
+                <div class="text-gray-600">Années Stratégie Long Terme</div>
+            </div>
+            <div class="metric-card text-center">
+                <i class="fas fa-globe text-4xl text-purple-600 mb-4"></i>
+                <div class="text-3xl font-bold text-gray-800">15+</div>
+                <div class="text-gray-600">Marchés Internationaux</div>
+            </div>
+            <div class="metric-card text-center">
+                <i class="fas fa-euro-sign text-4xl text-yellow-600 mb-4"></i>
+                <div class="text-3xl font-bold text-gray-800">10M€+</div>
+                <div class="text-gray-600">Objectif Revenus 2035-2045</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Installation pour Débutants 70 ans -->
+<section id="installation" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
+            <i class="fas fa-download mr-3 text-green-600"></i>Installation pour Débutants Absolus
+        </h2>
+        
+        <div class="success-box">
+            <h3 class="text-2xl font-bold mb-4">👴👵 Explications Ultra-Détaillées (même pour 70 ans)</h3>
+            <p class="text-lg">Nous allons expliquer <strong>chaque clic, chaque étape</strong> comme si vous n'aviez jamais touché un ordinateur. Prenez votre temps, respirez, et suivez tranquillement.</p>
+        </div>
+
+        <!-- Étape 1 : Vérification Python -->
+        <div class="bg-white rounded-lg p-8 mb-8 shadow-lg">
+            <div class="flex items-center mb-6">
+                <div class="step-number">1</div>
+                <h3 class="text-2xl font-bold">Vérifier si Python est installé sur votre ordinateur</h3>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-xl font-semibold text-blue-600">🖥️ Étape 1.1 : Ouvrir l'invite de commandes (Windows)</h4>
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <p class="text-lg"><strong>Méthode simple :</strong></p>
+                    <ol class="list-decimal pl-6 space-y-2 text-lg">
+                        <li>Appuyez sur la <span class="highlight">touche Windows</span> de votre clavier (celle avec le logo Windows)</li>
+                        <li>Tapez le mot <code class="bg-gray-200 px-2 py-1 rounded">cmd</code> (seulement ces 3 lettres)</li>
+                        <li>Vous verrez apparaître "Invite de commandes" dans la liste</li>
+                        <li>Cliquez dessus avec votre souris</li>
+                        <li>Une fenêtre noire s'ouvre avec du texte blanc - c'est normal !</li>
+                    </ol>
+                </div>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Windows_command_prompt_on_Windows_10_RTM.png" alt="Invite de commandes Windows" class="interface-image w-full max-w-lg mx-auto">
+                
+                <h4 class="text-xl font-semibold text-blue-600">🐍 Étape 1.2 : Tester si Python fonctionne</h4>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <p class="text-lg"><strong>Dans la fenêtre noire qui s'est ouverte :</strong></p>
+                    <ol class="list-decimal pl-6 space-y-2 text-lg">
+                        <li>Tapez exactement ceci : <code class="bg-gray-200 px-2 py-1 rounded">python --version</code></li>
+                        <li>Appuyez sur la touche <span class="highlight">Entrée</span> de votre clavier</li>
+                        <li>Attendez quelques secondes</li>
+                    </ol>
+                    
+                    <div class="mt-4">
+                        <p class="text-lg font-semibold">🎉 Si ça marche :</p>
+                        <p>Vous verrez quelque chose comme "Python 3.11.0" - Parfait ! Passez à l'étape 2.</p>
+                        
+                        <p class="text-lg font-semibold mt-4">❌ Si ça ne marche pas :</p>
+                        <p>Vous verrez un message d'erreur. Pas de panique ! Nous allons installer Python.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Étape 2 : Installation Python si nécessaire -->
+        <div class="bg-white rounded-lg p-8 mb-8 shadow-lg">
+            <div class="flex items-center mb-6">
+                <div class="step-number">2</div>
+                <h3 class="text-2xl font-bold">Installer Python (si ce n'était pas installé)</h3>
+            </div>
+            
+            <div class="warning-box">
+                <p class="text-lg"><strong>⚠️ Important :</strong> Ne faites cette étape QUE si l'étape 1 n'a pas fonctionné !</p>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-xl font-semibold text-blue-600">📥 Téléchargement Python</h4>
+                <ol class="list-decimal pl-6 space-y-3 text-lg">
+                    <li>Ouvrez votre navigateur internet (Chrome, Firefox, Edge...)</li>
+                    <li>Tapez dans la barre d'adresse : <code class="bg-gray-200 px-2 py-1 rounded">www.python.org</code></li>
+                    <li>Appuyez sur Entrée pour aller sur le site</li>
+                    <li>Cherchez un gros bouton jaune qui dit "Download Python" et cliquez dessus</li>
+                    <li>Un fichier va se télécharger (ça peut prendre quelques minutes)</li>
+                </ol>
+                
+                <h4 class="text-xl font-semibold text-blue-600">🔧 Installation Python</h4>
+                <ol class="list-decimal pl-6 space-y-3 text-lg">
+                    <li>Quand le téléchargement est fini, double-cliquez sur le fichier téléchargé</li>
+                    <li><strong>TRÈS IMPORTANT :</strong> Cochez la case "Add Python to PATH" en bas de la fenêtre</li>
+                    <li>Cliquez sur "Install Now"</li>
+                    <li>Attendez que l'installation se termine (5-10 minutes)</li>
+                    <li>Redémarrez votre ordinateur</li>
+                    <li>Refaites l'étape 1 pour vérifier que ça marche maintenant</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Étape 3 : Installation des bibliothèques -->
+        <div class="bg-white rounded-lg p-8 mb-8 shadow-lg">
+            <div class="flex items-center mb-6">
+                <div class="step-number">3</div>
+                <h3 class="text-2xl font-bold">Installer les outils nécessaires pour le Multi-Persona</h3>
+            </div>
+            
+            <div class="space-y-4">
+                <p class="text-lg">Maintenant que Python fonctionne, nous allons installer les "bibliothèques" (des outils supplémentaires) nécessaires pour gérer plusieurs personnalités IA.</p>
+                
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-3">📦 Installation des bibliothèques</h4>
+                    <ol class="list-decimal pl-6 space-y-3 text-lg">
+                        <li>Ouvrez l'invite de commandes comme à l'étape 1</li>
+                        <li>Copiez et collez cette commande (clic droit pour coller) :</li>
+                    </ol>
+                    
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyToClipboard('install-cmd')">📋 Copier</button>
+                        <pre id="install-cmd">pip install sqlite3 pandas numpy matplotlib seaborn requests beautifulsoup4 openai</pre>
+                    </div>
+                    
+                    <ol start="3" class="list-decimal pl-6 space-y-3 text-lg">
+                        <li>Appuyez sur Entrée</li>
+                        <li>Attendez que tout s'installe (ça peut prendre 5-10 minutes)</li>
+                        <li>Vous verrez du texte défiler - c'est normal !</li>
+                        <li>Quand ça s'arrête de bouger, c'est terminé</li>
+                    </ol>
+                </div>
+                
+                <div class="success-box">
+                    <h4 class="text-lg font-semibold">✅ Vérification de l'installation</h4>
+                    <p>Pour vérifier que tout s'est bien passé, tapez cette commande :</p>
+                    <div class="code-container">
+                        <pre>python -c "import pandas; print('✅ Tout fonctionne parfaitement !')"</pre>
+                    </div>
+                    <p>Si vous voyez "✅ Tout fonctionne parfaitement !", vous êtes prêt !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Multi-Persona Manager -->
+<section id="manager" class="py-16">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
+            <i class="fas fa-cogs mr-3 text-purple-600"></i>Multi-Persona Manager Complet
+        </h2>
+        
+        <div class="success-box mb-8">
+            <h3 class="text-2xl font-bold mb-4">🧠 Qu'est-ce que le Multi-Persona Manager ?</h3>
+            <p class="text-lg">Imaginez un <span class="highlight">chef d'orchestre</span> qui dirige plusieurs musiciens en même temps. Le Multi-Persona Manager fait pareil, mais avec vos personnalités IA. Il peut gérer Léana, Sophia, Aria et toutes vos autres IA simultanément, chacune avec sa personnalité et ses spécialités.</p>
+        </div>
+
+        <!-- Architecture Système -->
+        <div class="bg-white rounded-lg p-8 mb-8 shadow-lg">
+            <h3 class="text-2xl font-bold mb-6 text-center">🏗️ Architecture du Système Multi-Persona</h3>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="persona-card text-center">
+                    <i class="fas fa-database text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">Base de Données Centralisée</h4>
+                    <p>Stocke toutes les informations de vos personas en sécurité</p>
+                </div>
+                <div class="persona-card text-center">
+                    <i class="fas fa-brain text-4xl text-green-600 mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">Intelligence Collective</h4>
+                    <p>Les personas apprennent les uns des autres</p>
+                </div>
+                <div class="persona-card text-center">
+                    <i class="fas fa-chart-line text-4xl text-purple-600 mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">Analytics Temps Réel</h4>
+                    <p>Surveillance des performances de chaque persona</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Multi-Persona Manager -->
+        <div class="bg-white rounded-lg p-8 mb-8 shadow-lg">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-code text-3xl text-green-600 mr-4"></i>
+                <h3 class="text-2xl font-bold">Script Python Complet : MultiPersonaManager</h3>
+            </div>
+            
+            <div class="warning-box">
+                <h4 class="text-lg font-semibold">👴👵 Pour les débutants :</h4>
+                <p>Ce code peut paraître compliqué, mais ne vous inquiétez pas ! Nous allons l'expliquer ligne par ligne. Vous n'avez qu'à le copier-coller pour l'instant.</p>
+            </div>
+            
+            <div class="code-container">
+                <button class="copy-button" onclick="copyToClipboard('multipersona-manager')">📋 Copier le Code Complet</button>
+                <pre id="multipersona-manager">import sqlite3
+import json
+import os
+from datetime import datetime
+from dataclasses import dataclass
+from typing import List, Dict, Optional
+from enum import Enum
+
+# 👥 DÉFINITION DES CATÉGORIES DE PERSONAS
+class PersonaCategory(Enum):
+    """Catégories de personnalités IA disponibles"""
+    MAIN_BRAND = "main_brand"           # Persona principal (Léana)
+    MILF_MATURE = "milf_mature"         # Femme mature sophistiquée
+    FITNESS_WELLNESS = "fitness_wellness" # Sportive motivée
+    COSPLAY_FANTASY = "cosplay_fantasy"  # Cosplayeuse créative
+    LUXURY_GLAMOUR = "luxury_glamour"    # Luxe et glamour
+    ALTERNATIVE_GOTH = "alternative_goth" # Style gothique alternatif
+    INTERNATIONAL = "international"      # Versions internationales
+
+# 🏗️ STRUCTURE D'UN PERSONA IA
+@dataclass
+class AIPersonaConfig:
+    """Configuration complète d'une personnalité IA"""
+    persona_id: str                    # Identifiant unique (ex: "leana_001")
+    name: str                         # Nom du persona (ex: "Léana Mystère")
+    age: int                          # Âge apparent (ex: 24)
+    category: PersonaCategory         # Catégorie (voir ci-dessus)
+    primary_language: str             # Langue principale (ex: "fr")
+    target_market: str               # Marché cible (ex: "france")
+    specialization: List[str]        # Spécialités (ex: ["art", "sensualité"])
+    visual_traits: Dict[str, str]    # Traits visuels (cheveux, yeux, etc.)
+    personality_traits: Dict[str, float] # Traits de personnalité (0-1)
+    content_pricing: Dict[str, float]    # Prix du contenu par type
+    created_at: datetime             # Date de création
+    status: str = "active"           # Statut (active, pause, archived)
+    
+    def to_dict(self) -> Dict:
+        """Convertit le persona en dictionnaire pour sauvegarde"""
+        return {
+            'persona_id': self.persona_id,
+            'name': self.name,
+            'age': self.age,
+            'category': self.category.value,
+            'primary_language': self.primary_language,
+            'target_market': self.target_market,
+            'specialization': self.specialization,
+            'visual_traits': self.visual_traits,
+            'personality_traits': self.personality_traits,
+            'content_pricing': self.content_pricing,
+            'created_at': self.created_at.isoformat(),
+            'status': self.status
+        }
+
+# 🎯 GESTIONNAIRE PRINCIPAL MULTI-PERSONA
+class MultiPersonaManager:
+    """Gestionnaire central pour tous vos personas IA"""
+    
+    def __init__(self, db_path: str = "multi_persona_empire.db"):
+        """Initialisation du gestionnaire"""
+        self.db_path = db_path
+        self.personas = {}  # Dictionnaire de tous vos personas
+        self.active_campaigns = {}  # Campagnes en cours
+        self.cross_persona_analytics = None  # Analytics croisés
+        
+        # Initialisation de la base de données
+        self.init_master_database()
+        self.load_all_personas()
+        
+        print("✅ MultiPersonaManager initialisé avec succès !")
+    
+    def init_master_database(self):
+        """Crée la base de données pour stocker tous vos personas"""
+        print("📂 Création de la base de données...")
+        
+        conn = sqlite3.connect(self.db_path)
+        conn.executescript('''
+            -- Table principale des personas
+            CREATE TABLE IF NOT EXISTS personas (
+                persona_id TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                category TEXT NOT NULL,
+                config_json TEXT NOT NULL,
+                performance_metrics TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                last_active TIMESTAMP,
+                total_revenue REAL DEFAULT 0,
+                total_content_generated INTEGER DEFAULT 0,
+                status TEXT DEFAULT 'active'
+            );
+            
+            -- Table des insights croisés entre personas
+            CREATE TABLE IF NOT EXISTS cross_persona_insights (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                insight_type TEXT NOT NULL,
+                personas_involved TEXT NOT NULL,
+                data_json TEXT NOT NULL,
+                confidence_score REAL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+            
+            -- Table d'allocation des ressources
+            CREATE TABLE IF NOT EXISTS resource_allocation (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                date DATE NOT NULL,
+                persona_id TEXT NOT NULL,
+                cpu_hours REAL,
+                gpu_hours REAL,
+                api_calls INTEGER,
+                storage_gb REAL,
+                cost_usd REAL,
+                revenue_generated REAL,
+                roi REAL,
+                FOREIGN KEY (persona_id) REFERENCES personas (persona_id)
+            );
+        ''')
+        conn.close()
+        print("✅ Base de données créée avec succès !")
+    
+    def create_new_persona(self, persona_config: AIPersonaConfig):
+        """Crée un nouveau persona avec infrastructure complète"""
+        print(f"🎭 Création du persona {persona_config.name}...")
+        
+        # Ajout à la mémoire
+        self.personas[persona_config.persona_id] = persona_config
+        
+        # Sauvegarde en base de données
+        conn = sqlite3.connect(self.db_path)
+        conn.execute('''
+            INSERT OR REPLACE INTO personas 
+            (persona_id, name, category, config_json, created_at) 
+            VALUES (?, ?, ?, ?, ?)
+        ''', (
+            persona_config.persona_id,
+            persona_config.name,
+            persona_config.category.value,
+            json.dumps(persona_config.to_dict()),
+            datetime.now()
+        ))
+        conn.commit()
+        conn.close()
+        
+        # Configuration de l'infrastructure
+        self.setup_persona_infrastructure(persona_config)
+        
+        print(f"✅ Persona {persona_config.name} créé avec succès !")
+        return persona_config.persona_id
+    
+    def setup_persona_infrastructure(self, config: AIPersonaConfig):
+        """Configure l'infrastructure complète pour un persona"""
+        print(f"⚙️ Configuration infrastructure pour {config.name}...")
+        
+        # Création des dossiers
+        persona_dir = f"personas/{config.persona_id}"
+        os.makedirs(f"{persona_dir}/content", exist_ok=True)
+        os.makedirs(f"{persona_dir}/training_data", exist_ok=True)
+        os.makedirs(f"{persona_dir}/models", exist_ok=True)
+        
+        # Génération des fichiers de configuration
+        self.generate_specialized_training_config(config)
+        self.create_persona_style_guide(config)
+        self.initialize_persona_content_strategy(config)
+        
+        print(f"✅ Infrastructure de {config.name} configurée !")
+    
+    def generate_specialized_training_config(self, config: AIPersonaConfig):
+        """Génère la configuration d'entraînement spécialisée"""
+        training_config = {
+            'persona_id': config.persona_id,
+            'lora_settings': {
+                'rank': 128,
+                'alpha': 64,
+                'learning_rate': 1e-4,
+                'batch_size': 1,
+                'steps': 2000
+            },
+            'prompt_prefix': f"<lora:{config.persona_id}:0.8> {config.name}, {config.age} years old",
+            'specialization_tags': config.specialization,
+            'visual_consistency': config.visual_traits
+        }
+        
+        # Sauvegarde du fichier de configuration
+        config_path = f"personas/{config.persona_id}/training_config.json"
+        with open(config_path, 'w') as f:
+            json.dump(training_config, f, indent=2)
+    
+    def create_persona_style_guide(self, config: AIPersonaConfig):
+        """Crée le guide de style pour le persona"""
+        style_guide = {
+            'visual_identity': config.visual_traits,
+            'personality_matrix': config.personality_traits,
+            'communication_style': self.generate_communication_style(config),
+            'content_themes': config.specialization,
+            'pricing_strategy': config.content_pricing
+        }
+        
+        # Sauvegarde du guide de style
+        style_path = f"personas/{config.persona_id}/style_guide.json"
+        with open(style_path, 'w') as f:
+            json.dump(style_guide, f, indent=2)
+    
+    def generate_communication_style(self, config: AIPersonaConfig):
+        """Génère le style de communication selon la catégorie"""
+        styles = {
+            PersonaCategory.MAIN_BRAND: {
+                'tone': 'sophisticated_creative',
+                'expressions': ['mon cœur connecté', 'mes circuits créatifs', 'bellissimo'],
+                'languages': ['français', 'italien_touches']
+            },
+            PersonaCategory.MILF_MATURE: {
+                'tone': 'experienced_seductive',
+                'expressions': ['chéri', 'mon petit', 'avec expérience'],
+                'languages': ['français_sophistiqué']
+            },
+            PersonaCategory.FITNESS_WELLNESS: {
+                'tone': 'energetic_motivational',
+                'expressions': ['champion', 'on y va', 'push tes limites'],
+                'languages': ['français_dynamique']
+            }
+        }
+        return styles.get(config.category, styles[PersonaCategory.MAIN_BRAND])
+    
+    def initialize_persona_content_strategy(self, config: AIPersonaConfig):
+        """Initialise la stratégie de contenu du persona"""
+        content_strategy = {
+            'daily_content_quota': self.calculate_daily_quota(config),
+            'content_distribution': self.generate_content_distribution(config),
+            'optimal_posting_times': self.calculate_optimal_times(config),
+            'audience_targeting': self.define_audience_targeting(config)
+        }
+        
+        # Sauvegarde de la stratégie
+        strategy_path = f"personas/{config.persona_id}/content_strategy.json"
+        with open(strategy_path, 'w') as f:
+            json.dump(content_strategy, f, indent=2)
+    
+    def calculate_daily_quota(self, config: AIPersonaConfig):
+        """Calcule le quota quotidien de contenu"""
+        base_quota = 5  # 5 contenus par jour par défaut
+        
+        # Ajustement selon la catégorie
+        category_multipliers = {
+            PersonaCategory.MAIN_BRAND: 1.5,    # Persona principal plus actif
+            PersonaCategory.MILF_MATURE: 1.2,   # Contenu premium, moins fréquent
+            PersonaCategory.FITNESS_WELLNESS: 1.3, # Contenu motivationnel régulier
+            PersonaCategory.ALTERNATIVE_GOTH: 0.8  # Niche spécialisée
+        }
+        
+        multiplier = category_multipliers.get(config.category, 1.0)
+        return int(base_quota * multiplier)
+    
+    def load_all_personas(self):
+        """Charge tous les personas depuis la base de données"""
+        print("📊 Chargement des personas existants...")
+        
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.execute("SELECT * FROM personas WHERE status = 'active'")
+            
+            for row in cursor.fetchall():
+                persona_data = json.loads(row[3])  # config_json
+                # Reconstruction du persona depuis les données
+                persona_config = self.rebuild_persona_from_data(persona_data)
+                self.personas[persona_config.persona_id] = persona_config
+            
+            conn.close()
+            print(f"✅ {len(self.personas)} personas chargés avec succès !")
+            
+        except Exception as e:
+            print(f"⚠️ Erreur lors du chargement: {e}")
+    
+    def rebuild_persona_from_data(self, data):
+        """Reconstruit un objet AIPersonaConfig depuis les données JSON"""
+        return AIPersonaConfig(
+            persona_id=data['persona_id'],
+            name=data['name'],
+            age=data['age'],
+            category=PersonaCategory(data['category']),
+            primary_language=data['primary_language'],
+            target_market=data['target_market'],
+            specialization=data['specialization'],
+            visual_traits=data['visual_traits'],
+            personality_traits=data['personality_traits'],
+            content_pricing=data['content_pricing'],
+            created_at=datetime.fromisoformat(data['created_at']),
+            status=data['status']
+        )
+    
+    def get_optimal_resource_allocation(self) -> Dict[str, Dict]:
+        """Calcule l'allocation optimale des ressources entre personas"""
+        print("⚡ Calcul de l'allocation optimale des ressources...")
+        
+        allocation = {}
+        
+        for persona_id, persona in self.personas.items():
+            # Récupération des performances
+            performance = self.get_persona_performance(persona_id)
+            
+            # Calcul de l'allocation
+            allocation[persona_id] = {
+                'priority_score': performance.get('roi', 1.0),
+                'content_quota': int(20 * performance.get('engagement_rate', 0.1)),
+                'gpu_hours_daily': min(8, performance.get('revenue_per_hour', 1) * 2),
+                'marketing_budget': performance.get('monthly_revenue', 100) * 0.15,
+                'cpu_priority': 'high' if performance.get('roi', 0) > 2.0 else 'normal'
+            }
+        
+        print("✅ Allocation des ressources calculée !")
+        return allocation
+    
+    def get_persona_performance(self, persona_id: str) -> Dict:
+        """Récupère les métriques de performance d'un persona"""
+        # Simulation de métriques (remplacer par vraies données en production)
+        import random
+        
+        return {
+            'roi': random.uniform(0.5, 5.0),           # Retour sur investissement
+            'engagement_rate': random.uniform(0.05, 0.3), # Taux d'engagement
+            'revenue_per_hour': random.uniform(5, 50),     # Revenus par heure
+            'monthly_revenue': random.uniform(500, 5000),  # Revenus mensuels
+            'content_performance': random.uniform(0.6, 1.0) # Performance du contenu
+        }
+    
+    def list_all_personas(self):
+        """Affiche la liste de tous les personas actifs"""
+        print("\n📋 === LISTE DES PERSONAS ACTIFS ===")
+        
+        if not self.personas:
+            print("Aucun persona trouvé. Créez votre premier persona !")
+            return
+        
+        for persona_id, persona in self.personas.items():
+            performance = self.get_persona_performance(persona_id)
+            
+            print(f"\n🎭 {persona.name} ({persona_id})")
+            print(f"   📊 Catégorie: {persona.category.value}")
+            print(f"   🎯 Marché: {persona.target_market}")
+            print(f"   💰 ROI: {performance['roi']:.1f}x")
+            print(f"   📈 Revenus/mois: {performance['monthly_revenue']:.0f}€")
+            print(f"   ⭐ Statut: {persona.status}")
+    
+    def get_empire_statistics(self):
+        """Retourne les statistiques globales de l'empire"""
+        total_personas = len(self.personas)
+        total_revenue = sum(self.get_persona_performance(pid)['monthly_revenue'] 
+                          for pid in self.personas.keys())
+        
+        active_personas = sum(1 for p in self.personas.values() if p.status == 'active')
+        
+        return {
+            'total_personas': total_personas,
+            'active_personas': active_personas,
+            'total_monthly_revenue': total_revenue,
+            'average_revenue_per_persona': total_revenue / max(total_personas, 1),
+            'empire_roi': sum(self.get_persona_performance(pid)['roi'] 
+                            for pid in self.personas.keys()) / max(total_personas, 1)
+        }
+
+# 🧪 FONCTION DE TEST POUR DÉBUTANTS
+def test_multipersona_manager():
+    """Test simple pour vérifier que tout fonctionne"""
+    print("🧪 === TEST DU MULTI-PERSONA MANAGER ===\n")
+    
+    # Création du gestionnaire
+    manager = MultiPersonaManager()
+    
+    # Création d'un persona de test
+    test_persona = AIPersonaConfig(
+        persona_id="test_leana_001",
+        name="Léana Test",
+        age=24,
+        category=PersonaCategory.MAIN_BRAND,
+        primary_language="fr",
+        target_market="france",
+        specialization=["art", "numérique"],
+        visual_traits={
+            "hair": "long brown hair",
+            "eyes": "green eyes",
+            "style": "artistic elegant"
+        },
+        personality_traits={
+            "creativity": 0.9,
+            "confidence": 0.8,
+            "mystery": 0.7
+        },
+        content_pricing={
+            "standard": 15.0,
+            "premium": 30.0,
+            "custom": 60.0
+        },
+        created_at=datetime.now()
+    )
+    
+    # Test de création
+    manager.create_new_persona(test_persona)
+    
+    # Affichage des résultats
+    manager.list_all_personas()
+    
+    # Statistiques globales
+    stats = manager.get_empire_statistics()
+    print("\n📊 === STATISTIQUES EMPIRE ===")
+    for key, value in stats.items():
+        print(f"{key}: {value}")
+    
+    print("\n✅ Test terminé avec succès !")
+
+# 🚀 POINT D'ENTRÉE POUR DÉBUTANTS
+if __name__ == "__main__":
+    print("🎭 MULTI-PERSONA MANAGER - VERSION DÉBUTANT")
+    print("=== Gestionnaire d'Empire IA ===\n")
+    
+    # Exécution du test
+    test_multipersona_manager()</pre>
+            </div>
+            
+            <!-- Explication du Code pour Débutants -->
+            <div class="bg-blue-50 p-6 rounded-lg mt-6">
+                <h4 class="text-xl font-bold mb-4">👴👵 Explication Simple du Code</h4>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded">
+                        <h5 class="font-semibold text-blue-600">🏗️ PersonaCategory (lignes 9-16)</h5>
+                        <p>C'est comme des "étiquettes" pour classer vos personnalités IA. Par exemple, Léana est "MAIN_BRAND" (principale), Sophia sera "MILF_MATURE", etc.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded">
+                        <h5 class="font-semibold text-blue-600">🎭 AIPersonaConfig (lignes 18-50)</h5>
+                        <p>C'est la "carte d'identité" complète de chaque persona. Nom, âge, personnalité, prix... Tout est stocké ici.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded">
+                        <h5 class="font-semibold text-blue-600">🧠 MultiPersonaManager (lignes 52-300)</h5>
+                        <p>C'est le "cerveau" qui gère tous vos personas. Il peut les créer, les sauvegarder, calculer leurs performances, etc.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded">
+                        <h5 class="font-semibold text-blue-600">🧪 test_multipersona_manager (lignes 302-350)</h5>
+                        <p>C'est un "test" pour vérifier que tout fonctionne. Il crée un persona de test et affiche les résultats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comment utiliser le code -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+            <h3 class="text-2xl font-bold mb-6">🚀 Comment Utiliser ce Code (Guide Ultra-Simple)</h3>
+            
+            <div class="space-y-6">
+                <div class="flex items-start">
+                    <div class="step-number text-sm">1</div>
+                    <div class="ml-4">
+                        <h4 class="text-xl font-semibold mb-2">Sauvegarder le Code</h4>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Copiez tout le code ci-dessus (bouton "📋 Copier")</li>
+                            <li>Ouvrez le Bloc-notes (Notepad) sur votre ordinateur</li>
+                            <li>Collez le code (Ctrl+V)</li>
+                            <li>Sauvegardez le fichier sous le nom : <code class="bg-gray-200 px-2 py-1 rounded">multipersona_manager.py</code></li>
+                            <li><strong>Important :</strong> L'extension doit être <code>.py</code> !</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="step-number text-sm">2</div>
+                    <div class="ml-4">
+                        <h4 class="text-xl font-semibold mb-2">Exécuter le Code</h4>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Ouvrez l'invite de commandes (comme avant)</li>
+                            <li>Naviguez vers le dossier où vous avez sauvé le fichier</li>
+                            <li>Tapez : <code class="bg-gray-200 px-2 py-1 rounded">python multipersona_manager.py</code></li>
+                            <li>Appuyez sur Entrée</li>
+                            <li>Regardez le test s'exécuter !</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="step-number text-sm">3</div>
+                    <div class="ml-4">
+                        <h4 class="text-xl font-semibold mb-2">Comprendre les Résultats</h4>
+                        <p class="mb-3">Vous verrez apparaître :</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>✅ Messages de confirmation (création base de données, persona...)</li>
+                            <li>📋 Liste des personas créés</li>
+                            <li>📊 Statistiques de votre empire</li>
+                            <li>✅ Message de succès final</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Catalogue -->
+<section id="catalogue" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
+            <i class="fas fa-address-book mr-3 text-orange-600"></i>Catalogue de Personas Prédéfinis
+        </h2>
+        
+        <div class="success-box mb-8">
+            <h3 class="text-2xl font-bold mb-4">📚 Qu'est-ce que le Catalogue ?</h3>
+            <p class="text-lg">Le catalogue contient des <span class="highlight">"modèles" prêts à l'emploi</span> pour créer rapidement de nouveaux personas. C'est comme avoir des "moules" pour faire des gâteaux différents !</p>
+        </div>
+
+        <!-- Personas Prédéfinis -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Léana Mystère -->
+            <div class="persona-card">
+                <div class="text-center mb-4">
+                    <i class="fas fa-star text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-bold">Léana Mystère</h3>
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">PRINCIPAL</span>
+                </div>
+                <div class="space-y-2 text-sm">
+                    <p><strong>Âge :</strong> 24 ans</p>
+                    <p><strong>Style :</strong> Franco-italienne, artiste numérique</p>
+                    <p><strong>Spécialité :</strong> Art sophistiqué & sensualité assumée</p>
+                    <p><strong>Prix :</strong> 15-80€ selon contenu</p>
+                    <div class="bg-green-100 p-2 rounded mt-3">
+                        <p class="text-green-800"><strong>ROI :</strong> 90% - Performance excellente</p>
+                    </div>
+                </div>
+                <button class="w-full mt-4 bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600">
+                    👑 Persona Principal
+                </button>
+            </div>
+
+            <!-- Sophia Valentina -->
+            <div class="persona-card">
+                <div class="text-center mb-4">
+                    <i class="fas fa-wine-glass text-4xl text-red-500 mb-2"></i>
+                    <h3 class="text-xl font-bold">Sophia Valentina</h3>
+                    <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">MILF MATURE</span>
+                </div>
+                <div class="space-y-2 text-sm">
+                    <p><strong>Âge :</strong> 38 ans</p>
+                    <p><strong>Style :</strong> Élégante sophistiquée, expérience</p>
+                    <p><strong>Spécialité :</strong> Maturité & sophistication européenne</p>
+                    <p><strong>Prix :</strong> 25-80€ selon contenu</p>
+                    <div class="bg-orange-100 p-2 rounded mt-3">
+                        <p class="text-orange-800"><strong>ROI :</strong> 75% - Très bon potentiel</p>
+                    </div>
+                </div>
+                <button class="w-full mt-4 bg-red-500 text-white py-2 rounded hover:bg-red-600">
+                    🍷 Créer Sophia
+                </button>
+            </div>
+
+            <!-- Aria SportX -->
+            <div class="persona-card">
+                <div class="text-center mb-4">
+                    <i class="fas fa-dumbbell text-4xl text-green-500 mb-2"></i>
+                    <h3 class="text-xl font-bold">Aria SportX</h3>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">FITNESS</span>
+                </div>
+                <div class="space-y-2 text-sm">
+                    <p><strong>Âge :</strong> 26 ans</p>
+                    <p><strong>Style :</strong> Athlète motivée, énergie positive</p>
+                    <p><strong>Spécialité :</strong> Fitness, wellness & motivation</p>
+                    <p><strong>Prix :</strong> 18-65€ selon contenu</p>
+                    <div class="bg-green-100 p-2 rounded mt-3">
+                        <p class="text-green-800"><strong>ROI :</strong> 65% - Marché en croissance</p>
+                    </div>
+                </div>
+                <button class="w-full mt-4 bg-green-500 text-white py-2 rounded hover:bg-green-600">
+                    💪 Créer Aria
+                </button>
+            </div>
+
+            <!-- Raven Darkmore -->
+            <div class="persona-card">
+                <div class="text-center mb-4">
+                    <i class="fas fa-moon text-4xl text-purple-500 mb-2"></i>
+                    <h3 class="text-xl font-bold">Raven Darkmore</h3>
+                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">ALTERNATIVE</span>
+                </div>
+                <div class="space-y-2 text-sm">
+                    <p><strong>Âge :</strong> 23 ans</p>
+                    <p><strong>Style :</strong> Gothique artistique, alternative</p>
+                    <p><strong>Spécialité :</strong> Culture alternative & art sombre</p>
+                    <p><strong>Prix :</strong> 22-75€ selon contenu</p>
+                    <div class="bg-purple-100 p-2 rounded mt-3">
+                        <p class="text-purple-800"><strong>ROI :</strong> 55% - Niche spécialisée</p>
+                    </div>
+                </div>
+                <button class="w-full mt-4 bg-purple-500 text-white py-2 rounded hover:bg-purple-600">
+                    🌙 Créer Raven
+                </button>
+            </div>
+
+            <!-- Nouveau Persona Custom -->
+            <div class="persona-card border-dashed border-2 border-gray-300">
+                <div class="text-center mb-4">
+                    <i class="fas fa-plus-circle text-4xl text-gray-400 mb-2"></i>
+                    <h3 class="text-xl font-bold text-gray-600">Nouveau Persona</h3>
+                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">CUSTOM</span>
+                </div>
+                <div class="text-center text-gray-600">
+                    <p class="mb-4">Créez votre propre persona personnalisé pour votre niche spécifique</p>
+                </div>
+                <button class="w-full mt-4 bg-gray-400 text-white py-2 rounded hover:bg-gray-500">
+                    ➕ Créer Persona Custom
+                </button>
+            </div>
+
+            <!-- Templates Internationaux -->
+            <div class="persona-card">
+                <div class="text-center mb-4">
+                    <i class="fas fa-globe text-4xl text-blue-500 mb-2"></i>
+                    <h3 class="text-xl font-bold">Templates Internationaux</h3>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">GLOBAL</span>
+                </div>
+                <div class="space-y-2 text-sm">
+                    <p><strong>Adaptés par culture :</strong> US, UK, DE, ES...</p>
+                    <p><strong>Multilingue :</strong> Natif selon marché</p>
+                    <p><strong>Optimisé :</strong> Standards locaux</p>
+                    <p><strong>Conformité :</strong> Réglementations régionales</p>
+                </div>
+                <button class="w-full mt-4 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+                    🌍 Explorer Templates
+                </button>
+            </div>
+        </div>
+
+        <!-- Script PersonaCatalog -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-code text-3xl text-orange-600 mr-4"></i>
+                <h3 class="text-2xl font-bold">Script Python : PersonaCatalog</h3>
+            </div>
+            
+            <div class="code-container">
+                <button class="copy-button" onclick="copyToClipboard('persona-catalog')">📋 Copier le Code Catalogue</button>
+                <pre id="persona-catalog"># 📚 CATALOGUE DE PERSONAS PRÉDÉFINIS
+class PersonaCatalog:
+    """Catalogue de templates personas prêts à l'emploi"""
+    
+    def __init__(self):
+        """Initialise le catalogue avec tous les templates"""
+        self.persona_templates = self.load_persona_templates()
+        print("📚 Catalogue de personas chargé avec succès !")
+    
+    def load_persona_templates(self) -> Dict:
+        """Charge tous les templates de personas disponibles"""
+        return {
+            # 👑 PERSONA PRINCIPAL - LÉANA MYSTÈRE
+            "leana_mystere": {
+                "name": "Léana Mystère",
+                "age": 24,
+                "category": PersonaCategory.MAIN_BRAND,
+                "specialization": ["art_numérique", "sensualité_sophistiquée", "créativité"],
+                "visual_traits": {
+                    "hair": "long brown hair, elegant waves",
+                    "eyes": "mysterious green eyes",
+                    "style": "sophisticated artistic, franco-italian elegance",
+                    "body": "graceful curves, confident posture",
+                    "makeup": "natural sophisticated, artistic touches"
+                },
+                "personality_traits": {
+                    "creativity": 0.95,      # Très créative
+                    "confidence": 0.85,      # Très confiante
+                    "mystery": 0.80,         # Mystérieuse
+                    "sophistication": 0.90,  # Très sophistiquée
+                    "playfulness": 0.70,     # Joueuse
+                    "empathy": 0.75          # Empathique
+                },
+                "target_market": "france_europe_francophone",
+                "content_pricing": {
+                    "teasing": 5.0,      # Contenu suggestif
+                    "artistic": 15.0,    # Nu artistique
+                    "standard": 25.0,    # Contenu standard
+                    "premium": 45.0,     # Contenu premium
+                    "custom": 80.0       # Créations sur mesure
+                },
+                "specialization_prompts": [
+                    "artistic nude photography",
+                    "sophisticated sensuality",
+                    "creative digital art",
+                    "franco-italian elegance"
+                ]
+            },
+            
+            # 🍷 MILF MATURE - SOPHIA VALENTINA
+            "sophia_valentina": {
+                "name": "Sophia Valentina",
+                "age": 38,
+                "category": PersonaCategory.MILF_MATURE,
+                "specialization": ["expérience", "élégance", "sophistication_mature"],
+                "visual_traits": {
+                    "hair": "auburn hair, elegant mature style",
+                    "eyes": "experienced confident gaze",
+                    "style": "sophisticated mature woman, luxury fashion",
+                    "body": "mature elegant curves, confident bearing",
+                    "makeup": "professional sophisticated, timeless elegance"
+                },
+                "personality_traits": {
+                    "confidence": 0.95,      # Très confiante (expérience)
+                    "sophistication": 0.90,  # Très sophistiquée
+                    "mystery": 0.75,         # Mystérieuse avec expérience
+                    "empathy": 0.85,         # Très empathique
+                    "wisdom": 0.88,          # Sagesse acquise
+                    "sensuality": 0.82       # Sensualité mature
+                },
+                "target_market": "mature_audience_35plus",
+                "content_pricing": {
+                    "consultation": 20.0,    # Conseils expérience
+                    "standard": 25.0,        # Contenu standard
+                    "premium": 45.0,         # Contenu premium
+                    "intimate": 65.0,        # Sessions intimes
+                    "custom": 80.0           # Expérience personnalisée
+                },
+                "specialization_prompts": [
+                    "mature sophisticated woman",
+                    "experienced elegant beauty",
+                    "luxury lifestyle content",
+                    "sophisticated mature sensuality"
+                ]
+            },
+            
+            # 💪 FITNESS - ARIA SPORTX
+            "aria_sportx": {
+                "name": "Aria SportX",
+                "age": 26,
+                "category": PersonaCategory.FITNESS_WELLNESS,
+                "specialization": ["fitness", "motivation", "wellness", "sport"],
+                "visual_traits": {
+                    "hair": "athletic ponytail, platinum blonde",
+                    "eyes": "energetic determined gaze",
+                    "style": "athletic sporty, fitness fashion",
+                    "body": "toned athletic build, perfect proportions",
+                    "makeup": "natural sporty, fresh energetic look"
+                },
+                "personality_traits": {
+                    "energy": 0.95,          # Très énergique
+                    "motivation": 0.90,      # Très motivante
+                    "confidence": 0.85,      # Confiante sportive
+                    "determination": 0.88,   # Très déterminée
+                    "positivity": 0.92,      # Très positive
+                    "leadership": 0.78       # Leadership naturel
+                },
+                "target_market": "fitness_enthusiasts_25_40",
+                "content_pricing": {
+                    "motivation": 12.0,      # Contenu motivationnel
+                    "workout": 18.0,         # Séances fitness
+                    "standard": 20.0,        # Contenu standard
+                    "premium": 35.0,         # Premium sportif
+                    "coaching": 65.0         # Coaching personnalisé
+                },
+                "specialization_prompts": [
+                    "athletic fitness model",
+                    "motivational sports content",
+                    "healthy lifestyle inspiration",
+                    "sporty energetic beauty"
+                ]
+            },
+            
+            # 🌙 ALTERNATIVE GOTHIQUE - RAVEN DARKMORE
+            "raven_darkmore": {
+                "name": "Raven Darkmore",
+                "age": 23,
+                "category": PersonaCategory.ALTERNATIVE_GOTH,
+                "specialization": ["gothique", "alternatif", "artistique", "sombre"],
+                "visual_traits": {
+                    "hair": "jet black hair, gothic styling",
+                    "eyes": "piercing dark eyes, dramatic makeup",
+                    "style": "gothic alternative fashion, dark elegance",
+                    "body": "pale aesthetic, tattoos and piercings",
+                    "makeup": "dramatic gothic, dark artistic expression"
+                },
+                "personality_traits": {
+                    "creativity": 0.92,      # Très créative
+                    "mystery": 0.95,         # Très mystérieuse
+                    "intensity": 0.85,       # Intensité émotionnelle
+                    "authenticity": 0.90,    # Très authentique
+                    "rebellion": 0.75,       # Esprit rebelle
+                    "depth": 0.88            # Profondeur artistique
+                },
+                "target_market": "alternative_subculture_18_35",
+                "content_pricing": {
+                    "artistic": 15.0,        # Art alternatif
+                    "gothic": 22.0,          # Contenu gothique
+                    "standard": 25.0,        # Standard alternatif
+                    "premium": 40.0,         # Premium sombre
+                    "custom": 75.0           # Créations uniques
+                },
+                "specialization_prompts": [
+                    "gothic alternative beauty",
+                    "dark artistic expression",
+                    "alternative lifestyle content",
+                    "mysterious gothic elegance"
+                ]
+            }
+        }
+    
+    def create_persona_from_template(self, template_id: str, customizations: Dict = None):
+        """Crée un persona basé sur un template avec customisations optionnelles"""
+        print(f"🎭 Création persona depuis template: {template_id}")
+        
+        if template_id not in self.persona_templates:
+            print(f"❌ Template '{template_id}' non trouvé !")
+            return None
+        
+        # Récupération du template
+        template = self.persona_templates[template_id].copy()
+        
+        # Application des customisations si fournies
+        if customizations:
+            print("🎨 Application des customisations...")
+            template.update(customizations)
+        
+        # Génération ID unique avec timestamp
+        import time
+        persona_id = f"{template_id}_{int(time.time())}"
+        
+        # Création de l'objet AIPersonaConfig
+        persona_config = AIPersonaConfig(
+            persona_id=persona_id,
+            name=template["name"],
+            age=template["age"],
+            category=template["category"],
+            primary_language="fr",  # Français par défaut
+            target_market=template["target_market"],
+            specialization=template["specialization"],
+            visual_traits=template["visual_traits"],
+            personality_traits=template["personality_traits"],
+            content_pricing=template["content_pricing"],
+            created_at=datetime.now()
+        )
+        
+        print(f"✅ Persona {persona_config.name} créé depuis template !")
+        return persona_config
+    
+    def generate_localized_persona(self, base_template: str, target_market: str):
+        """Génère un persona localisé pour un marché spécifique"""
+        print(f"🌍 Génération persona localisé: {base_template} → {target_market}")
+        
+        # Création du persona de base
+        base_persona = self.create_persona_from_template(base_template)
+        if not base_persona:
+            return None
+        
+        # Configuration de localisation
+        localization = self.get_market_localization(target_market)
+        
+        # Adaptation du nom pour le marché
+        localized_name = self.adapt_name_for_market(base_persona.name, target_market)
+        
+        # Adaptation des traits culturels
+        localized_traits = self.adapt_cultural_traits(
+            base_persona.personality_traits, 
+            localization['cultural_preferences']
+        )
+        
+        # Adaptation des traits visuels
+        localized_visual = self.adapt_visual_traits(
+            base_persona.visual_traits,
+            localization['beauty_standards']
+        )
+        
+        # Adaptation des prix
+        localized_pricing = self.adapt_pricing_for_market(
+            base_persona.content_pricing,
+            target_market
+        )
+        
+        # Création du persona localisé
+        localized_persona = AIPersonaConfig(
+            persona_id=f"{base_persona.persona_id}_{target_market}",
+            name=localized_name,
+            age=base_persona.age,
+            category=base_persona.category,
+            primary_language=localization['primary_language'],
+            target_market=target_market,
+            specialization=base_persona.specialization,
+            visual_traits=localized_visual,
+            personality_traits=localized_traits,
+            content_pricing=localized_pricing,
+            created_at=datetime.now()
+        )
+        
+        print(f"✅ Persona localisé créé: {localized_persona.name}")
+        return localized_persona
+    
+    def get_market_localization(self, target_market: str) -> Dict:
+        """Retourne la configuration de localisation pour un marché"""
+        localizations = {
+            'usa': {
+                'primary_language': 'en',
+                'cultural_preferences': {
+                    'confidence': 0.1,    # Plus confiante
+                    'directness': 0.15    # Plus directe
+                },
+                'beauty_standards': {
+                    'style': 'american glamour, bold confident',
+                    'makeup': 'bold american style'
+                },
+                'currency_multiplier': 1.2  # Prix en USD
+            },
+            'germany': {
+                'primary_language': 'de',
+                'cultural_preferences': {
+                    'professionalism': 0.2,  # Plus professionnelle
+                    'precision': 0.15        # Plus précise
+                },
+                'beauty_standards': {
+                    'style': 'german elegance, sophisticated professional',
+                    'makeup': 'natural professional german'
+                },
+                'currency_multiplier': 1.0
+            },
+            'spain': {
+                'primary_language': 'es',
+                'cultural_preferences': {
+                    'warmth': 0.2,         # Plus chaleureuse
+                    'expressiveness': 0.18  # Plus expressive
+                },
+                'beauty_standards': {
+                    'style': 'spanish passionate, warm elegant',
+                    'makeup': 'warm spanish mediterranean'
+                },
+                'currency_multiplier': 0.9
+            }
+        }
+        
+        return localizations.get(target_market, {
+            'primary_language': 'fr',
+            'cultural_preferences': {},
+            'beauty_standards': {},
+            'currency_multiplier': 1.0
+        })
+    
+    def adapt_cultural_traits(self, base_traits: Dict, cultural_preferences: Dict) -> Dict:
+        """Adapte les traits de personnalité selon les préférences culturelles"""
+        adapted_traits = base_traits.copy()
+        
+        for trait, adjustment in cultural_preferences.items():
+            if trait in adapted_traits:
+                # Ajustement avec limite [0, 1]
+                adapted_traits[trait] = min(1.0, max(0.0, 
+                    adapted_traits[trait] + adjustment
+                ))
+        
+        return adapted_traits
+    
+    def adapt_visual_traits(self, base_visual: Dict, beauty_standards: Dict) -> Dict:
+        """Adapte les traits visuels selon les standards de beauté locaux"""
+        adapted_visual = base_visual.copy()
+        
+        for trait, new_value in beauty_standards.items():
+            if trait in adapted_visual:
+                adapted_visual[trait] = new_value
+        
+        return adapted_visual
+    
+    def adapt_name_for_market(self, base_name: str, target_market: str) -> str:
+        """Adapte le nom pour le marché cible"""
+        name_adaptations = {
+            'usa': {
+                'Léana Mystère': 'Leana Mystery',
+                'Sophia Valentina': 'Sofia Valentine', 
+                'Aria SportX': 'Aria SportX',  # Déjà anglophone
+                'Raven Darkmore': 'Raven Darkmore'  # Déjà anglophone
+            },
+            'germany': {
+                'Léana Mystère': 'Leana Geheimnis',
+                'Sophia Valentina': 'Sofia Valentina',
+                'Aria SportX': 'Aria Sport',
+                'Raven Darkmore': 'Raven Dunkel'
+            },
+            'spain': {
+                'Léana Mystère': 'Leana Misterio',
+                'Sophia Valentina': 'Sofia Valentina',
+                'Aria SportX': 'Aria Deporte',
+                'Raven Darkmore': 'Raven Oscura'
+            }
+        }
+        
+        market_names = name_adaptations.get(target_market, {})
+        return market_names.get(base_name, base_name)
+    
+    def adapt_pricing_for_market(self, base_pricing: Dict, target_market: str) -> Dict:
+        """Adapte les prix selon le marché"""
+        localization = self.get_market_localization(target_market)
+        multiplier = localization.get('currency_multiplier', 1.0)
+        
+        adapted_pricing = {}
+        for price_type, price in base_pricing.items():
+            adapted_pricing[price_type] = round(price * multiplier, 2)
+        
+        return adapted_pricing
+    
+    def list_available_templates(self):
+        """Affiche tous les templates disponibles"""
+        print("\n📚 === TEMPLATES DISPONIBLES ===")
+        
+        for template_id, template in self.persona_templates.items():
+            print(f"\n🎭 {template['name']} ({template_id})")
+            print(f"   📊 Catégorie: {template['category'].value}")
+            print(f"   🎯 Marché: {template['target_market']}")
+            print(f"   💎 Spécialités: {', '.join(template['specialization'])}")
+            print(f"   💰 Prix moyen: {template['content_pricing']['standard']}€")
+    
+    def get_template_info(self, template_id: str):
+        """Retourne les informations détaillées d'un template"""
+        if template_id not in self.persona_templates:
+            print(f"❌ Template '{template_id}' non trouvé !")
+            return None
+        
+        template = self.persona_templates[template_id]
+        
+        print(f"\n📋 === INFORMATIONS TEMPLATE : {template['name']} ===")
+        print(f"🎭 Nom: {template['name']}")
+        print(f"👤 Âge: {template['age']} ans")
+        print(f"📊 Catégorie: {template['category'].value}")
+        print(f"🎯 Marché cible: {template['target_market']}")
+        print(f"💎 Spécialités: {', '.join(template['specialization'])}")
+        
+        print("\n🎨 Traits visuels:")
+        for trait, value in template['visual_traits'].items():
+            print(f"   {trait}: {value}")
+        
+        print("\n🧠 Traits de personnalité:")
+        for trait, value in template['personality_traits'].items():
+            print(f"   {trait}: {value:.0%}")
+        
+        print("\n💰 Grille tarifaire:")
+        for price_type, price in template['content_pricing'].items():
+            print(f"   {price_type}: {price}€")
+        
+        return template
+
+# 🧪 FONCTION DE TEST DU CATALOGUE
+def test_persona_catalog():
+    """Test du catalogue de personas"""
+    print("🧪 === TEST DU CATALOGUE DE PERSONAS ===\n")
+    
+    # Création du catalogue
+    catalog = PersonaCatalog()
+    
+    # Liste des templates disponibles
+    catalog.list_available_templates()
+    
+    # Informations détaillées d'un template
+    catalog.get_template_info("sophia_valentina")
+    
+    # Création d'un persona depuis template
+    sophia = catalog.create_persona_from_template("sophia_valentina")
+    
+    # Création d'un persona localisé
+    leana_usa = catalog.generate_localized_persona("leana_mystere", "usa")
+    
+    if sophia and leana_usa:
+        print(f"\n✅ Personas créés:")
+        print(f"   - {sophia.name} ({sophia.persona_id})")
+        print(f"   - {leana_usa.name} ({leana_usa.persona_id})")
+    
+    print("\n✅ Test catalogue terminé avec succès !")
+
+# 🚀 UTILISATION COMBINÉE
+def demo_catalogue_complet():
+    """Démonstration complète du système"""
+    print("🎭 === DÉMONSTRATION CATALOGUE + MANAGER ===\n")
+    
+    # Création du manager et du catalogue
+    manager = MultiPersonaManager()
+    catalog = PersonaCatalog()
+    
+    # Création de plusieurs personas depuis templates
+    print("🎭 Création de l'équipe de personas...")
+    
+    # Léana principale
+    leana = catalog.create_persona_from_template("leana_mystere")
+    manager.create_new_persona(leana)
+    
+    # Sophia mature
+    sophia = catalog.create_persona_from_template("sophia_valentina")
+    manager.create_new_persona(sophia)
+    
+    # Aria fitness
+    aria = catalog.create_persona_from_template("aria_sportx")
+    manager.create_new_persona(aria)
+    
+    # Affichage de l'empire
+    print("\n" + "="*50)
+    manager.list_all_personas()
+    
+    # Statistiques globales
+    stats = manager.get_empire_statistics()
+    print("\n📊 === STATISTIQUES EMPIRE ===")
+    print(f"Total personas: {stats['total_personas']}")
+    print(f"Revenus mensuels: {stats['total_monthly_revenue']:.0f}€")
+    print(f"ROI moyen empire: {stats['empire_roi']:.1f}x")
+    
+    print("\n🎉 Empire multi-persona opérationnel !")
+
+# Test automatique si exécution directe
+if __name__ == "__main__":
+    demo_catalogue_complet()</pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Dashboard -->
+<section id="dashboard" class="py-16">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
+            <i class="fas fa-chart-line mr-3 text-blue-600"></i>Dashboard Monitoring Temps Réel
+        </h2>
+        
+        <div class="success-box mb-8">
+            <h3 class="text-2xl font-bold mb-4">📊 Qu'est-ce que le Dashboard ?</h3>
+            <p class="text-lg">Le dashboard est votre <span class="highlight">"tableau de bord"</span> qui affiche en temps réel les performances de tous vos personas. Comme le compteur de vitesse de votre voiture, mais pour vos IA !</p>
+        </div>
+
+        <!-- Métriques Principales -->
+        <div class="dashboard-grid mb-8">
+            <div class="metric-card text-center">
+                <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                <div class="text-3xl font-bold text-blue-600" id="personas-actifs">7</div>
+                <div class="text-gray-600">Personas Actifs</div>
+                <div class="text-sm text-green-600 mt-2">+2 ce mois</div>
+            </div>
+            <div class="metric-card text-center">
+                <i class="fas fa-euro-sign text-4xl text-green-600 mb-4"></i>
+                <div class="text-3xl font-bold text-green-600" id="revenus-totaux">45,230€</div>
+                <div class="text-gray-600">Revenus Totaux</div>
+                <div class="text-sm text-green-600 mt-2">+18% vs mois dernier</div>
+            </div>
+            <div class="metric-card text-center">
+                <i class="fas fa-image text-4xl text-purple-600 mb-4"></i>
+                <div class="text-3xl font-bold text-purple-600" id="contenu-genere">1,847</div>
+                <div class="text-gray-600">Contenu Généré</div>
+                <div class="text-sm text-green-600 mt-2">+156 cette semaine</div>
+            </div>
+            <div class="metric-card text-center">
+                <i class="fas fa-chart-line text-4xl text-yellow-600 mb-4"></i>
+                <div class="text-3xl font-bold text-yellow-600" id="roi-moyen">284%</div>
+                <div class="text-gray-600">ROI Moyen</div>
+                <div class="text-sm text-green-600 mt-2">+12% vs trimestre</div>
+            </div>
+        </div>
+
+        <!-- Graphique Performance -->
+        <div class="bg-white rounded-lg p-8 shadow-lg mb-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">📈 Évolution Revenus Collectifs</h3>
+            <canvas id="revenusChart" class="performance-chart"></canvas>
+        </div>
+
+        <!-- Performance par Persona -->
+        <div class="bg-white rounded-lg p-8 shadow-lg mb-8">
+            <h3 class="text-2xl font-bold mb-6">🎭 Performance par Persona</h3>
+            <div class="space-y-4">
+                <!-- Léana Mystère -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            LM
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Léana Mystère</h4>
+                            <p class="text-sm text-gray-600">Persona Principal</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xl font-bold text-green-600">12,450€</div>
+                        <div class="text-sm text-gray-600">ROI: 3.2x</div>
+                    </div>
+                    <div class="w-16 h-8 bg-green-200 rounded-full flex items-center">
+                        <div class="w-12 h-6 bg-green-500 rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Sophia Valentina -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            SV
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophia Valentina</h4>
+                            <p class="text-sm text-gray-600">MILF Mature</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xl font-bold text-green-600">8,920€</div>
+                        <div class="text-sm text-gray-600">ROI: 2.8x</div>
+                    </div>
+                    <div class="w-16 h-8 bg-green-200 rounded-full flex items-center">
+                        <div class="w-10 h-6 bg-green-500 rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Aria SportX -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            AS
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Aria SportX</h4>
+                            <p class="text-sm text-gray-600">Fitness</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xl font-bold text-green-600">6,780€</div>
+                        <div class="text-sm text-gray-600">ROI: 2.4x</div>
+                    </div>
+                    <div class="w-16 h-8 bg-orange-200 rounded-full flex items-center">
+                        <div class="w-8 h-6 bg-orange-500 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interface de Gestion -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+            <h3 class="text-2xl font-bold mb-6">⚙️ Interface de Gestion Multi-Persona</h3>
+            
+            <div class="bg-gray-900 text-green-400 p-6 rounded-lg font-mono text-sm">
+                <div class="mb-4">
+                    <span class="text-blue-400">MultiPersonaManager v2.0</span> - Status: <span class="text-green-400">ACTIVE</span>
+                </div>
+                
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <span>🎭 LÉANA MYSTÈRE</span>
+                        <span>Status: <span class="text-green-400">ACTIVE</span> | Revenue: <span class="text-yellow-400">12,450€</span></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>🍷 SOPHIA VALENTINA</span>
+                        <span>Status: <span class="text-blue-400">GENERATING</span> | Revenue: <span class="text-yellow-400">8,920€</span></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>💪 ARIA SPORTX</span>
+                        <span>Status: <span class="text-orange-400">PUBLISHING</span> | Revenue: <span class="text-yellow-400">6,780€</span></span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <span class="text-gray-400">$ </span><span class="animate-pulse">_</span>
+                </div>
+            </div>
+            
+            <div class="mt-6 flex space-x-4">
+                <button class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+                    ➕ Nouveau Persona
+                </button>
+                <button class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+                    📊 Analytics Détaillés
+                </button>
+                <button class="bg-purple-500 text-white px-6 py-2 rounded hover:bg-purple-600">
+                    ⚙️ Configuration
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Scripts Complets -->
+<section id="scripts" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
+            <i class="fas fa-file-code mr-3 text-green-600"></i>Guide d'Installation Complet
+        </h2>
+        
+        <!-- Guide d'Installation -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div class="step-number mx-auto mb-4">1</div>
+                <h3 class="text-xl font-bold mb-3">Installation Dépendances</h3>
+                <p class="text-gray-600 mb-4">Installez les bibliothèques Python nécessaires pour le gestionnaire multi-persona</p>
+                <div class="code-container text-left">
+                    <pre>pip install sqlite3 pandas numpy matplotlib seaborn</pre>
+                </div>
+                <div class="warning-box mt-4">
+                    <p class="text-sm"><strong>Important :</strong> Sauvegardez régulièrement votre base de données persona.</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div class="step-number mx-auto mb-4">2</div>
+                <h3 class="text-xl font-bold mb-3">Configuration Base de Données</h3>
+                <p class="text-gray-600 mb-4">Initialisez la base de données SQLite pour stocker les informations de tous vos personas</p>
+                <div class="code-container text-left">
+                    <pre>python multipersona_manager.py
+# Auto-création de la BDD</pre>
+                </div>
+                <div class="success-box mt-4">
+                    <p class="text-sm">La base sera créée automatiquement au premier lancement.</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div class="step-number mx-auto mb-4">3</div>
+                <h3 class="text-xl font-bold mb-3">Démarrage Dashboard</h3>
+                <p class="text-gray-600 mb-4">Lancez l'interface de monitoring en temps réel</p>
+                <div class="code-container text-left">
+                    <pre>python dashboard_launcher.py --port 8080 --personas-config config.json</pre>
+                </div>
+                <div class="success-box mt-4">
+                    <p class="text-sm">Dashboard accessible sur http://localhost:8080</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Métriques de Performance -->
+        <div class="bg-white rounded-lg p-8 shadow-lg mb-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">📊 Métriques de Performance System</h3>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">94%</div>
+                    <div class="text-gray-600">Efficacité Ressources</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">12</div>
+                    <div class="text-gray-600">Synergies Détectées</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">8</div>
+                    <div class="text-gray-600">Conflits Évités</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">+32%</div>
+                    <div class="text-gray-600">ROI Collectif</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prochaines Étapes -->
+        <div class="bg-white rounded-lg p-8 shadow-lg">
+            <h3 class="text-2xl font-bold mb-6 text-center">🚀 Prochaines Étapes</h3>
+            
+            <div class="success-box">
+                <h4 class="text-xl font-bold mb-4">✅ Bloc 9.1 Terminé - Vous Avez Maintenant :</h4>
+                <ul class="list-disc pl-6 space-y-2 text-lg">
+                    <li><strong>MultiPersonaManager :</strong> Gestionnaire central pour tous vos personas</li>
+                    <li><strong>PersonaCatalog :</strong> Catalogue de templates prêts à l'emploi</li>
+                    <li><strong>Dashboard :</strong> Interface de monitoring temps réel</li>
+                    <li><strong>Base de données :</strong> Stockage sécurisé de toutes vos données</li>
+                    <li><strong>Scripts complets :</strong> Code Python fonctionnel et documenté</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <h4 class="text-xl font-bold mb-4">➡️ Suite du Bloc 9 :</h4>
+                <p class="text-lg">Pour compléter votre système multi-persona, vous devrez suivre :</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Bloc 9.2 :</strong> Orchestration & Intelligence Collective</li>
+                    <li><strong>Bloc 9.3 :</strong> Expansion Internationale & Vision Long Terme</li>
+                </ul>
+            </div>
+            
+            <div class="text-center mt-8">
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-xl font-bold hover:from-blue-700 hover:to-purple-700">
+                    🎯 Continuer vers Bloc 9.2 - Orchestration
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="gradient-bg text-white py-12">
+    <div class="container mx-auto px-6 text-center">
+        <div class="mb-6">
+            <i class="fas fa-users-cog text-4xl mb-4"></i>
+            <h3 class="text-2xl font-bold mb-2">Bloc 9.1 - Multi-Persona Manager</h3>
+            <p class="text-lg opacity-90">Infrastructure scalable pour empire numérique multi-IA</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h4 class="font-bold text-lg mb-2">🎯 Objectifs Atteints</h4>
+                <p class="opacity-80">Gestionnaire central, catalogue templates, dashboard monitoring</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-2">🐍 Scripts Python</h4>
+                <p class="opacity-80">Code complet, documenté, prêt à l'emploi</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-2">👴👵 Explications 70 ans</h4>
+                <p class="opacity-80">Guide détaillé, clic-par-clic, accessible à tous</p>
+            </div>
+        </div>
+        
+        <div class="text-sm opacity-70">
+            Manuel IA MYM 2025 - Bloc 9.1 Complet • Infrastructure Multi-Persona • Version Débutant Total
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts JavaScript -->
+<script>
+// Fonction pour copier le code
+function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        // Animation de confirmation
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = '✅ Copié !';
+        button.style.background = '#10b981';
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = '#10b981';
+        }, 2000);
+    });
+}
+
+// Animation des métriques
+function animateCounters() {
+    const counters = document.querySelectorAll('[id$="-actifs"], [id$="-totaux"], [id$="-genere"], [id$="-moyen"]');
+    counters.forEach(counter => {
+        const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+        const increment = target / 50;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                counter.textContent = counter.textContent; // Garde le format original
+                clearInterval(timer);
+            } else {
+                const formatted = Math.floor(current).toLocaleString();
+                counter.textContent = counter.textContent.replace(/[\d,]+/, formatted);
+            }
+        }, 20);
+    });
+}
+
+// Graphique des revenus avec Chart.js
+function createRevenueChart() {
+    const ctx = document.getElementById('revenusChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun'],
+            datasets: [{
+                label: 'Revenus Collectifs (€)',
+                data: [15000, 22000, 28000, 35000, 41000, 45230],
+                borderColor: '#667eea',
+                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4
+            }, {
+                label: 'Léana Mystère',
+                data: [8000, 9500, 10200, 11000, 11800, 12450],
+                borderColor: '#fbbf24',
+                backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                borderWidth: 2,
+                fill: false
+            }, {
+                label: 'Sophia Valentina',
+                data: [4000, 6000, 7500, 8200, 8600, 8920],
+                borderColor: '#ef4444',
+                backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value.toLocaleString() + '€';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Initialisation au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation des compteurs avec délai
+    setTimeout(animateCounters, 500);
+    
+    // Création du graphique
+    setTimeout(createRevenueChart, 1000);
+    
+    // Animation smooth scroll pour les liens
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e66e9cefa250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDqE5mUdosC06a0bVXKPfuYqwWSQ8p2VB41dMgUMSLJoUgPOzRQwM2G65csr9fMC6GeGTCtIDmCCl3IXrnA8ePIYpicUKpTQG4Xz2h%2B4z6jzXoY6KIuePmhtvrwhAeKt6A2gJONLBjvKyUY8Wr7Sza4B1mHBL33lLLp7BhY8dvJcvyvhm3J%2Fo1iGJWrt0oB8M8yYdwNjy%2FV%2BN47YEvqrN93MahsKmoAxoXSXyHMNUaJic%2BGDrWLN54%2FMv%2BQt3AfHq4M07e9heNAsajCjM6THLEYcOu0ZLCr7kAhRkfvGD5lqkbMMPOXWvBYuIV%2F1TblFamBWWbJA7DyzHcUx8rlXs3AbQ4AU%2FXr3MYg%2Bxj6hG%2BIfEW3PCLvWxUOb2olT0vqyDIyMZNb0zbQs5nvOqVD7n0BH0uImIm7BueselD6NM39enrCBlQ0jYCf4ch5E%2BPSqGu9jHvWJRTfZ5NLZ6wBbaI%2BFEhM4BxT8HX4IcS5aokRTfG9cXdIizOAqBJDHak6WIZ%2FmJFOkVSmlRGOY0KpGa0uIU6RZW8GgEijgZMm7N6daA";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDqE5mUdosC06a0bVXKPfuYqwWSQ8p2VB41dMgUMSLJoUgPOzRQwM2G65csr9fMC6GeGTCtIDmCCl3IXrnA8ePIYpicUKpTQG4Xz2h+4z6jzXoY6KIuePmhtvrwhAeKt6A2gJONLBjvKyUY8Wr7Sza4B1mHBL33lLLp7BhY8dvJcvyvhm3J/o1iGJWrt0oB8M8yYdwNjy/V+N47YEvqrN93MahsKmoAxoXSXyHMNUaJic+GDrWLN54/Mv+Qt3AfHq4M07e9heNAsajCjM6THLEYcOu0ZLCr7kAhRkfvGD5lqkbMMPOXWvBYuIV/1TblFamBWWbJA7DyzHcUx8rlXs3AbQ4AU/Xr3MYg+xj6hG+IfEW3PCLvWxUOb2olT0vqyDIyMZNb0zbQs5nvOqVD7n0BH0uImIm7BueselD6NM39enrCBlQ0jYCf4ch5E+PSqGu9jHvWJRTfZ5NLZ6wBbaI+FEhM4BxT8HX4IcS5aokRTfG9cXdIizOAqBJDHak6WIZ/mJFOkVSmlRGOY0KpGa0uIU6RZW8GgEijgZMm7N6daA";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

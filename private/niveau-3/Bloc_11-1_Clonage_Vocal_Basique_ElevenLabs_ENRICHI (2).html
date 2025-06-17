@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 11.1 - Clonage Vocal Basique & ElevenLabs</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+        }
+        .step-indicator {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .alert-danger {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            border-left: 4px solid #dc2626;
+        }
+        .alert-warning {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid #d97706;
+        }
+        .alert-info {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-left: 4px solid #2563eb;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #4338ca;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+        .nav-tab {
+            transition: all 0.3s ease;
+        }
+        .nav-tab.active {
+            background: #4f46e5;
+            color: white;
+        }
+        .risk-level-1 { border-left: 4px solid #10b981; background: #ecfdf5; }
+        .risk-level-2 { border-left: 4px solid #f59e0b; background: #fffbeb; }
+        .risk-level-3 { border-left: 4px solid #ef4444; background: #fef2f2; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-microphone-alt text-4xl mb-4"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-2">BLOC 11.1 - Clonage Vocal Basique</h1>
+                <h2 class="text-xl font-light mb-4">ElevenLabs & Fondamentaux</h2>
+                <p class="text-lg max-w-3xl mx-auto">
+                    Guide complet pour comprendre et utiliser les techniques de clonage vocal de base, 
+                    avec focus sur la protection, la légalité et l'usage responsable.
+                </p>
+                <div class="mt-6">
+                    <span class="inline-block bg-white bg-opacity-20 rounded-full px-4 py-2 text-sm">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Formation éducative • Usage responsable • Conformité légale
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex overflow-x-auto">
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap active" onclick="showSection('introduction')">
+                    <i class="fas fa-info-circle mr-2"></i>Introduction
+                </button>
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap" onclick="showSection('avertissements')">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>Avertissements
+                </button>
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap" onclick="showSection('elevenlabs')">
+                    <i class="fas fa-robot mr-2"></i>ElevenLabs
+                </button>
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap" onclick="showSection('alternatives')">
+                    <i class="fas fa-layer-group mr-2"></i>Alternatives
+                </button>
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap" onclick="showSection('preparation')">
+                    <i class="fas fa-microphone mr-2"></i>Préparation
+                </button>
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap" onclick="showSection('detection')">
+                    <i class="fas fa-search mr-2"></i>Détection
+                </button>
+                <button class="nav-tab px-4 py-3 text-sm font-medium whitespace-nowrap" onclick="showSection('ethique')">
+                    <i class="fas fa-balance-scale mr-2"></i>Éthique
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="tab-content">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-volume-up text-blue-600 mr-3"></i>
+                        Qu'est-ce que le Clonage Vocal ?
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                        Le clonage vocal est une technologie d'intelligence artificielle qui permet de reproduire 
+                        la voix d'une personne à partir d'échantillons audio, créant des discours synthétiques 
+                        qui sonnent naturels et authentiques.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg">
+                        <div class="text-blue-600 text-2xl mb-3">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Intelligence Artificielle</h3>
+                        <p class="text-sm text-gray-600">
+                            Utilise des réseaux de neurones avancés pour analyser et reproduire 
+                            les caractéristiques vocales uniques.
+                        </p>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg">
+                        <div class="text-green-600 text-2xl mb-3">
+                            <i class="fas fa-waveform-path"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Analyse Spectrale</h3>
+                        <p class="text-sm text-gray-600">
+                            Décompose la voix en fréquences, tonalités, rythmes et 
+                            caractéristiques acoustiques spécifiques.
+                        </p>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg">
+                        <div class="text-purple-600 text-2xl mb-3">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Synthèse Réaliste</h3>
+                        <p class="text-sm text-gray-600">
+                            Génère de nouveaux enregistrements audio avec la voix clonée, 
+                            indiscernables de l'original.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                        Pourquoi cette Formation ?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-2">
+                                <i class="fas fa-shield-check mr-2"></i>Protection Personnelle
+                            </h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Reconnaître les tentatives de fraude vocale</li>
+                                <li>• Protéger votre identité vocale</li>
+                                <li>• Identifier les contenus synthétiques</li>
+                                <li>• Sécuriser vos communications</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-blue-700 mb-2">
+                                <i class="fas fa-graduation-cap mr-2"></i>Compétences Techniques
+                            </h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Comprendre les technologies vocales</li>
+                                <li>• Utiliser les outils professionnels</li>
+                                <li>• Maîtriser l'éthique technologique</li>
+                                <li>• Développer un usage responsable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert-info p-4 rounded-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-blue-600 mr-3 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-blue-800">Formation Éducative</h4>
+                            <p class="text-blue-700 text-sm">
+                                Cette formation vise à sensibiliser aux technologies de clonage vocal pour 
+                                une meilleure protection et un usage éthique. Tous les usages malveillants 
+                                sont strictement prohibés et légalement poursuivis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avertissements Section -->
+        <section id="avertissements" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-red-600 mb-4">
+                        <i class="fas fa-exclamation-triangle mr-3"></i>
+                        Avertissements Légaux & Éthiques
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Le clonage vocal est une technologie puissante qui doit être utilisée de manière 
+                        responsable et conforme aux lois en vigueur.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="risk-level-1 p-6 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <h3 class="font-bold text-green-800">Niveau Vert - Légal</h3>
+                        </div>
+                        <ul class="text-sm text-green-700 space-y-1">
+                            <li>• Formation et éducation</li>
+                            <li>• Recherche académique</li>
+                            <li>• Usage personnel avec consentement</li>
+                            <li>• Accessibilité et assistance</li>
+                            <li>• Doublage et traduction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="risk-level-2 p-6 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-exclamation text-yellow-600"></i>
+                            </div>
+                            <h3 class="font-bold text-yellow-800">Niveau Jaune - Zone Grise</h3>
+                        </div>
+                        <ul class="text-sm text-yellow-700 space-y-1">
+                            <li>• Contenu créatif avec divulgation</li>
+                            <li>• Parodie et satire déclarée</li>
+                            <li>• Posthume avec accord familial</li>
+                            <li>• Marketing avec transparence</li>
+                            <li>• Divertissement étiquetté IA</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="risk-level-3 p-6 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-times text-red-600"></i>
+                            </div>
+                            <h3 class="font-bold text-red-800">Niveau Rouge - Illégal</h3>
+                        </div>
+                        <ul class="text-sm text-red-700 space-y-1">
+                            <li>• Usurpation d'identité</li>
+                            <li>• Fraude et escroquerie</li>
+                            <li>• Harcèlement et intimidation</li>
+                            <li>• Manipulation électorale</li>
+                            <li>• Deepfake non consensuel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert-danger p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold text-red-800 mb-4">
+                        <i class="fas fa-gavel mr-2"></i>Cadre Légal International
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-red-700 mb-2">Union Européenne (RGPD)</h4>
+                            <ul class="text-sm text-red-600 space-y-1">
+                                <li>• Consentement explicite requis</li>
+                                <li>• Droit à l'effacement</li>
+                                <li>• Transparence algorithmique</li>
+                                <li>• Sanctions jusqu'à 4% du CA</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-red-700 mb-2">États-Unis & International</h4>
+                            <ul class="text-sm text-red-600 space-y-1">
+                                <li>• Right of Publicity violations</li>
+                                <li>• Federal fraud prosecution</li>
+                                <li>• State deepfake laws</li>
+                                <li>• Criminal penalties</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4">
+                        <i class="fas fa-clipboard-check mr-2"></i>Checklist de Conformité
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="flex items-center text-sm">
+                                <input type="checkbox" class="mr-2"> Consentement écrit obtenu
+                            </label>
+                            <label class="flex items-center text-sm">
+                                <input type="checkbox" class="mr-2"> Usage déclaré et transparent
+                            </label>
+                            <label class="flex items-center text-sm">
+                                <input type="checkbox" class="mr-2"> Pas d'intention malveillante
+                            </label>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="flex items-center text-sm">
+                                <input type="checkbox" class="mr-2"> Conformité légale vérifiée
+                            </label>
+                            <label class="flex items-center text-sm">
+                                <input type="checkbox" class="mr-2"> Étiquetage "IA Generated"
+                            </label>
+                            <label class="flex items-center text-sm">
+                                <input type="checkbox" class="mr-2"> Sauvegarde traçabilité
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ElevenLabs Section -->
+        <section id="elevenlabs" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-robot text-purple-600 mr-3"></i>
+                        ElevenLabs Professional
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        ElevenLabs est l'une des plateformes les plus avancées pour le clonage vocal IA, 
+                        offrant une qualité professionnelle avec seulement quelques minutes d'audio.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-purple-600 text-3xl mb-2">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Temps Requis</h3>
+                            <p class="text-purple-700">1-10 minutes d'audio</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-purple-600 text-3xl mb-2">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Qualité</h3>
+                            <p class="text-purple-700">Professionnelle</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-purple-600 text-3xl mb-2">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Langues</h3>
+                            <p class="text-purple-700">29+ langues</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape par étape ElevenLabs -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <i class="fas fa-list-ol text-blue-600 mr-2"></i>
+                        Guide Pas-à-Pas ElevenLabs
+                    </h3>
+
+                    <!-- Étape 1 -->
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="step-indicator">1</div>
+                            <h4 class="text-xl font-bold">Création de Compte</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="text-gray-700 mb-4">
+                                Rendez-vous sur <strong>elevenlabs.io</strong> et créez votre compte professionnel.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Actions Détaillées :</h5>
+                                    <ol class="text-sm text-gray-600 space-y-1">
+                                        <li>1. Ouvrez votre navigateur</li>
+                                        <li>2. Tapez "elevenlabs.io" dans la barre d'adresse</li>
+                                        <li>3. Cliquez sur "Sign Up" (coin supérieur droit)</li>
+                                        <li>4. Sélectionnez "Professional Plan" (recommandé)</li>
+                                        <li>5. Remplissez email, mot de passe</li>
+                                        <li>6. Vérifiez votre email</li>
+                                        <li>7. Connectez-vous à votre compte</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-2">Capture d'écran :</h5>
+                                    <div class="bg-gray-200 rounded-lg p-4 text-center text-gray-500">
+                                        <i class="fas fa-image text-2xl mb-2"></i>
+                                        <p class="text-sm">Interface ElevenLabs - Page d'inscription</p>
+                                        <p class="text-xs">Bouton "Sign Up" visible en haut à droite</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="step-indicator">2</div>
+                            <h4 class="text-xl font-bold">Préparation Audio Source</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="text-gray-700 mb-4">
+                                Préparez l'échantillon audio de la voix à cloner (1-10 minutes recommandées).
+                            </p>
+                            
+                            <div class="alert-info p-4 rounded-lg mb-4">
+                                <h5 class="font-semibold text-blue-800 mb-2">Critères Qualité Audio :</h5>
+                                <ul class="text-sm text-blue-700 space-y-1">
+                                    <li>• <strong>Format :</strong> MP3, WAV, M4A (WAV recommandé)</li>
+                                    <li>• <strong>Qualité :</strong> 44.1kHz, 16-bit minimum</li>
+                                    <li>• <strong>Durée :</strong> 1-10 minutes (3-5 minutes optimal)</li>
+                                    <li>• <strong>Contenu :</strong> Parole claire, pas de musique</li>
+                                    <li>• <strong>Bruit :</strong> Environnement silencieux</li>
+                                    <li>• <strong>Expression :</strong> Variété d'intonations</li>
+                                </ul>
+                            </div>
+
+                            <div class="code-block relative mb-4">
+                                <button class="copy-btn" onclick="copyCode('audio-prep')">Copier</button>
+                                <pre id="audio-prep" class="text-green-400 text-sm"><code># Script Python - Préparation Audio pour ElevenLabs
+import librosa
+import soundfile as sf
+import numpy as np
+from scipy.signal import butter, filtfilt
+
+def prepare_audio_for_cloning(input_file, output_file):
+    """Prépare un fichier audio pour le clonage vocal"""
+    
+    # Chargement audio
+    audio, sr = librosa.load(input_file, sr=22050)
+    
+    # Normalisation du volume
+    audio = librosa.util.normalize(audio)
+    
+    # Suppression du silence
+    audio_trimmed, _ = librosa.effects.trim(audio, top_db=20)
+    
+    # Filtre passe-bas pour réduire le bruit haute fréquence
+    nyquist = sr / 2
+    cutoff = 8000  # Fréquence de coupure
+    b, a = butter(5, cutoff / nyquist, btype='low')
+    audio_filtered = filtfilt(b, a, audio_trimmed)
+    
+    # Sauvegarde
+    sf.write(output_file, audio_filtered, sr)
+    
+    # Informations
+    duration = len(audio_filtered) / sr
+    print(f"✅ Audio préparé: {duration:.1f}s, {sr}Hz")
+    
+    return output_file
+
+# Utilisation
+input_file = "voix_originale.wav"
+output_file = "voix_preparee_elevenlabs.wav"
+prepare_audio_for_cloning(input_file, output_file)</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="step-indicator">3</div>
+                            <h4 class="text-xl font-bold">Clonage de la Voix</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="text-gray-700 mb-4">
+                                Utilisez l'interface ElevenLabs pour créer votre voix clonée.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Instructions Détaillées :</h5>
+                                    <ol class="text-sm text-gray-600 space-y-2">
+                                        <li>1. <strong>Accédez à VoiceLab :</strong>
+                                            <br>• Cliquez sur "VoiceLab" dans le menu principal
+                                            <br>• Bouton visible en haut de l'interface
+                                        </li>
+                                        <li>2. <strong>Instant Voice Cloning :</strong>
+                                            <br>• Cliquez sur "Add Voice" > "Instant Voice Cloning"
+                                            <br>• Option recommandée pour débutants
+                                        </li>
+                                        <li>3. <strong>Upload Audio :</strong>
+                                            <br>• Glissez-déposez votre fichier audio préparé
+                                            <br>• Ou cliquez "Upload" pour sélectionner
+                                        </li>
+                                        <li>4. <strong>Configuration :</strong>
+                                            <br>• Nom de la voix : "MonCloneVocal_V1"
+                                            <br>• Description : "Voix clonée pour usage personnel"
+                                            <br>• Labels : "conversational, clear"
+                                        </li>
+                                        <li>5. <strong>Génération :</strong>
+                                            <br>• Cliquez "Add Voice"
+                                            <br>• Temps de traitement : 2-5 minutes
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-2">Capture d'écran Interface :</h5>
+                                    <div class="bg-gray-200 rounded-lg p-4 text-center text-gray-500">
+                                        <i class="fas fa-desktop text-2xl mb-2"></i>
+                                        <p class="text-sm">ElevenLabs VoiceLab Interface</p>
+                                        <p class="text-xs">Zone upload visible au centre</p>
+                                        <p class="text-xs">Bouton "Add Voice" en violet</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert-warning p-4 rounded-lg">
+                                <h5 class="font-semibold text-yellow-800 mb-2">
+                                    <i class="fas fa-clock mr-2"></i>Temps de Traitement
+                                </h5>
+                                <p class="text-yellow-700 text-sm">
+                                    Le clonage peut prendre 2-10 minutes selon la longueur de l'audio. 
+                                    Ne fermez pas la page pendant le traitement. Vous recevrez une notification 
+                                    quand c'est terminé.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="step-indicator">4</div>
+                            <h4 class="text-xl font-bold">Test et Génération</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="text-gray-700 mb-4">
+                                Testez votre voix clonée et générez votre premier audio synthétique.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Test de la Voix :</h5>
+                                    <ol class="text-sm text-gray-600 space-y-1">
+                                        <li>1. Retournez à la page principale "Speech Synthesis"</li>
+                                        <li>2. Sélectionnez votre voix dans le dropdown</li>
+                                        <li>3. Tapez un texte de test court (ex: "Bonjour, comment allez-vous ?")</li>
+                                        <li>4. Cliquez "Generate" pour créer l'audio</li>
+                                        <li>5. Écoutez le résultat avec le player intégré</li>
+                                        <li>6. Ajustez les paramètres si nécessaire</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-2">Paramètres d'Optimisation :</h5>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• <strong>Stability:</strong> 0.7-0.9 (stabilité)</li>
+                                        <li>• <strong>Clarity:</strong> 0.5-0.8 (clarté)</li>
+                                        <li>• <strong>Style Exaggeration:</strong> 0.0-0.3</li>
+                                        <li>• <strong>Speaker Boost:</strong> ON (recommandé)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="code-block relative mb-4">
+                                <button class="copy-btn" onclick="copyCode('elevenlabs-api')">Copier</button>
+                                <pre id="elevenlabs-api" class="text-green-400 text-sm"><code># Script Python - Utilisation API ElevenLabs
+import requests
+import json
+
+def generate_speech_elevenlabs(text, voice_id, api_key):
+    """Génère un audio avec ElevenLabs API"""
+    
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+    
+    headers = {
+        "Accept": "audio/mpeg",
+        "Content-Type": "application/json",
+        "xi-api-key": api_key
+    }
+    
+    data = {
+        "text": text,
+        "model_id": "eleven_monolingual_v1",
+        "voice_settings": {
+            "stability": 0.8,
+            "similarity_boost": 0.8,
+            "style": 0.1,
+            "use_speaker_boost": True
+        }
+    }
+    
+    response = requests.post(url, json=data, headers=headers)
+    
+    if response.status_code == 200:
+        with open("generated_audio.mp3", "wb") as f:
+            f.write(response.content)
+        print("✅ Audio généré avec succès!")
+    else:
+        print(f"❌ Erreur: {response.status_code}")
+    
+    return response.status_code == 200
+
+# Configuration
+API_KEY = "votre_cle_api_elevenlabs"
+VOICE_ID = "votre_voice_id_clone"
+TEXT = "Voici un test de ma voix clonée avec ElevenLabs."
+
+# Génération
+generate_speech_elevenlabs(TEXT, VOICE_ID, API_KEY)</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-800 mb-4">
+                        <i class="fas fa-check-circle mr-2"></i>Validation Qualité
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-2">Critères de Succès :</h4>
+                            <ul class="text-sm text-green-600 space-y-1">
+                                <li>• Ressemblance vocale > 85%</li>
+                                <li>• Intonation naturelle</li>
+                                <li>• Absence d'artefacts audibles</li>
+                                <li>• Fluidité de prononciation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-2">Tests Recommandés :</h4>
+                            <ul class="text-sm text-green-600 space-y-1">
+                                <li>• Phrases courtes et longues</li>
+                                <li>• Différentes émotions</li>
+                                <li>• Questions et affirmations</li>
+                                <li>• Mots complexes et noms propres</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternatives Section -->
+        <section id="alternatives" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-layer-group text-green-600 mr-3"></i>
+                        Alternatives & Plateformes
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Comparatif des principales plateformes de clonage vocal disponibles 
+                        pour différents besoins et budgets.
+                    </p>
+                </div>
+
+                <!-- Tableau Comparatif -->
+                <div class="overflow-x-auto mb-8">
+                    <table class="w-full bg-white border border-gray-200 rounded-lg">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Plateforme</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Qualité</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Prix</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Temps Audio</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Langues</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Spécialité</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-robot text-purple-600"></i>
+                                        </div>
+                                        <strong>ElevenLabs</strong>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Excellent</span>
+                                </td>
+                                <td class="px-6 py-4">$5-22/mois</td>
+                                <td class="px-6 py-4">1-10 min</td>
+                                <td class="px-6 py-4">29+</td>
+                                <td class="px-6 py-4">Réalisme maximal</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-microphone text-blue-600"></i>
+                                        </div>
+                                        <strong>Murf.ai</strong>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Très Bon</span>
+                                </td>
+                                <td class="px-6 py-4">$13-26/mois</td>
+                                <td class="px-6 py-4">5-15 min</td>
+                                <td class="px-6 py-4">20+</td>
+                                <td class="px-6 py-4">Business & Education</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="bg-green-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-waveform-path text-green-600"></i>
+                                        </div>
+                                        <strong>Resemble.ai</strong>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Excellent</span>
+                                </td>
+                                <td class="px-6 py-4">$0.006/seconde</td>
+                                <td class="px-6 py-4">3-10 min</td>
+                                <td class="px-6 py-4">60+</td>
+                                <td class="px-6 py-4">Développeurs API</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="bg-orange-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-volume-up text-orange-600"></i>
+                                        </div>
+                                        <strong>Speechify</strong>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Bon</span>
+                                </td>
+                                <td class="px-6 py-4">$11.58/mois</td>
+                                <td class="px-6 py-4">10-30 min</td>
+                                <td class="px-6 py-4">30+</td>
+                                <td class="px-6 py-4">Lecture & Accessibilité</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Guides Spécifiques par Plateforme -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Guide Murf.ai -->
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-microphone text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Murf.ai Guide Rapide</h3>
+                        </div>
+                        
+                        <div class="accordion mb-4">
+                            <button class="accordion-toggle w-full text-left p-3 bg-blue-100 rounded-lg font-semibold" onclick="toggleAccordion('murf-setup')">
+                                <i class="fas fa-chevron-down mr-2"></i>Configuration Murf.ai
+                            </button>
+                            <div id="murf-setup" class="accordion-content">
+                                <div class="p-4 bg-white rounded-b-lg">
+                                    <ol class="text-sm text-gray-600 space-y-2">
+                                        <li>1. <strong>Inscription :</strong> Allez sur murf.ai > "Sign Up"</li>
+                                        <li>2. <strong>Plan :</strong> Choisissez "Creator Plan" ($26/mois)</li>
+                                        <li>3. <strong>Voice Cloning :</strong> Menu "Voice Cloning" > "Add Voice"</li>
+                                        <li>4. <strong>Upload :</strong> Minimum 5 minutes d'audio net</li>
+                                        <li>5. <strong>Processing :</strong> 15-30 minutes de traitement</li>
+                                        <li>6. <strong>Test :</strong> Générateur de discours avec votre voix</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-block relative">
+                            <button class="copy-btn" onclick="copyCode('murf-script')">Copier</button>
+                            <pre id="murf-script" class="text-green-400 text-sm"><code># Murf.ai - Préparation Audio Optimale
+import librosa
+import numpy as np
+
+def optimize_for_murf(audio_file):
+    """Optimise audio pour Murf.ai"""
+    audio, sr = librosa.load(audio_file, sr=22050)
+    
+    # Murf préfère 5-15 minutes
+    target_duration = min(len(audio)/sr, 900)  # Max 15 min
+    
+    if len(audio)/sr < 300:  # Min 5 min
+        print("⚠️ Audio trop court pour Murf.ai")
+        return False
+    
+    # Normalisation spécifique Murf
+    audio = librosa.util.normalize(audio)
+    
+    return True</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Guide Resemble.ai -->
+                    <div class="bg-green-50 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-waveform-path text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-green-800">Resemble.ai API</h3>
+                        </div>
+                        
+                        <div class="accordion mb-4">
+                            <button class="accordion-toggle w-full text-left p-3 bg-green-100 rounded-lg font-semibold" onclick="toggleAccordion('resemble-api')">
+                                <i class="fas fa-chevron-down mr-2"></i>Intégration API
+                            </button>
+                            <div id="resemble-api" class="accordion-content">
+                                <div class="p-4 bg-white rounded-b-lg">
+                                    <p class="text-sm text-gray-600 mb-3">
+                                        Resemble.ai est optimal pour les développeurs avec son API robuste.
+                                    </p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• <strong>Avantages :</strong> API complète, 60+ langues</li>
+                                        <li>• <strong>Pricing :</strong> $0.006 par seconde générée</li>
+                                        <li>• <strong>Qualité :</strong> Comparable à ElevenLabs</li>
+                                        <li>• <strong>Usage :</strong> Parfait pour intégration automatisée</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-block relative">
+                            <button class="copy-btn" onclick="copyCode('resemble-api')">Copier</button>
+                            <pre id="resemble-api" class="text-green-400 text-sm"><code># Resemble.ai - API Integration
+import requests
+
+def create_voice_resemble(name, audio_file, api_key):
+    """Crée une voix avec Resemble.ai API"""
+    
+    url = "https://app.resemble.ai/api/v1/voices"
+    
+    headers = {"Authorization": f"Token token={api_key}"}
+    
+    files = {"file": open(audio_file, "rb")}
+    data = {"name": name}
+    
+    response = requests.post(url, headers=headers, 
+                           files=files, data=data)
+    
+    if response.status_code == 201:
+        voice_id = response.json()["item"]["uuid"]
+        print(f"✅ Voix créée: {voice_id}")
+        return voice_id
+    
+    return None</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-chart-bar text-purple-600 mr-2"></i>
+                        Recommandations par Usage
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center p-4 bg-white rounded-lg">
+                            <div class="text-blue-600 text-2xl mb-2">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Usage Personnel</h4>
+                            <p class="text-sm text-gray-600 mb-2">ElevenLabs Free/Starter</p>
+                            <p class="text-xs text-gray-500">Qualité maximale, simple d'usage</p>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg">
+                            <div class="text-green-600 text-2xl mb-2">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Usage Professionnel</h4>
+                            <p class="text-sm text-gray-600 mb-2">Murf.ai Creator</p>
+                            <p class="text-xs text-gray-500">Interface business, collaboration</p>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg">
+                            <div class="text-purple-600 text-2xl mb-2">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Développement</h4>
+                            <p class="text-sm text-gray-600 mb-2">Resemble.ai API</p>
+                            <p class="text-xs text-gray-500">Intégration automatisée, scaling</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Préparation Section -->
+        <section id="preparation" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-microphone text-red-600 mr-3"></i>
+                        Préparation Audio Professionnelle
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        La qualité de votre échantillon audio détermine directement la qualité 
+                        du clonage vocal. Apprenez à optimiser vos enregistrements.
+                    </p>
+                </div>
+
+                <!-- Workflow Préparation -->
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-center">
+                        <i class="fas fa-flow-chart text-purple-600 mr-2"></i>
+                        Workflow de Préparation Audio
+                    </h3>
+                    <div class="flex flex-wrap justify-center items-center space-x-4 space-y-2">
+                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <i class="fas fa-microphone mr-2 text-red-500"></i>Enregistrement
+                        </div>
+                        <div class="text-2xl text-gray-400">→</div>
+                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <i class="fas fa-cut mr-2 text-blue-500"></i>Nettoyage
+                        </div>
+                        <div class="text-2xl text-gray-400">→</div>
+                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <i class="fas fa-chart-line mr-2 text-green-500"></i>Normalisation
+                        </div>
+                        <div class="text-2xl text-gray-400">→</div>
+                        <div class="bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <i class="fas fa-check mr-2 text-purple-500"></i>Validation
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enregistrement -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <i class="fas fa-record-vinyl text-red-600 mr-2"></i>
+                        1. Enregistrement Optimal
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h4 class="font-bold text-red-800 mb-4">
+                                <i class="fas fa-microphone mr-2"></i>Configuration Matérielle
+                            </h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <h5 class="font-semibold text-sm text-red-700">Microphone :</h5>
+                                    <ul class="text-sm text-red-600 space-y-1">
+                                        <li>• <strong>Recommandé :</strong> Audio-Technica AT2020USB+</li>
+                                        <li>• <strong>Budget :</strong> Blue Yeti, Rode PodMic</li>
+                                        <li>• <strong>Mobile :</strong> Shure MV7 (USB/XLR)</li>
+                                        <li>• <strong>Éviter :</strong> Micros gaming, casques</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-sm text-red-700">Environnement :</h5>
+                                    <ul class="text-sm text-red-600 space-y-1">
+                                        <li>• Pièce calme, sans écho</li>
+                                        <li>• Traitement acoustique (couvertures, mousse)</li>
+                                        <li>• Distance micro : 15-20cm</li>
+                                        <li>• Filtre anti-pop recommandé</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-bold text-blue-800 mb-4">
+                                <i class="fas fa-cog mr-2"></i>Paramètres Enregistrement
+                            </h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <h5 class="font-semibold text-sm text-blue-700">Format Audio :</h5>
+                                    <ul class="text-sm text-blue-600 space-y-1">
+                                        <li>• <strong>Format :</strong> WAV (non compressé)</li>
+                                        <li>• <strong>Échantillonnage :</strong> 44.1kHz ou 48kHz</li>
+                                        <li>• <strong>Résolution :</strong> 16-bit minimum, 24-bit idéal</li>
+                                        <li>• <strong>Canal :</strong> Mono (recommandé)</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-sm text-blue-700">Niveaux :</h5>
+                                    <ul class="text-sm text-blue-600 space-y-1">
+                                        <li>• Peak level : -6dB maximum</li>
+                                        <li>• RMS level : -18dB à -12dB</li>
+                                        <li>• Pas de clipping/saturation</li>
+                                        <li>• Gain constant durant l'enregistrement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-block relative mb-6">
+                        <button class="copy-btn" onclick="copyCode('recording-script')">Copier</button>
+                        <pre id="recording-script" class="text-green-400 text-sm"><code># Script Python - Enregistrement Audio Optimisé
+import pyaudio
+import wave
+import numpy as np
+import time
+
+class AudioRecorder:
+    def __init__(self, sample_rate=44100, chunk_size=1024):
+        self.sample_rate = sample_rate
+        self.chunk_size = chunk_size
+        self.format = pyaudio.paInt16
+        self.channels = 1  # Mono
+        
+    def record_session(self, filename, duration_seconds):
+        """Enregistre une session audio optimisée pour clonage vocal"""
+        
+        audio = pyaudio.PyAudio()
+        
+        # Configuration stream
+        stream = audio.open(
+            format=self.format,
+            channels=self.channels,
+            rate=self.sample_rate,
+            input=True,
+            frames_per_buffer=self.chunk_size
+        )
+        
+        print("🎤 Enregistrement démarré...")
+        print(f"⏱️ Durée: {duration_seconds} secondes")
+        
+        frames = []
+        for i in range(0, int(self.sample_rate / self.chunk_size * duration_seconds)):
+            data = stream.read(self.chunk_size)
+            frames.append(data)
+            
+            # Monitoring niveau
+            audio_data = np.frombuffer(data, dtype=np.int16)
+            level = np.abs(audio_data).mean()
+            
+            if i % 10 == 0:  # Affichage toutes les 0.2s
+                level_db = 20 * np.log10(level / 32767.0) if level > 0 else -100
+                print(f"📊 Niveau: {level_db:.1f}dB", end='\r')
+        
+        print("\n✅ Enregistrement terminé")
+        
+        # Sauvegarde
+        stream.stop_stream()
+        stream.close()
+        audio.terminate()
+        
+        # Création fichier WAV
+        with wave.open(filename, 'wb') as wf:
+            wf.setnchannels(self.channels)
+            wf.setsampwidth(audio.get_sample_size(self.format))
+            wf.setframerate(self.sample_rate)
+            wf.writeframes(b''.join(frames))
+        
+        return filename
+
+# Utilisation
+recorder = AudioRecorder()
+audio_file = recorder.record_session("voix_source.wav", 300)  # 5 minutes</code></pre>
+                    </div>
+
+                    <div class="alert-info p-4 rounded-lg">
+                        <h5 class="font-semibold text-blue-800 mb-2">
+                            <i class="fas fa-lightbulb mr-2"></i>Script d'Enregistrement Recommandé
+                        </h5>
+                        <div class="text-sm text-blue-700">
+                            <p class="mb-2">Pour obtenir la meilleure qualité de clonage, lisez ce texte pendant votre enregistrement :</p>
+                            <div class="bg-blue-100 p-3 rounded">
+                                <p class="italic">
+                                    "Bonjour, je m'appelle [Votre nom]. Je vais lire différents types de phrases 
+                                    pour créer un échantillon vocal varié. Voici une question : Comment allez-vous aujourd'hui ? 
+                                    Et maintenant une exclamation : Quelle merveilleuse journée ! Puis une affirmation calme : 
+                                    La technologie d'intelligence artificielle évolue rapidement. Enfin, je vais compter de un à dix : 
+                                    un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix. Merci pour votre attention."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Traitement -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <i class="fas fa-edit text-blue-600 mr-2"></i>
+                        2. Post-Traitement Automatisé
+                    </h3>
+
+                    <div class="code-block relative">
+                        <button class="copy-btn" onclick="copyCode('audio-processing')">Copier</button>
+                        <pre id="audio-processing" class="text-green-400 text-sm"><code># Script Python - Post-Traitement Audio Complet
+import librosa
+import soundfile as sf
+import numpy as np
+from scipy.signal import butter, filtfilt
+import noisereduce as nr
+
+class AudioProcessor:
+    def __init__(self):
+        self.target_sr = 22050  # Optimal pour la plupart des modèles
+        
+    def process_for_cloning(self, input_file, output_file):
+        """Pipeline complet de traitement audio"""
+        
+        print(f"🎵 Traitement de {input_file}...")
+        
+        # 1. Chargement
+        audio, sr = librosa.load(input_file, sr=None)
+        print(f"📊 Audio original: {len(audio)/sr:.1f}s, {sr}Hz")
+        
+        # 2. Resampling si nécessaire
+        if sr != self.target_sr:
+            audio = librosa.resample(audio, orig_sr=sr, target_sr=self.target_sr)
+            sr = self.target_sr
+            print(f"🔄 Resampling vers {sr}Hz")
+        
+        # 3. Suppression bruit de fond
+        audio_denoised = nr.reduce_noise(y=audio, sr=sr)
+        print("🧹 Suppression bruit de fond")
+        
+        # 4. Suppression silences
+        audio_trimmed, _ = librosa.effects.trim(
+            audio_denoised, 
+            top_db=20,
+            frame_length=2048,
+            hop_length=512
+        )
+        print("✂️ Suppression silences")
+        
+        # 5. Normalisation RMS
+        target_rms = 0.2  # -14dB RMS approximativement
+        current_rms = np.sqrt(np.mean(audio_trimmed**2))
+        if current_rms > 0:
+            audio_normalized = audio_trimmed * (target_rms / current_rms)
+        else:
+            audio_normalized = audio_trimmed
+        print("📈 Normalisation RMS")
+        
+        # 6. Limitation douce (soft limiting)
+        audio_limited = np.tanh(audio_normalized * 0.9) * 0.95
+        print("🎚️ Limitation douce")
+        
+        # 7. Filtre passe-bas léger (anti-aliasing)
+        nyquist = sr / 2
+        cutoff = 8000  # Coupe à 8kHz
+        b, a = butter(5, cutoff / nyquist, btype='low')
+        audio_filtered = filtfilt(b, a, audio_limited)
+        print("🔽 Filtrage passe-bas")
+        
+        # 8. Vérification finale
+        peak_level = np.max(np.abs(audio_filtered))
+        rms_level = np.sqrt(np.mean(audio_filtered**2))
+        duration = len(audio_filtered) / sr
+        
+        print(f"✅ Traitement terminé:")
+        print(f"   Durée: {duration:.1f}s")
+        print(f"   Peak: {20*np.log10(peak_level):.1f}dB")
+        print(f"   RMS: {20*np.log10(rms_level):.1f}dB")
+        
+        # 9. Sauvegarde
+        sf.write(output_file, audio_filtered, sr)
+        print(f"💾 Sauvegardé: {output_file}")
+        
+        return {
+            'duration': duration,
+            'peak_db': 20*np.log10(peak_level),
+            'rms_db': 20*np.log10(rms_level),
+            'sample_rate': sr
+        }
+    
+    def validate_quality(self, audio_file):
+        """Valide la qualité audio pour clonage"""
+        
+        audio, sr = librosa.load(audio_file)
+        duration = len(audio) / sr
+        
+        # Critères de validation
+        checks = {
+            'duration_ok': 60 <= duration <= 600,  # 1-10 minutes
+            'no_clipping': np.max(np.abs(audio)) < 0.99,
+            'sufficient_energy': np.sqrt(np.mean(audio**2)) > 0.01,
+            'proper_sr': sr in [22050, 44100, 48000]
+        }
+        
+        score = sum(checks.values()) / len(checks)
+        
+        print(f"🎯 Score qualité: {score*100:.0f}%")
+        for check, passed in checks.items():
+            status = "✅" if passed else "❌"
+            print(f"   {status} {check}: {passed}")
+        
+        return score >= 0.75
+
+# Utilisation
+processor = AudioProcessor()
+stats = processor.process_for_cloning("voix_brute.wav", "voix_optimisee.wav")
+is_valid = processor.validate_quality("voix_optimisee.wav")</code></pre>
+                    </div>
+                </div>
+
+                <!-- Validation Finale -->
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-800 mb-4">
+                        <i class="fas fa-check-double mr-2"></i>Checklist Validation Finale
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-3">Critères Techniques :</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Durée 1-10 minutes
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Format WAV, 22-48kHz
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Pas de clipping (-6dB peak max)
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> RMS constant (-18 à -12dB)
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Bruit de fond < -60dB
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-3">Critères Contenu :</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Parole claire et nette
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Variété d'intonations
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Pas de musique/effets
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Une seule voix/personne
+                                </label>
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-2"> Émotion naturelle
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Détection Section -->
+        <section id="detection" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-search text-orange-600 mr-3"></i>
+                        Détection & Protection Anti-Deepfake
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Apprenez à identifier les voix clonées et à protéger votre identité vocale 
+                        contre les usages malveillants.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-orange-800 mb-4">
+                            <i class="fas fa-shield-alt mr-2"></i>Pourquoi Détecter ?
+                        </h3>
+                        <ul class="text-sm text-orange-700 space-y-2">
+                            <li>• <strong>Sécurité :</strong> Éviter la fraude vocale</li>
+                            <li>• <strong>Authentification :</strong> Vérifier l'identité</li>
+                            <li>• <strong>Légal :</strong> Preuves en justice</li>
+                            <li>• <strong>Médias :</strong> Fact-checking audio</li>
+                            <li>• <strong>Personnel :</strong> Protection identité</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">
+                            <i class="fas fa-eye mr-2"></i>Signaux d'Alerte
+                        </h3>
+                        <ul class="text-sm text-blue-700 space-y-2">
+                            <li>• <strong>Respirations :</strong> Artificielles ou absentes</li>
+                            <li>• <strong>Intonation :</strong> Trop parfaite, robotique</li>
+                            <li>• <strong>Transitions :</strong> Coupures non naturelles</li>
+                            <li>• <strong>Contexte :</strong> Situation suspecte</li>
+                            <li>• <strong>Qualité :</strong> Compression anormale</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Outils de Détection -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <i class="fas fa-tools text-purple-600 mr-2"></i>
+                        Outils de Détection Automatisée
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-red-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-brain text-red-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Resemble Detect</h4>
+                                <p class="text-sm text-gray-600">IA spécialisée détection</p>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• API temps réel</li>
+                                <li>• Précision > 95%</li>
+                                <li>• Score de confiance</li>
+                                <li>• Support 40+ langues</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-blue-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-microscope text-blue-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Microsoft Research</h4>
+                                <p class="text-sm text-gray-600">Analyse spectrale avancée</p>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Analyse fréquentielle</li>
+                                <li>• Détection patterns IA</li>
+                                <li>• Open source</li>
+                                <li>• Recherche académique</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-green-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-shield-check text-green-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Sensity AI</h4>
+                                <p class="text-sm text-gray-600">Protection enterprise</p>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Monitoring continu</li>
+                                <li>• Alertes automatiques</li>
+                                <li>• Dashboard sécurité</li>
+                                <li>• Protection marque</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-block relative">
+                        <button class="copy-btn" onclick="copyCode('detection-script')">Copier</button>
+                        <pre id="detection-script" class="text-green-400 text-sm"><code># Script Python - Détection Voix Clonée
+import librosa
+import numpy as np
+from scipy import signal
+from scipy.stats import entropy
+import requests
+
+class VoiceAuthenticityDetector:
+    def __init__(self):
+        self.features_weights = {
+            'spectral_irregularity': 0.25,
+            'breathing_detection': 0.20,
+            'formant_consistency': 0.20,
+            'temporal_patterns': 0.15,
+            'compression_artifacts': 0.10,
+            'pitch_naturalness': 0.10
+        }
+    
+    def analyze_audio(self, audio_file):
+        """Analyse complète d'authenticité audio"""
+        
+        audio, sr = librosa.load(audio_file, sr=22050)
+        
+        results = {
+            'spectral_irregularity': self.check_spectral_irregularity(audio, sr),
+            'breathing_detection': self.detect_breathing_patterns(audio, sr),
+            'formant_consistency': self.analyze_formant_consistency(audio, sr),
+            'temporal_patterns': self.check_temporal_patterns(audio, sr),
+            'compression_artifacts': self.detect_compression_artifacts(audio, sr),
+            'pitch_naturalness': self.analyze_pitch_naturalness(audio, sr)
+        }
+        
+        # Score composite
+        authenticity_score = sum(
+            results[feature] * weight 
+            for feature, weight in self.features_weights.items()
+        )
+        
+        confidence_level = self.calculate_confidence(results, authenticity_score)
+        
+        return {
+            'authenticity_score': authenticity_score,
+            'confidence_level': confidence_level,
+            'detailed_analysis': results,
+            'verdict': self.get_verdict(authenticity_score, confidence_level)
+        }
+    
+    def check_spectral_irregularity(self, audio, sr):
+        """Vérifie les irrégularités spectrales typiques de l'IA"""
+        
+        # Spectrogramme
+        D = librosa.stft(audio, n_fft=2048, hop_length=512)
+        magnitude = np.abs(D)
+        
+        # Analyse bandes de fréquence
+        freq_bins = magnitude.shape[0]
+        band_energies = []
+        
+        for i in range(0, freq_bins, freq_bins//10):
+            band_energy = np.mean(magnitude[i:i+freq_bins//10])
+            band_energies.append(band_energy)
+        
+        # Irrégularités entre bandes (IA tend à créer des patterns non naturels)
+        irregularity = np.std(band_energies) / np.mean(band_energies)
+        
+        # Score : plus l'irrégularité est faible, plus c'est suspect
+        return min(irregularity * 2, 1.0)
+    
+    def detect_breathing_patterns(self, audio, sr):
+        """Détecte la présence de respirations naturelles"""
+        
+        # Filtrage basses fréquences pour isoler respirations
+        b, a = signal.butter(4, 300 / (sr/2), btype='low')
+        low_freq = signal.filtfilt(b, a, audio)
+        
+        # Détection de patterns périodiques de faible amplitude
+        # (respirations entre phrases)
+        envelope = np.abs(signal.hilbert(low_freq))
+        smooth_envelope = signal.savgol_filter(envelope, 441, 3)
+        
+        # Recherche de variations périodiques typiques de respiration
+        breathing_peaks, _ = signal.find_peaks(
+            smooth_envelope, 
+            height=np.max(smooth_envelope) * 0.1,
+            distance=sr//4  # Minimum 0.25s entre respirations
+        )
+        
+        # Score basé sur la fréquence de respiration (humain: 12-20/min)
+        duration_min = len(audio) / sr / 60
+        breathing_rate = len(breathing_peaks) / duration_min
+        
+        if 8 <= breathing_rate <= 25:  # Plage naturelle élargie
+            return 1.0
+        elif 5 <= breathing_rate <= 30:
+            return 0.7
+        else:
+            return 0.2  # Suspect
+    
+    def analyze_formant_consistency(self, audio, sr):
+        """Analyse la cohérence des formants vocaux"""
+        
+        # Extraction des formants
+        frame_length = int(0.025 * sr)  # 25ms
+        hop_length = int(0.01 * sr)     # 10ms
+        
+        formants = []
+        for i in range(0, len(audio) - frame_length, hop_length):
+            frame = audio[i:i + frame_length]
+            
+            if np.std(frame) > 0.01:  # Frame avec contenu vocal
+                # Estimation formants via LPC
+                try:
+                    lpc_coeffs = librosa.lpc(frame, order=12)
+                    roots = np.roots(lpc_coeffs)
+                    
+                    # Conversion en fréquences
+                    freqs = []
+                    for root in roots:
+                        if np.imag(root) > 0:
+                            freq = np.angle(root) * sr / (2 * np.pi)
+                            if 100 <= freq <= 4000:  # Plage formants vocaux
+                                freqs.append(freq)
+                    
+                    if len(freqs) >= 2:
+                        formants.append(sorted(freqs)[:3])  # 3 premiers formants
+                        
+                except:
+                    continue
+        
+        if len(formants) < 10:
+            return 0.5  # Pas assez de données
+        
+        # Analyse de la variabilité des formants
+        formants_array = np.array(formants)
+        if formants_array.size == 0:
+            return 0.5
+        
+        # Coefficient de variation pour chaque formant
+        cv_formants = []
+        for f in range(min(3, formants_array.shape[1])):
+            if formants_array.shape[1] > f:
+                std_f = np.std(formants_array[:, f])
+                mean_f = np.mean(formants_array[:, f])
+                if mean_f > 0:
+                    cv_formants.append(std_f / mean_f)
+        
+        # Score basé sur variabilité naturelle
+        avg_cv = np.mean(cv_formants) if cv_formants else 0
+        
+        # Variabilité naturelle attendue: 0.1-0.3
+        if 0.05 <= avg_cv <= 0.4:
+            return 1.0
+        elif avg_cv < 0.02:  # Trop constant = suspect
+            return 0.3
+        else:  # Trop variable = possiblement naturel mais degradé
+            return 0.7
+    
+    def get_verdict(self, score, confidence):
+        """Détermine le verdict final"""
+        
+        if confidence < 0.6:
+            return {
+                'status': 'UNCERTAIN',
+                'message': 'Analyse non concluante - plus de données nécessaires',
+                'color': 'yellow'
+            }
+        elif score >= 0.7:
+            return {
+                'status': 'AUTHENTIC',
+                'message': 'Voix probablement authentique',
+                'color': 'green'
+            }
+        elif score >= 0.4:
+            return {
+                'status': 'SUSPICIOUS',
+                'message': 'Voix suspecte - vérification recommandée',
+                'color': 'orange'
+            }
+        else:
+            return {
+                'status': 'SYNTHETIC',
+                'message': 'Voix probablement générée par IA',
+                'color': 'red'
+            }
+
+# Utilisation
+detector = VoiceAuthenticityDetector()
+result = detector.analyze_audio("audio_suspect.wav")
+
+print(f"Score d'authenticité: {result['authenticity_score']:.2f}")
+print(f"Niveau de confiance: {result['confidence_level']:.2f}")
+print(f"Verdict: {result['verdict']['message']}")</code></pre>
+                    </div>
+                </div>
+
+                <!-- Protection Personnelle -->
+                <div class="bg-yellow-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-4">
+                        <i class="fas fa-user-shield mr-2"></i>Protection Identité Vocale
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-yellow-700 mb-3">Prévention :</h4>
+                            <ul class="text-sm text-yellow-600 space-y-1">
+                                <li>• Limitez les échantillons vocaux publics</li>
+                                <li>• Utilisez des phrases de vérification personnelles</li>
+                                <li>• Surveillez votre présence vocale en ligne</li>
+                                <li>• Éduquez votre entourage aux risques</li>
+                                <li>• Créez des "canaris vocaux" (phrases uniques)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-yellow-700 mb-3">Réaction si Clonage :</h4>
+                            <ul class="text-sm text-yellow-600 space-y-1">
+                                <li>• Documentez et conservez les preuves</li>
+                                <li>• Contactez les plateformes concernées</li>
+                                <li>• Déposez plainte si usage malveillant</li>
+                                <li>• Alertez votre réseau professionnel/personnel</li>
+                                <li>• Consultez un avocat spécialisé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Éthique Section -->
+        <section id="ethique" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-balance-scale text-purple-600 mr-3"></i>
+                        Usage Éthique & Responsable
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Le clonage vocal doit être utilisé de manière responsable, transparente 
+                        et conforme aux principes éthiques fondamentaux.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full inline-block mb-3">
+                                <i class="fas fa-handshake text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-green-800">Consentement</h3>
+                        </div>
+                        <ul class="text-sm text-green-700 space-y-2">
+                            <li>• <strong>Autorisation écrite</strong> obligatoire</li>
+                            <li>• <strong>Explication claire</strong> de l'usage prévu</li>
+                            <li>• <strong>Droit de retrait</strong> à tout moment</li>
+                            <li>• <strong>Durée limitée</strong> de l'autorisation</li>
+                            <li>• <strong>Compensation équitable</strong> si commercial</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full inline-block mb-3">
+                                <i class="fas fa-eye text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Transparence</h3>
+                        </div>
+                        <ul class="text-sm text-blue-700 space-y-2">
+                            <li>• <strong>Étiquetage "IA Generated"</strong> visible</li>
+                            <li>• <strong>Divulgation claire</strong> de la synthèse</li>
+                            <li>• <strong>Métadonnées préservées</strong> de traçabilité</li>
+                            <li>• <strong>Contexte explicite</strong> d'utilisation</li>
+                            <li>• <strong>Source originale</strong> identifiable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full inline-block mb-3">
+                                <i class="fas fa-heart text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-800">Bienveillance</h3>
+                        </div>
+                        <ul class="text-sm text-purple-700 space-y-2">
+                            <li>• <strong>Intention positive</strong> uniquement</li>
+                            <li>• <strong>Respect de la dignité</strong> humaine</li>
+                            <li>• <strong>Pas de manipulation</strong> malveillante</li>
+                            <li>• <strong>Protection des mineurs</strong> absolue</li>
+                            <li>• <strong>Considération</strong> des impacts sociaux</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Code de Conduite -->
+                <div class="bg-gray-50 p-8 rounded-lg mb-8">
+                    <h3 class="text-2xl font-bold text-center mb-6">
+                        <i class="fas fa-scroll text-indigo-600 mr-2"></i>
+                        Code de Conduite Éthique
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-green-800 mb-4">
+                                <i class="fas fa-check-circle mr-2"></i>Je m'engage à :
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-check text-green-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Obtenir un consentement explicite et éclairé avant tout clonage vocal</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-check text-green-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Étiqueter clairement tout contenu généré par IA</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-check text-green-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Utiliser cette technologie uniquement à des fins légitimes et bienveillantes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-check text-green-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Respecter la vie privée et la dignité de toutes les personnes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-check text-green-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Contribuer à l'éducation sur les risques et les protections</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-red-800 mb-4">
+                                <i class="fas fa-times-circle mr-2"></i>Je refuse de :
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="bg-red-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-times text-red-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Créer des contenus trompeurs ou frauduleux</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-red-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-times text-red-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Usurper l'identité d'autrui sans autorisation</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-red-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-times text-red-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Harceler, intimider ou manipuler des personnes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-red-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-times text-red-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Créer du contenu impliquant des mineurs</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-red-100 p-1 rounded-full mr-3 mt-1">
+                                        <i class="fas fa-times text-red-600 text-xs"></i>
+                                    </div>
+                                    <span class="text-sm">Ignorer les demandes de cessation d'usage</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cas d'Usage Éthiques -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>
+                        Cas d'Usage Éthiques Recommandés
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-blue-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-universal-access text-blue-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Accessibilité</h4>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Assistance aux personnes muettes</li>
+                                <li>• Récupération de voix après maladie</li>
+                                <li>• Aide aux troubles de la parole</li>
+                                <li>• Communication adaptée</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-green-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-graduation-cap text-green-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Éducation</h4>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Livres audio personnalisés</li>
+                                <li>• Apprentissage des langues</li>
+                                <li>• Cours narration</li>
+                                <li>• Formation sensibilisation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-purple-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-film text-purple-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Création Artistique</h4>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Doublage et traduction</li>
+                                <li>• Œuvres artistiques déclarées</li>
+                                <li>• Préservation patrimoine vocal</li>
+                                <li>• Expérimentation créative</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-orange-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-heart text-orange-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Mémoire</h4>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Messages posthumes autorisés</li>
+                                <li>• Préservation souvenirs familiaux</li>
+                                <li>• Témoignages historiques</li>
+                                <li>• Héritage vocal numérique</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-teal-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-briefcase text-teal-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Professionnel</h4>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Assistants vocaux personnalisés</li>
+                                <li>• Annonces automatisées</li>
+                                <li>• Support client multilingue</li>
+                                <li>• Systèmes d'information vocale</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover">
+                            <div class="text-center mb-4">
+                                <div class="bg-pink-100 p-3 rounded-full inline-block mb-3">
+                                    <i class="fas fa-shield-alt text-pink-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">Recherche</h4>
+                            </div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Études académiques</li>
+                                <li>• Développement détection</li>
+                                <li>• Tests de sécurité</li>
+                                <li>• Innovation technologique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ressources Éthiques -->
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-indigo-800 mb-4">
+                        <i class="fas fa-book mr-2"></i>Ressources & Formation Continue
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-indigo-700 mb-3">Organismes de Référence :</h4>
+                            <ul class="text-sm text-indigo-600 space-y-1">
+                                <li>• <strong>Partnership on AI</strong> - Principes éthiques IA</li>
+                                <li>• <strong>IEEE</strong> - Standards éthiques technologiques</li>
+                                <li>• <strong>AI Ethics Institute</strong> - Recherche appliquée</li>
+                                <li>• <strong>CNIL</strong> - Régulation française RGPD</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-indigo-700 mb-3">Formation Recommandée :</h4>
+                            <ul class="text-sm text-indigo-600 space-y-1">
+                                <li>• Cours "AI Ethics" (Stanford Online)</li>
+                                <li>• "Responsible AI" (Google AI Education)</li>
+                                <li>• Webinaires réguliers sectoriels</li>
+                                <li>• Veille juridique spécialisée</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navigation Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h4 class="text-xl font-bold mb-4">BLOC 11.1 - Clonage Vocal Basique Terminé</h4>
+                <p class="text-gray-400 mb-6">
+                    Vous maîtrisez maintenant les fondamentaux du clonage vocal éthique et responsable
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <span class="bg-green-600 px-4 py-2 rounded-lg text-sm">
+                        <i class="fas fa-check mr-2"></i>ElevenLabs Maîtrisé
+                    </span>
+                    <span class="bg-blue-600 px-4 py-2 rounded-lg text-sm">
+                        <i class="fas fa-shield-alt mr-2"></i>Éthique Intégrée
+                    </span>
+                    <span class="bg-purple-600 px-4 py-2 rounded-lg text-sm">
+                        <i class="fas fa-graduation-cap mr-2"></i>Prêt pour Avancé
+                    </span>
+                </div>
+                <div class="mt-6 text-xs text-gray-500">
+                    Prochaines parties : RVC, So-VITS-SVC, Temps Réel, Optimisation, Post-Traitement, Sécurité
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation entre sections
+        function showSection(sectionId) {
+            // Masquer toutes les sections
+            document.querySelectorAll('.tab-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Afficher la section sélectionnée
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Mettre à jour l'état des onglets
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Accordéons
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const toggle = content.previousElementSibling;
+            const icon = toggle.querySelector('i');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                content.classList.add('active');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+
+        // Copie de code
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const text = codeElement.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copié !';
+                button.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#4f46e5';
+                }, 2000);
+            });
+        }
+
+        // Accordéons setup
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.accordion-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    toggleAccordion(targetId);
+                });
+            });
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e67d0bc0e250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDsLHdV9TDDwElRvCY%2BVDEl3a67nYo0dOgAwHfq%2BxKMh2ARg85aU9AIK9hPP6MHVFm1lxS1%2B6frnpmOSvQOwSj1eycGs2nd85JzQ%2FLXLJKbTr1lSzYzqphuQNt1escv2WE0WjdhqlIfFiBk1qlSz3ULrSMFSNQ3vgVmZN3u66wY9uPpp7kPgBXxJ0GmMLVudprPhhpECnZKk1PFMoaH%2BvwLQiy5jNeme54UrSq5Q985EiyRpCZYN6l%2FFjOTQyFssQ%2Fb0DBkG5ooHVFgSsmZrCGKuYHAhKTJIMxIVJqZLwXuThiY7uEMJ%2BciKWTRa68a6015L8tcpj8BP3SviT%2Fgb4U2PMn396Q3s8dcM0wfT6Ic4ggOEPKmJahqZcSvxb5D0CHhDng%2FKKrcSUzKZEAE%2FER6sm7zowo1eY9RHeB866yjzmgFo99xrZvYQga%2BI9azBssYDqQNzSmxkwg%2Btcla2G%2F1EH9u6mh%2Ft7%2F6XhfYALVFdO5W%2FkK3t187XLXk2nK%2BHCpmw14AGnjWrcRkSX20BRAJBpIlzQj9fyWJHjXWsVsedP";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDsLHdV9TDDwElRvCY+VDEl3a67nYo0dOgAwHfq+xKMh2ARg85aU9AIK9hPP6MHVFm1lxS1+6frnpmOSvQOwSj1eycGs2nd85JzQ/LXLJKbTr1lSzYzqphuQNt1escv2WE0WjdhqlIfFiBk1qlSz3ULrSMFSNQ3vgVmZN3u66wY9uPpp7kPgBXxJ0GmMLVudprPhhpECnZKk1PFMoaH+vwLQiy5jNeme54UrSq5Q985EiyRpCZYN6l/FjOTQyFssQ/b0DBkG5ooHVFgSsmZrCGKuYHAhKTJIMxIVJqZLwXuThiY7uEMJ+ciKWTRa68a6015L8tcpj8BP3SviT/gb4U2PMn396Q3s8dcM0wfT6Ic4ggOEPKmJahqZcSvxb5D0CHhDng/KKrcSUzKZEAE/ER6sm7zowo1eY9RHeB866yjzmgFo99xrZvYQga+I9azBssYDqQNzSmxkwg+tcla2G/1EH9u6mh/t7/6XhfYALVFdO5W/kK3t187XLXk2nK+HCpmw14AGnjWrcRkSX20BRAJBpIlzQj9fyWJHjXWsVsedP";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

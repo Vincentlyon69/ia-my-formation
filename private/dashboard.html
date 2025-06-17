@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation IA MYM 2025 - Dashboard Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .progress-bar {
+            background: linear-gradient(90deg, #10b981 0%, #f59e0b 50%, #ef4444 100%);
+            height: 8px;
+            border-radius: 4px;
+        }
+        .niveau-card {
+            transition: all 0.3s ease;
+            border-left: 6px solid;
+        }
+        .niveau-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .niveau-1 { border-left-color: #10b981; }
+        .niveau-2 { border-left-color: #f59e0b; }
+        .niveau-3 { border-left-color: #ef4444; }
+        .module-link {
+            transition: all 0.2s ease;
+        }
+        .module-link:hover {
+            background-color: #f3f4f6;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-2">🤖 Formation IA MYM 2025</h1>
+            <p class="text-center text-xl opacity-90">Créez votre Avatar Virtuel qui Génère des Revenus 24h/7j</p>
+            <div class="mt-6 max-w-2xl mx-auto">
+                <div class="bg-white/20 rounded-full p-1">
+                    <div class="progress-bar rounded-full" style="width: 0%" id="globalProgress"></div>
+                </div>
+                <p class="text-center mt-2 text-sm">Progression globale: <span id="progressText">0%</span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Rapide -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#niveau1" class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-green-200 transition">
+                    <i class="fas fa-seedling mr-2"></i>Niveau 1 - Fondations
+                </a>
+                <a href="#niveau2" class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-200 transition">
+                    <i class="fas fa-cogs mr-2"></i>Niveau 2 - Automatisation
+                </a>
+                <a href="#niveau3" class="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-200 transition">
+                    <i class="fas fa-crown mr-2"></i>Niveau 3 - Empire
+                </a>
+                <a href="#outils" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-200 transition">
+                    <i class="fas fa-tools mr-2"></i>Outils
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Guide de Démarrage -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-r-lg">
+            <div class="flex items-center mb-3">
+                <i class="fas fa-lightbulb text-blue-500 text-2xl mr-3"></i>
+                <h2 class="text-xl font-bold text-blue-800">🚀 Comment utiliser cette formation</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div class="flex items-center">
+                    <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3">1</span>
+                    <span>Commencez par le <strong>Niveau 1</strong> - Prérequis obligatoires</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3">2</span>
+                    <span>Passez au <strong>Niveau 2</strong> - Automatisation</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3">3</span>
+                    <span>Maîtrisez le <strong>Niveau 3</strong> - Empire numérique</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Niveau 1 - Fondations -->
+        <section id="niveau1" class="mb-12">
+            <div class="niveau-card niveau-1 bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-100 p-4 rounded-full mr-4">
+                        <i class="fas fa-seedling text-green-600 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800">🟢 NIVEAU 1 - Fondations</h3>
+                        <p class="text-gray-600">Créez votre première IA de A à Z</p>
+                        <div class="flex items-center mt-2 text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>Durée estimée: 6-8 heures</span>
+                            <i class="fas fa-users ml-4 mr-1"></i>
+                            <span>Niveau: Débutant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid gap-4">
+                    <a href="niveau 1/Bloc_1-2_ENRICHI_Debutant_Complet.html" class="module-link block p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">📚 Blocs 1-2: Prérequis & Dataset</h4>
+                                <p class="text-sm text-gray-600">Configuration technique, génération dataset d'entraînement</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-green-500"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="niveau 1/Bloc_3-5_ENRICHI_Debutant_Complet.html" class="module-link block p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">🧠 Blocs 3-5: Entraînement & Identité</h4>
+                                <p class="text-sm text-gray-600">Entraînement LoRA, interface WebUI, personnalité IA complète</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-green-500"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="niveau 1/Bloc_6-1_Live_Chat_IA_Fondamentaux.html" class="module-link block p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">🎬 Bloc 6.1: Live & Chat IA (Fondamentaux)</h4>
+                                <p class="text-sm text-gray-600">Bases du streaming automatisé et chat IA</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-green-500"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Niveau 2 - Automatisation -->
+        <section id="niveau2" class="mb-12">
+            <div class="niveau-card niveau-2 bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-6">
+                    <div class="bg-yellow-100 p-4 rounded-full mr-4">
+                        <i class="fas fa-cogs text-yellow-600 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800">🟡 NIVEAU 2 - Automatisation</h3>
+                        <p class="text-gray-600">Automatisez production et publication</p>
+                        <div class="flex items-center mt-2 text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>Durée estimée: 10-12 heures</span>
+                            <i class="fas fa-users ml-4 mr-1"></i>
+                            <span>Niveau: Intermédiaire</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">🎬 Bloc 6: Live & Chat IA Avancé</h4>
+                        <div class="grid gap-2">
+                            <a href="niveau 2/Bloc_6-2-1_Scripts_Contextuels_Generation_COMPLET.html" class="module-link block p-3 bg-white border border-blue-200 rounded hover:shadow-md">
+                                <span class="text-sm">6.2.1 - Scripts Contextuels & Génération</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                            <a href="niveau 2/Bloc_6-2-2_Systeme_Live_Automatise_OBS_VSeeFace_COMPLET.html" class="module-link block p-3 bg-white border border-blue-200 rounded hover:shadow-md">
+                                <span class="text-sm">6.2.2 - Système Live Automatisé OBS + VSeeFace</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                            <a href="niveau 2/Bloc_6-2-3_Chat_IA_Contextuel_Reponses_Automatiques_COMPLET.html" class="module-link block p-3 bg-white border border-blue-200 rounded hover:shadow-md">
+                                <span class="text-sm">6.2.3 - Chat IA Contextuel & Réponses Automatiques</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="niveau 2/Bloc_7_Shock_Content_NSFW_ENRICHI.html" class="module-link block p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">🔥 Bloc 7: Shock Content NSFW</h4>
+                                <p class="text-sm text-gray-600">Génération contenu progressif, prompts avancés</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-yellow-500"></i>
+                        </div>
+                    </a>
+                    
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-2">🤖 Bloc 8: Publication & Analytics</h4>
+                        <div class="grid gap-2">
+                            <a href="niveau 2/Bloc_8-1-1_Base_Donnees_Infrastructure_COMPLET.html" class="module-link block p-3 bg-white border border-purple-200 rounded hover:shadow-md">
+                                <span class="text-sm">8.1.1 - Base de Données & Infrastructure</span>
+                                <i class="fas fa-arrow-right text-purple-500 float-right"></i>
+                            </a>
+                            <a href="niveau 2/Bloc_8-1-2_Publication_Selenium_Anti_Detection_COMPLET.html" class="module-link block p-3 bg-white border border-purple-200 rounded hover:shadow-md">
+                                <span class="text-sm">8.1.2 - Publication Selenium & Anti-Détection</span>
+                                <i class="fas fa-arrow-right text-purple-500 float-right"></i>
+                            </a>
+                            <a href="niveau 2/Bloc_8-1-3_Bot_IA_Planificateur_Intelligent_COMPLET.html" class="module-link block p-3 bg-white border border-purple-200 rounded hover:shadow-md">
+                                <span class="text-sm">8.1.3 - Bot IA & Planificateur Intelligent</span>
+                                <i class="fas fa-arrow-right text-purple-500 float-right"></i>
+                            </a>
+                            <a href="niveau 2/Bloc_8-2_Analytics_Optimisation_Avancee.html" class="module-link block p-3 bg-white border border-purple-200 rounded hover:shadow-md">
+                                <span class="text-sm">8.2 - Analytics & Optimisation Avancée</span>
+                                <i class="fas fa-arrow-right text-purple-500 float-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Niveau 3 - Empire -->
+        <section id="niveau3" class="mb-12">
+            <div class="niveau-card niveau-3 bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-100 p-4 rounded-full mr-4">
+                        <i class="fas fa-crown text-red-600 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800">🔴 NIVEAU 3 - Empire</h3>
+                        <p class="text-gray-600">Dominez votre marché avec un empire multi-IA</p>
+                        <div class="flex items-center mt-2 text-sm text-gray-500">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span>Durée estimée: 15-20 heures</span>
+                            <i class="fas fa-users ml-4 mr-1"></i>
+                            <span>Niveau: Expert</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid gap-4">
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-indigo-800 mb-2">🏰 Bloc 9: Multi-Personnages & Stratégie</h4>
+                        <div class="grid gap-2">
+                            <a href="niveau 3/Bloc_9-1_Multi_Persona_Manager_Catalogue_COMPLET.html" class="module-link block p-3 bg-white border border-indigo-200 rounded hover:shadow-md">
+                                <span class="text-sm">9.1 - Multi-Persona Manager & Catalogue</span>
+                                <i class="fas fa-arrow-right text-indigo-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_9-2_Orchestration_Intelligence_Collective_COMPLET.html" class="module-link block p-3 bg-white border border-indigo-200 rounded hover:shadow-md">
+                                <span class="text-sm">9.2 - Orchestration & Intelligence Collective</span>
+                                <i class="fas fa-arrow-right text-indigo-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_9-3_Expansion_Internationale_Vision_Long_Terme_COMPLET.html" class="module-link block p-3 bg-white border border-indigo-200 rounded hover:shadow-md">
+                                <span class="text-sm">9.3 - Expansion Internationale & Vision Long Terme</span>
+                                <i class="fas fa-arrow-right text-indigo-500 float-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="niveau 3/Bloc_10_Securite_Anti_Detection_ENRICHI.html" class="module-link block p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">🛡️ Bloc 10: Sécurité & Anti-Détection</h4>
+                                <p class="text-sm text-gray-600">Protection multicouche, anonymat absolu</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-red-500"></i>
+                        </div>
+                    </a>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">🎤 Bloc 11: Clonage Vocal Avancé</h4>
+                        <div class="grid md:grid-cols-2 gap-2">
+                            <a href="niveau 3/Bloc_11-1_Clonage_Vocal_Basique_ElevenLabs_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.1 - ElevenLabs Basique</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_11-2_RVC_Retrieval_Voice_Conversion_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.2 - RVC Avancé</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_11-3_So_VITS_SVC_Professional_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.3 - So-VITS-SVC Pro</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_11-4_Real_Time_Voice_Changer_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.4 - Real-Time Changer</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_11-5_Optimisations_Performance_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.5 - Optimisations</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_11-6_Post_Traitement_Audio_Avance_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.6 - Post-Traitement</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                            <a href="niveau 3/Bloc_11-7_Securite_Detection_Anti_Deepfake_ENRICHI.html" class="module-link block p-3 bg-white border border-green-200 rounded hover:shadow-md">
+                                <span class="text-sm">11.7 - Anti-Deepfake</span>
+                                <i class="fas fa-arrow-right text-green-500 float-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outils Complémentaires -->
+        <section id="outils" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-100 p-4 rounded-full mr-4">
+                        <i class="fas fa-tools text-blue-600 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800">🔧 Outils & Dashboards</h3>
+                        <p class="text-gray-600">Outils avancés et interfaces d'administration</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-3">📊 Dashboards Admin</h4>
+                        <div class="space-y-2">
+                            <a href="admin-dashboards/ADMIN_DASHBOARD_FINAL_COMPLET.html" class="module-link block p-3 bg-white border border-gray-200 rounded hover:shadow-md">
+                                <span class="text-sm">Dashboard Admin Complet</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                            <a href="admin-dashboards/ADMIN_DASHBOARD_LIVE_FINAL.html" class="module-link block p-3 bg-white border border-gray-200 rounded hover:shadow-md">
+                                <span class="text-sm">Dashboard Live Final</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-3">🚀 Applications</h4>
+                        <div class="space-y-2">
+                            <a href="outils-complementaires/APP_PWA_MANUEL_IA_MYM_COMPLETE.html" class="module-link block p-3 bg-white border border-gray-200 rounded hover:shadow-md">
+                                <span class="text-sm">App PWA Complète</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                            <a href="outils-complementaires/SYSTEME_EXPERT_CORRIGE_FINAL.html" class="module-link block p-3 bg-white border border-gray-200 rounded hover:shadow-md">
+                                <span class="text-sm">Système Expert IA</span>
+                                <i class="fas fa-arrow-right text-blue-500 float-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Visuel -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">📸 Guide Visuel Complet</h3>
+                        <p>Captures d'écran et références visuelles pour tous les modules</p>
+                    </div>
+                    <a href="Guide_Visuel_Complet_Captures_Ecran_References_Croisees.html" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        <i class="fas fa-images mr-2"></i>Voir le Guide
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h4 class="text-xl font-bold mb-4">🎯 Objectif Final</h4>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <i class="fas fa-target text-green-400 text-2xl mb-2"></i>
+                    <p><strong>Mois 1-3:</strong> Première IA fonctionnelle<br>500-2000€/mois</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <i class="fas fa-rocket text-yellow-400 text-2xl mb-2"></i>
+                    <p><strong>Mois 6-12:</strong> Automatisation complète<br>5000-10000€/mois</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <i class="fas fa-crown text-red-400 text-2xl mb-2"></i>
+                    <p><strong>Années 2-5:</strong> Empire multi-IA<br>50000€+/mois</p>
+                </div>
+            </div>
+            <p class="mt-6 text-gray-400">© 2025 Formation IA MYM - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animation progressive du dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation des cartes au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.niveau-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Calcul progression automatique (simulation)
+            function updateProgress() {
+                const totalModules = 28;
+                const completedModules = parseInt(localStorage.getItem('completedModules') || '0');
+                const percentage = Math.round((completedModules / totalModules) * 100);
+                
+                document.getElementById('globalProgress').style.width = percentage + '%';
+                document.getElementById('progressText').textContent = percentage + '%';
+            }
+
+            updateProgress();
+
+            // Sauvegarde progression au clic sur les modules
+            document.querySelectorAll('.module-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const currentCompleted = parseInt(localStorage.getItem('completedModules') || '0');
+                    localStorage.setItem('completedModules', currentCompleted + 1);
+                });
+            });
+
+            // Smooth scroll pour la navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e769d7d76250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDqJ9qgnKABtA53nH0fcThsvmftOiti8ulyTz5ZaUcBxXbVh%2Bww88Jvw2W%2FYsWrOAB4zhkN5Rv50ycHpLDE%2F3zmGGfu7TZ2WTV1Z%2FIEmjUMctwj100qezXSTQaru4F6ErTOhuVgpQm8VFgMnaCH4hDugqlFHs6pgdf%2BHOFrw0FB8GLhnFquQFQEySmts%2BWj7JMpdmTDkQp4LOe4tRmsGe37Phg65DAT%2Bn%2F%2BHGC7EPfC%2Bz0CRJYQFamCH3oQAidPq9q54bWTHSSKTr9ilT8jtq9e5Cg%2BtzDG6zi6%2B%2Bm6XEvIXD631RPQLRBMZH6TX13lCRWfpyTwh7lQLQqg6IbfvcH2OLRgETHTVITef7ay6R0BE2UQwME8udv1C%2BLECJRbMSUs8JbE%2BgiMNFMarC%2Fsht%2FbhHEMP%2FBWTNcmS4XQVXAz26G%2F1yFBLwgmE3UJV1psLTR0m%2B13HReLzhXFy%2FcrDjTex%2F%2FWQLn4%2Ffm5WXrukAIermGuAGxTtJ83zqliJtTjtWOE6YBEi8%2BfIt9CC%2F2mdfAhT3CtgqB%2BGdBnp950Gm8qS8";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDqJ9qgnKABtA53nH0fcThsvmftOiti8ulyTz5ZaUcBxXbVh+ww88Jvw2W/YsWrOAB4zhkN5Rv50ycHpLDE/3zmGGfu7TZ2WTV1Z/IEmjUMctwj100qezXSTQaru4F6ErTOhuVgpQm8VFgMnaCH4hDugqlFHs6pgdf+HOFrw0FB8GLhnFquQFQEySmts+Wj7JMpdmTDkQp4LOe4tRmsGe37Phg65DAT+n/+HGC7EPfC+z0CRJYQFamCH3oQAidPq9q54bWTHSSKTr9ilT8jtq9e5Cg+tzDG6zi6++m6XEvIXD631RPQLRBMZH6TX13lCRWfpyTwh7lQLQqg6IbfvcH2OLRgETHTVITef7ay6R0BE2UQwME8udv1C+LECJRbMSUs8JbE+giMNFMarC/sht/bhHEMP/BWTNcmS4XQVXAz26G/1yFBLwgmE3UJV1psLTR0m+13HReLzhXFy/crDjTex//WQLn4/fm5WXrukAIermGuAGxTtJ83zqliJtTjtWOE6YBEi8+fIt9CC/2mdfAhT3CtgqB+GdBnp950Gm8qS8";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

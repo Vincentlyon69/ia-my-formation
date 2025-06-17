@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Restreint</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            margin: 0; padding: 0; height: 100vh; 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .login-box { 
+            background: rgba(255,255,255,0.95); 
+            padding: 40px; border-radius: 15px; 
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 400px; width: 90%;
+        }
+        h1 { color: #333; margin-bottom: 30px; }
+        input { 
+            width: 100%; padding: 15px; margin: 10px 0; 
+            border: 1px solid #ddd; border-radius: 5px; font-size: 16px;
+        }
+        button { 
+            width: 100%; padding: 15px; background: #667eea; 
+            color: white; border: none; border-radius: 5px; 
+            font-size: 16px; cursor: pointer; margin-top: 20px;
+        }
+        button:hover { background: #5a6fd8; }
+        .error { color: red; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>🔐 Accès Formation</h1>
+        <p>Veuillez entrer le mot de passe d'accès</p>
+        <input type="password" id="password" placeholder="Mot de passe" autofocus>
+        <button onclick="checkPassword()">Accéder</button>
+        <div id="error" class="error">Mot de passe incorrect</div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'PourMYM07!'; // Changez ce mot de passe
+            
+            if (password === correctPassword) {
+                window.location.href = 'private/dashboard.html';
+            } else {
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('password').value = '';
+            }
+        }
+        
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

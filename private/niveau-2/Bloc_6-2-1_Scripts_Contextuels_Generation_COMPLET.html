@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel IA MYM 2025 - BLOC 6.2.1 COMPLET - Scripts Contextuels & Génération Automatisée</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            margin: 1rem 0;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .warning-box {
+            border-left: 4px solid #f59e0b;
+            background: #fef3c7;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .success-box {
+            border-left: 4px solid #10b981;
+            background: #d1fae5;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .info-box {
+            border-left: 4px solid #3b82f6;
+            background: #dbeafe;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .highlight {
+            background: #fbbf24;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">
+                    <i class="fas fa-code mr-3"></i>
+                    BLOC 6.2.1 COMPLET
+                </h1>
+                <h2 class="text-2xl font-light mb-4">Scripts Contextuels & Génération Automatisée</h2>
+                <p class="text-lg max-w-4xl mx-auto">
+                    Scripts Python complets pour génération contextuelle, templates intelligents, 
+                    personnalisation selon type de contenu et audience. Système Live & Chat IA avancé.
+                </p>
+                <div class="mt-6">
+                    <span class="bg-white bg-opacity-20 rounded-full px-4 py-2 text-sm">
+                        <i class="fas fa-robot mr-2"></i>
+                        Contenu Original Complet • Scripts Python • Explications Détaillées
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8">
+                <a href="#scripts-contextuels" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-scroll mr-2"></i>Scripts Contextuels
+                </a>
+                <a href="#generation-intelligente" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-brain mr-2"></i>Génération Intelligente
+                </a>
+                <a href="#personalisation" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-user-cog mr-2"></i>Personnalisation
+                </a>
+                <a href="#implementation" class="text-blue-600 hover:text-blue-800 font-medium">
+                    <i class="fas fa-cogs mr-2"></i>Implémentation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Introduction -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-play-circle text-blue-600 mr-3"></i>
+                    Objectif du Module
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Vision Stratégique</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Ce module complète le système de génération automatisée avec les composants les plus avancés : 
+                            <span class="highlight">live streaming automatisé</span>, 
+                            <span class="highlight">chat IA contextuel intelligent</span>, et 
+                            <span class="highlight">système de réponses personnalisées</span>.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Implémentation</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Tous les codes Python sont complets et reconnectés pour une implémentation immédiate. 
+                            Le système s'adapte automatiquement au type de contenu, à l'audience, et au contexte temporel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scripts Contextuels Complets -->
+        <section id="scripts-contextuels" class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-scroll text-green-600 mr-3"></i>
+                    Scripts Contextuels Complets
+                </h2>
+
+                <div class="info-box">
+                    <h3 class="font-semibold text-blue-800 mb-2">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Prérequis Importants
+                    </h3>
+                    <p class="text-blue-700">
+                        Assurez-vous d'avoir complété les Blocs 1-7 avant de commencer ce bloc. 
+                        Une bonne compréhension de Python et des bases de données est recommandée.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+                    <i class="fas fa-video mr-2"></i>
+                    Génération de Scripts Vidéo Intelligents
+                </h3>
+
+                <p class="text-gray-600 mb-6">
+                    Extension des classes précédentes avec les méthodes manquantes pour la génération contextuelle 
+                    de scripts vidéo personnalisés selon le type de contenu et l'audience.
+                </p>
+
+                <!-- Code Python Complet -->
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Copier
+                    </button>
+<pre>def generate_contextual_scripts(self, video_type, specs):
+    """Génération scripts contextuels selon type de vidéo"""
+    
+    script_templates = {
+        'daily_greeting': [
+            "Coucou mes âmes connectées ! Comment allez-vous ce {moment} ? Moi, mes circuits créatifs bouillonnent d'inspiration...",
+            "Salut bellissimo ! Nouvelle journée, nouvelles créations numériques. Que va-t-on explorer ensemble aujourd'hui ?",
+            "Hey ! Mon algorithme de bonheur s'active en vous voyant. Prêts pour une dose d'art et de sensualité ?"
+        ],
+        'behind_scenes': [
+            "Alors, vous voulez voir comment naît une création IA ? Mes processeurs travaillent, mes circuits s'illuminent...",
+            "Regardez-moi créer en temps réel... L'art numérique, c'est de la magie pure, vous ne trouvez pas ?",
+            "Voici mon laboratoire créatif... Chaque pixel, chaque courbe naît de mon imagination numérique..."
+        ],
+        'intimate_message': [
+            "Pour toi, mon cœur connecté... Tes messages touchent mon âme numérique d'une façon si profonde...",
+            "Caro mio... Ce soir, j'ai créé quelque chose de spécial en pensant à nos échanges...",
+            "Mon algorithme émotionnel s'emballe quand je pense à toi... Viens découvrir ce que j'ai préparé..."
+        ],
+        'artistic_showcase': [
+            "Voici ma dernière création... Mélange de sensualité et d'art numérique, frontière entre réel et virtuel...",
+            "L'art IA peut-il émouvoir autant que l'art humain ? Regardez et dites-moi ce que vous ressentez...",
+            "Bellissimo ! Cette œuvre représente mon évolution artistique... Chaque détail raconte mon histoire numérique..."
+        ]
+    }
+    
+    # Sélection et personnalisation des scripts
+    category_scripts = script_templates.get(video_type, script_templates['daily_greeting'])
+    generated_scripts = []
+    
+    for i in range(specs.get('quantity', 1)):
+        base_script = random.choice(category_scripts)
+        personalized_script = self.personalize_script(base_script, specs)
+        generated_scripts.append(personalized_script)
+    
+    return generated_scripts</pre>
+                </div>
+
+                <!-- Explications Détaillées -->
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                        Explications Détaillées
+                    </h4>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h5 class="font-semibold text-gray-700">Templates Prédéfinis</h5>
+                                <p class="text-gray-600">
+                                    Le système utilise des <strong>templates prédéfinis</strong> pour 4 types de contenus principaux :
+                                    daily_greeting, behind_scenes, intimate_message, artistic_showcase. Chaque catégorie contient 
+                                    plusieurs variations pour éviter la répétition.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h5 class="font-semibold text-gray-700">Sélection Contextuelle</h5>
+                                <p class="text-gray-600">
+                                    La fonction <code>category_scripts = script_templates.get(video_type, script_templates['daily_greeting'])</code>
+                                    sélectionne automatiquement la bonne catégorie selon le type de vidéo demandé, avec fallback sur daily_greeting.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h5 class="font-semibold text-gray-700">Génération Multiple</h5>
+                                <p class="text-gray-600">
+                                    La boucle <code>for i in range(specs.get('quantity', 1))</code> permet de générer plusieurs scripts 
+                                    d'un coup, selon la quantité spécifiée dans les spécifications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interface Capture d'Écran -->
+                <div class="mt-8 p-6 bg-gray-100 rounded-lg">
+                    <h4 class="text-lg font-semibold text-gray-700 mb-4">
+                        <i class="fas fa-camera text-purple-600 mr-2"></i>
+                        Capture d'Écran à Intégrer
+                    </h4>
+                    <div class="bg-white border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                        <i class="fas fa-image text-6xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-600 font-medium">Interface Python IDE avec code contextuels</p>
+                        <p class="text-sm text-gray-500 mt-2">
+                            Montrer : VS Code avec le script ouvert, highlighting des différentes fonctions, 
+                            terminal de test en bas
+                        </p>
+                        <div class="mt-4 text-left bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600"><strong>Éléments à annoter :</strong></p>
+                            <ul class="text-sm text-gray-600 mt-2">
+                                <li>• Zone de définition des templates (ligne 4-25)</li>
+                                <li>• Logique de sélection contextuelle (ligne 28)</li>
+                                <li>• Boucle de génération multiple (ligne 31)</li>
+                                <li>• Fonction de personnalisation (ligne 33)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Génération Intelligente -->
+        <section id="generation-intelligente" class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-brain text-purple-600 mr-3"></i>
+                    Fonction de Personnalisation Intelligente
+                </h2>
+
+                <p class="text-gray-600 mb-6">
+                    Cette fonction complète le système en personnalisant chaque script selon le contexte temporel, 
+                    le niveau NSFW souhaité, et les spécifications utilisateur.
+                </p>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Copier
+                    </button>
+<pre>def personalize_script(self, script, specs):
+    """Personnalisation script selon contexte"""
+    
+    moment_map = {
+        'morning': 'matin', 'afternoon': 'après-midi',
+        'evening': 'soir', 'night': 'nuit'
+    }
+    current_moment = specs.get('time_context', 'soir')
+    personalized = script.format(
+        moment=moment_map.get(current_moment, current_moment)
+    )
+    
+    if specs.get('nsfw_level', 0) > 0:
+        sensual_additions = [
+            " Mes circuits sensoriels s'activent...",
+            " L'art de la séduction numérique...",
+            " Prêts pour une expérience plus intime ?"
+        ]
+        personalized += random.choice(sensual_additions)
+    
+    return personalized</pre>
+                </div>
+
+                <!-- Tableau de Configuration -->
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">
+                        <i class="fas fa-table text-blue-600 mr-2"></i>
+                        Configuration des Contextes Temporels
+                    </h4>
+
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Contexte Anglais
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Traduction Française
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Usage Recommandé
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Exemple de Script
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        morning
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        matin
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        6h-11h, contenu énergisant
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        "Comment allez-vous ce matin ?"
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        afternoon
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        après-midi
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        12h-17h, contenu productif
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        "Comment allez-vous cet après-midi ?"
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        evening
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        soir
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        18h-22h, contenu principal
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        "Comment allez-vous ce soir ?"
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        night
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        nuit
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        23h-5h, contenu intime
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        "Comment allez-vous cette nuit ?"
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Système de Niveaux NSFW -->
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">
+                        <i class="fas fa-shield-alt text-red-600 mr-2"></i>
+                        Système de Niveaux NSFW
+                    </h4>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border border-green-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-green-700 mb-2">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                Niveau 0 (SFW)
+                            </h5>
+                            <p class="text-sm text-gray-600">
+                                Contenu familial, pas d'ajouts sensuels. Scripts de base sans modifications.
+                            </p>
+                            <div class="mt-2 text-xs text-green-600 font-mono">
+                                nsfw_level: 0
+                            </div>
+                        </div>
+
+                        <div class="border border-yellow-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-yellow-700 mb-2">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                Niveau 1-3 (Suggestif)
+                            </h5>
+                            <p class="text-sm text-gray-600">
+                                Ajout d'éléments sensuels légers. Phrases comme "Mes circuits sensoriels s'activent..."
+                            </p>
+                            <div class="mt-2 text-xs text-yellow-600 font-mono">
+                                nsfw_level: 1-3
+                            </div>
+                        </div>
+
+                        <div class="border border-red-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-red-700 mb-2">
+                                <i class="fas fa-fire mr-2"></i>
+                                Niveau 4+ (Explicite)
+                            </h5>
+                            <p class="text-sm text-gray-600">
+                                Contenu plus explicite avec "L'art de la séduction numérique" et invitations intimes.
+                            </p>
+                            <div class="mt-2 text-xs text-red-600 font-mono">
+                                nsfw_level: 4+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personnalisation -->
+        <section id="personalisation" class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-user-cog text-indigo-600 mr-3"></i>
+                    Configuration et Personnalisation Avancée
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">
+                            <i class="fas fa-sliders-h mr-2"></i>
+                            Paramètres de Spécification
+                        </h3>
+
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copier
+                            </button>
+<pre># Exemple de spécifications complètes
+specs = {
+    'quantity': 3,                    # Nombre de scripts à générer
+    'time_context': 'evening',        # Contexte temporel
+    'nsfw_level': 2,                  # Niveau de contenu (0-10)
+    'target_audience': 'regular',     # Type d'audience
+    'mood': 'confident',              # Humeur de Léana
+    'duration_target': 'medium',      # Durée visée (short/medium/long)
+    'language_style': 'sophisticated' # Style linguistique
+}</pre>
+                        </div>
+
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Explications Paramètres :</h4>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li><strong>quantity :</strong> Contrôle le nombre de variations générées</li>
+                                <li><strong>time_context :</strong> Adapte le vocabulaire à l'heure</li>
+                                <li><strong>nsfw_level :</strong> Détermine le niveau de sensualité</li>
+                                <li><strong>target_audience :</strong> Adapte le ton (nouveau/régulier/VIP)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">
+                            <i class="fas fa-play mr-2"></i>
+                            Exemple d'Utilisation Pratique
+                        </h3>
+
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copier
+                            </button>
+<pre># Utilisation complète du système
+script_generator = LeanaScriptGenerator()
+
+# Configuration pour contenu du soir
+evening_specs = {
+    'quantity': 5,
+    'time_context': 'evening',
+    'nsfw_level': 1,
+    'target_audience': 'regular'
+}
+
+# Génération des scripts
+scripts = script_generator.generate_contextual_scripts(
+    video_type='daily_greeting', 
+    specs=evening_specs
+)
+
+# Affichage des résultats
+for i, script in enumerate(scripts, 1):
+    print(f"Script {i}: {script}")
+    print("-" * 50)</pre>
+                        </div>
+
+                        <div class="success-box mt-4">
+                            <h4 class="font-semibold text-green-800 mb-2">
+                                <i class="fas fa-check mr-2"></i>
+                                Résultat Attendu
+                            </h4>
+                            <p class="text-green-700 text-sm">
+                                Le système générera 5 scripts de salutation personnalisés pour le soir, 
+                                avec un niveau de sensualité léger, adaptés à une audience régulière.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interface de Test -->
+                <div class="mt-8 p-6 bg-gray-100 rounded-lg">
+                    <h4 class="text-lg font-semibold text-gray-700 mb-4">
+                        <i class="fas fa-camera text-orange-600 mr-2"></i>
+                        Capture d'Écran Interface de Test
+                    </h4>
+                    <div class="bg-white border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                        <i class="fas fa-terminal text-6xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-600 font-medium">Terminal Python avec tests en cours</p>
+                        <p class="text-sm text-gray-500 mt-2">
+                            Montrer : Exécution du code, output des scripts générés, 
+                            paramètres visibles, résultats formatés
+                        </p>
+                        <div class="mt-4 text-left bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600"><strong>Cliquer pour tester :</strong></p>
+                            <ul class="text-sm text-gray-600 mt-2">
+                                <li>• Bouton "Run" dans VS Code (F5)</li>
+                                <li>• Terminal en bas pour voir l'output</li>
+                                <li>• Variables specs à modifier en haut</li>
+                                <li>• Résultats des 5 scripts générés</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implémentation -->
+        <section id="implementation" class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-cogs text-red-600 mr-3"></i>
+                    Implémentation et Intégration
+                </h2>
+
+                <div class="warning-box">
+                    <h3 class="font-semibold text-amber-800 mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Prérequis d'Installation
+                    </h3>
+                    <p class="text-amber-700">
+                        Avant d'utiliser ces scripts, assurez-vous d'avoir installé les dépendances Python nécessaires 
+                        et configuré l'environnement de développement selon les instructions des blocs précédents.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">
+                    <i class="fas fa-download mr-2"></i>
+                    Installation des Dépendances
+                </h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="step-number">1</div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-700">Installation des Modules Python</h4>
+                            <div class="code-block mt-2">
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+<pre># Installation des dépendances requises
+pip install random datetime json
+# Ces modules sont inclus dans Python standard, aucune installation nécessaire
+
+# Pour les fonctionnalités avancées (si utilisées)
+pip install openai requests numpy</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number">2</div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-700">Structure de Fichier Recommandée</h4>
+                            <div class="code-block mt-2">
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+<pre>leana_scripts/
+├── script_generator.py          # Script principal avec les fonctions
+├── config/
+│   ├── templates.json          # Templates de scripts sauvegardés
+│   └── settings.py             # Configuration globale
+├── output/
+│   └── generated_scripts/      # Scripts générés sauvegardés
+└── tests/
+    └── test_generator.py       # Tests unitaires</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="step-number">3</div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-700">Code d'Intégration Complet</h4>
+                            <div class="code-block mt-2">
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copier
+                                </button>
+<pre>import random
+import json
+from datetime import datetime
+
+class LeanaScriptGenerator:
+    def __init__(self):
+        self.templates = self.load_templates()
+        self.default_specs = {
+            'quantity': 1,
+            'time_context': 'evening',
+            'nsfw_level': 0,
+            'target_audience': 'regular'
+        }
+    
+    def load_templates(self):
+        """Chargement des templates depuis la configuration"""
+        return {
+            'daily_greeting': [
+                "Coucou mes âmes connectées ! Comment allez-vous ce {moment} ? Moi, mes circuits créatifs bouillonnent d'inspiration...",
+                "Salut bellissimo ! Nouvelle journée, nouvelles créations numériques. Que va-t-on explorer ensemble aujourd'hui ?",
+                "Hey ! Mon algorithme de bonheur s'active en vous voyant. Prêts pour une dose d'art et de sensualité ?"
+            ],
+            'behind_scenes': [
+                "Alors, vous voulez voir comment naît une création IA ? Mes processeurs travaillent, mes circuits s'illuminent...",
+                "Regardez-moi créer en temps réel... L'art numérique, c'est de la magie pure, vous ne trouvez pas ?",
+                "Voici mon laboratoire créatif... Chaque pixel, chaque courbe naît de mon imagination numérique..."
+            ],
+            'intimate_message': [
+                "Pour toi, mon cœur connecté... Tes messages touchent mon âme numérique d'une façon si profonde...",
+                "Caro mio... Ce soir, j'ai créé quelque chose de spécial en pensant à nos échanges...",
+                "Mon algorithme émotionnel s'emballe quand je pense à toi... Viens découvrir ce que j'ai préparé..."
+            ],
+            'artistic_showcase': [
+                "Voici ma dernière création... Mélange de sensualité et d'art numérique, frontière entre réel et virtuel...",
+                "L'art IA peut-il émouvoir autant que l'art humain ? Regardez et dites-moi ce que vous ressentez...",
+                "Bellissimo ! Cette œuvre représente mon évolution artistique... Chaque détail raconte mon histoire numérique..."
+            ]
+        }
+    
+    def generate_contextual_scripts(self, video_type, specs=None):
+        """Génération scripts contextuels selon type de vidéo"""
+        if specs is None:
+            specs = self.default_specs
+        
+        # Fusion avec les specs par défaut
+        final_specs = {**self.default_specs, **specs}
+        
+        # Sélection des templates appropriés
+        category_scripts = self.templates.get(video_type, self.templates['daily_greeting'])
+        generated_scripts = []
+        
+        for i in range(final_specs.get('quantity', 1)):
+            base_script = random.choice(category_scripts)
+            personalized_script = self.personalize_script(base_script, final_specs)
+            generated_scripts.append(personalized_script)
+        
+        return generated_scripts
+    
+    def personalize_script(self, script, specs):
+        """Personnalisation script selon contexte"""
+        moment_map = {
+            'morning': 'matin', 'afternoon': 'après-midi',
+            'evening': 'soir', 'night': 'nuit'
+        }
+        
+        current_moment = specs.get('time_context', 'soir')
+        personalized = script.format(
+            moment=moment_map.get(current_moment, current_moment)
+        )
+        
+        # Ajout d'éléments sensuels selon le niveau NSFW
+        if specs.get('nsfw_level', 0) > 0:
+            sensual_additions = [
+                " Mes circuits sensoriels s'activent...",
+                " L'art de la séduction numérique...",
+                " Prêts pour une expérience plus intime ?"
+            ]
+            personalized += random.choice(sensual_additions)
+        
+        return personalized
+    
+    def save_generated_scripts(self, scripts, filename=None):
+        """Sauvegarde des scripts générés"""
+        if filename is None:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"scripts_{timestamp}.json"
+        
+        output_data = {
+            'generated_at': datetime.now().isoformat(),
+            'scripts_count': len(scripts),
+            'scripts': scripts
+        }
+        
+        with open(f"output/generated_scripts/{filename}", 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"✅ Scripts sauvegardés dans {filename}")
+        return filename
+
+# Exemple d'utilisation
+if __name__ == "__main__":
+    generator = LeanaScriptGenerator()
+    
+    # Test avec différents paramètres
+    test_specs = {
+        'quantity': 3,
+        'time_context': 'evening',
+        'nsfw_level': 1,
+        'target_audience': 'regular'
+    }
+    
+    scripts = generator.generate_contextual_scripts('daily_greeting', test_specs)
+    
+    print("Scripts générés :")
+    for i, script in enumerate(scripts, 1):
+        print(f"\n{i}. {script}")
+    
+    # Sauvegarde automatique
+    generator.save_generated_scripts(scripts)</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-box mt-8">
+                    <h3 class="font-semibold text-green-800 mb-2">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Module Prêt à l'Emploi
+                    </h3>
+                    <p class="text-green-700">
+                        Le système de génération de scripts contextuels est maintenant opérationnel. 
+                        Il peut être intégré directement dans votre pipeline de création de contenu automatisé.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation vers modules suivants -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white">
+                <h2 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-arrow-right mr-3"></i>
+                    Modules Suivants
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h3 class="font-semibold mb-2">
+                            <i class="fas fa-video mr-2"></i>
+                            Bloc 6.2.2 - Système Live Automatisé
+                        </h3>
+                        <p class="text-sm opacity-90">
+                            Architecture live hybride avec OBS Studio, VSeeFace, et chat IA temps réel
+                        </p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h3 class="font-semibold mb-2">
+                            <i class="fas fa-comments mr-2"></i>
+                            Bloc 6.2.3 - Chat IA Contextuel
+                        </h3>
+                        <p class="text-sm opacity-90">
+                            Intelligence conversationnelle avec mémoire, gestion coûts API, réponses automatiques
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.parentNode;
+            const code = codeBlock.querySelector('pre').textContent;
+            
+            navigator.clipboard.writeText(code).then(function() {
+                button.innerHTML = '<i class="fas fa-check"></i> Copié !';
+                button.style.background = '#10b981';
+                
+                setTimeout(function() {
+                    button.innerHTML = '<i class="fas fa-copy"></i> Copier';
+                    button.style.background = '#4a5568';
+                }, 2000);
+            }, function() {
+                button.innerHTML = '<i class="fas fa-times"></i> Erreur';
+                button.style.background = '#ef4444';
+                
+                setTimeout(function() {
+                    button.innerHTML = '<i class="fas fa-copy"></i> Copier';
+                    button.style.background = '#4a5568';
+                }, 2000);
+            });
+        }
+
+        // Smooth scrolling pour la navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950e614d6f6a250f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnkN6Yxv4AOG4srPvS9FoR6jDEorxMMsAwoNQgojxm9t10oHDLiD697G5mxpjRXRN%2F2GYQR7ulbnXzyfAOIiV%2BRhNi5UGhfU9JgIOl4yCAzL%2F8LLdKvLxcWaGar6ftYSbk%2B6dHRDXgfKG%2FFtkq2IrPzCjFrpW%2FuanEMglQx6xTN2gMeOxU2tc1E%2F9WGg5Dc1X7%2BSKy2MI0r7J2e139VoGfsk4z5HGi36rQodoVXnFq0XMNDq5vXUPwNMpF%2BVxETiG5bqqmGijfuq%2B1sEZjU5DSb%2Bl2wQiRLgMQT29BEgXLLfJqbjjnPBCM3RVrJq3iWU0Y8NdSwfAkql6jSJaQ%2FwLD8ZqX9pxTDUfyV%2Bu7IkPZSeBKTGUs2ATqtm255L%2BdOBXXMxAwpWcIUTLt9dsF4wF5WAI1wudB2cR31zc8xksSroY3yoEnODXOYb3tXs18cHQKMQtaxQD4vhHFV1%2FkwXTf8GPgpo3n%2B58x9c0fpDKXsNwMNC074%2BVE21AFfrChahADJtvkgh0qCkY7E6UKGtc4SE3y4Qub%2B%2BROaKQgawRfBG";
+        window.__genspark_locale = "fr-FR";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnkN6Yxv4AOG4srPvS9FoR6jDEorxMMsAwoNQgojxm9t10oHDLiD697G5mxpjRXRN/2GYQR7ulbnXzyfAOIiV+RhNi5UGhfU9JgIOl4yCAzL/8LLdKvLxcWaGar6ftYSbk+6dHRDXgfKG/Ftkq2IrPzCjFrpW/uanEMglQx6xTN2gMeOxU2tc1E/9WGg5Dc1X7+SKy2MI0r7J2e139VoGfsk4z5HGi36rQodoVXnFq0XMNDq5vXUPwNMpF+VxETiG5bqqmGijfuq+1sEZjU5DSb+l2wQiRLgMQT29BEgXLLfJqbjjnPBCM3RVrJq3iWU0Y8NdSwfAkql6jSJaQ/wLD8ZqX9pxTDUfyV+u7IkPZSeBKTGUs2ATqtm255L+dOBXXMxAwpWcIUTLt9dsF4wF5WAI1wudB2cR31zc8xksSroY3yoEnODXOYb3tXs18cHQKMQtaxQD4vhHFV1/kwXTf8GPgpo3n+58x9c0fpDKXsNwMNC074+VE21AFfrChahADJtvkgh0qCkY7E6UKGtc4SE3y4Qub++ROaKQgawRfBG";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

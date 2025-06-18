@@ -7,7 +7,7 @@ const SUPABASE_CONFIG = {
     url: 'https://wnqxbflqiwkvaxzecjyv.supabase.co', // REMPLACEZ PAR VOTRE URL
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InducXhiZmxxaXdrdmF4emVjanl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAyMDM4ODYsImV4cCI6MjA2NTc3OTg4Nn0.4cAmdfkVZx53TOOYwr-2LkUpr3sR26kF2orsE1WJkDg', // REMPLACEZ PAR VOTRE CLÉ ANONYME
     adminEmail: 'provider.global.fr@gmail.com', // REMPLACEZ PAR VOTRE EMAIL ADMIN
-    adminPassword: 'pOURMONmym07§' // REMPLACEZ PAR VOTRE MOT DE PASSE
+    adminPassword: 'POURMONMYM2025ACCES'
 };
 
 // Import Supabase (CDN)

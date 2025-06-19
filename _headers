@@ -1,0 +1,32 @@
+# NIVEAU 1 - Accès limité
+/niveau-1/*
+  Basic-Auth: provider.rch:POURMONMYN07 global.contact.infos:MARJOLAINE25
+
+# NIVEAU 2 - Accès intermédiaire
+/niveau-2/*
+  Basic-Auth: provider.rch:POURMONMYN07
+
+# NIVEAU 3 - Accès complet
+/niveau-3/*
+  Basic-Auth: provider.rch:POURMONMYN07
+
+# ADMIN - Administration complète
+/admin-dashboards/*
+  Basic-Auth: provider.rch:POURMONMYN07
+
+# FICHIERS ANNEXES accessibles à la cliente
+/index.html
+  Basic-Auth: provider.rch:POURMONMYN07 global.contact.infos:MARJOLAINE25
+
+/dashboard.html
+  Basic-Auth: provider.rch:POURMONMYN07 global.contact.infos:MARJOLAINE25
+
+/guide-visuel.html
+  Basic-Auth: provider.rch:POURMONMYN07 global.contact.infos:MARJOLAINE25
+
+/sommaire-backup.html
+  Basic-Auth: provider.rch:POURMONMYN07 global.contact.infos:MARJOLAINE25
+
+# TOUS LES AUTRES FICHIERS À LA RACINE (accès créateur uniquement)
+/*
+  Basic-Auth: provider.rch:POURMONMYN07
